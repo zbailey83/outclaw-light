@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Model Comparison Cheatsheet — OutClaw AI</title>
+<meta name="description" content="Side-by-side comparison of Claude, GPT-4o, Gemini 2.5 Pro, and DeepSeek — context windows, pricing, benchmarks, and best use cases.">
+<link rel="canonical" href="https://outclaw.xyz/tools/model-comparison">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://outclaw.xyz/tools/model-comparison">
+<meta property="og:title" content="AI Model Comparison Cheatsheet — OutClaw AI">
+<meta property="og:description" content="Side-by-side comparison of top AI models — context windows, pricing, benchmarks, and best use cases.">
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.gif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+  --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+  --grad-leaf:linear-gradient(135deg,#4A9E7A 0%,#6BBFA0 100%);
+  /* Model colors */
+  --claude:#D97706;--claude-pale:#FEF3C7;--claude-light:#FDE68A;
+  --gpt:#10A37F;--gpt-pale:#D1FAE5;--gpt-light:#6EE7B7;
+  --gemini:#4285F4;--gemini-pale:#DBEAFE;--gemini-light:#93C5FD;
+  --deepseek:#8B5CF6;--deepseek-pale:#EDE9FE;--deepseek-light:#C4B5FD;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo svg{width:30px;height:30px;}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+/* HERO */
+.tool-hero{background:linear-gradient(160deg,var(--leaf-pale) 0%,#FAFAF8 60%);border-bottom:1px solid var(--border);padding:64px 48px 56px;}
+.tool-hero-inner{max-width:1120px;margin:0 auto;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-dim);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color .15s;}
+.breadcrumb a:hover{color:var(--leaf);}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--leaf);border-radius:2px;}
+.tool-hero h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px;}
+.tool-hero h1 em{font-style:italic;color:var(--leaf);}
+.tool-hero-sub{font-size:16px;color:var(--text-soft);line-height:1.75;margin-bottom:20px;max-width:600px;}
+.last-updated{display:inline-flex;align-items:center;gap:6px;font-size:12px;color:var(--text-dim);background:var(--white);border:1px solid var(--border);border-radius:100px;padding:5px 14px;}
+.last-updated::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--leaf);display:block;}
+@media(max-width:640px){.tool-hero{padding:44px 24px 40px;}}
+
+/* PAGE BODY */
+.page-body{max-width:1120px;margin:0 auto;padding:48px 48px 96px;}
+@media(max-width:640px){.page-body{padding:36px 24px 72px;}}
+
+/* MODEL HEADER CARDS */
+.model-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:40px;}
+@media(max-width:900px){.model-cards{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:480px){.model-cards{grid-template-columns:1fr;}}
+.model-card{border-radius:16px;padding:20px;border:2px solid;}
+.model-card.claude{background:var(--claude-pale);border-color:var(--claude-light);}
+.model-card.gpt{background:var(--gpt-pale);border-color:var(--gpt-light);}
+.model-card.gemini{background:var(--gemini-pale);border-color:var(--gemini-light);}
+.model-card.deepseek{background:var(--deepseek-pale);border-color:var(--deepseek-light);}
+.model-emoji{font-size:24px;margin-bottom:8px;}
+.model-name{font-family:var(--font-display);font-size:17px;color:var(--text);margin-bottom:2px;}
+.model-version{font-size:11px;font-weight:600;color:var(--text-dim);letter-spacing:.04em;}
+.model-tagline{font-size:12px;color:var(--text-soft);margin-top:8px;line-height:1.6;}
+.model-pill{display:inline-flex;align-items:center;gap:4px;margin-top:10px;padding:3px 10px;border-radius:100px;font-size:10px;font-weight:700;letter-spacing:.04em;}
+.pill-claude{background:var(--claude);color:#fff;}
+.pill-gpt{background:var(--gpt);color:#fff;}
+.pill-gemini{background:var(--gemini);color:#fff;}
+.pill-deepseek{background:var(--deepseek);color:#fff;}
+
+/* FILTER ROW */
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:32px;align-items:center;}
+.filter-label{font-size:12px;font-weight:600;color:var(--text-soft);}
+.filter-pill{padding:6px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s;background:var(--white);}
+.filter-pill:hover,.filter-pill.active{border-color:var(--leaf);color:var(--leaf);background:var(--leaf-pale);}
+
+/* COMPARISON TABLE */
+.comparison-wrap{overflow-x:auto;margin-bottom:48px;}
+.comparison-table{width:100%;border-collapse:collapse;min-width:700px;}
+.comparison-table th{padding:14px 16px;text-align:left;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);border-bottom:2px solid var(--border);background:var(--bg);position:sticky;top:68px;z-index:10;}
+.comparison-table th:first-child{width:200px;min-width:180px;}
+.comparison-table td{padding:16px;font-size:13px;color:var(--text-mid);border-bottom:1px solid var(--border-soft);vertical-align:top;line-height:1.6;}
+.comparison-table tr:hover td{background:rgba(74,158,122,.03);}
+.comparison-table td:first-child{font-weight:600;color:var(--text);font-size:12px;}
+.row-category{background:var(--bg)!important;padding:10px 16px!important;}
+.row-category td{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim)!important;font-weight:700!important;}
+.badge-win{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;background:var(--leaf-pale);border:1px solid rgba(74,158,122,.2);color:var(--leaf);}
+.badge-good{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;background:var(--sky-pale);border:1px solid var(--sky-light);color:var(--sky);}
+.badge-note{display:inline-flex;align-items:center;gap:4px;padding:3px 9px;border-radius:100px;font-size:10px;font-weight:700;background:var(--sand);border:1px solid rgba(232,213,181,.6);color:#92400e;}
+.bar-wrap{display:flex;align-items:center;gap:8px;}
+.bar-track{flex:1;height:5px;background:var(--border);border-radius:3px;min-width:60px;}
+.bar-fill{height:100%;border-radius:3px;}
+.bar-val{font-size:11px;color:var(--text-soft);white-space:nowrap;}
+
+/* USE CASE PICKER */
+.picker-section{margin-bottom:56px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf);margin-bottom:8px;}
+.section-heading{font-family:var(--font-display);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px;}
+.section-heading em{font-style:italic;color:var(--leaf);}
+.section-divider{width:40px;height:3px;background:var(--grad-leaf);border-radius:2px;margin-bottom:24px;}
+.use-case-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px;}
+@media(max-width:700px){.use-case-grid{grid-template-columns:1fr 1fr;}}
+.use-case-btn{padding:14px 16px;border:1.5px solid var(--border);border-radius:14px;font-family:var(--font-body);font-size:13px;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s;background:var(--white);text-align:left;display:flex;gap:10px;align-items:flex-start;}
+.use-case-btn:hover{border-color:var(--leaf);background:var(--leaf-pale);color:var(--text);}
+.use-case-btn.active{border-color:var(--leaf);background:var(--leaf-pale);color:var(--text);}
+.use-case-icon{font-size:18px;flex-shrink:0;}
+.use-case-text strong{display:block;font-size:13px;font-weight:600;color:var(--text);}
+.use-case-text span{font-size:11px;color:var(--text-soft);}
+.recommendation-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:32px;display:none;}
+.recommendation-card.visible{display:block;animation:fadeIn .3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.rec-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:20px;}
+.rec-winner-badge{padding:4px 14px;border-radius:100px;font-size:11px;font-weight:700;display:inline-block;margin-bottom:8px;}
+.rec-model-name{font-family:var(--font-display);font-size:22px;color:var(--text);}
+.rec-reason{font-size:14px;color:var(--text-soft);line-height:1.75;}
+.rec-also{margin-top:20px;padding-top:20px;border-top:1px solid var(--border-soft);}
+.rec-also-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-dim);margin-bottom:12px;}
+.rec-also-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+@media(max-width:600px){.rec-also-grid{grid-template-columns:1fr;}}
+.rec-alt{padding:14px;border:1px solid var(--border);border-radius:12px;background:var(--bg);}
+.rec-alt-name{font-size:12px;font-weight:700;color:var(--text);margin-bottom:4px;}
+.rec-alt-note{font-size:11px;color:var(--text-soft);}
+
+/* QUICK PICKS */
+.quick-picks{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:56px;}
+@media(max-width:700px){.quick-picks{grid-template-columns:1fr;}}
+.quick-pick{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.qp-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
+.qp-icon{width:36px;height:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.qp-title{font-size:13px;font-weight:700;color:var(--text);}
+.qp-model{font-size:11px;font-weight:700;letter-spacing:.04em;}
+.qp-desc{font-size:12px;color:var(--text-soft);line-height:1.65;}
+
+/* DISCLAIMER */
+.disclaimer{background:var(--sand);border:1px solid rgba(232,213,181,.8);border-radius:16px;padding:20px 24px;margin-bottom:48px;display:flex;gap:14px;align-items:flex-start;}
+.disclaimer-icon{font-size:18px;flex-shrink:0;margin-top:2px;}
+.disclaimer-text{font-size:12px;color:var(--text-mid);line-height:1.7;}
+.disclaimer-text strong{color:var(--text);}
+
+/* FOOTER */
+.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav">
+  <a href="../index.html" class="navbar-logo">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M371.754459 539.805346c-63.710283-48.000624-110.109971-68.805307-139.204059-62.414048-43.639883 9.588137-102.137756 128.352156-89.884722 141.112195 12.253034 12.760039 44.191844-90.554068 89.88722-97.030244 30.457756-4.318283 74.252488 16.751141 131.366712 63.205775l7.834849-44.873678z" fill="#5AADDB"/><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/></svg>
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="index.html" class="active">Tools</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/index.html">About</a>
+  <a href="../articles/index.html">Articles</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="index.html" class="active">Tools</a>
+  <a href="../newsletter/index.html">Newsletter</a>
+  <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+</div>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Tools</a>
+      <span>›</span>
+      <span>Model Comparison Cheatsheet</span>
+    </div>
+    <div class="eyebrow">Free Tool</div>
+    <h1>Which AI model should<br>you actually <em>use?</em></h1>
+    <p class="tool-hero-sub">A plain-English side-by-side of Claude, GPT-4o, Gemini 2.5 Pro, and DeepSeek V3 — context windows, pricing, benchmark scores, and the tasks each one excels at.</p>
+    <div class="last-updated">Updated March 2026</div>
+  </div>
+</section>
+
+<div class="page-body">
+
+<!-- DISCLAIMER -->
+<div class="disclaimer">
+  <div class="disclaimer-icon">ℹ️</div>
+  <div class="disclaimer-text"><strong>Note:</strong> AI models update frequently. Pricing and benchmarks reflect data available as of March 2026. Context windows and prices may have changed — always verify on the provider's official pricing page before committing to a production integration.</div>
+</div>
+
+<!-- MODEL HEADER CARDS -->
+<div class="model-cards">
+  <div class="model-card claude">
+    <div class="model-emoji">🦩</div>
+    <div class="model-name">Claude</div>
+    <div class="model-version">Sonnet 4.5 / Opus 4</div>
+    <div class="model-tagline">Best for nuanced writing, long-context analysis, and coding with thorough explanations.</div>
+    <span class="model-pill pill-claude">Anthropic</span>
+  </div>
+  <div class="model-card gpt">
+    <div class="model-emoji">🤖</div>
+    <div class="model-name">GPT-4o</div>
+    <div class="model-version">GPT-4o / o3</div>
+    <div class="model-tagline">Strongest multimodal model. Best for vision tasks, reasoning chains, and tool use.</div>
+    <span class="model-pill pill-gpt">OpenAI</span>
+  </div>
+  <div class="model-card gemini">
+    <div class="model-emoji">♊</div>
+    <div class="model-name">Gemini 2.5 Pro</div>
+    <div class="model-version">2.5 Pro / Flash</div>
+    <div class="model-tagline">Massive context window (2M tokens). Excellent for document analysis and summarization.</div>
+    <span class="model-pill pill-gemini">Google</span>
+  </div>
+  <div class="model-card deepseek">
+    <div class="model-emoji">🔍</div>
+    <div class="model-name">DeepSeek V3</div>
+    <div class="model-version">V3 / R1</div>
+    <div class="model-tagline">Best price-to-performance ratio. Exceptional for coding and reasoning at scale.</div>
+    <span class="model-pill pill-deepseek">DeepSeek</span>
+  </div>
+</div>
+
+<!-- FILTER -->
+<div class="filter-row">
+  <span class="filter-label">Show:</span>
+  <span class="filter-pill active" onclick="filterRows('all',this)" data-filter="all">All specs</span>
+  <span class="filter-pill" onclick="filterRows('pricing',this)" data-filter="pricing">Pricing</span>
+  <span class="filter-pill" onclick="filterRows('context',this)" data-filter="context">Context</span>
+  <span class="filter-pill" onclick="filterRows('benchmarks',this)" data-filter="benchmarks">Benchmarks</span>
+  <span class="filter-pill" onclick="filterRows('usecases',this)" data-filter="usecases">Use Cases</span>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="comparison-wrap">
+<table class="comparison-table">
+  <thead>
+    <tr>
+      <th>Spec</th>
+      <th>🦩 Claude</th>
+      <th>🤖 GPT-4o</th>
+      <th>♊ Gemini 2.5 Pro</th>
+      <th>🔍 DeepSeek V3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- PRICING -->
+    <tr class="row-category" data-category="pricing"><td colspan="5">💰 Pricing (API)</td></tr>
+    <tr data-category="pricing">
+      <td>Input price (per 1M tokens)</td>
+      <td>$3 (Sonnet) · $15 (Opus)</td>
+      <td>$2.50 (4o) · $10 (o3)</td>
+      <td>$1.25 (Flash) · $7 (Pro)</td>
+      <td><span class="badge-win">🏆 Best value</span><br>$0.27 (V3)</td>
+    </tr>
+    <tr data-category="pricing">
+      <td>Output price (per 1M tokens)</td>
+      <td>$15 (Sonnet) · $75 (Opus)</td>
+      <td>$10 (4o) · $40 (o3)</td>
+      <td>$3.50 (Flash) · $21 (Pro)</td>
+      <td><span class="badge-win">🏆 Best value</span><br>$1.10 (V3)</td>
+    </tr>
+    <tr data-category="pricing">
+      <td>Free tier available</td>
+      <td>Claude.ai (rate limited)</td>
+      <td>ChatGPT (GPT-3.5 / limited GPT-4o)</td>
+      <td>AI Studio (generous)</td>
+      <td><span class="badge-good">✓ API trial credits</span></td>
+    </tr>
+
+    <!-- CONTEXT -->
+    <tr class="row-category" data-category="context"><td colspan="5">📄 Context Window</td></tr>
+    <tr data-category="context">
+      <td>Max context (input)</td>
+      <td>200K tokens</td>
+      <td>128K tokens</td>
+      <td><span class="badge-win">🏆 Largest</span><br>2,000K tokens</td>
+      <td>64K tokens</td>
+    </tr>
+    <tr data-category="context">
+      <td>Best for long docs</td>
+      <td><span class="badge-good">✓ Strong</span></td>
+      <td>Moderate</td>
+      <td><span class="badge-win">🏆 Best</span></td>
+      <td>Limited</td>
+    </tr>
+
+    <!-- BENCHMARKS -->
+    <tr class="row-category" data-category="benchmarks"><td colspan="5">📊 Benchmark Scores</td></tr>
+    <tr data-category="benchmarks">
+      <td>MMLU (knowledge)</td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:88%;background:#D97706;"></div></div><span class="bar-val">88.0</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:90%;background:#10A37F;"></div></div><span class="bar-val">90.0</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:90%;background:#4285F4;"></div></div><span class="bar-val">90.0</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:87%;background:#8B5CF6;"></div></div><span class="bar-val">87.1</span></div>
+      </td>
+    </tr>
+    <tr data-category="benchmarks">
+      <td>HumanEval (coding)</td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:92%;background:#D97706;"></div></div><span class="bar-val">92.0</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:90%;background:#10A37F;"></div></div><span class="bar-val">90.2</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:86%;background:#4285F4;"></div></div><span class="bar-val">86.1</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:91%;background:#8B5CF6;"></div></div><span class="bar-val">91.0</span></div>
+      </td>
+    </tr>
+    <tr data-category="benchmarks">
+      <td>MATH (math reasoning)</td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:71%;background:#D97706;"></div></div><span class="bar-val">71.1</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:74%;background:#10A37F;"></div></div><span class="bar-val">74.6</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:91%;background:#4285F4;"></div></div><span class="bar-val">91.0</span></div>
+      </td>
+      <td>
+        <div class="bar-wrap"><div class="bar-track"><div class="bar-fill" style="width:90%;background:#8B5CF6;"></div></div><span class="bar-val">90.2</span></div>
+      </td>
+    </tr>
+    <tr data-category="benchmarks">
+      <td>Multimodal / Vision</td>
+      <td><span class="badge-good">✓ Good</span></td>
+      <td><span class="badge-win">🏆 Best</span></td>
+      <td><span class="badge-win">🏆 Excellent</span></td>
+      <td><span class="badge-note">⚠ Text-only (V3)</span></td>
+    </tr>
+
+    <!-- USE CASES -->
+    <tr class="row-category" data-category="usecases"><td colspan="5">🎯 Best Use Cases</td></tr>
+    <tr data-category="usecases">
+      <td>Long-form writing</td>
+      <td><span class="badge-win">🏆 Best</span> — nuanced, consistent, catches tone</td>
+      <td>Good</td>
+      <td>Good</td>
+      <td>Decent</td>
+    </tr>
+    <tr data-category="usecases">
+      <td>Coding / debugging</td>
+      <td><span class="badge-win">🏆 Excellent</span> — great explanations</td>
+      <td><span class="badge-win">🏆 Excellent</span> — strong reasoning</td>
+      <td>Good</td>
+      <td><span class="badge-win">🏆 Best value</span> for coding at scale</td>
+    </tr>
+    <tr data-category="usecases">
+      <td>Document analysis</td>
+      <td>Excellent</td>
+      <td>Good</td>
+      <td><span class="badge-win">🏆 Best</span> — 2M token context</td>
+      <td>Limited by context window</td>
+    </tr>
+    <tr data-category="usecases">
+      <td>Image / vision tasks</td>
+      <td>Good</td>
+      <td><span class="badge-win">🏆 Best</span></td>
+      <td>Excellent</td>
+      <td><span class="badge-note">⚠ Not supported</span></td>
+    </tr>
+    <tr data-category="usecases">
+      <td>High-volume API use</td>
+      <td>Moderate cost</td>
+      <td>Moderate cost</td>
+      <td><span class="badge-good">Flash = cheap</span></td>
+      <td><span class="badge-win">🏆 Cheapest</span></td>
+    </tr>
+    <tr data-category="usecases">
+      <td>Safety / content policy</td>
+      <td><span class="badge-win">🏆 Most conservative</span> — safest for consumer apps</td>
+      <td>Moderate</td>
+      <td>Moderate</td>
+      <td>More permissive — check for your use case</td>
+    </tr>
+
+    <!-- INTEGRATIONS -->
+    <tr class="row-category" data-category="all"><td colspan="5">🔌 Integrations & Access</td></tr>
+    <tr data-category="all">
+      <td>API availability</td>
+      <td>Anthropic API, AWS Bedrock, GCP Vertex</td>
+      <td>OpenAI API, Azure OpenAI</td>
+      <td>Google AI Studio, GCP Vertex</td>
+      <td>DeepSeek API, compatible endpoints</td>
+    </tr>
+    <tr data-category="all">
+      <td>MCP / tool use</td>
+      <td><span class="badge-win">🏆 Native MCP support</span></td>
+      <td><span class="badge-good">✓ Strong function calling</span></td>
+      <td><span class="badge-good">✓ Good</span></td>
+      <td>Basic tool use</td>
+    </tr>
+    <tr data-category="all">
+      <td>Fine-tuning available</td>
+      <td>No (as of 2026)</td>
+      <td><span class="badge-good">✓ GPT-4o mini</span></td>
+      <td><span class="badge-good">✓ Flash</span></td>
+      <td>No official fine-tuning</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+<!-- USE CASE PICKER -->
+<div class="picker-section">
+  <div class="section-label">Not sure which to pick?</div>
+  <div class="section-heading">Tell me your use case.<br>I'll <em>recommend the best model.</em></div>
+  <div class="section-divider"></div>
+  <div class="use-case-grid">
+    <button class="use-case-btn" onclick="showRec('writing',this)">
+      <div class="use-case-icon">✍️</div>
+      <div class="use-case-text"><strong>Writing & content</strong><span>Blogs, emails, copy, reports</span></div>
+    </button>
+    <button class="use-case-btn" onclick="showRec('coding',this)">
+      <div class="use-case-icon">💻</div>
+      <div class="use-case-text"><strong>Coding & debugging</strong><span>Code gen, review, explanation</span></div>
+    </button>
+    <button class="use-case-btn" onclick="showRec('documents',this)">
+      <div class="use-case-icon">📄</div>
+      <div class="use-case-text"><strong>Long document analysis</strong><span>PDFs, reports, research</span></div>
+    </button>
+    <button class="use-case-btn" onclick="showRec('vision',this)">
+      <div class="use-case-icon">🖼️</div>
+      <div class="use-case-text"><strong>Images & vision</strong><span>Image analysis, charts, docs</span></div>
+    </button>
+    <button class="use-case-btn" onclick="showRec('scale',this)">
+      <div class="use-case-icon">⚡</div>
+      <div class="use-case-text"><strong>High-volume / cost sensitive</strong><span>Thousands of API calls</span></div>
+    </button>
+    <button class="use-case-btn" onclick="showRec('reasoning',this)">
+      <div class="use-case-icon">🧮</div>
+      <div class="use-case-text"><strong>Math & reasoning</strong><span>Step-by-step logic, proofs</span></div>
+    </button>
+  </div>
+  <div class="recommendation-card" id="recCard"></div>
+</div>
+
+<!-- QUICK PICKS -->
+<div class="section-label" style="margin-bottom:8px;">Quick picks</div>
+<div class="section-heading" style="margin-bottom:6px;">The <em>TL;DR</em></div>
+<div class="section-divider" style="margin-bottom:24px;"></div>
+<div class="quick-picks">
+  <div class="quick-pick">
+    <div class="qp-header">
+      <div class="qp-icon" style="background:var(--claude-pale);">✍️</div>
+      <div>
+        <div class="qp-title">Best for writing & nuance</div>
+        <div class="qp-model" style="color:var(--claude);">Claude Sonnet 4.5</div>
+      </div>
+    </div>
+    <div class="qp-desc">Consistently produces the most natural, nuanced writing. Doesn't hallucinate citations. Best for customer-facing content and brand voice work.</div>
+  </div>
+  <div class="quick-pick">
+    <div class="qp-header">
+      <div class="qp-icon" style="background:var(--gpt-pale);">🖼️</div>
+      <div>
+        <div class="qp-title">Best for vision & multimodal</div>
+        <div class="qp-model" style="color:var(--gpt);">GPT-4o</div>
+      </div>
+    </div>
+    <div class="qp-desc">No other model matches GPT-4o's vision capabilities. Best for analyzing images, charts, screenshots, and mixed-media inputs.</div>
+  </div>
+  <div class="quick-pick">
+    <div class="qp-header">
+      <div class="qp-icon" style="background:var(--gemini-pale);">📚</div>
+      <div>
+        <div class="qp-title">Best for long documents</div>
+        <div class="qp-model" style="color:var(--gemini);">Gemini 2.5 Pro</div>
+      </div>
+    </div>
+    <div class="qp-desc">2 million token context window is in a class of its own. If you need to ingest entire codebases or 500-page PDFs, Gemini is your only real option.</div>
+  </div>
+  <div class="quick-pick">
+    <div class="qp-header">
+      <div class="qp-icon" style="background:var(--deepseek-pale);">💰</div>
+      <div>
+        <div class="qp-title">Best price-to-performance</div>
+        <div class="qp-model" style="color:var(--deepseek);">DeepSeek V3</div>
+      </div>
+    </div>
+    <div class="qp-desc">If you're running large-scale API operations and cost is a constraint, DeepSeek V3 delivers impressive quality at a fraction of the price of competitors.</div>
+  </div>
+</div>
+
+</div><!-- /page-body -->
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Content</h4>
+    <a href="https://outclaw.xyz/articles">Articles</a>
+    <a href="https://outclaw.xyz/guides">Guides</a>
+    <a href="https://outclaw.xyz/tools">Tools</a>
+    <a href="https://outclaw.xyz/newsletter">Newsletter</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="https://outclaw.xyz/about">About</a>
+    <a href="mailto:hello@outclaw.xyz">Contact</a>
+    <a href="https://outclaw.xyz/privacy">Privacy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <a href="https://twitter.com">𝕏 Twitter</a>
+    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
+    <a href="https://outclaw.xyz/newsletter">Subscribe</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 OutClaw AI · outclaw.xyz</p>
+  <p>The newsletter with actual claws 🦩</p>
+</div>
+
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+});
+
+function filterRows(category, btn){
+  document.querySelectorAll('.filter-pill').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('[data-category]').forEach(function(row){
+    if(category==='all'||row.dataset.category===category||row.dataset.category==='all'){
+      row.style.display='';
+    } else {
+      row.style.display='none';
+    }
+  });
+}
+
+var recommendations={
+  writing:{
+    winner:'Claude Sonnet 4.5',
+    badge:'Best for writing',
+    badgeColor:'var(--claude)',
+    reason:"Claude consistently produces the most natural, brand-consistent writing. It holds tone over long outputs, avoids hollow filler phrases, and catches nuance that other models miss. For any customer-facing copy, blog posts, or long-form content, it's the clear leader.",
+    alts:[
+      {name:'GPT-4o',note:'Strong second — particularly for structured content like reports or listicles.'},
+      {name:'Gemini 2.5 Flash',note:'Good for high-volume, cheaper content generation where perfect nuance isn\'t critical.'},
+      {name:'DeepSeek V3',note:'Surprisingly decent writing at very low cost. Good for first drafts at scale.'}
+    ]
+  },
+  coding:{
+    winner:'Claude Sonnet 4.5',
+    badge:'Best for coding',
+    badgeColor:'var(--claude)',
+    reason:"Claude and GPT-4o are essentially tied on coding benchmarks, but Claude edges ahead on explanation quality — it doesn't just write the code, it tells you why. For complex debugging and architecture discussions, that matters. DeepSeek V3 is worth considering if you're running massive code generation pipelines on a budget.",
+    alts:[
+      {name:'GPT-4o / o3',note:'Near-identical performance. o3 is better for step-by-step reasoning tasks.'},
+      {name:'DeepSeek V3',note:'Best value for high-volume code generation. Scores near the top on HumanEval at much lower cost.'},
+      {name:'Gemini 2.5 Pro',note:'Good for analyzing large codebases thanks to 2M token context.'}
+    ]
+  },
+  documents:{
+    winner:'Gemini 2.5 Pro',
+    badge:'Best for documents',
+    badgeColor:'var(--gemini)',
+    reason:"There's no contest here. Gemini 2.5 Pro's 2 million token context window means you can feed it entire books, codebases, or legal documents and get coherent answers across all of it. Claude at 200K is the runner-up and handles long docs excellently — but Gemini is in a different league for truly massive inputs.",
+    alts:[
+      {name:'Claude Sonnet 4.5',note:'Excellent at 200K tokens — better than Gemini for nuanced analysis of mid-length docs.'},
+      {name:'Gemini 2.5 Flash',note:'Same huge context at lower cost — slightly less capable but much cheaper for high volume.'},
+      {name:'GPT-4o',note:'128K context is decent. Better suited for shorter documents.'}
+    ]
+  },
+  vision:{
+    winner:'GPT-4o',
+    badge:'Best for vision',
+    badgeColor:'var(--gpt)',
+    reason:"GPT-4o leads on every vision benchmark and handles the widest variety of image inputs — photos, charts, diagrams, screenshots, and handwritten text. Gemini 2.5 is a close second and particularly strong on document understanding. Claude handles vision well but is behind the top two. DeepSeek V3 does not support image inputs.",
+    alts:[
+      {name:'Gemini 2.5 Pro',note:'Excellent for document and chart analysis. Strong competitor to GPT-4o.'},
+      {name:'Claude Sonnet 4.5',note:'Good vision capabilities, but third in this category.'},
+      {name:'DeepSeek V3',note:'No vision support — avoid for image tasks.'}
+    ]
+  },
+  scale:{
+    winner:'DeepSeek V3',
+    badge:'Best price-to-performance',
+    badgeColor:'var(--deepseek)',
+    reason:"If you're making thousands of API calls, DeepSeek V3 at ~$0.27/M input tokens vs Claude's $3/M is a staggering difference. DeepSeek's performance on coding and reasoning benchmarks is competitive with models 10x its price. For high-volume pipelines where cost matters, it's the obvious starting point.",
+    alts:[
+      {name:'Gemini 2.5 Flash',note:'Google\'s budget option — cheap, fast, and surprisingly capable. Great for summarization at scale.'},
+      {name:'Claude Haiku 4.5',note:'Anthropic\'s fastest/cheapest model. Good for lightweight classification and routing tasks.'},
+      {name:'GPT-4o mini',note:'OpenAI\'s cheap option — best for tasks requiring strong function calling at lower cost.'}
+    ]
+  },
+  reasoning:{
+    winner:'Gemini 2.5 Pro / GPT o3',
+    badge:'Best for math & reasoning',
+    badgeColor:'var(--gemini)',
+    reason:"Gemini 2.5 Pro currently leads on MATH benchmarks, with DeepSeek R1 close behind. If you need step-by-step mathematical reasoning, proof generation, or complex logical chains, these two outperform Claude and standard GPT-4o. OpenAI's o3 model (reasoning-focused) is also exceptional for this use case.",
+    alts:[
+      {name:'DeepSeek R1',note:'Reasoning-focused model. Near state-of-the-art on math tasks at a fraction of the cost.'},
+      {name:'GPT o3',note:'OpenAI\'s reasoning model. Strong on logic puzzles and multi-step deduction.'},
+      {name:'Claude Sonnet 4.5',note:'Good, but trails the specialized reasoning models on hard math benchmarks.'}
+    ]
+  }
+};
+
+function showRec(type, btn){
+  document.querySelectorAll('.use-case-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  var r=recommendations[type];
+  var altsHTML=r.alts.map(function(a){
+    return '<div class="rec-alt"><div class="rec-alt-name">'+a.name+'</div><div class="rec-alt-note">'+a.note+'</div></div>';
+  }).join('');
+  document.getElementById('recCard').innerHTML=
+    '<div class="rec-header">'+
+      '<div>'+
+        '<span class="rec-winner-badge" style="background:'+r.badgeColor+';color:#fff;">'+r.badge+'</span>'+
+        '<div class="rec-model-name">'+r.winner+'</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="rec-reason">'+r.reason+'</div>'+
+    '<div class="rec-also">'+
+      '<div class="rec-also-label">Also consider</div>'+
+      '<div class="rec-also-grid">'+altsHTML+'</div>'+
+    '</div>';
+  document.getElementById('recCard').classList.add('visible');
+  document.getElementById('recCard').scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>

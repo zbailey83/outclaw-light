@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Brand Identity Builder — OutClaw AI</title>
+<meta name="description" content="Answer 7 questions. Get a complete brand identity document — voice & tone guide, messaging pillars, color direction, and content strategy — built by Claude.">
+<link rel="canonical" href="https://outclaw.xyz/tools/brand-identity">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://outclaw.xyz/tools/brand-identity">
+<meta property="og:title" content="AI Brand Identity Builder — OutClaw AI">
+<meta property="og:description" content="Answer 7 questions. Get a complete brand identity document — built by Claude.">
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.gif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+  --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo svg{width:30px;height:30px;}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+/* HERO */
+.tool-hero{background:linear-gradient(160deg,var(--sky-pale) 0%,#FAFAF8 60%);border-bottom:1px solid var(--border);padding:64px 48px 56px;}
+.tool-hero-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 440px;gap:64px;align-items:center;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-dim);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color .15s;}
+.breadcrumb a:hover{color:var(--sky);}
+.breadcrumb span{color:var(--text-dim);}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+.tool-hero h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px;}
+.tool-hero h1 em{font-style:italic;color:var(--sky);}
+.tool-hero-sub{font-size:16px;color:var(--text-soft);line-height:1.75;margin-bottom:28px;max-width:480px;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid;}
+.badge-free{background:var(--leaf-pale);border-color:rgba(74,158,122,.25);color:var(--leaf);}
+.badge-noauth{background:var(--sky-pale);border-color:var(--sky-light);color:var(--sky);}
+.badge-claude{background:var(--flamingo-pale);border-color:var(--flamingo-light);color:var(--flamingo);}
+
+/* HERO VISUAL */
+.hero-visual{position:relative;}
+.progress-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 8px 40px rgba(26,26,46,.08);}
+.progress-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.progress-title{font-size:13px;font-weight:600;color:var(--text);}
+.progress-count{font-size:12px;color:var(--text-dim);}
+.progress-bar-track{height:6px;background:var(--border-soft);border-radius:3px;margin-bottom:24px;overflow:hidden;}
+.progress-bar-fill{height:100%;width:42%;background:var(--grad-sky);border-radius:3px;transition:width .5s ease;}
+.question-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.question-text{font-family:var(--font-display);font-size:18px;color:var(--text);margin-bottom:16px;line-height:1.35;}
+.answer-chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;}
+.chip{padding:7px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);cursor:default;transition:all .2s;}
+.chip.selected{border-color:var(--sky);background:var(--sky-pale);color:var(--sky);}
+.chip:nth-child(2){border-color:var(--sky);background:var(--sky-pale);color:var(--sky);}
+.next-btn-demo{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;background:var(--grad-sky);color:#fff;font-size:13px;font-weight:600;border-radius:100px;border:none;cursor:pointer;}
+.output-preview{margin-top:16px;padding-top:16px;border-top:1px solid var(--border-soft);}
+.output-row{display:flex;align-items:center;gap:10px;padding:8px 0;}
+.output-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.dot-sky{background:var(--sky);}
+.dot-flamingo{background:var(--flamingo);}
+.dot-coral{background:var(--coral);}
+.dot-leaf{background:var(--leaf);}
+.output-label{font-size:12px;color:var(--text-soft);}
+.output-bar{flex:1;height:4px;background:var(--border-soft);border-radius:2px;overflow:hidden;}
+.output-bar-fill{height:100%;border-radius:2px;animation:pulse-width 2s ease-in-out infinite alternate;}
+.fill-sky{background:var(--sky-light);width:85%;}
+.fill-flamingo{background:var(--flamingo-light);width:70%;}
+.fill-coral{background:#FFCCB8;width:92%;}
+.fill-leaf{background:#A8D9C3;width:60%;}
+@keyframes pulse-width{from{opacity:.6}to{opacity:1}}
+@media(max-width:900px){.tool-hero-inner{grid-template-columns:1fr;}.hero-visual{display:none;}}
+@media(max-width:640px){.tool-hero{padding:44px 24px 40px;}}
+
+/* MAIN CONTENT */
+.page-body{max-width:1120px;margin:0 auto;padding:64px 48px 96px;}
+@media(max-width:640px){.page-body{padding:48px 24px 72px;}}
+
+/* FORM SECTION */
+.form-section{display:grid;grid-template-columns:360px 1fr;gap:48px;margin-bottom:72px;}
+.form-sidebar{position:sticky;top:88px;align-self:start;}
+.sidebar-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.sidebar-heading{font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-bottom:10px;}
+.sidebar-heading em{font-style:italic;color:var(--sky);}
+.sidebar-divider{width:36px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:18px;}
+.sidebar-desc{font-size:14px;color:var(--text-soft);line-height:1.75;margin-bottom:24px;}
+.steps-list{display:flex;flex-direction:column;gap:12px;}
+.step-item{display:flex;align-items:flex-start;gap:12px;}
+.step-num{width:28px;height:28px;border-radius:50%;background:var(--sky-pale);border:1.5px solid var(--sky-light);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--sky);flex-shrink:0;margin-top:1px;}
+.step-text{font-size:13px;color:var(--text-soft);line-height:1.6;padding-top:4px;}
+.step-text strong{color:var(--text);font-weight:600;}
+@media(max-width:900px){.form-section{grid-template-columns:1fr;}.form-sidebar{position:static;}}
+
+/* FORM */
+.form-main{}
+.question-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;margin-bottom:16px;transition:all .22s;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.question-card:focus-within{border-color:rgba(90,173,219,.4);box-shadow:0 4px 24px rgba(90,173,219,.1);}
+.q-num{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:6px;}
+.q-text{font-family:var(--font-display);font-size:18px;color:var(--text);margin-bottom:6px;line-height:1.3;}
+.q-hint{font-size:12px;color:var(--text-dim);margin-bottom:16px;line-height:1.6;}
+.q-input{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:var(--font-body);font-size:14px;color:var(--text);background:var(--bg);outline:none;transition:border-color .15s;resize:vertical;}
+.q-input:focus{border-color:var(--sky);}
+.q-input::placeholder{color:var(--text-dim);}
+.q-textarea{min-height:90px;}
+.chip-group{display:flex;gap:8px;flex-wrap:wrap;}
+.chip-option{padding:7px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s;user-select:none;background:var(--white);}
+.chip-option:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-pale);}
+.chip-option.active{border-color:var(--sky);color:var(--sky);background:var(--sky-pale);}
+.email-row{display:grid;grid-template-columns:1fr auto;gap:12px;margin-top:16px;}
+.submit-btn{padding:14px 28px;background:var(--grad-sky);color:#fff;border:none;border-radius:100px;font-family:var(--font-body);font-size:14px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 2px 16px rgba(90,173,219,.35);transition:all .2s;display:flex;align-items:center;gap:8px;}
+.submit-btn:hover{transform:translateY(-1px);box-shadow:0 6px 28px rgba(90,173,219,.45);}
+.submit-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+.email-input{padding:14px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:var(--font-body);font-size:14px;color:var(--text);background:var(--white);outline:none;transition:border-color .15s;width:100%;}
+.email-input:focus{border-color:var(--sky);}
+.microcopy{font-size:12px;color:var(--text-dim);margin-top:10px;line-height:1.6;}
+@media(max-width:500px){.email-row{grid-template-columns:1fr;}}
+
+/* WHAT YOU GET */
+.deliverables-section{margin-bottom:72px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.section-heading{font-family:var(--font-display);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px;}
+.section-heading em{font-style:italic;color:var(--sky);}
+.section-divider{width:40px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:32px;}
+.deliverable-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.deliverable-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.d-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;font-size:22px;}
+.d-icon-sky{background:var(--sky-pale);}
+.d-icon-flamingo{background:var(--flamingo-pale);}
+.d-icon-coral{background:var(--coral-pale);}
+.d-icon-leaf{background:var(--leaf-pale);}
+.d-title{font-family:var(--font-display);font-size:18px;color:var(--text);margin-bottom:8px;}
+.d-desc{font-size:13px;color:var(--text-soft);line-height:1.7;}
+.d-items{margin-top:12px;display:flex;flex-direction:column;gap:5px;}
+.d-item{font-size:12px;color:var(--text-soft);display:flex;align-items:center;gap:8px;}
+.d-item::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0;}
+@media(max-width:700px){.deliverable-grid{grid-template-columns:1fr;}}
+
+/* RESULT STATE */
+.result-section{display:none;background:var(--white);border:1px solid var(--border);border-radius:24px;padding:40px;box-shadow:0 4px 32px rgba(26,26,46,.06);}
+.result-section.visible{display:block;animation:fadeInUp .4s ease;}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.result-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--border-soft);}
+.result-title{font-family:var(--font-display);font-size:24px;color:var(--text);}
+.result-actions{display:flex;gap:10px;}
+.result-btn{padding:9px 18px;border-radius:100px;font-size:13px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-soft);transition:all .15s;}
+.result-btn:hover{border-color:var(--sky);color:var(--sky);}
+.result-btn.primary{background:var(--grad-sky);color:#fff;border-color:transparent;box-shadow:0 2px 12px rgba(90,173,219,.3);}
+.result-btn.primary:hover{transform:translateY(-1px);color:#fff;}
+.result-content{font-size:14px;color:var(--text-mid);line-height:1.8;white-space:pre-wrap;}
+.result-content h2{font-family:var(--font-display);font-size:20px;color:var(--text);margin:24px 0 10px;font-weight:400;}
+.result-content h3{font-size:14px;font-weight:700;color:var(--sky);text-transform:uppercase;letter-spacing:.06em;margin:20px 0 8px;}
+.result-loading{text-align:center;padding:48px 0;}
+.loading-spinner{width:36px;height:36px;border:3px solid var(--border);border-top-color:var(--sky);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 16px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:14px;color:var(--text-soft);}
+
+/* FOOTER */
+.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav">
+  <a href="../index.html" class="navbar-logo">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M371.754459 539.805346c-63.710283-48.000624-110.109971-68.805307-139.204059-62.414048-43.639883 9.588137-102.137756 128.352156-89.884722 141.112195 12.253034 12.760039 44.191844-90.554068 89.88722-97.030244 30.457756-4.318283 74.252488 16.751141 131.366712 63.205775l7.834849-44.873678z" fill="#5AADDB"/><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/></svg>
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="index.html" class="active">Tools</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/index.html">About</a>
+  <a href="../articles/index.html">Articles</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="index.html" class="active">Tools</a>
+  <a href="../newsletter/index.html">Newsletter</a>
+  <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+</div>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div>
+      <div class="breadcrumb">
+        <a href="index.html">Tools</a>
+        <span>›</span>
+        <span>Brand Identity Builder</span>
+      </div>
+      <div class="eyebrow">Free Tool</div>
+      <h1>Build your brand identity<br>in <em>7 questions.</em></h1>
+      <p class="tool-hero-sub">Answer a few questions about your business. Claude generates a complete brand identity document — voice & tone, messaging pillars, color direction, and content strategy — delivered to your inbox.</p>
+      <div class="hero-badges">
+        <span class="hero-badge badge-free">✓ Free forever</span>
+        <span class="hero-badge badge-noauth">No account needed</span>
+        <span class="hero-badge badge-claude">Powered by Claude</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="progress-card">
+        <div class="progress-header">
+          <span class="progress-title">Building your brand identity</span>
+          <span class="progress-count">3 of 7</span>
+        </div>
+        <div class="progress-bar-track"><div class="progress-bar-fill"></div></div>
+        <div class="question-label">Question 3</div>
+        <div class="question-text">Who is your ideal customer?</div>
+        <div class="answer-chips">
+          <span class="chip">Founders & CEOs</span>
+          <span class="chip selected">Small Business Owners</span>
+          <span class="chip">Enterprise Teams</span>
+          <span class="chip">Creators</span>
+        </div>
+        <button class="next-btn-demo">Next question →</button>
+        <div class="output-preview">
+          <div class="output-row"><div class="output-dot dot-sky"></div><div class="output-label">Voice & Tone Guide</div><div class="output-bar"><div class="output-bar-fill fill-sky"></div></div></div>
+          <div class="output-row"><div class="output-dot dot-flamingo"></div><div class="output-label">Messaging Pillars</div><div class="output-bar"><div class="output-bar-fill fill-flamingo"></div></div></div>
+          <div class="output-row"><div class="output-dot dot-coral"></div><div class="output-label">Color Direction</div><div class="output-bar"><div class="output-bar-fill fill-coral"></div></div></div>
+          <div class="output-row"><div class="output-dot dot-leaf"></div><div class="output-label">Content Strategy</div><div class="output-bar"><div class="output-bar-fill fill-leaf"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="page-body">
+
+<!-- FORM -->
+<div class="form-section" id="formSection">
+  <div class="form-sidebar">
+    <div class="sidebar-label">How it works</div>
+    <div class="sidebar-heading">7 questions.<br><em>One complete brand.</em></div>
+    <div class="sidebar-divider"></div>
+    <div class="sidebar-desc">You answer 7 short questions. Claude synthesizes a full brand identity document in under 2 minutes. No consulting fees. No 30-slide decks.</div>
+    <div class="steps-list">
+      <div class="step-item"><div class="step-num">1</div><div class="step-text"><strong>Fill in the form</strong> — takes about 3 minutes</div></div>
+      <div class="step-item"><div class="step-num">2</div><div class="step-text"><strong>Claude generates</strong> your brand identity document live on-screen</div></div>
+      <div class="step-item"><div class="step-num">3</div><div class="step-text"><strong>Copy, download, or email</strong> the result to yourself</div></div>
+      <div class="step-item"><div class="step-num">4</div><div class="step-text"><strong>Use it immediately</strong> — for pitches, hiring, content, or design briefs</div></div>
+    </div>
+  </div>
+  <div class="form-main">
+    <div class="question-card">
+      <div class="q-num">Question 1 of 7</div>
+      <div class="q-text">What is your business or product called?</div>
+      <div class="q-hint">Just the name — no need to explain it yet.</div>
+      <input class="q-input" id="q1" type="text" placeholder="e.g. Outclaw AI, Bloom Studio, NorthStack">
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 2 of 7</div>
+      <div class="q-text">What does it do? Describe it in one to two sentences.</div>
+      <div class="q-hint">Don't overthink this. Write it like you'd explain it to a friend.</div>
+      <textarea class="q-input q-textarea" id="q2" placeholder="e.g. We help small business owners automate their customer follow-up using AI — without needing a developer."></textarea>
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 3 of 7</div>
+      <div class="q-text">Who is your primary customer?</div>
+      <div class="q-hint">Select all that apply.</div>
+      <div class="chip-group" id="q3chips">
+        <span class="chip-option" data-value="Founders & early-stage startups">Founders & Startups</span>
+        <span class="chip-option" data-value="Small business owners">Small Business Owners</span>
+        <span class="chip-option" data-value="Enterprise teams">Enterprise Teams</span>
+        <span class="chip-option" data-value="Freelancers & creators">Freelancers & Creators</span>
+        <span class="chip-option" data-value="Developers & technical teams">Developers</span>
+        <span class="chip-option" data-value="Marketers & growth teams">Marketers</span>
+        <span class="chip-option" data-value="Other">Other</span>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 4 of 7</div>
+      <div class="q-text">What is the single biggest problem you solve for them?</div>
+      <div class="q-hint">What keeps your ideal customer up at night that your product fixes?</div>
+      <textarea class="q-input q-textarea" id="q4" placeholder="e.g. They waste hours every week on repetitive emails and follow-ups that could easily be automated."></textarea>
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 5 of 7</div>
+      <div class="q-text">Pick 3 words that describe your brand's personality.</div>
+      <div class="q-hint">These become the foundation of your voice and tone guide.</div>
+      <div class="chip-group" id="q5chips">
+        <span class="chip-option" data-value="Bold">Bold</span>
+        <span class="chip-option" data-value="Approachable">Approachable</span>
+        <span class="chip-option" data-value="Expert">Expert</span>
+        <span class="chip-option" data-value="Playful">Playful</span>
+        <span class="chip-option" data-value="Trustworthy">Trustworthy</span>
+        <span class="chip-option" data-value="Innovative">Innovative</span>
+        <span class="chip-option" data-value="Minimal">Minimal</span>
+        <span class="chip-option" data-value="Warm">Warm</span>
+        <span class="chip-option" data-value="Edgy">Edgy</span>
+        <span class="chip-option" data-value="Premium">Premium</span>
+        <span class="chip-option" data-value="Direct">Direct</span>
+        <span class="chip-option" data-value="Human">Human</span>
+      </div>
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 6 of 7</div>
+      <div class="q-text">Who are your 1–2 biggest competitors or closest comparisons?</div>
+      <div class="q-hint">Even "there's nothing like us" is useful — just name the alternative your customers use right now.</div>
+      <input class="q-input" id="q6" type="text" placeholder="e.g. Mailchimp, HubSpot — or 'Excel spreadsheets and sticky notes'">
+    </div>
+    <div class="question-card">
+      <div class="q-num">Question 7 of 7</div>
+      <div class="q-text">What should your brand <em>never</em> sound like or be associated with?</div>
+      <div class="q-hint">This helps Claude define the edges of your brand voice — what to avoid.</div>
+      <textarea class="q-input q-textarea" id="q7" placeholder="e.g. Corporate jargon, overly salesy, bro-culture vibes, anything that sounds like a bank."></textarea>
+    </div>
+
+    <div style="background:var(--sky-pale);border:1px solid var(--sky-light);border-radius:16px;padding:24px;margin-bottom:24px;">
+      <div style="font-size:13px;font-weight:600;color:var(--text);margin-bottom:6px;">Want this sent to your inbox?</div>
+      <div style="font-size:12px;color:var(--text-soft);margin-bottom:14px;">Optional — leave blank to just read it on-screen. We won't spam you.</div>
+      <div class="email-row">
+        <input class="email-input" id="emailInput" type="email" placeholder="your@email.com">
+        <button class="submit-btn" id="submitBtn" onclick="handleSubmit()">
+          <span id="submitLabel">Generate Brand Identity →</span>
+        </button>
+      </div>
+      <div class="microcopy">✓ Delivered in under 2 minutes &nbsp;·&nbsp; ✓ No account needed &nbsp;·&nbsp; ✓ 100% free</div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULT -->
+<div class="result-section" id="resultSection">
+  <div id="resultLoading" class="result-loading">
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Claude is building your brand identity document…</div>
+  </div>
+  <div id="resultContent" style="display:none;">
+    <div class="result-header">
+      <div class="result-title">Your Brand Identity Document</div>
+      <div class="result-actions">
+        <button class="result-btn" onclick="copyResult()">Copy text</button>
+        <button class="result-btn primary" onclick="window.scrollTo(0,0)">Start over</button>
+      </div>
+    </div>
+    <div class="result-content" id="resultText"></div>
+  </div>
+</div>
+
+<!-- WHAT YOU GET -->
+<div class="deliverables-section">
+  <div class="section-label">What you receive</div>
+  <div class="section-heading">A complete brand identity, <em>not just a tagline.</em></div>
+  <div class="section-divider"></div>
+  <div class="deliverable-grid">
+    <div class="deliverable-card">
+      <div class="d-icon d-icon-sky">🎙️</div>
+      <div class="d-title">Voice & Tone Guide</div>
+      <div class="d-desc">How your brand speaks — and how it doesn't. With real before/after examples.</div>
+      <div class="d-items">
+        <div class="d-item">3 core voice attributes defined</div>
+        <div class="d-item">Do/don't examples</div>
+        <div class="d-item">Sample brand phrases</div>
+      </div>
+    </div>
+    <div class="deliverable-card">
+      <div class="d-icon d-icon-flamingo">🏛️</div>
+      <div class="d-title">Messaging Pillars</div>
+      <div class="d-desc">The 3–4 themes your brand always returns to. Headline-ready and shareable.</div>
+      <div class="d-items">
+        <div class="d-item">3–4 core pillars with descriptions</div>
+        <div class="d-item">Sample headline for each</div>
+        <div class="d-item">Proof points per pillar</div>
+      </div>
+    </div>
+    <div class="deliverable-card">
+      <div class="d-icon d-icon-coral">🎨</div>
+      <div class="d-title">Color & Visual Direction</div>
+      <div class="d-desc">A color palette recommendation with hex codes and rationale — no designer required.</div>
+      <div class="d-items">
+        <div class="d-item">Primary + accent color suggestion</div>
+        <div class="d-item">Visual mood description</div>
+        <div class="d-item">Typography direction</div>
+      </div>
+    </div>
+    <div class="deliverable-card">
+      <div class="d-icon d-icon-leaf">📅</div>
+      <div class="d-title">Content Strategy Starter</div>
+      <div class="d-desc">5 content formats + 10 topic ideas your audience actually wants. Ready to run.</div>
+      <div class="d-items">
+        <div class="d-item">5 recommended content formats</div>
+        <div class="d-item">10 topic ideas based on your audience</div>
+        <div class="d-item">2–3 hook templates</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-body -->
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Content</h4>
+    <a href="https://outclaw.xyz/articles">Articles</a>
+    <a href="https://outclaw.xyz/guides">Guides</a>
+    <a href="https://outclaw.xyz/tools">Tools</a>
+    <a href="https://outclaw.xyz/newsletter">Newsletter</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="https://outclaw.xyz/about">About</a>
+    <a href="mailto:hello@outclaw.xyz">Contact</a>
+    <a href="https://outclaw.xyz/privacy">Privacy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <a href="https://twitter.com">𝕏 Twitter</a>
+    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
+    <a href="https://outclaw.xyz/newsletter">Subscribe</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 OutClaw AI · outclaw.xyz</p>
+  <p>The newsletter with actual claws 🦩</p>
+</div>
+
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+});
+
+// Chip selection
+document.querySelectorAll('.chip-group').forEach(function(group){
+  group.querySelectorAll('.chip-option').forEach(function(chip){
+    chip.addEventListener('click',function(){
+      this.classList.toggle('active');
+    });
+  });
+});
+
+function getChipValues(groupId){
+  return Array.from(document.querySelectorAll('#'+groupId+' .chip-option.active')).map(c=>c.dataset.value).join(', ');
+}
+
+async function handleSubmit(){
+  var q1=document.getElementById('q1').value.trim();
+  var q2=document.getElementById('q2').value.trim();
+  var q3=getChipValues('q3chips');
+  var q4=document.getElementById('q4').value.trim();
+  var q5=getChipValues('q5chips');
+  var q6=document.getElementById('q6').value.trim();
+  var q7=document.getElementById('q7').value.trim();
+
+  if(!q1||!q2){alert('Please fill in at least your brand name and description.');return;}
+
+  var btn=document.getElementById('submitBtn');
+  btn.disabled=true;
+  document.getElementById('submitLabel').textContent='Generating…';
+
+  var resultSection=document.getElementById('resultSection');
+  resultSection.classList.add('visible');
+  resultSection.scrollIntoView({behavior:'smooth',block:'start'});
+
+  var prompt=`You are an expert brand strategist. Based on the following answers, create a comprehensive brand identity document. Be specific, actionable, and creative. Format with clear sections.
+
+Brand Name: ${q1}
+What it does: ${q2}
+Primary customers: ${q3||'Not specified'}
+Biggest problem solved: ${q4}
+Brand personality words: ${q5||'Not specified'}
+Competitors/alternatives: ${q6}
+Brand should NEVER be: ${q7}
+
+Create a complete brand identity document with these exact sections:
+
+## 🎙️ Voice & Tone Guide
+Define the brand voice in 3 core attributes. For each, provide: what it means, a DO example sentence, and a DON'T example sentence.
+
+## 🏛️ Messaging Pillars
+3-4 core messaging pillars this brand stands for. For each: pillar name, 1-sentence description, a headline-ready statement, and 2 proof points.
+
+## 🎨 Visual Direction
+Recommend a color palette (with hex codes), typography direction, and overall visual mood. Explain why these choices fit the brand.
+
+## 📅 Content Strategy Starter
+5 recommended content formats (with brief rationale each) + 10 specific topic ideas that would resonate with their audience. Include 2 hook templates they can use immediately.
+
+## ✏️ Tagline Options
+3 tagline options ranging from serious to playful.`;
+
+  try {
+    var response=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:1000,
+        messages:[{role:"user",content:prompt}]
+      })
+    });
+    var data=await response.json();
+    var text=data.content&&data.content[0]&&data.content[0].text?data.content[0].text:"Unable to generate. Please try again.";
+    document.getElementById('resultLoading').style.display='none';
+    document.getElementById('resultContent').style.display='block';
+    // Render markdown-like headings
+    text=text.replace(/^## (.+)$/gm,'<h2>$1</h2>').replace(/^### (.+)$/gm,'<h3>$1</h3>').replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+    document.getElementById('resultText').innerHTML=text;
+  } catch(err) {
+    document.getElementById('resultLoading').innerHTML='<p style="color:var(--flamingo)">Something went wrong. Please try again.</p>';
+  }
+  btn.disabled=false;
+  document.getElementById('submitLabel').textContent='Generate Brand Identity →';
+}
+
+function copyResult(){
+  var text=document.getElementById('resultText').innerText;
+  navigator.clipboard.writeText(text).then(function(){alert('Copied to clipboard!');});
+}
+</script>
+</body>
+</html>

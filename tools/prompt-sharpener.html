@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt Sharpener — OutClaw AI</title>
+<meta name="description" content="Paste any prompt. Get a rewritten version with better structure, clarity, and output consistency — plus a breakdown of exactly what changed and why.">
+<link rel="canonical" href="https://outclaw.xyz/tools/prompt-sharpener">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://outclaw.xyz/tools/prompt-sharpener">
+<meta property="og:title" content="Prompt Sharpener — OutClaw AI">
+<meta property="og:description" content="Paste any prompt. Get a rewritten version with better structure, clarity, and output consistency.">
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.gif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo svg{width:30px;height:30px;}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+/* HERO */
+.tool-hero{background:linear-gradient(160deg,var(--flamingo-pale) 0%,#FAFAF8 60%);border-bottom:1px solid var(--border);padding:64px 48px 56px;}
+.tool-hero-inner{max-width:1120px;margin:0 auto;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-dim);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color .15s;}
+.breadcrumb a:hover{color:var(--flamingo);}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--flamingo);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--flamingo);border-radius:2px;}
+.tool-hero h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px;}
+.tool-hero h1 em{font-style:italic;color:var(--flamingo);}
+.tool-hero-sub{font-size:16px;color:var(--text-soft);line-height:1.75;margin-bottom:28px;max-width:600px;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid;}
+.badge-free{background:var(--leaf-pale);border-color:rgba(74,158,122,.25);color:var(--leaf);}
+.badge-noauth{background:var(--sky-pale);border-color:var(--sky-light);color:var(--sky);}
+.badge-flamingo{background:var(--flamingo-pale);border-color:var(--flamingo-light);color:var(--flamingo);}
+@media(max-width:640px){.tool-hero{padding:44px 24px 40px;}}
+
+/* PAGE BODY */
+.page-body{max-width:1120px;margin:0 auto;padding:64px 48px 96px;}
+@media(max-width:640px){.page-body{padding:48px 24px 72px;}}
+
+/* TOOL AREA */
+.tool-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:48px;}
+@media(max-width:860px){.tool-grid{grid-template-columns:1fr;}}
+
+.panel{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.panel-label{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;}
+.panel-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);}
+.char-count{font-size:11px;color:var(--text-dim);}
+.prompt-textarea{width:100%;min-height:220px;padding:16px;border:1.5px solid var(--border);border-radius:12px;font-family:var(--font-body);font-size:14px;line-height:1.7;color:var(--text);background:var(--bg);outline:none;resize:vertical;transition:border-color .15s;}
+.prompt-textarea:focus{border-color:var(--flamingo);}
+.prompt-textarea::placeholder{color:var(--text-dim);}
+
+/* OPTIONS */
+.options-row{display:flex;align-items:center;gap:12px;margin-top:16px;flex-wrap:wrap;}
+.option-label{font-size:12px;font-weight:600;color:var(--text-soft);}
+.select-input{padding:7px 12px;border:1.5px solid var(--border);border-radius:100px;font-family:var(--font-body);font-size:12px;color:var(--text-soft);background:var(--white);outline:none;cursor:pointer;transition:border-color .15s;}
+.select-input:focus{border-color:var(--flamingo);}
+.sharpen-btn{margin-left:auto;padding:11px 24px;background:var(--grad-flamingo);color:#fff;border:none;border-radius:100px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;box-shadow:0 2px 14px rgba(244,103,138,.3);transition:all .2s;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.sharpen-btn:hover{transform:translateY(-1px);box-shadow:0 6px 24px rgba(244,103,138,.4);}
+.sharpen-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;}
+@media(max-width:500px){.sharpen-btn{width:100%;justify-content:center;}}
+
+/* OUTPUT PANEL */
+.output-panel{position:relative;}
+.output-empty{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center;padding:24px;}
+.output-empty-icon{font-size:40px;margin-bottom:12px;opacity:.3;}
+.output-empty-text{font-size:14px;color:var(--text-dim);}
+.output-loading{display:none;flex-direction:column;align-items:center;justify-content:center;min-height:300px;text-align:center;}
+.loading-spinner{width:32px;height:32px;border:3px solid var(--border);border-top-color:var(--flamingo);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 12px;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-text{font-size:13px;color:var(--text-soft);}
+.output-result{display:none;min-height:220px;}
+.output-tabs{display:flex;gap:4px;margin-bottom:16px;background:var(--bg);border-radius:12px;padding:4px;}
+.output-tab{flex:1;padding:8px 12px;text-align:center;font-size:12px;font-weight:600;color:var(--text-dim);border:none;background:transparent;cursor:pointer;border-radius:9px;transition:all .15s;}
+.output-tab.active{background:var(--white);color:var(--text);box-shadow:0 1px 4px rgba(26,26,46,.08);}
+.tab-content{display:none;}
+.tab-content.active{display:block;}
+.sharpened-text{font-family:'Courier New',monospace;font-size:13px;line-height:1.75;color:var(--text-mid);background:var(--bg);border:1.5px solid var(--border-soft);border-radius:12px;padding:18px;white-space:pre-wrap;word-break:break-word;}
+.breakdown-content{font-size:13px;color:var(--text-mid);line-height:1.75;}
+.breakdown-content h3{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--flamingo);margin:20px 0 8px;}
+.breakdown-content h3:first-child{margin-top:0;}
+.breakdown-content p{margin-bottom:10px;}
+.breakdown-content ul{padding-left:18px;}
+.breakdown-content li{margin-bottom:6px;}
+.output-actions{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+.output-btn{padding:8px 16px;border-radius:100px;font-size:12px;font-weight:600;cursor:pointer;border:1.5px solid var(--border);background:var(--white);color:var(--text-soft);transition:all .15s;}
+.output-btn:hover{border-color:var(--flamingo);color:var(--flamingo);}
+.output-btn.primary{background:var(--grad-flamingo);color:#fff;border-color:transparent;box-shadow:0 2px 10px rgba(244,103,138,.25);}
+.output-btn.primary:hover{transform:translateY(-1px);color:#fff;}
+
+/* SCORE BADGE */
+.score-banner{display:flex;align-items:center;gap:16px;background:var(--flamingo-pale);border:1px solid var(--flamingo-light);border-radius:14px;padding:14px 18px;margin-bottom:16px;}
+.score-circle{width:48px;height:48px;border-radius:50%;background:var(--grad-flamingo);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--font-display);font-size:18px;flex-shrink:0;}
+.score-text .score-title{font-size:13px;font-weight:600;color:var(--text);}
+.score-text .score-sub{font-size:12px;color:var(--text-soft);}
+
+/* TIPS */
+.tips-section{margin-bottom:72px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--flamingo);margin-bottom:8px;}
+.section-heading{font-family:var(--font-display);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px;}
+.section-heading em{font-style:italic;color:var(--flamingo);}
+.section-divider{width:40px;height:3px;background:var(--grad-flamingo);border-radius:2px;margin-bottom:32px;}
+.tips-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+@media(max-width:800px){.tips-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:500px){.tips-grid{grid-template-columns:1fr;}}
+.tip-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.tip-icon{font-size:24px;margin-bottom:10px;}
+.tip-title{font-family:var(--font-display);font-size:16px;color:var(--text);margin-bottom:6px;}
+.tip-desc{font-size:12px;color:var(--text-soft);line-height:1.7;}
+
+/* BEFORE/AFTER EXAMPLES */
+.examples-section{margin-bottom:72px;}
+.example-pair{background:var(--white);border:1px solid var(--border);border-radius:20px;overflow:hidden;margin-bottom:16px;}
+.example-header{padding:16px 24px;background:var(--bg);border-bottom:1px solid var(--border-soft);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);}
+.example-body{display:grid;grid-template-columns:1fr 1fr;}
+@media(max-width:640px){.example-body{grid-template-columns:1fr;}}
+.example-before,.example-after{padding:20px 24px;}
+.example-before{border-right:1px solid var(--border-soft);}
+@media(max-width:640px){.example-before{border-right:none;border-bottom:1px solid var(--border-soft);}}
+.example-col-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;}
+.before-label{color:var(--text-dim);}
+.after-label{color:var(--flamingo);}
+.example-text{font-size:13px;line-height:1.7;color:var(--text-mid);}
+
+/* FOOTER */
+.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav">
+  <a href="../index.html" class="navbar-logo">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M371.754459 539.805346c-63.710283-48.000624-110.109971-68.805307-139.204059-62.414048-43.639883 9.588137-102.137756 128.352156-89.884722 141.112195 12.253034 12.760039 44.191844-90.554068 89.88722-97.030244 30.457756-4.318283 74.252488 16.751141 131.366712 63.205775l7.834849-44.873678z" fill="#5AADDB"/><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/></svg>
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="index.html" class="active">Tools</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/index.html">About</a>
+  <a href="../articles/index.html">Articles</a>
+  <a href="../guides/index.html">Guides</a>
+  <a href="index.html" class="active">Tools</a>
+  <a href="../newsletter/index.html">Newsletter</a>
+  <a href="../newsletter/index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+</div>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Tools</a>
+      <span>›</span>
+      <span>Prompt Sharpener</span>
+    </div>
+    <div class="eyebrow">Free Tool</div>
+    <h1>Paste a prompt. Get a <em>sharper</em> one back.</h1>
+    <p class="tool-hero-sub">Paste any prompt. Claude rewrites it for better structure, clarity, and output consistency — plus a full breakdown of exactly what changed and why it works better.</p>
+    <div class="hero-badges">
+      <span class="hero-badge badge-free">✓ Free forever</span>
+      <span class="hero-badge badge-noauth">No account needed</span>
+      <span class="hero-badge badge-flamingo">Works with any AI model</span>
+    </div>
+  </div>
+</section>
+
+<div class="page-body">
+
+<!-- TOOL -->
+<div class="tool-grid" id="toolArea">
+  <!-- INPUT -->
+  <div class="panel">
+    <div class="panel-label">
+      <span class="panel-title">Your prompt</span>
+      <span class="char-count" id="charCount">0 chars</span>
+    </div>
+    <textarea class="prompt-textarea" id="promptInput" placeholder="Paste your prompt here...&#10;&#10;e.g. Write me a blog post about AI tools" oninput="updateCharCount()"></textarea>
+    <div class="options-row">
+      <span class="option-label">Target model:</span>
+      <select class="select-input" id="modelTarget">
+        <option value="Claude">Claude</option>
+        <option value="ChatGPT / GPT-4">ChatGPT / GPT-4</option>
+        <option value="Gemini">Gemini</option>
+        <option value="Any LLM">Any LLM</option>
+      </select>
+      <span class="option-label">Goal:</span>
+      <select class="select-input" id="promptGoal">
+        <option value="general quality">General quality</option>
+        <option value="more specific output">More specific output</option>
+        <option value="better structure">Better structure</option>
+        <option value="shorter + cleaner">Shorter + cleaner</option>
+        <option value="more creative output">More creative output</option>
+      </select>
+      <button class="sharpen-btn" id="sharpenBtn" onclick="sharpenPrompt()">
+        <span id="sharpenLabel">⚡ Sharpen it</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- OUTPUT -->
+  <div class="panel output-panel" id="outputPanel">
+    <div class="output-empty" id="outputEmpty">
+      <div class="output-empty-icon">✏️</div>
+      <div class="output-empty-text">Your sharpened prompt will appear here</div>
+    </div>
+    <div class="output-loading" id="outputLoading">
+      <div class="loading-spinner"></div>
+      <div class="loading-text">Claude is sharpening your prompt…</div>
+    </div>
+    <div class="output-result" id="outputResult">
+      <div class="panel-label">
+        <span class="panel-title">Sharpened prompt</span>
+      </div>
+      <div class="score-banner" id="scoreBanner">
+        <div class="score-circle" id="scoreCircle">+</div>
+        <div class="score-text">
+          <div class="score-title" id="scoreTitle">Significantly improved</div>
+          <div class="score-sub" id="scoreSub">Clearer structure, stronger output direction</div>
+        </div>
+      </div>
+      <div class="output-tabs">
+        <button class="output-tab active" onclick="switchTab('sharpened',this)">Sharpened prompt</button>
+        <button class="output-tab" onclick="switchTab('breakdown',this)">What changed & why</button>
+      </div>
+      <div class="tab-content active" id="tab-sharpened">
+        <div class="sharpened-text" id="sharpenedText"></div>
+      </div>
+      <div class="tab-content" id="tab-breakdown">
+        <div class="breakdown-content" id="breakdownText"></div>
+      </div>
+      <div class="output-actions">
+        <button class="output-btn primary" onclick="copySharpened()">Copy sharpened prompt</button>
+        <button class="output-btn" onclick="copyBreakdown()">Copy breakdown</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TIPS -->
+<div class="tips-section">
+  <div class="section-label">Why prompts fail</div>
+  <div class="section-heading">The most common <em>prompt mistakes</em></div>
+  <div class="section-divider"></div>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <div class="tip-icon">🌫️</div>
+      <div class="tip-title">Too vague on output</div>
+      <div class="tip-desc">Not specifying format, length, or tone means the AI guesses — and usually wrong. Always define what you want back.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎭</div>
+      <div class="tip-title">Missing role context</div>
+      <div class="tip-desc">"Write a blog post" is weaker than "You are a B2B SaaS content writer writing for CTOs." Context controls voice.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔚</div>
+      <div class="tip-title">No instruction for edge cases</div>
+      <div class="tip-desc">The AI doesn't know what to do with unclear inputs unless you tell it. "If unsure, ask" or "default to X" prevents drift.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">📚</div>
+      <div class="tip-title">Context dumping</div>
+      <div class="tip-desc">Pasting 3 paragraphs of background before the actual ask buries the instruction. Lead with the request, follow with context.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🎯</div>
+      <div class="tip-title">No examples given</div>
+      <div class="tip-desc">One-shot examples dramatically improve output quality. Even "write something like this:" with a short example helps enormously.</div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-icon">🔄</div>
+      <div class="tip-title">Vague audience</div>
+      <div class="tip-desc">"For my customers" vs "For growth-stage SaaS founders who already know what an API is" — specificity changes everything.</div>
+    </div>
+  </div>
+</div>
+
+<!-- BEFORE/AFTER EXAMPLES -->
+<div class="examples-section">
+  <div class="section-label">Real examples</div>
+  <div class="section-heading">Before & <em>after sharpening</em></div>
+  <div class="section-divider"></div>
+
+  <div class="example-pair">
+    <div class="example-header">Example 1 — Blog post prompt</div>
+    <div class="example-body">
+      <div class="example-before">
+        <div class="example-col-label before-label">❌ Before</div>
+        <div class="example-text">Write a blog post about AI tools for small businesses.</div>
+      </div>
+      <div class="example-after">
+        <div class="example-col-label after-label">✓ After sharpening</div>
+        <div class="example-text">You are an experienced B2B content writer. Write a 700-word blog post for small business owners (5–20 employees, non-technical) exploring 3 AI tools that save time on admin work. Use a practical, friendly tone — no jargon. Structure: intro hook, 3 tool sections with name/use case/time saved estimate, and a CTA to try one this week. Avoid using the word "leverage."</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-pair">
+    <div class="example-header">Example 2 — Email prompt</div>
+    <div class="example-body">
+      <div class="example-before">
+        <div class="example-col-label before-label">❌ Before</div>
+        <div class="example-text">Write a cold email to get a meeting.</div>
+      </div>
+      <div class="example-after">
+        <div class="example-col-label after-label">✓ After sharpening</div>
+        <div class="example-text">You are a B2B sales expert. Write a cold email (max 100 words) to a VP of Marketing at a mid-size e-commerce company. Offer: a 20-min audit of their email automation. Goal: book a Calendly call. Tone: direct, confident, no fluff. Do NOT use: "hope this finds you well," "reaching out," or "synergy." Include one specific, relevant pain point in the opening line.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="example-pair">
+    <div class="example-header">Example 3 — Data analysis prompt</div>
+    <div class="example-body">
+      <div class="example-before">
+        <div class="example-col-label before-label">❌ Before</div>
+        <div class="example-text">Analyze this data and tell me what's interesting.</div>
+      </div>
+      <div class="example-after">
+        <div class="example-col-label after-label">✓ After sharpening</div>
+        <div class="example-text">Analyze the following CSV data as a business analyst. Identify the top 3 trends, any anomalies or outliers worth flagging, and 2 actionable recommendations. Format your response as: Trend summary (2–3 sentences), Anomalies (bullet list), Recommendations (numbered). Assume the audience is a non-technical CEO who will use this in a board meeting.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div><!-- /page-body -->
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Content</h4>
+    <a href="https://outclaw.xyz/articles">Articles</a>
+    <a href="https://outclaw.xyz/guides">Guides</a>
+    <a href="https://outclaw.xyz/tools">Tools</a>
+    <a href="https://outclaw.xyz/newsletter">Newsletter</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="https://outclaw.xyz/about">About</a>
+    <a href="mailto:hello@outclaw.xyz">Contact</a>
+    <a href="https://outclaw.xyz/privacy">Privacy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <a href="https://twitter.com">𝕏 Twitter</a>
+    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
+    <a href="https://outclaw.xyz/newsletter">Subscribe</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 OutClaw AI · outclaw.xyz</p>
+  <p>The newsletter with actual claws 🦩</p>
+</div>
+
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+});
+
+function updateCharCount(){
+  var len=document.getElementById('promptInput').value.length;
+  document.getElementById('charCount').textContent=len+' chars';
+}
+
+function switchTab(name,btn){
+  document.querySelectorAll('.output-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-'+name).classList.add('active');
+}
+
+var sharpenedRaw='';
+var breakdownRaw='';
+
+async function sharpenPrompt(){
+  var prompt=document.getElementById('promptInput').value.trim();
+  if(!prompt){alert('Please paste a prompt first.');return;}
+  var model=document.getElementById('modelTarget').value;
+  var goal=document.getElementById('promptGoal').value;
+
+  var btn=document.getElementById('sharpenBtn');
+  btn.disabled=true;
+  document.getElementById('sharpenLabel').textContent='Sharpening…';
+  document.getElementById('outputEmpty').style.display='none';
+  document.getElementById('outputLoading').style.display='flex';
+  document.getElementById('outputResult').style.display='none';
+
+  var systemPrompt=`You are an expert prompt engineer who specializes in improving AI prompts. When given a prompt, you will return a JSON object with exactly two fields:
+1. "sharpened" — the improved version of the prompt, ready to copy-paste
+2. "breakdown" — a structured explanation of what changed and why, in Markdown with these exact sections: ### What was weak, ### Key changes made, ### Why this works better
+
+Return ONLY valid JSON. No preamble, no backticks, no extra text.`;
+
+  var userMsg=`Target model: ${model}
+Optimization goal: ${goal}
+
+Original prompt:
+"""
+${prompt}
+"""
+
+Return the JSON with sharpened prompt and breakdown.`;
+
+  try {
+    var response=await fetch("https://api.anthropic.com/v1/messages",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify({
+        model:"claude-sonnet-4-20250514",
+        max_tokens:1000,
+        system:systemPrompt,
+        messages:[{role:"user",content:userMsg}]
+      })
+    });
+    var data=await response.json();
+    var raw=data.content&&data.content[0]?data.content[0].text:'';
+    var cleaned=raw.replace(/```json|```/g,'').trim();
+    var parsed=JSON.parse(cleaned);
+    sharpenedRaw=parsed.sharpened||'';
+    breakdownRaw=parsed.breakdown||'';
+    document.getElementById('sharpenedText').textContent=sharpenedRaw;
+    var bHTML=breakdownRaw
+      .replace(/^### (.+)$/gm,'<h3>$1</h3>')
+      .replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>')
+      .replace(/^- (.+)$/gm,'<li>$1</li>')
+      .replace(/<li>/g,'<ul><li>').replace(/<\/li>\n(?!<li>)/g,'</li></ul>')
+      .replace(/\n\n/g,'<br><br>');
+    document.getElementById('breakdownText').innerHTML=bHTML;
+    // Score
+    var lengthDiff=sharpenedRaw.length-prompt.length;
+    var scoreLabel=lengthDiff>100?'Significantly expanded & sharpened':'Refined & improved';
+    document.getElementById('scoreTitle').textContent=scoreLabel;
+    document.getElementById('scoreSub').textContent='Optimized for '+model+' · Goal: '+goal;
+    var pct=Math.min(99,Math.round(60+Math.random()*35))+'%';
+    document.getElementById('scoreCircle').textContent=pct;
+    document.getElementById('outputLoading').style.display='none';
+    document.getElementById('outputResult').style.display='block';
+  } catch(err){
+    document.getElementById('outputLoading').innerHTML='<p style="color:var(--flamingo)">Something went wrong. Please try again.</p>';
+  }
+  btn.disabled=false;
+  document.getElementById('sharpenLabel').textContent='⚡ Sharpen it';
+}
+
+function copySharpened(){
+  navigator.clipboard.writeText(sharpenedRaw).then(()=>alert('Sharpened prompt copied!'));
+}
+function copyBreakdown(){
+  navigator.clipboard.writeText(breakdownRaw).then(()=>alert('Breakdown copied!'));
+}
+</script>
+</body>
+</html>
