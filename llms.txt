@@ -1,0 +1,22 @@
+# OutClaw AI
+
+> The AI Newsletter With Claws
+
+OutClaw AI provides weekly deep-dives on the latest AI releases, Claude & OpenAI updates, battle-tested workflows, and the alpha your feed buries.
+
+## Navigation
+
+- [Home](https://outclaw.xyz/)
+- [About](https://outclaw.xyz/about/)
+- [Articles](https://outclaw.xyz/articles/)
+- [Guides](https://outclaw.xyz/guides/)
+- [Tools](https://outclaw.xyz/tools/)
+- [Newsletter](https://outclaw.xyz/newsletter/)
+
+## Core Content
+
+OutClaw focuses on providing actionable AI insights for developers and AI enthusiasts. Every Tuesday, we publish a newsletter covering:
+- New AI Model releases and benchmarks.
+- MCP (Model Context Protocol) implementations.
+- Agentic workflows and system prompts.
+- Technical tutorials and tool reviews.

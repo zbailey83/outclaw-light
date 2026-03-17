@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OutClaw AI Newsletter — Pure Signal for AI Practitioners</title>
+<meta name="description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+<link rel="canonical" href="https://outclaw.xyz/newsletter/">
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://outclaw.xyz/newsletter/">
+<meta property="og:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
+<meta property="og:description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.gif">
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://outclaw.xyz/newsletter/">
+<meta property="twitter:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
+<meta property="twitter:description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+<meta property="twitter:image" content="https://outclaw.xyz/hero-alt.gif">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+  --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo svg{width:30px;height:30px;}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+.page-hero{padding:72px 48px 56px;border-bottom:1px solid var(--border);}
+.page-hero-inner{max-width:1120px;margin:0 auto;}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(36px,5.5vw,60px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--text);}
+.page-hero h1 em{font-style:italic;color:var(--sky);}
+.page-hero-sub{font-size:17px;color:var(--text-soft);max-width:560px;margin-top:14px;line-height:1.75;}
+.page-body{max-width:1120px;margin:0 auto;padding:64px 48px 96px;}
+@media(max-width:640px){.page-hero{padding:52px 24px 40px;}.page-body{padding:48px 24px 72px;}}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.section-heading{font-family:var(--font-display);font-size:32px;font-weight:400;color:var(--text);margin-bottom:6px;}
+.section-heading em{font-style:italic;color:var(--sky);}
+.section-divider{width:40px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:32px;}
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;transition:all .22s;box-shadow:0 1px 4px rgba(26,26,46,.04);text-decoration:none;color:inherit;display:block;}
+.card:hover{border-color:rgba(90,173,219,.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(90,173,219,.1);}
+.card-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.04em;margin-bottom:14px;}
+.badge-sky{background:var(--sky-pale);border:1px solid var(--sky-light);color:var(--sky);}
+.badge-flamingo{background:var(--flamingo-pale);border:1px solid var(--flamingo-light);color:var(--flamingo);}
+.badge-coral{background:var(--coral-pale);border:1px solid rgba(255,126,90,.2);color:var(--coral);}
+.badge-leaf{background:var(--leaf-pale);border:1px solid rgba(74,158,122,.2);color:var(--leaf);}
+.badge-sand{background:var(--sand);border:1px solid rgba(232,213,181,.6);color:#92400e;}
+.card-title{font-family:var(--font-display);font-size:20px;font-weight:400;line-height:1.25;color:var(--text);margin-bottom:10px;}
+.card-desc{font-size:13px;color:var(--text-soft);line-height:1.7;}
+.card-meta{font-size:12px;color:var(--text-dim);margin-top:14px;font-weight:500;}
+.card-icon-wrap{width:48px;height:48px;border-radius:14px;background:var(--sky-pale);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+.card-arrow{display:flex;align-items:center;justify-content:space-between;margin-top:16px;}
+.card-arrow span{font-size:13px;font-weight:600;color:var(--sky);}
+.card-featured{background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.2);}
+.card-featured .card-title{font-size:24px;}
+@media(max-width:900px){.card-grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.card-grid-3,.card-grid-2{grid-template-columns:1fr;}}
+.cta-banner{background:var(--deep-navy);border-radius:24px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:64px;}
+.cta-banner-text h3{font-family:var(--font-display);font-size:28px;font-weight:400;color:#fff;margin-bottom:8px;}
+.cta-banner-text h3 em{font-style:italic;color:var(--sky);}
+.cta-banner-text p{font-size:14px;color:rgba(255,255,255,.5);max-width:360px;line-height:1.65;}
+.cta-banner-form{display:flex;gap:0;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:5px;min-width:360px;}
+.cta-banner-form input{flex:1;height:42px;padding:0 16px;background:transparent;border:none;font-family:var(--font-body);font-size:14px;color:#fff;outline:none;}
+.cta-banner-form input::placeholder{color:rgba(255,255,255,.35);}
+.cta-banner-btn{height:42px;padding:0 20px;background:var(--grad-sky);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.cta-banner-btn:hover{opacity:.9;}
+@media(max-width:760px){.cta-banner{flex-direction:column;}.cta-banner-form{min-width:auto;width:100%;}}
+.filter-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:36px;}
+.filter-pill{padding:7px 18px;border:1.5px solid var(--border);border-radius:100px;font-size:13px;font-weight:500;color:var(--text-soft);cursor:pointer;transition:all .15s;background:var(--white);}
+.filter-pill:hover,.filter-pill.active{border-color:var(--sky);color:var(--sky);background:var(--sky-pale);}
+.about-grid{display:grid;grid-template-columns:340px 1fr;gap:56px;align-items:start;margin-bottom:72px;}
+.about-photo{aspect-ratio:4/5;border-radius:24px;overflow:hidden;background:linear-gradient(160deg,var(--sky-pale),var(--flamingo-pale));position:relative;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 48px rgba(26,26,46,.08);}
+.about-photo-flamingo{font-size:140px;opacity:.08;position:absolute;}
+.about-photo-initials{font-family:var(--font-display);font-size:108px;font-style:italic;color:var(--sky);position:relative;z-index:2;}
+.about-bio .role-tag{display:inline-flex;align-items:center;gap:6px;background:var(--sky-pale);border:1px solid var(--sky-light);color:var(--sky);padding:5px 14px;border-radius:100px;font-size:12px;font-weight:600;letter-spacing:.04em;margin-bottom:20px;}
+.about-bio h2{font-family:var(--font-display);font-size:40px;font-weight:400;line-height:1.1;margin-bottom:16px;}
+.about-bio h2 em{font-style:italic;color:var(--sky);}
+.about-bio p{font-size:15px;color:var(--text-mid);line-height:1.8;margin-bottom:16px;}
+.about-links{display:flex;gap:10px;margin-top:24px;flex-wrap:wrap;}
+.about-link{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1.5px solid var(--border);border-radius:100px;font-size:13px;font-weight:500;color:var(--text-soft);text-decoration:none;transition:all .15s;}
+.about-link:hover{border-color:var(--sky);color:var(--sky);background:var(--sky-pale);}
+.values-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:72px;}
+.value-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:28px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.value-icon{font-size:28px;margin-bottom:12px;}
+.value-title{font-family:var(--font-display);font-size:19px;color:var(--text);margin-bottom:8px;font-weight:400;}
+.value-desc{font-size:13px;color:var(--text-soft);line-height:1.75;}
+.mission-block{background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.15);border-radius:20px;padding:44px;margin-bottom:56px;}
+.mission-block blockquote{font-family:var(--font-display);font-size:clamp(18px,2.5vw,26px);font-style:italic;color:var(--text);line-height:1.5;}
+.mission-block cite{display:block;margin-top:16px;font-size:13px;font-weight:600;color:var(--sky);font-style:normal;letter-spacing:.04em;}
+.stat-row{display:flex;background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-bottom:72px;}
+.stat-item{flex:1;padding:28px 24px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--font-display);font-size:40px;color:var(--text);line-height:1;}
+.stat-num em{font-style:normal;color:var(--sky);}
+.stat-label{font-size:11px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.08em;margin-top:6px;}
+@media(max-width:760px){.about-grid{grid-template-columns:1fr;}.values-grid{grid-template-columns:1fr;}.stat-row{flex-wrap:wrap;}.stat-item{flex:0 0 50%;border-bottom:1px solid var(--border);}}
+.nl-hero-form{display:flex;gap:0;max-width:480px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;padding:6px;box-shadow:0 4px 24px rgba(26,26,46,.07);margin-top:28px;}
+.nl-hero-form input{flex:1;height:44px;padding:0 16px;background:transparent;border:none;font-family:var(--font-body);font-size:15px;color:var(--text);outline:none;}
+.nl-hero-form input::placeholder{color:var(--text-dim);}
+.nl-hero-form-btn{height:44px;padding:0 22px;background:var(--grad-sky);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;box-shadow:0 2px 10px rgba(90,173,219,.3);transition:all .2s;}
+.nl-hero-form-btn:hover{opacity:.9;}
+.nl-microcopy{font-size:12px;color:var(--text-dim);margin-top:10px;}
+.archive-list{display:flex;flex-direction:column;gap:0;}
+.archive-item{display:flex;align-items:center;gap:20px;padding:20px 0;border-bottom:1px solid var(--border-soft);text-decoration:none;color:inherit;transition:all .15s;}
+.archive-item:last-child{border-bottom:none;}
+.archive-item:hover .archive-title{color:var(--sky);}
+.archive-num{font-family:var(--font-display);font-size:22px;color:var(--text-dim);min-width:48px;font-style:italic;}
+.archive-info{flex:1;}
+.archive-title{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--text);margin-bottom:4px;transition:color .15s;}
+.archive-meta{font-size:12px;color:var(--text-dim);}
+.archive-badge{margin-left:auto;flex-shrink:0;}
+.tools-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;}
+.tool-card{background:var(--white);border:1px solid var(--border);border-radius:20px;padding:28px;transition:all .22s;box-shadow:0 1px 4px rgba(26,26,46,.04);text-decoration:none;color:inherit;}
+.tool-card:hover{border-color:rgba(90,173,219,.3);transform:translateY(-2px);box-shadow:0 8px 32px rgba(90,173,219,.1);}
+.tool-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;}
+.tool-icon{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:24px;}
+.tool-status{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:100px;}
+.status-live{background:var(--leaf-pale);color:var(--leaf);border:1px solid rgba(74,158,122,.2);}
+.status-soon{background:var(--sand);color:#92400e;border:1px solid rgba(232,213,181,.6);}
+.tool-name{font-family:var(--font-display);font-size:22px;font-weight:400;color:var(--text);margin-bottom:8px;}
+.tool-desc{font-size:13px;color:var(--text-soft);line-height:1.7;margin-bottom:16px;}
+.tool-link{font-size:13px;font-weight:600;color:var(--sky);}
+@media(max-width:600px){.tools-grid{grid-template-columns:1fr;}}
+
+.page-hero{background:linear-gradient(160deg,#EDF7FC 0%,#FEF0F4 50%,#FAFAF8 100%);}
+</style>
+</head>
+<body>
+<nav class="navbar" id="mainNav">
+  <a href="../index.html" class="navbar-logo">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M371.754459 539.805346c-63.710283-48.000624-110.109971-68.805307-139.204059-62.414048-43.639883 9.588137-102.137756 128.352156-89.884722 141.112195 12.253034 12.760039 44.191844-90.554068 89.88722-97.030244 30.457756-4.318283 74.252488 16.751141 131.366712 63.205775l7.834849-44.873678z" fill="#5AADDB"/><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/></svg>
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="../tools/index.html">Tools</a>
+    <a href="index.html" class="active">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="../guides/index.html">Guides</a>
+    <a href="../tools/index.html">Tools</a>
+    <a href="index.html" class="active">Newsletter</a>
+  <a href="index.html" class="nav-cta">Subscribe Free &#x2192;</a>
+</div>
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="eyebrow">The OutClaw Newsletter</div>
+    <h1>AI intel that <em>hits different.</em> Every Tuesday.</h1>
+    <p class="page-hero-sub">8 minutes of pure signal &mdash; news, model breakdowns, workflows, alpha drops, and X recaps. Free forever.</p>
+  </div>
+</section>
+<div class="page-body">
+
+<div style="max-width:540px;margin-bottom:52px;">
+  <div class="nl-hero-form-beehiiv" style="margin-bottom: 52px; max-width: 560px;">
+    <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+  </div>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:16px;margin-bottom:64px;">
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">12<span style="color:var(--sky);">k+</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Subscribers</div></div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">53<span style="color:var(--sky);">&times;</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Issues</div></div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">48<span style="color:var(--sky);">%</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Open Rate</div></div>
+  <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">4.9<span style="color:var(--sky);">&#9733;</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Rating</div></div>
+</div>
+<div class="section-label">What you get</div>
+<div class="section-heading">Six sections of <em>pure signal</em></div>
+<div class="section-divider"></div>
+<div class="card-grid-3" style="margin-bottom:64px;">
+  <div class="card"><div class="card-icon-wrap" style="background:var(--sky-pale);"><img src="../outclaw-icons/News.svg" width="24" height="24" alt="News"></div><div class="card-title">News Rundown</div><div class="card-desc">The week&apos;s biggest releases and model updates, filtered for what actually matters to builders.</div></div>
+  <div class="card"><div class="card-icon-wrap" style="background:var(--flamingo-pale);"><img src="../outclaw-icons/Releases.svg" width="24" height="24" alt="Releases"></div><div class="card-title">Releases</div><div class="card-desc">New models broken down without the hype. What changed, what it means, when to switch.</div></div>
+  <div class="card"><div class="card-icon-wrap" style="background:var(--sand);"><img src="../outclaw-icons/Guides.svg" width="24" height="24" alt="Guides"></div><div class="card-title">How-To Guides</div><div class="card-desc">Step-by-step walkthroughs for getting max value from Claude, GPT, Gemini, and friends.</div></div>
+  <div class="card"><div class="card-icon-wrap" style="background:var(--leaf-pale);"><img src="../outclaw-icons/Workflows.svg" width="24" height="24" alt="Workflows"></div><div class="card-title">Workflows</div><div class="card-desc">Real-world AI workflows from practitioners. Prompts, chains, MCP setups you can ship today.</div></div>
+  <div class="card"><div class="card-icon-wrap" style="background:var(--coral-pale);"><img src="../outclaw-icons/Alpha-Gems.svg" width="24" height="24" alt="Alpha Drops"></div><div class="card-title">Alpha Drops</div><div class="card-desc">Hidden gems, underrated prompts, and techniques buried in X threads that most people miss.</div></div>
+  <div class="card"><div class="card-icon-wrap" style="background:var(--sky-pale);"><img src="../outclaw-icons/SocialMediaRecaps.svg" width="24" height="24" alt="Recaps"></div><div class="card-title">X &amp; Blog Recaps</div><div class="card-desc">The best AI content from researchers and practitioners &mdash; curated so you don&apos;t have to doomscroll.</div></div>
+</div>
+<div class="section-label">Archive</div>
+<div class="section-heading">Recent <em>issues</em></div>
+<div class="section-divider"></div>
+<div class="archive-list" style="margin-bottom:64px;">
+  <a href="#" class="archive-item"><div class="archive-num">#53</div><div class="archive-info"><div class="archive-title">Anthropic vs. Pentagon, GPT-5.4 drops, and Apple rebuilds Siri on Gemini</div><div class="archive-meta">March 11, 2026 &middot; 8 min read</div></div><div class="archive-badge"><div class="card-badge badge-sky">Latest</div></div></a>
+  <a href="#" class="archive-item"><div class="archive-num">#52</div><div class="archive-info"><div class="archive-title">MiniMax M2.5, DeepSeek V4 breakdown, and the Anthropic Institute launch</div><div class="archive-meta">March 4, 2026 &middot; 7 min read</div></div></a>
+  <a href="#" class="archive-item"><div class="archive-num">#51</div><div class="archive-info"><div class="archive-title">Claude Sonnet 4.6 deep dive, chain-of-density prompting, and Yann LeCun&apos;s $1B bet</div><div class="archive-meta">Feb 25, 2026 &middot; 9 min read</div></div></a>
+  <a href="#" class="archive-item"><div class="archive-num">#50</div><div class="archive-info"><div class="archive-title">OpenAI acquires Promptfoo, o3-mini pricing changes, and Humanity&apos;s Last Exam results</div><div class="archive-meta">Feb 18, 2026 &middot; 8 min read</div></div></a>
+  <a href="#" class="archive-item"><div class="archive-num">#49</div><div class="archive-info"><div class="archive-title">Gemini 2.5 Pro vs Claude: a real benchmark, the MCP ecosystem update, and 5 alpha prompts</div><div class="archive-meta">Feb 11, 2026 &middot; 7 min read</div></div></a>
+  <a href="https://outclaw.xyz/newsletter/archive" class="archive-item" style="justify-content:center;color:var(--sky);font-weight:600;font-size:14px;border-bottom:none;">View full archive &#x2192;</a>
+</div>
+</div>
+<footer class="site-footer">
+  <div class="footer-brand">
+    <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Content</h4>
+    <a href="https://outclaw.xyz/articles">Articles</a>
+    <a href="https://outclaw.xyz/guides">Guides</a>
+    <a href="https://outclaw.xyz/tools">Tools</a>
+    <a href="https://outclaw.xyz/newsletter">Newsletter</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="https://outclaw.xyz/about">About</a>
+    <a href="mailto:zach@outclaw.xyz">Contact</a>
+    <a href="https://outclaw.xyz/privacy">Privacy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <a href="https://twitter.com">&#x1D54F; Twitter</a>
+    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
+    <a href="https://outclaw.xyz/newsletter">Subscribe</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>&#169; 2026 OutClaw AI &middot; outclaw.xyz</p>
+  <p>The newsletter with actual claws &#x1F9A9;</p>
+</div>
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+});
+function handleSubscribe(inputId,btnId){
+  var input=document.getElementById(inputId),btn=document.getElementById(btnId);
+  var email=input.value.trim();
+  if(!email||!email.includes("@")){input.style.outline="2px solid #F4678A";input.focus();setTimeout(function(){input.style.outline="";},2000);return;}
+  btn.textContent="You are in!";btn.style.background="linear-gradient(135deg,#4A9E7A,#6BBF9A)";btn.disabled=true;input.disabled=true;
+}
+</script>
+</body>
+</html>
