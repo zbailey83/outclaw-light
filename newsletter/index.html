@@ -110,7 +110,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
   padding:0 48px;
 }
 .navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.navbar-logo svg{width:32px;height:32px;}
+.navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
+.navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
 .navbar-wordmark{font-family:var(--font-display);font-size:22px;color:var(--text);}
 .navbar-wordmark em{font-style:normal;color:var(--sky);}
 .navbar-links{display:flex;align-items:center;gap:4px;}
@@ -272,7 +273,8 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 /* ─── FOOTER ────────────────────────────── */
 footer{background:var(--bg);padding:80px 48px 40px;border-top:1px solid var(--border);text-align:center;}
 .footer-logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:32px;}
-.footer-logo svg{width:36px;height:36px;}
+.footer-logo-img{width:36px;height:36px;object-fit:contain;filter:grayscale(1) opacity(0.5);transition:all 0.3s ease;}
+.footer-logo:hover .footer-logo-img{filter:grayscale(0) opacity(1);transform:scale(1.1);}
 .footer-wordmark{font-family:var(--font-display);font-size:24px;color:var(--text);}
 .footer-wordmark em{font-style:normal;color:var(--sky);}
 .footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:32px;}
@@ -297,7 +299,7 @@ footer{background:var(--bg);padding:80px 48px 40px;border-top:1px solid var(--bo
 
 <nav class="navbar" id="mainNav">
   <a href="../index.html" class="navbar-logo" aria-label="OutClaw AI Home">
-    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/></svg>
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
     <div class="navbar-wordmark">Out<em>claw</em> AI</div>
   </a>
   <div class="navbar-links">
@@ -483,7 +485,7 @@ footer{background:var(--bg);padding:80px 48px 40px;border-top:1px solid var(--bo
 
 <footer>
   <a href="../index.html" class="footer-logo">
-    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"><path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB" /></svg>
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="footer-logo-img">
     <div class="footer-wordmark">Out<em>claw</em> AI</div>
   </a>
   <div class="footer-links">
