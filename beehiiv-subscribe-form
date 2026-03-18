@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>beehiiv Subscribe – Outclaw Embed</title>
+
+  <!-- ═══════════════════════════════════════════════
+       🔧 CONFIGURATION — edit these two values only
+       ═══════════════════════════════════════════════ -->
+  <script>
+    const BEEHIIV_API_KEY     = "YOUR_BEEHIIV_API_KEY";       // beehiiv → Settings → API
+    const BEEHIIV_PUB_ID      = "pub_d2d894cb-7763-4399-8a6e-096904a48845";
+    const UTM_SOURCE          = "outclaw_website";            // optional: tracks where subscribers came from
+  </script>
+
+  <style>
+    /* ── Design tokens ────────────────────────────── */
+    :root {
+      --bg:           #0b0c0e;
+      --surface:      #131417;
+      --border:       rgba(255,255,255,.08);
+      --border-hover: rgba(255,255,255,.18);
+      --accent:       #e8ff47;         /* Outclaw yellow-green */
+      --accent-dim:   rgba(232,255,71,.12);
+      --text:         #f0f0f0;
+      --muted:        #888;
+      --danger:       #ff5f5f;
+      --radius:       12px;
+      --transition:   .2s cubic-bezier(.4,0,.2,1);
+      font-family: 'DM Mono', 'Fira Code', 'Courier New', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* ── Card shell ───────────────────────────────── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* subtle glow blob behind card */
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -60px;
+      background: radial-gradient(circle at 50% 0%, rgba(232,255,71,.07) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* ── Label / eyebrow ──────────────────────────── */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .45rem;
+      font-size: .7rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+    }
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: .4; transform: scale(.6); }
+    }
+
+    /* ── Headline ─────────────────────────────────── */
+    h2 {
+      font-size: clamp(1.35rem, 4vw, 1.75rem);
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: .6rem;
+      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    }
+    h2 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+
+    .sub-copy {
+      font-size: .83rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.8rem;
+      font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+    }
+
+    /* ── Input row ────────────────────────────────── */
+    .input-row {
+      display: flex;
+      gap: .6rem;
+      align-items: stretch;
+    }
+
+    input[type="email"] {
+      flex: 1;
+      background: rgba(255,255,255,.04);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: .85rem;
+      padding: .75rem 1rem;
+      outline: none;
+      transition: border-color var(--transition), background var(--transition);
+    }
+    input[type="email"]::placeholder { color: var(--muted); }
+    input[type="email"]:focus {
+      border-color: var(--border-hover);
+      background: rgba(255,255,255,.07);
+    }
+    input[type="email"]:focus-visible {
+      box-shadow: 0 0 0 2px var(--accent-dim);
+    }
+
+    /* ── CTA button ───────────────────────────────── */
+    .btn {
+      background: var(--accent);
+      color: #0b0c0e;
+      border: none;
+      border-radius: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: .8rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: .75rem 1.3rem;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: transform var(--transition), opacity var(--transition), box-shadow var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn:hover:not(:disabled) {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(232,255,71,.25);
+    }
+    .btn:active:not(:disabled) { transform: translateY(0); }
+    .btn:disabled { opacity: .5; cursor: not-allowed; }
+
+    /* spinner inside button */
+    .btn .spinner {
+      display: none;
+      width: 14px; height: 14px;
+      border: 2px solid rgba(0,0,0,.2);
+      border-top-color: #0b0c0e;
+      border-radius: 50%;
+      animation: spin .6s linear infinite;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .btn.loading .label  { display: none; }
+    .btn.loading .spinner { display: inline-block; }
+
+    /* ── Status messages ──────────────────────────── */
+    .status {
+      margin-top: 1rem;
+      font-size: .78rem;
+      font-family: 'Space Grotesk', sans-serif;
+      min-height: 1.2em;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      opacity: 0;
+      transform: translateY(4px);
+      transition: opacity .25s ease, transform .25s ease;
+    }
+    .status.visible { opacity: 1; transform: translateY(0); }
+    .status.success { color: var(--accent); }
+    .status.error   { color: var(--danger); }
+    .status-icon    { font-size: 1em; line-height: 1; }
+
+    /* ── Social proof ─────────────────────────────── */
+    .proof {
+      margin-top: 1.6rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: .8rem;
+      font-size: .73rem;
+      color: var(--muted);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .avatars { display: flex; }
+    .avatars span {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      border: 2px solid var(--surface);
+      background: linear-gradient(135deg, #555, #222);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .6rem;
+      color: #aaa;
+      margin-left: -8px;
+      font-family: 'DM Mono', monospace;
+    }
+    .avatars span:first-child { margin-left: 0; }
+
+    /* ── Responsive ───────────────────────────────── */
+    @media (max-width: 380px) {
+      .input-row { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+
+  <!-- Optional: nicer fonts via Google Fonts CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════
+     DROP THIS CARD ANYWHERE ON YOUR OUTCLAW SITE
+     ═══════════════════════════════════════════════════ -->
+<div class="card" role="region" aria-label="Newsletter sign-up">
+
+  <span class="eyebrow">Free newsletter</span>
+
+  <h2>AI tools that <em>actually work</em>.</h2>
+  <p class="sub-copy">
+    Weekly breakdowns of the best AI tools, prompts &amp; workflows —
+    straight to your inbox. No fluff.
+  </p>
+
+  <div class="input-row">
+    <input
+      type="email"
+      id="bh-email"
+      placeholder="you@example.com"
+      autocomplete="email"
+      aria-label="Email address"
+    />
+    <button class="btn" id="bh-btn" type="button" aria-label="Subscribe">
+      <span class="label">Subscribe</span>
+      <span class="spinner" aria-hidden="true"></span>
+    </button>
+  </div>
+
+  <div class="status" id="bh-status" role="status" aria-live="polite">
+    <span class="status-icon" aria-hidden="true"></span>
+    <span class="status-msg"></span>
+  </div>
+
+  <div class="proof">
+    <div class="avatars" aria-hidden="true">
+      <span>AB</span><span>CJ</span><span>MK</span><span>RL</span>
+    </div>
+    <span>Join 1,000+ readers already subscribed</span>
+  </div>
+
+</div>
+
+<!-- ═══════════════════════════════════
+     JAVASCRIPT — beehiiv API subscribe
+     ═══════════════════════════════════ -->
+<script>
+  const emailInput = document.getElementById('bh-email');
+  const btn        = document.getElementById('bh-btn');
+  const statusEl   = document.getElementById('bh-status');
+
+  function showStatus(type, icon, msg) {
+    statusEl.className = `status ${type} visible`;
+    statusEl.querySelector('.status-icon').textContent = icon;
+    statusEl.querySelector('.status-msg').textContent  = msg;
+  }
+
+  function isValidEmail(v) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v.trim());
+  }
+
+  async function subscribe() {
+    const email = emailInput.value.trim();
+
+    if (!email)            return showStatus('error', '⚠️', 'Please enter your email address.');
+    if (!isValidEmail(email)) return showStatus('error', '⚠️', 'Please enter a valid email address.');
+
+    // ── loading state ──
+    btn.disabled = true;
+    btn.classList.add('loading');
+    statusEl.className = 'status';
+
+    try {
+      const res = await fetch(
+        `https://api.beehiiv.com/v2/publications/${BEEHIIV_PUB_ID}/subscriptions`,
+        {
+          method:  'POST',
+          headers: {
+            'Content-Type':  'application/json',
+            'Authorization': `Bearer ${BEEHIIV_API_KEY}`,
+          },
+          body: JSON.stringify({
+            email,
+            reactivate_existing: true,
+            send_welcome_email:  true,
+            utm_source: UTM_SOURCE,
+            utm_medium: 'website',
+          }),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        // ✅ success
+        emailInput.value = '';
+        btn.textContent  = '✓ Subscribed';
+        btn.style.background = '#2dffb0';
+        showStatus('success', '🎉', 'You\'re in! Check your inbox to confirm.');
+      } else {
+        // API returned an error (e.g. invalid pub ID)
+        const msg = data?.message || 'Something went wrong. Please try again.';
+        showStatus('error', '✕', msg);
+        btn.disabled = false;
+        btn.classList.remove('loading');
+      }
+
+    } catch (err) {
+      // Network / CORS error — see note below
+      showStatus('error', '✕', 'Could not connect. Check your API key & publication ID.');
+      console.error('[beehiiv embed]', err);
+      btn.disabled = false;
+      btn.classList.remove('loading');
+    }
+  }
+
+  btn.addEventListener('click', subscribe);
+  emailInput.addEventListener('keydown', e => { if (e.key === 'Enter') subscribe(); });
+</script>
+
+<!--
+════════════════════════════════════════════════════════════
+  ⚠️  IMPORTANT: CORS & API KEY SECURITY
+════════════════════════════════════════════════════════════
+
+  Calling beehiiv's API directly from the browser exposes
+  your API key to anyone who views page source.
+
+  FOR PRODUCTION use a thin serverless proxy:
+
+  Option A — Next.js API route  (app/api/subscribe/route.ts)
+  ──────────────────────────────────────────────────────────
+  export async function POST(req) {
+    const { email } = await req.json();
+    const res = await fetch(
+      `https://api.beehiiv.com/v2/publications/${process.env.BEEHIIV_PUB_ID}/subscriptions`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${process.env.BEEHIIV_API_KEY}`,
+        },
+        body: JSON.stringify({ email, reactivate_existing: true, send_welcome_email: true }),
+      }
+    );
+    return Response.json(await res.json(), { status: res.status });
+  }
+
+  Then change the fetch URL in the JS above to:
+    '/api/subscribe'
+  … and move the Authorization header server-side.
+
+  Option B — Vercel Edge Function / Cloudflare Worker
+  ──────────────────────────────────────────────────────
+  Same pattern — proxy the request with env vars.
+
+════════════════════════════════════════════════════════════
+-->
+</body>
+</html>
