@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automate Your Entire Content Workflow With AI in One Afternoon — n8n + Claude Guide</title>
+  <meta name="description" content="Build a full n8n + Claude automation that handles content ideation, drafting, SEO optimization, and scheduling — triggered by one click. Step-by-step guide with workflow JSON included.">
+  <meta name="keywords" content="n8n Claude automation, AI content workflow, n8n content pipeline, Claude content automation, AI writing workflow, n8n tutorial 2026, automate content creation, Claude API n8n, AI SEO automation">
+  <link rel="canonical" href="https://openclaw.xyz/guides/automate-content-workflow-n8n-claude/">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://openclaw.xyz/guides/automate-content-workflow-n8n-claude/">
+  <meta property="og:title" content="Automate Your Entire Content Workflow With AI in One Afternoon">
+  <meta property="og:description" content="A full n8n + Claude automation: ideation → draft → SEO → schedule. One trigger. Zero manual steps.">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automate Your Content Workflow With n8n + Claude — Full Guide">
+  <meta name="twitter:description" content="Brief to publish in one trigger. n8n + Claude handles ideation, drafting, SEO, and scheduling automatically.">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Automate Your Entire Content Workflow With AI in One Afternoon",
+    "description": "Build a full n8n + Claude automation pipeline covering content ideation, drafting, SEO optimization, and publishing — triggered by a single webhook.",
+    "author": { "@type": "Organization", "name": "OutClaw AI", "url": "https://outclaw.xyz" },
+    "publisher": { "@type": "Organization", "name": "OutClaw AI" },
+    "datePublished": "2026-03-17",
+    "dateModified": "2026-03-17",
+    "url": "https://openclaw.xyz/guides/automate-content-workflow-n8n-claude/",
+    "inLanguage": "en-US",
+    "keywords": ["n8n", "Claude API", "content automation", "AI workflow", "SEO automation", "content pipeline"]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sky: #5AADDB;
+      --sky-light: #B8DFF0;
+      --sky-pale: #EDF7FC;
+      --flamingo: #F4678A;
+      --flamingo-light: #FBB8CB;
+      --flamingo-pale: #FEF0F4;
+      --coral: #FF7E5A;
+      --coral-pale: #FFF0EB;
+      --sand: #F5EDD8;
+      --sand-dark: #E8D9B8;
+      --leaf: #4A9E7A;
+      --leaf-pale: #E8F5EF;
+      --violet: #7C6FCD;
+      --violet-pale: #F0EEFF;
+      --amber: #F59E0B;
+      --amber-pale: #FFFBEB;
+      --deep-navy: #1A1A2E;
+      --navy-mid: #2F2F52;
+      --navy-code: #0F1117;
+      --text: #1A1A2E;
+      --text-mid: #4A4A6E;
+      --text-soft: #7A7A9E;
+      --text-dim: #ADADC8;
+      --white: #FFFFFF;
+      --bg: #FAFAF8;
+      --border: #E8E8F2;
+      --border-soft: #F0F0F8;
+
+      --font-display: 'DM Serif Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+      --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+      --grad-sky: linear-gradient(135deg, #5AADDB 0%, #FF9BB5 50%, #FFB8CB 100%);
+      --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #7EC5E8 100%);
+      --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+      --grad-leaf: linear-gradient(135deg, #4A9E7A 0%, #6BBF9A 100%);
+      --grad-hero: linear-gradient(160deg, #EDF7FC 0%, #FEF0F4 50%, #FAFAF8 100%);
+      --grad-violet: linear-gradient(135deg, #7C6FCD 0%, #5AADDB 100%);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; line-height: 1.65; overflow-x: hidden; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+    @keyframes cardReveal { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+    @keyframes floatBird { 0%,100%{transform:translateY(0) rotate(-1deg)} 50%{transform:translateY(-12px) rotate(1deg)} }
+    @keyframes copyPop { 0%{transform:scale(1)} 50%{transform:scale(1.12)} 100%{transform:scale(1)} }
+    @keyframes flowPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(90,173,219,0); }
+      50% { box-shadow: 0 0 0 8px rgba(90,173,219,.15); }
+    }
+
+    /* ── UTILS ── */
+    .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
+    .article-wrap { max-width: 860px; margin: 0 auto; padding: 0 48px; }
+    @media(max-width:640px) { .article-wrap{padding:0 20px;} .container{padding:0 20px;} }
+
+    /* ── NAVBAR ── */
+    .navbar { position:sticky; top:0; z-index:200; height:64px; background:rgba(255,255,255,.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+    .navbar-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .navbar-logo-img { width: 32px; height: 32px; object-fit: contain; transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), filter .3s ease; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2)); }
+    .navbar-logo:hover .navbar-logo-img { transform: scale(1.15) rotate(-5deg); filter: drop-shadow(0 4px 16px rgba(244, 103, 138, .5)); }
+    .navbar-wordmark { font-family:var(--font-display); font-size:22px; color:var(--text); }
+    .navbar-wordmark em { font-style:normal; color:var(--sky); }
+    .navbar-links { display:flex; align-items:center; gap:4px; }
+    .navbar-links a { font-size:14px; font-weight:500; color:var(--text-soft); text-decoration:none; padding:8px 16px; border-radius:8px; transition:all .15s; }
+    .navbar-links a:hover { color:var(--text); background:var(--sky-pale); }
+    .navbar-links a.active { color:var(--sky); background:var(--sky-pale); font-weight:600; }
+    .navbar-right { display:flex; align-items:center; gap:12px; }
+    .nav-cta { display:inline-flex; align-items:center; gap:6px; padding:9px 20px; background:var(--grad-flamingo); color:#fff!important; font-size:13px; font-weight:600; border-radius:100px; text-decoration:none; box-shadow:0 2px 12px rgba(90,173,219,.3); transition:all .2s; white-space:nowrap; }
+    .nav-cta:hover { transform:translateY(-1px); box-shadow:0 4px 20px rgba(90,173,219,.45); }
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; border:none; background:transparent; }
+    .nav-hamburger span { display:block; width:20px; height:2px; background:var(--text-soft); border-radius:2px; }
+    .nav-drawer { display:none; position:fixed; top:64px; left:0; right:0; background:rgba(255,255,255,.97); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:16px 24px 24px; z-index:199; flex-direction:column; gap:4px; }
+    .nav-drawer.open { display:flex; }
+    .nav-drawer a { font-size:15px; font-weight:500; color:var(--text-soft); text-decoration:none; padding:12px 16px; border-radius:12px; transition:all .15s; }
+    .nav-drawer a:hover { color:var(--sky); background:var(--sky-pale); }
+    @media(max-width:860px) { .navbar{padding:0 24px;} .navbar-links{display:none;} .nav-hamburger{display:flex;} .navbar-right .nav-cta{display:none;} }
+
+    /* ── TICKER ── */
+    .ticker { background:var(--deep-navy); padding:12px 0; overflow:hidden; border-top:1px solid rgba(90,173,219,.15); border-bottom:1px solid rgba(90,173,219,.15); }
+    .ticker-track { display:flex; animation:ticker 50s linear infinite; width:max-content; }
+    .ticker-item { display:flex; align-items:center; padding:0 24px; font-size:13px; font-weight:500; color:rgba(255,255,255,.5); white-space:nowrap; }
+    .ticker-item .hi { color:var(--sky-light); font-weight:600; }
+    .ticker-sep { color:var(--sky); margin:0 12px; }
+
+    /* ── HERO ── */
+    .hero { position:relative; overflow:hidden; background:var(--grad-hero); padding:88px 0 76px; }
+    .hero::before { content:''; position:absolute; top:-120px; right:-80px; width:700px; height:700px; background:radial-gradient(ellipse,rgba(90,173,219,.12) 0%,transparent 65%); pointer-events:none; }
+    .hero::after { content:''; position:absolute; bottom:-100px; left:-100px; width:500px; height:500px; background:radial-gradient(ellipse,rgba(244,103,138,.10) 0%,transparent 65%); pointer-events:none; }
+    .hero-shape { position:absolute; top:8%; right:5%; width:180px; height:180px; background:linear-gradient(135deg,rgba(90,173,219,.07),rgba(255,155,181,.03)); border-radius:60% 40% 70% 30%/50% 60% 40% 50%; animation:floatBird 7s ease-in-out infinite; }
+    .hero-shape-2 { position:absolute; bottom:12%; left:2%; width:110px; height:110px; background:linear-gradient(135deg,rgba(74,158,122,.06),rgba(90,173,219,.03)); border-radius:40% 60% 30% 70%/60% 40% 60% 40%; animation:floatBird 9s ease-in-out infinite 1.5s; }
+    .hero-inner { position:relative; z-index:2; max-width:860px; margin:0 auto; padding:0 48px; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(90,173,219,.08); border:1px solid rgba(90,173,219,.2); padding:7px 16px; border-radius:100px; margin-bottom:28px; font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--sky); animation:fadeInDown .6s ease both; }
+    .hero-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--sky); animation:pulse 2s infinite; }
+    .hero-headline { font-family:var(--font-display); font-size:62px; font-weight:400; line-height:1.02; letter-spacing:-0.025em; color:var(--text); margin-bottom:20px; animation:fadeInUp .7s ease .1s both; }
+    .hero-headline em { font-style:italic; color:var(--sky); }
+    .hero-headline .fl { font-style:italic; color:var(--flamingo); }
+    .hero-meta { display:flex; align-items:center; gap:20px; flex-wrap:wrap; animation:fadeInUp .7s ease .2s both; margin-bottom:24px; }
+    .hero-meta-item { display:flex; align-items:center; gap:7px; font-size:13px; color:var(--text-soft); font-weight:500; }
+    .hero-meta-dot { width:3px; height:3px; border-radius:50%; background:var(--text-dim); }
+    .hero-sub { font-size:17px; color:var(--text-soft); line-height:1.78; max-width:640px; animation:fadeInUp .7s ease .3s both; margin-bottom:36px; }
+    .hero-tags { display:flex; flex-wrap:wrap; gap:10px; animation:fadeInUp .7s ease .4s both; }
+    .hero-tag { padding:6px 16px; border-radius:100px; border:1.5px solid var(--border); font-size:12px; font-weight:600; color:var(--text-mid); background:var(--white); letter-spacing:.03em; }
+    @media(max-width:768px) { .hero-headline{font-size:38px;} .hero-inner{padding:0 24px;} }
+
+    /* ── WHAT YOU'LL BUILD STRIP ── */
+    .build-strip { background:var(--deep-navy); padding:0; }
+    .build-strip-inner { max-width:860px; margin:0 auto; padding:36px 48px; display:grid; grid-template-columns:repeat(4,1fr); gap:0; }
+    .build-item { padding:0 24px; border-right:1px solid rgba(255,255,255,.08); display:flex; flex-direction:column; gap:6px; }
+    .build-item:first-child { padding-left:0; }
+    .build-item:last-child { border-right:none; }
+    .build-num { font-family:var(--font-display); font-size:32px; color:var(--sky-light); font-weight:400; line-height:1; }
+    .build-label { font-size:12px; color:rgba(255,255,255,.4); font-weight:500; text-transform:uppercase; letter-spacing:.06em; }
+    .build-desc { font-size:13px; color:rgba(255,255,255,.55); line-height:1.5; margin-top:2px; }
+    @media(max-width:700px) { .build-strip-inner{grid-template-columns:1fr 1fr; gap:24px; padding:28px 20px;} .build-item{padding:0; border-right:none;} }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb-wrap { background:var(--white); padding:0 48px; border-bottom:1px solid var(--border-soft); }
+    .breadcrumb { padding:14px 0; max-width:860px; margin:0 auto; font-size:13px; color:var(--text-dim); }
+    .breadcrumb a { color:var(--text-soft); text-decoration:none; }
+    .breadcrumb a:hover { color:var(--sky); }
+    .breadcrumb span { margin:0 8px; }
+    @media(max-width:640px) { .breadcrumb-wrap{padding:0 20px;} }
+
+    /* ── TOC ── */
+    .toc-section { background:var(--white); padding:52px 0 48px; }
+    .toc-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:24px; }
+    .toc-card { display:flex; align-items:center; gap:16px; padding:15px 20px; border:1px solid var(--border); border-radius:14px; text-decoration:none; color:var(--text); background:var(--white); transition:all .2s; }
+    .toc-card:hover { border-color:var(--sky-light); background:var(--sky-pale); transform:translateX(3px); }
+    .toc-num { font-family:var(--font-display); font-size:19px; color:var(--sky); min-width:26px; font-weight:400; }
+    .toc-label { font-size:14px; font-weight:500; color:var(--text-mid); line-height:1.4; }
+    @media(max-width:640px) { .toc-grid{grid-template-columns:1fr;} }
+
+    /* ── SECTION STRUCTURE ── */
+    .guide-section { padding:72px 0 0; }
+    .guide-section:last-of-type { padding-bottom:80px; }
+    .section-divider { height:1px; background:var(--border); margin:64px 0 0; }
+    .eyebrow { display:inline-flex; align-items:center; gap:10px; font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--sky); }
+    .eyebrow::before { content:''; display:block; width:28px; height:2px; background:var(--sky); border-radius:2px; flex-shrink:0; }
+    .eyebrow-leaf { color:var(--leaf); }
+    .eyebrow-leaf::before { background:var(--leaf); }
+    .eyebrow-flamingo { color:var(--flamingo); }
+    .eyebrow-flamingo::before { background:var(--flamingo); }
+    .eyebrow-violet { color:var(--violet); }
+    .eyebrow-violet::before { background:var(--violet); }
+    .eyebrow-amber { color:var(--amber); }
+    .eyebrow-amber::before { background:var(--amber); }
+    .section-heading { font-family:var(--font-display); font-size:38px; font-weight:400; line-height:1.1; letter-spacing:-0.02em; color:var(--text); margin:14px 0 18px; }
+    .section-heading em { font-style:italic; color:var(--sky); }
+    .section-heading .fl { font-style:italic; color:var(--flamingo); }
+    .section-heading .lf { font-style:italic; color:var(--leaf); }
+    .guide-body { font-size:16px; color:var(--text-soft); line-height:1.82; margin-bottom:28px; }
+    .guide-body strong { color:var(--text); font-weight:600; }
+    .guide-body a { color:var(--sky); text-decoration:underline; text-underline-offset:3px; }
+    .guide-body a:hover { color:var(--flamingo); }
+
+    /* ── WORKFLOW DIAGRAM ── */
+    .workflow-diagram {
+      background:var(--white); border:1.5px solid var(--border); border-radius:24px;
+      padding:40px 32px; margin:32px 0;
+      box-shadow:0 4px 24px rgba(26,26,46,.05);
+      overflow-x:auto;
+    }
+    .flow-row { display:flex; align-items:center; gap:0; justify-content:center; flex-wrap:nowrap; min-width:600px; }
+    .flow-node {
+      display:flex; flex-direction:column; align-items:center; gap:8px;
+      min-width:100px; flex-shrink:0;
+    }
+    .flow-icon {
+      width:56px; height:56px; border-radius:16px;
+      display:flex; align-items:center; justify-content:center; font-size:24px;
+      border:2px solid transparent; transition:all .25s; cursor:default;
+      position:relative;
+    }
+    .flow-icon:hover { transform:translateY(-3px); animation:flowPulse .8s ease; }
+    .fi-sky { background:var(--sky-pale); border-color:rgba(90,173,219,.3); }
+    .fi-flamingo { background:var(--flamingo-pale); border-color:rgba(244,103,138,.3); }
+    .fi-leaf { background:var(--leaf-pale); border-color:rgba(74,158,122,.3); }
+    .fi-violet { background:var(--violet-pale); border-color:rgba(124,111,205,.3); }
+    .fi-coral { background:var(--coral-pale); border-color:rgba(255,126,90,.3); }
+    .fi-sand { background:var(--sand); border-color:rgba(232,217,184,.8); }
+    .fi-amber { background:var(--amber-pale); border-color:rgba(245,158,11,.3); }
+    .flow-label { font-size:11px; font-weight:600; color:var(--text-mid); text-align:center; letter-spacing:.03em; line-height:1.3; max-width:84px; }
+    .flow-sub { font-size:10px; color:var(--text-dim); text-align:center; max-width:84px; line-height:1.3; }
+    .flow-arrow { color:var(--text-dim); font-size:18px; padding:0 6px; flex-shrink:0; margin-top:-20px; }
+    .flow-badge {
+      position:absolute; top:-8px; right:-8px; background:var(--grad-flamingo);
+      color:#fff; font-size:9px; font-weight:700; padding:2px 6px; border-radius:100px;
+      letter-spacing:.04em; text-transform:uppercase;
+    }
+
+    /* Phase labels above flow */
+    .flow-phases { display:flex; justify-content:center; gap:0; margin-bottom:24px; min-width:600px; }
+    .flow-phase { display:flex; flex-direction:column; align-items:center; }
+    .phase-bar { height:4px; border-radius:2px; margin-bottom:8px; }
+    .phase-label { font-size:10px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); }
+    .ph-sky { background:var(--sky); }
+    .ph-flamingo { background:var(--flamingo); }
+    .ph-leaf { background:var(--leaf); }
+    .ph-violet { background:var(--violet); }
+
+    /* ── CODE BLOCKS ── */
+    .code-block { background:var(--navy-code); border-radius:16px; overflow:hidden; margin:24px 0; box-shadow:0 4px 24px rgba(26,26,46,.12); }
+    .code-block-header { display:flex; align-items:center; justify-content:space-between; padding:12px 20px; background:var(--navy-mid); border-bottom:1px solid rgba(90,173,219,.1); }
+    .code-block-label { font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--sky-light); }
+    .code-block-dots { display:flex; gap:6px; }
+    .code-block-dot { width:10px; height:10px; border-radius:50%; }
+    .dot-red{background:#FF5F57;} .dot-yellow{background:#FEBC2E;} .dot-green{background:#28C840;}
+    .code-block pre { padding:24px 26px; overflow-x:auto; font-family:var(--font-mono); font-size:13px; line-height:1.75; color:rgba(255,255,255,.82); }
+    .code-block pre .c { color:rgba(255,255,255,.28); }
+    .code-block pre .k { color:#c4b5fd; }
+    .code-block pre .s { color:#a7f3d0; }
+    .code-block pre .n { color:#fde68a; }
+    .code-block pre .p { color:#7dd3fc; }
+    .code-block pre .v { color:#fdba74; }
+    .copy-btn { display:inline-flex; align-items:center; gap:6px; padding:6px 14px; background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:100px; font-size:11px; font-weight:600; color:rgba(255,255,255,.5); cursor:pointer; transition:all .2s; font-family:var(--font-body); white-space:nowrap; }
+    .copy-btn:hover { background:rgba(255,255,255,.14); color:rgba(255,255,255,.8); border-color:rgba(255,255,255,.25); }
+    .copy-btn.copied { background:rgba(74,158,122,.2); color:#6ee7b7; border-color:rgba(74,158,122,.4); animation:copyPop .3s ease; }
+
+    /* ── STEP CARDS ── */
+    .steps-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:32px 0; }
+    .step-card { background:var(--white); border:1.5px solid var(--border); border-radius:20px; padding:28px 24px; transition:all .25s; box-shadow:0 1px 4px rgba(26,26,46,.03); }
+    .step-card:hover { border-color:var(--sky-light); box-shadow:0 8px 32px rgba(90,173,219,.12); transform:translateY(-2px); }
+    .step-num-wrap { width:44px; height:44px; border-radius:12px; background:var(--sky-pale); display:flex; align-items:center; justify-content:center; margin-bottom:16px; }
+    .step-num { font-family:var(--font-display); font-size:20px; color:var(--sky); font-weight:400; }
+    .step-title-text { font-family:var(--font-display); font-size:18px; color:var(--text); margin-bottom:8px; font-weight:400; }
+    .step-desc-text { font-size:13px; color:var(--text-soft); line-height:1.7; }
+    @media(max-width:640px) { .steps-grid{grid-template-columns:1fr;} }
+
+    /* ── CALLOUTS ── */
+    .callout { display:flex; gap:16px; align-items:flex-start; padding:18px 22px; border-radius:16px; margin:24px 0; }
+    .callout-info { background:var(--sky-pale); border:1px solid rgba(90,173,219,.25); }
+    .callout-warn { background:#FFF9E6; border:1px solid rgba(254,188,46,.3); }
+    .callout-tip  { background:var(--leaf-pale); border:1px solid rgba(74,158,122,.2); }
+    .callout-violet { background:var(--violet-pale); border:1px solid rgba(124,111,205,.2); }
+    .callout-icon { font-size:20px; flex-shrink:0; margin-top:1px; }
+    .callout-text { font-size:14px; color:var(--text-mid); line-height:1.75; }
+    .callout-text strong { color:var(--text); }
+    code.inline { background:var(--sky-pale); color:var(--navy-mid); padding:2px 8px; border-radius:6px; font-size:13px; font-family:var(--font-mono); border:1px solid rgba(90,173,219,.2); }
+
+    /* ── NODE CONFIG CARD ── */
+    .node-config {
+      background:var(--white); border:1.5px solid var(--border); border-radius:20px;
+      overflow:hidden; margin:28px 0; box-shadow:0 2px 8px rgba(26,26,46,.04);
+    }
+    .node-config-header {
+      display:flex; align-items:center; gap:16px; padding:18px 24px;
+      border-bottom:1px solid var(--border);
+    }
+    .node-config-icon { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; flex-shrink:0; }
+    .node-config-title { font-family:var(--font-display); font-size:19px; color:var(--text); font-weight:400; }
+    .node-config-tag { margin-left:auto; padding:4px 13px; border-radius:100px; font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; }
+    .tag-n8n { background:linear-gradient(135deg,#fef3c7,#fde68a); color:#92400e; border:1px solid #fcd34d; }
+    .tag-claude { background:var(--sky-pale); color:#1e40af; border:1px solid #93c5fd; }
+    .tag-http { background:var(--leaf-pale); color:#065f46; border:1px solid #6ee7b7; }
+    .tag-webhook { background:var(--flamingo-pale); color:#9f1239; border:1px solid var(--flamingo-light); }
+    .tag-schedule { background:var(--violet-pale); color:#4c1d95; border:1px solid #c4b5fd; }
+    .node-config-body { padding:24px; }
+    .node-field { display:flex; flex-direction:column; gap:4px; margin-bottom:16px; }
+    .node-field:last-child { margin-bottom:0; }
+    .node-field-label { font-size:11px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--text-dim); }
+    .node-field-value { font-size:14px; color:var(--text-mid); font-family:var(--font-mono); background:var(--bg); padding:10px 14px; border-radius:10px; border:1px solid var(--border); line-height:1.6; }
+    .node-field-value.multiline { white-space:pre-wrap; }
+
+    /* ── PREREQ TABLE ── */
+    .prereq-table { width:100%; border-collapse:collapse; margin:24px 0; font-size:14px; }
+    .prereq-table th { text-align:left; padding:12px 16px; background:var(--sand); color:var(--text-mid); font-weight:600; font-size:12px; letter-spacing:.06em; text-transform:uppercase; border-bottom:2px solid var(--sand-dark); }
+    .prereq-table td { padding:13px 16px; border-bottom:1px solid var(--border-soft); color:var(--text-soft); vertical-align:top; }
+    .prereq-table tr:last-child td { border-bottom:none; }
+    .prereq-table tr:hover td { background:var(--sky-pale); }
+    .prereq-table td strong { color:var(--text); }
+    .prereq-table td code { background:var(--navy-mid); color:#B8DFF0; padding:2px 8px; border-radius:6px; font-size:12px; font-family:var(--font-mono); }
+    .status-dot { width:8px; height:8px; border-radius:50%; display:inline-block; margin-right:6px; }
+    .status-free { background:var(--leaf); }
+    .status-paid { background:var(--amber); }
+
+    /* ── TIME ESTIMATE BADGE ── */
+    .time-badge { display:inline-flex; align-items:center; gap:8px; background:var(--sand); border:1px solid var(--sand-dark); padding:8px 16px; border-radius:100px; font-size:13px; font-weight:600; color:var(--text-mid); margin-bottom:28px; }
+
+    /* ── FEATURE GRID ── */
+    .feature-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin:32px 0; }
+    .feature-card { background:var(--white); border:1px solid var(--border); border-radius:20px; padding:28px 24px; position:relative; overflow:hidden; transition:all .25s; box-shadow:0 1px 4px rgba(26,26,46,.04); }
+    .feature-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:var(--grad-flamingo); opacity:0; transition:opacity .2s; }
+    .feature-card:hover { border-color:rgba(90,173,219,.25); transform:translateY(-3px); box-shadow:0 12px 40px rgba(90,173,219,.10); }
+    .feature-card:hover::before { opacity:1; }
+    .feature-icon { width:52px; height:52px; border-radius:14px; background:var(--sky-pale); display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:24px; }
+    .feature-card:nth-child(2) .feature-icon { background:var(--flamingo-pale); }
+    .feature-card:nth-child(3) .feature-icon { background:var(--leaf-pale); }
+    .feature-card:nth-child(4) .feature-icon { background:var(--sand); }
+    .feature-card:nth-child(5) .feature-icon { background:var(--violet-pale); }
+    .feature-card:nth-child(6) .feature-icon { background:var(--coral-pale); }
+    .feature-title { font-family:var(--font-display); font-size:19px; color:var(--text); margin-bottom:8px; font-weight:400; }
+    .feature-desc { font-size:13.5px; color:var(--text-soft); line-height:1.7; }
+    @media(max-width:640px) { .feature-grid{grid-template-columns:1fr;} }
+
+    /* ── PROGRESS ── */
+    #reading-progress { position:fixed; top:0; left:0; width:0%; height:3px; background:var(--grad-flamingo); z-index:1000; transition:width .1s linear; }
+    #back-top { position:fixed; bottom:28px; right:28px; width:44px; height:44px; background:var(--grad-flamingo); color:#fff; border:none; border-radius:14px; font-size:18px; cursor:pointer; display:none; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(244,103,138,.35); transition:all .2s; z-index:100; }
+    #back-top.visible { display:flex; }
+    #back-top:hover { transform:translateY(-2px); box-shadow:0 8px 28px rgba(244,103,138,.45); }
+
+    /* ── BOTTOM CTA (dark, matching homepage) ── */
+    .bottom-cta { padding:100px 0; text-align:center; background:var(--deep-navy); position:relative; overflow:hidden; }
+    .bottom-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 30% 50%,rgba(90,173,219,.12) 0%,transparent 60%), radial-gradient(ellipse at 70% 50%,rgba(244,103,138,.08) 0%,transparent 60%); pointer-events:none; }
+    .bottom-cta::after { content:'🦩'; position:absolute; font-size:200px; right:5%; bottom:0; opacity:.08; transform:scaleX(-1); pointer-events:none; }
+    .bottom-cta-inner { position:relative; z-index:2; max-width:560px; margin:0 auto; padding:0 40px; }
+    .cta-title { font-family:var(--font-display); font-size:52px; font-weight:400; line-height:1.0; letter-spacing:-0.025em; color:var(--white); margin-bottom:18px; }
+    .cta-title em { font-style:italic; color:var(--sky-light); }
+    .cta-sub { font-size:17px; color:rgba(255,255,255,.5); max-width:440px; margin:0 auto 40px; line-height:1.7; }
+    .cta-btn { display:inline-flex; align-items:center; gap:8px; padding:14px 32px; background:var(--grad-flamingo); color:#fff; font-size:15px; font-weight:600; border-radius:100px; text-decoration:none; box-shadow:0 4px 20px rgba(90,173,219,.35); transition:all .2s; }
+    .cta-btn:hover { transform:translateY(-2px); box-shadow:0 8px 32px rgba(90,173,219,.45); }
+
+    /* ── FOOTER (dark, matching homepage) ── */
+    footer { background:var(--deep-navy); border-top:1px solid rgba(255,255,255,.06); padding:32px 48px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:20px; }
+    .footer-logo { display:flex; align-items:center; gap:10px; text-decoration:none; }
+    .footer-logo svg { width:22px; height:22px; }
+    .footer-wordmark { font-family:var(--font-display); font-size:17px; color:rgba(255,255,255,.4); }
+    .footer-wordmark em { font-style:normal; color:var(--sky); }
+    .footer-links { display:flex; gap:28px; flex-wrap:wrap; }
+    .footer-links a { font-size:12px; color:rgba(255,255,255,.25); text-decoration:none; transition:color .15s; font-weight:500; letter-spacing:.04em; text-transform:uppercase; }
+    .footer-links a:hover { color:rgba(255,255,255,.55); }
+    .footer-copy { font-size:12px; color:rgba(255,255,255,.2); }
+    @media(max-width:640px) { footer{flex-direction:column; padding:28px 20px;} }
+  </style>
+</head>
+<body>
+
+<div id="reading-progress"></div>
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="mainNav">
+  <a href="../index.html" class="navbar-logo">
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="index.html" class="active">Guides</a>
+    <a href="../tools/index.html">Tools</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
+  </div>
+  <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/index.html">About</a>
+  <a href="../articles/index.html">Articles</a>
+  <a href="index.html" class="active">Guides</a>
+  <a href="../tools/index.html">Tools</a>
+  <a href="../newsletter/index.html">Newsletter</a>
+  <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
+</div>
+
+<!-- TICKER -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
+    <div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
+    <div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
+    <div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
+    <div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
+    <div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
+    <div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import & go</div>
+    <div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
+    <div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
+    <div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
+    <div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
+    <div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
+    <div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
+    <div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import & go</div>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-shape"></div>
+  <div class="hero-shape-2"></div>
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      Automation Guide · March 2026
+    </div>
+    <h1 class="hero-headline">Automate your entire<br>content workflow <em>with AI</em><br>in one <span class="fl">afternoon</span></h1>
+    <div class="hero-meta">
+      <div class="hero-meta-item">⏱ 45 min build</div>
+      <div class="hero-meta-dot"></div>
+      <div class="hero-meta-item">🎯 Intermediate</div>
+      <div class="hero-meta-dot"></div>
+      <div class="hero-meta-item">🔧 n8n + Claude Sonnet 4.6</div>
+    </div>
+    <p class="hero-sub">
+      From brief to draft to publish — a full n8n + Claude automation that handles ideation, drafting, SEO optimisation, and scheduling with one trigger. No more copy-pasting between tabs. One workflow, every content type, always consistent.
+    </p>
+    <div class="hero-tags">
+      <span class="hero-tag">n8n Workflow</span>
+      <span class="hero-tag">Claude API</span>
+      <span class="hero-tag">Content Automation</span>
+      <span class="hero-tag">SEO Generation</span>
+      <span class="hero-tag">CMS Publishing</span>
+      <span class="hero-tag">Webhook Trigger</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT YOU'LL BUILD STRIP -->
+<div class="build-strip">
+  <div class="build-strip-inner">
+    <div class="build-item">
+      <div class="build-num">1</div>
+      <div class="build-label">Trigger</div>
+      <div class="build-desc">Webhook receives your content brief</div>
+    </div>
+    <div class="build-item">
+      <div class="build-num">3</div>
+      <div class="build-label">Claude Nodes</div>
+      <div class="build-desc">Ideation, drafting, and SEO in sequence</div>
+    </div>
+    <div class="build-item">
+      <div class="build-num">1</div>
+      <div class="build-label">SEO Pass</div>
+      <div class="build-desc">Meta, keywords & schema auto-written</div>
+    </div>
+    <div class="build-item">
+      <div class="build-num">∞</div>
+      <div class="build-label">CMS Targets</div>
+      <div class="build-desc">WordPress, Ghost, Notion, Webflow & more</div>
+    </div>
+  </div>
+</div>
+
+<div class="breadcrumb-wrap">
+  <nav class="breadcrumb" aria-label="Breadcrumb">
+    <a href="../index.html">OutClaw AI</a><span>›</span>
+    <a href="index.html">Guides</a><span>›</span>
+    Automate Your Content Workflow With AI
+  </nav>
+</div>
+
+<!-- TOC -->
+<div class="toc-section">
+  <div class="article-wrap">
+    <div class="eyebrow">On This Page</div>
+    <h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
+    <div class="toc-grid">
+      <a href="#the-pipeline" class="toc-card"><div class="toc-num">01</div><div class="toc-label">The Full Pipeline — How It Works</div></a>
+      <a href="#prerequisites" class="toc-card"><div class="toc-num">02</div><div class="toc-label">Prerequisites & Stack Setup</div></a>
+      <a href="#trigger-node" class="toc-card"><div class="toc-num">03</div><div class="toc-label">Step 1 — Webhook Trigger Node</div></a>
+      <a href="#ideation-node" class="toc-card"><div class="toc-num">04</div><div class="toc-label">Step 2 — Claude Ideation Node</div></a>
+      <a href="#drafting-node" class="toc-card"><div class="toc-num">05</div><div class="toc-label">Step 3 — Claude Drafting Node</div></a>
+      <a href="#seo-node" class="toc-card"><div class="toc-num">06</div><div class="toc-label">Step 4 — SEO & Meta Generation Node</div></a>
+      <a href="#publish-node" class="toc-card"><div class="toc-num">07</div><div class="toc-label">Step 5 — CMS Publish & Scheduling</div></a>
+      <a href="#full-workflow" class="toc-card"><div class="toc-num">08</div><div class="toc-label">Full Workflow JSON + Customisations</div></a>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<main style="background:var(--bg);">
+<div class="article-wrap">
+
+<!-- ═══════ SECTION 01 ═══════ -->
+<section class="guide-section" id="the-pipeline">
+  <div class="eyebrow">Section 01</div>
+  <h2 class="section-heading">The Full Pipeline — <em>How It Works</em></h2>
+  <p class="guide-body">
+    The workflow chains five nodes in sequence. Each node does one thing well and passes its output to the next. The trigger accepts a JSON brief via webhook. Claude handles all the creative and analytical work across three dedicated nodes. A final HTTP node pushes the finished, SEO-optimised post to your CMS.
+  </p>
+
+  <!-- FLOW DIAGRAM -->
+  <div class="workflow-diagram">
+    <div class="flow-phases">
+      <div class="flow-phase" style="width:120px;">
+        <div class="phase-bar ph-sky" style="width:80px;"></div>
+        <div class="phase-label">Input</div>
+      </div>
+      <div class="flow-phase" style="width:80px;"></div>
+      <div class="flow-phase" style="width:300px;">
+        <div class="phase-bar ph-flamingo" style="width:260px;"></div>
+        <div class="phase-label">Claude Processing</div>
+      </div>
+      <div class="flow-phase" style="width:80px;"></div>
+      <div class="flow-phase" style="width:160px;">
+        <div class="phase-bar ph-leaf" style="width:120px;"></div>
+        <div class="phase-label">Publish</div>
+      </div>
+    </div>
+    <div class="flow-row">
+      <div class="flow-node">
+        <div class="flow-icon fi-sky">🌐</div>
+        <div class="flow-label">Webhook Trigger</div>
+        <div class="flow-sub">Receives brief JSON</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-icon fi-violet" style="position:relative;">
+          🧠
+          <span class="flow-badge">Claude</span>
+        </div>
+        <div class="flow-label">Ideation Node</div>
+        <div class="flow-sub">Angles + outline</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-icon fi-flamingo" style="position:relative;">
+          ✍️
+          <span class="flow-badge">Claude</span>
+        </div>
+        <div class="flow-label">Drafting Node</div>
+        <div class="flow-sub">Full article draft</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-icon fi-amber" style="position:relative;">
+          🔍
+          <span class="flow-badge">Claude</span>
+        </div>
+        <div class="flow-label">SEO Node</div>
+        <div class="flow-sub">Meta + schema</div>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-node">
+        <div class="flow-icon fi-leaf">🚀</div>
+        <div class="flow-label">Publish Node</div>
+        <div class="flow-sub">CMS + schedule</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="guide-body">
+    Each Claude node uses a separate, focused system prompt — ideation, drafting, and SEO are deliberately kept apart so each prompt can be tuned independently. The outputs chain: the ideation node's structured outline becomes the drafting node's input; the draft becomes the SEO node's input. This sequential chaining is what produces consistent, high-quality output rather than asking one prompt to do everything at once.
+  </p>
+
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-icon">⚡</div>
+      <div class="feature-title">One Trigger</div>
+      <div class="feature-desc">Send a webhook payload with topic, audience, tone, and target length. Everything else is automated — no manual steps between brief and published post.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <div class="feature-title">Separate Claude Nodes</div>
+      <div class="feature-desc">Ideation, drafting, and SEO use different system prompts. Tune each independently. Change the drafting style without touching SEO logic.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <div class="feature-title">SEO Built-In</div>
+      <div class="feature-desc">The SEO node generates title tag, meta description, focus keyword, secondary keywords, and JSON-LD schema markup automatically from the draft.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📅</div>
+      <div class="feature-title">Schedule or Publish Now</div>
+      <div class="feature-desc">The publish node accepts a <code class="inline">publish_at</code> timestamp. Send it to publish immediately or at a future date — your CMS handles the scheduling.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔌</div>
+      <div class="feature-title">CMS-Agnostic</div>
+      <div class="feature-desc">The final HTTP node works with any CMS that has a REST API: WordPress, Ghost, Webflow, Notion, Contentful, Sanity, or a custom endpoint.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">♻️</div>
+      <div class="feature-title">Reusable & Forkable</div>
+      <div class="feature-desc">The workflow JSON is importable in one click. Fork it for different content types: blog posts, LinkedIn articles, email newsletters, product descriptions.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 02 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="prerequisites">
+  <div class="eyebrow">Section 02</div>
+  <h2 class="section-heading">Prerequisites &amp; <em>Stack Setup</em></h2>
+  <p class="guide-body">
+    Before building, get these in order. The whole pipeline takes under 45 minutes once these are ready — don't skip the setup.
+  </p>
+
+  <table class="prereq-table">
+    <thead><tr><th>Tool</th><th>What you need</th><th>Cost</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>n8n</strong></td>
+        <td>Self-hosted (Docker) or n8n Cloud. Version 1.40+ recommended for the HTTP node improvements.</td>
+        <td><span class="status-dot status-free"></span>Free (self-hosted) / <span class="status-dot status-paid"></span>$20+/mo cloud</td>
+      </tr>
+      <tr>
+        <td><strong>Anthropic API Key</strong></td>
+        <td>Starts with <code>sk-ant-</code>. Get from <code>console.anthropic.com</code>. Set a usage cap before starting.</td>
+        <td><span class="status-dot status-paid"></span>Pay-per-token</td>
+      </tr>
+      <tr>
+        <td><strong>CMS with REST API</strong></td>
+        <td>WordPress (WP REST API v2), Ghost (Admin API), or any CMS accepting JSON via HTTP POST.</td>
+        <td><span class="status-dot status-free"></span>Depends on CMS</td>
+      </tr>
+      <tr>
+        <td><strong>n8n Claude credential</strong></td>
+        <td>In n8n, go to Credentials → New → HTTP Header Auth. Set header <code>x-api-key</code> to your Anthropic key.</td>
+        <td>—</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-text"><strong>n8n Cloud vs self-hosted:</strong> Either works. If you're new to n8n, start with the free Cloud trial — you get 5 active workflows and 2,500 executions/month, more than enough to build and test this pipeline. For production use, self-host on a $5–6/mo VPS using the official Docker image.</div>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num-wrap"><div class="step-num">01</div></div>
+      <div class="step-title-text">Create a new workflow</div>
+      <div class="step-desc-text">In n8n, click <strong>New Workflow</strong>. Name it "Content Pipeline." Keep it inactive while building — you'll activate after testing.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
+      <div class="step-title-text">Add Claude credential</div>
+      <div class="step-desc-text">Credentials → New → HTTP Header Auth. Name: "Claude API". Header name: <code class="inline">x-api-key</code>. Value: your Anthropic key. Save.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">03</div></div>
+      <div class="step-title-text">Add CMS credential</div>
+      <div class="step-desc-text">Add a second credential for your CMS. WordPress uses Basic Auth (username + app password). Ghost uses an Admin API key in the Authorization header.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 03 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="trigger-node">
+  <div class="eyebrow eyebrow-leaf">Step 01</div>
+  <h2 class="section-heading">Webhook <em>Trigger Node</em></h2>
+  <p class="guide-body">
+    The pipeline starts with an n8n Webhook node. It listens for an HTTP POST containing your content brief as JSON. This is what you send each time you want to kick off a new content run — manually, from a Slack command, a Notion button, a cron job, or any other trigger.
+  </p>
+
+  <div class="node-config">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-sky" style="font-size:20px;">🌐</div>
+      <div class="node-config-title">Node 1 — Webhook Trigger</div>
+      <span class="node-config-tag tag-webhook">Webhook</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">Node Type</div>
+        <div class="node-field-value">Webhook</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">HTTP Method</div>
+        <div class="node-field-value">POST</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Path</div>
+        <div class="node-field-value">/content-pipeline</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Response Mode</div>
+        <div class="node-field-value">Respond with Last Node</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="guide-body">The webhook expects a JSON payload in this shape. All fields except <code class="inline">publish_at</code> are required.</p>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · Webhook payload schema</div>
+      <button class="copy-btn" onclick="copyCode('wb-payload', this)">⎘ Copy</button>
+    </div>
+    <pre id="wb-payload">{
+  <span class="p">"topic"</span>:        <span class="s">"How to reduce churn in B2B SaaS"</span>,
+  <span class="p">"audience"</span>:     <span class="s">"SaaS founders and heads of customer success"</span>,
+  <span class="p">"tone"</span>:         <span class="s">"Direct, data-led, no fluff. Use second person."</span>,
+  <span class="p">"content_type"</span>: <span class="s">"blog_post"</span>,
+  <span class="p">"word_count"</span>:    <span class="n">1400</span>,
+  <span class="p">"keywords"</span>:     [<span class="s">"churn reduction"</span>, <span class="s">"customer retention SaaS"</span>, <span class="s">"churn prevention"</span>],
+  <span class="p">"publish_at"</span>:   <span class="s">"2026-03-20T09:00:00Z"</span>  <span class="c">// optional — omit to publish immediately</span>
+}</pre>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text"><strong>Testing the trigger:</strong> After saving the Webhook node, click <strong>Listen for Test Event</strong> in n8n, then send the payload above using curl or Postman. You'll see the data appear in the node's output panel. Only proceed to Node 2 once you've confirmed the payload comes through cleanly.</div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 04 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="ideation-node">
+  <div class="eyebrow eyebrow-violet">Step 02</div>
+  <h2 class="section-heading">Claude <em>Ideation Node</em></h2>
+  <p class="guide-body">
+    The ideation node receives the brief and produces a structured content plan: three potential angles, a recommended angle with rationale, and a detailed section-by-section outline. This becomes the drafting node's structural input — critically, the draft never starts from a blank page.
+  </p>
+
+  <div class="node-config">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-violet" style="font-size:20px;">🧠</div>
+      <div class="node-config-title">Node 2 — Ideation (HTTP Request to Claude API)</div>
+      <span class="node-config-tag tag-claude">Claude API</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">Node Type</div>
+        <div class="node-field-value">HTTP Request</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Method</div>
+        <div class="node-field-value">POST</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">URL</div>
+        <div class="node-field-value">https://api.anthropic.com/v1/messages</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Headers</div>
+        <div class="node-field-value">x-api-key: {{ $credentials.claudeApi.value }}
+anthropic-version: 2023-06-01
+content-type: application/json</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · Ideation node body</div>
+      <button class="copy-btn" onclick="copyCode('ideation-body', this)">⎘ Copy</button>
+    </div>
+    <pre id="ideation-body">{
+  <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
+  <span class="p">"max_tokens"</span>: <span class="n">1024</span>,
+  <span class="p">"system"</span>: <span class="s">"You are an expert content strategist. Your job is to produce a structured content plan given a brief. Respond ONLY with valid JSON matching the schema in the user message. No preamble, no markdown fences."</span>,
+  <span class="p">"messages"</span>: [
+    {
+      <span class="p">"role"</span>: <span class="s">"user"</span>,
+      <span class="p">"content"</span>: <span class="s">"Brief:\n- Topic: {{ $json.body.topic }}\n- Audience: {{ $json.body.audience }}\n- Tone: {{ $json.body.tone }}\n- Content type: {{ $json.body.content_type }}\n- Target length: {{ $json.body.word_count }} words\n- Seed keywords: {{ $json.body.keywords }}\n\nReturn JSON:\n{\n  \"angles\": [{\"angle\": \"...\", \"hook\": \"...\"}],\n  \"recommended_angle\": \"...\",\n  \"rationale\": \"...\",\n  \"outline\": [\n    {\"section\": \"...\", \"purpose\": \"...\", \"key_points\": [\"...\"]}\n  ]\n}"</span>
+    }
+  ]
+}</pre>
+  </div>
+
+  <div class="callout callout-warn">
+    <div class="callout-icon">⚠️</div>
+    <div class="callout-text"><strong>Extracting the response:</strong> Claude's API returns the text inside <code>{{ $json.content[0].text }}</code>. Add a <strong>Set node</strong> immediately after the HTTP Request to parse this: set a field <code>ideation_plan</code> = <code>{{ JSON.parse($json.content[0].text) }}</code>. This makes the structured plan accessible by name in all downstream nodes.</div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">n8n Set Node · Parse ideation response</div>
+      <button class="copy-btn" onclick="copyCode('set-ideation', this)">⎘ Copy</button>
+    </div>
+    <pre id="set-ideation"><span class="c">// Set node configuration — add these fields:</span>
+
+<span class="k">ideation_plan</span>  =  {{ JSON.parse($node["Ideation"].json.content[0].text) }}
+<span class="k">topic</span>          =  {{ $node["Webhook"].json.body.topic }}
+<span class="k">audience</span>       =  {{ $node["Webhook"].json.body.audience }}
+<span class="k">tone</span>           =  {{ $node["Webhook"].json.body.tone }}
+<span class="k">word_count</span>     =  {{ $node["Webhook"].json.body.word_count }}
+<span class="k">content_type</span>   =  {{ $node["Webhook"].json.body.content_type }}
+<span class="k">publish_at</span>     =  {{ $node["Webhook"].json.body.publish_at }}</pre>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 05 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="drafting-node">
+  <div class="eyebrow eyebrow-flamingo">Step 03</div>
+  <h2 class="section-heading">Claude <em>Drafting Node</em></h2>
+  <p class="guide-body">
+    The drafting node takes the ideation plan — specifically the recommended angle and the full section outline — and writes the complete article. By injecting the structured outline into the system prompt, you ensure the draft always follows the planned structure. Claude writes section by section, hits the target word count, and maintains the specified tone throughout.
+  </p>
+
+  <div class="node-config">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-flamingo" style="font-size:20px;">✍️</div>
+      <div class="node-config-title">Node 4 — Drafting (HTTP Request to Claude API)</div>
+      <span class="node-config-tag tag-claude">Claude API</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">URL & Headers</div>
+        <div class="node-field-value">Same as Ideation node — reuse Claude API credential</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · Drafting node body</div>
+      <button class="copy-btn" onclick="copyCode('draft-body', this)">⎘ Copy</button>
+    </div>
+    <pre id="draft-body">{
+  <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
+  <span class="p">"max_tokens"</span>: <span class="n">4096</span>,
+  <span class="p">"system"</span>: <span class="s">"You are an expert content writer. Write exactly to the provided outline and word count. Use the specified tone throughout. Return ONLY the article in markdown — no preamble, no meta-commentary, no word count note at the end."</span>,
+  <span class="p">"messages"</span>: [
+    {
+      <span class="p">"role"</span>: <span class="s">"user"</span>,
+      <span class="p">"content"</span>: <span class="s">"Write a {{ $json.content_type }} on this topic: {{ $json.topic }}\n\nAudience: {{ $json.audience }}\nTone: {{ $json.tone }}\nTarget length: {{ $json.word_count }} words\n\nUse this angle: {{ $json.ideation_plan.recommended_angle }}\n\nFollow this outline exactly:\n{{ JSON.stringify($json.ideation_plan.outline, null, 2) }}\n\nWrite the full article now."</span>
+    }
+  ]
+}</pre>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text"><strong>Word count accuracy:</strong> Claude Sonnet 4.6 hits target word counts reliably when the count appears in both the system prompt context AND the user message. For articles over 2,000 words, increase <code class="inline">max_tokens</code> to 6,000. The 4,096 default is suitable for posts up to ~1,600 words.</div>
+  </div>
+
+  <p class="guide-body">After the drafting HTTP Request, add another <strong>Set node</strong> to extract and store the draft:</p>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">n8n Set Node · Store draft</div>
+      <button class="copy-btn" onclick="copyCode('set-draft', this)">⎘ Copy</button>
+    </div>
+    <pre id="set-draft"><span class="c">// Merge with previous fields, add:</span>
+<span class="k">draft_markdown</span>  =  {{ $node["Drafting"].json.content[0].text }}
+
+<span class="c">// Pass through all previous fields unchanged:</span>
+<span class="k">topic</span>          =  {{ $json.topic }}
+<span class="k">audience</span>       =  {{ $json.audience }}
+<span class="k">tone</span>           =  {{ $json.tone }}
+<span class="k">content_type</span>   =  {{ $json.content_type }}
+<span class="k">publish_at</span>     =  {{ $json.publish_at }}
+<span class="k">ideation_plan</span>  =  {{ $json.ideation_plan }}</pre>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 06 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="seo-node">
+  <div class="eyebrow eyebrow-amber">Step 04</div>
+  <h2 class="section-heading">SEO &amp; Meta <em>Generation Node</em></h2>
+  <p class="guide-body">
+    The SEO node reads the finished draft and generates all the metadata needed for publication: an SEO-optimised title tag, meta description, focus keyword, secondary keyword list, and JSON-LD <code class="inline">Article</code> schema markup. Claude reads the actual content — not just the topic — so the SEO output reflects what's really in the draft.
+  </p>
+
+  <div class="node-config">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-amber" style="font-size:20px;">🔍</div>
+      <div class="node-config-title">Node 6 — SEO Generation (HTTP Request to Claude API)</div>
+      <span class="node-config-tag tag-claude">Claude API</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">max_tokens</div>
+        <div class="node-field-value">1024 (SEO output is compact JSON)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · SEO node body</div>
+      <button class="copy-btn" onclick="copyCode('seo-body', this)">⎘ Copy</button>
+    </div>
+    <pre id="seo-body">{
+  <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
+  <span class="p">"max_tokens"</span>: <span class="n">1024</span>,
+  <span class="p">"system"</span>: <span class="s">"You are an expert SEO specialist. Generate SEO metadata for the article provided. Return ONLY valid JSON. No markdown fences. No preamble."</span>,
+  <span class="p">"messages"</span>: [
+    {
+      <span class="p">"role"</span>: <span class="s">"user"</span>,
+      <span class="p">"content"</span>: <span class="s">"Article:\n{{ $json.draft_markdown }}\n\nSeed keywords to incorporate: {{ $json.ideation_plan.outline[0].key_points }}\n\nReturn JSON:\n{\n  \"title_tag\": \"60 chars max, includes focus keyword\",\n  \"meta_description\": \"155 chars max, compelling CTA\",\n  \"focus_keyword\": \"primary keyword phrase\",\n  \"secondary_keywords\": [\"kw1\", \"kw2\", \"kw3\", \"kw4\", \"kw5\"],\n  \"slug\": \"url-friendly-slug\",\n  \"json_ld_schema\": { \"@context\": \"https://schema.org\", \"@type\": \"Article\", \"headline\": \"...\", \"description\": \"...\" },\n  \"og_title\": \"Social share title\",\n  \"og_description\": \"Social share description under 200 chars\"\n}"</span>
+    }
+  ]
+}</pre>
+  </div>
+
+  <div class="callout callout-info">
+    <div class="callout-icon">ℹ️</div>
+    <div class="callout-text"><strong>Why a separate SEO node?</strong> Asking the drafting prompt to also handle SEO metadata degrades both outputs — the draft loses focus and the SEO metadata gets generic. A dedicated SEO node with its own system prompt produces title tags and meta descriptions that are meaningfully better than what a combined prompt generates.</div>
+  </div>
+
+  <p class="guide-body">Add a final Set node after the SEO node to consolidate everything into the <code class="inline">publish_payload</code> object used by the publish node:</p>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">n8n Set Node · Build publish payload</div>
+      <button class="copy-btn" onclick="copyCode('set-seo', this)">⎘ Copy</button>
+    </div>
+    <pre id="set-seo"><span class="k">seo_data</span>         =  {{ JSON.parse($node["SEO"].json.content[0].text) }}
+<span class="k">draft_markdown</span>   =  {{ $json.draft_markdown }}
+<span class="k">publish_at</span>       =  {{ $json.publish_at }}
+<span class="k">content_type</span>     =  {{ $json.content_type }}
+
+<span class="c">// Convenience shortcuts used by the publish node:</span>
+<span class="k">post_title</span>       =  {{ JSON.parse($node["SEO"].json.content[0].text).title_tag }}
+<span class="k">post_slug</span>        =  {{ JSON.parse($node["SEO"].json.content[0].text).slug }}
+<span class="k">post_excerpt</span>     =  {{ JSON.parse($node["SEO"].json.content[0].text).meta_description }}</pre>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 07 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="publish-node">
+  <div class="eyebrow eyebrow-leaf">Step 05</div>
+  <h2 class="section-heading">CMS Publish &amp; <em>Scheduling</em></h2>
+  <p class="guide-body">
+    The final node posts the completed, SEO-enriched article to your CMS. The examples below cover WordPress REST API v2 and Ghost Admin API — the two most common targets. The pattern is identical for any CMS with an HTTP endpoint: construct the post body, set the auth header, fire the POST.
+  </p>
+
+  <div class="node-config">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-leaf" style="font-size:20px;">🟡</div>
+      <div class="node-config-title">Node 8 — WordPress Publish</div>
+      <span class="node-config-tag tag-http">HTTP Request</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">URL</div>
+        <div class="node-field-value">https://yourdomain.com/wp-json/wp/v2/posts</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Method</div>
+        <div class="node-field-value">POST</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Authentication</div>
+        <div class="node-field-value">Basic Auth — WP username + Application Password (not your login password)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · WordPress post body</div>
+      <button class="copy-btn" onclick="copyCode('wp-body', this)">⎘ Copy</button>
+    </div>
+    <pre id="wp-body">{
+  <span class="p">"title"</span>:        <span class="s">"{{ $json.post_title }}"</span>,
+  <span class="p">"content"</span>:      <span class="s">"{{ $json.draft_markdown }}"</span>,
+  <span class="p">"excerpt"</span>:      <span class="s">"{{ $json.post_excerpt }}"</span>,
+  <span class="p">"slug"</span>:         <span class="s">"{{ $json.post_slug }}"</span>,
+  <span class="p">"status"</span>:       <span class="s">"{{ $json.publish_at ? 'future' : 'publish' }}"</span>,
+  <span class="p">"date"</span>:         <span class="s">"{{ $json.publish_at || new Date().toISOString() }}"</span>,
+  <span class="p">"meta"</span>: {
+    <span class="p">"_yoast_wpseo_title"</span>:    <span class="s">"{{ $json.seo_data.title_tag }}"</span>,
+    <span class="p">"_yoast_wpseo_metadesc"</span>: <span class="s">"{{ $json.seo_data.meta_description }}"</span>,
+    <span class="p">"_yoast_wpseo_focuskw"</span>:  <span class="s">"{{ $json.seo_data.focus_keyword }}"</span>
+  },
+  <span class="p">"yoast_head_json"</span>: {{ JSON.stringify($json.seo_data.json_ld_schema) }}
+}</pre>
+  </div>
+
+  <div class="node-config" style="margin-top:32px;">
+    <div class="node-config-header">
+      <div class="node-config-icon fi-sky" style="font-size:20px;">👻</div>
+      <div class="node-config-title">Node 8 (alt) — Ghost Publish</div>
+      <span class="node-config-tag tag-http">HTTP Request</span>
+    </div>
+    <div class="node-config-body">
+      <div class="node-field">
+        <div class="node-field-label">URL</div>
+        <div class="node-field-value">https://yourdomain.com/ghost/api/admin/posts/</div>
+      </div>
+      <div class="node-field">
+        <div class="node-field-label">Auth Header</div>
+        <div class="node-field-value">Authorization: Ghost [your-admin-api-key]</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · Ghost post body</div>
+      <button class="copy-btn" onclick="copyCode('ghost-body', this)">⎘ Copy</button>
+    </div>
+    <pre id="ghost-body">{
+  <span class="p">"posts"</span>: [{
+    <span class="p">"title"</span>:             <span class="s">"{{ $json.post_title }}"</span>,
+    <span class="p">"markdown"</span>:          <span class="s">"{{ $json.draft_markdown }}"</span>,
+    <span class="p">"slug"</span>:              <span class="s">"{{ $json.post_slug }}"</span>,
+    <span class="p">"custom_excerpt"</span>:    <span class="s">"{{ $json.post_excerpt }}"</span>,
+    <span class="p">"status"</span>:            <span class="s">"{{ $json.publish_at ? 'scheduled' : 'published' }}"</span>,
+    <span class="p">"published_at"</span>:      <span class="s">"{{ $json.publish_at || new Date().toISOString() }}"</span>,
+    <span class="p">"og_title"</span>:          <span class="s">"{{ $json.seo_data.og_title }}"</span>,
+    <span class="p">"og_description"</span>:    <span class="s">"{{ $json.seo_data.og_description }}"</span>,
+    <span class="p">"meta_title"</span>:        <span class="s">"{{ $json.seo_data.title_tag }}"</span>,
+    <span class="p">"meta_description"</span>:  <span class="s">"{{ $json.seo_data.meta_description }}"</span>,
+    <span class="p">"codeinjection_head"</span>: <span class="s">"&lt;script type='application/ld+json'&gt;{{ JSON.stringify($json.seo_data.json_ld_schema) }}&lt;/script&gt;"</span>
+  }]
+}</pre>
+  </div>
+
+  <div class="callout callout-tip">
+    <div class="callout-icon">💡</div>
+    <div class="callout-text"><strong>Non-WordPress/Ghost CMS:</strong> For Notion, Contentful, or Sanity, replace Node 8 with the corresponding n8n built-in node (Notion has a native n8n integration). Pass <code class="inline">post_title</code>, <code class="inline">draft_markdown</code>, and <code class="inline">seo_data</code> as the content fields. The upstream nodes stay identical.</div>
+  </div>
+</section>
+
+<!-- ═══════ SECTION 08 ═══════ -->
+<div class="section-divider"></div>
+<section class="guide-section" id="full-workflow">
+  <div class="eyebrow">Section 08</div>
+  <h2 class="section-heading">Full Workflow JSON &amp; <em>Customisations</em></h2>
+  <p class="guide-body">
+    The importable n8n workflow JSON below wires all eight nodes together with the correct data mappings. Import it via <strong>Workflows → Import from File</strong> in your n8n instance, then update three things before activating: your Claude credential, your CMS credential, and your CMS endpoint URL.
+  </p>
+
+  <div class="code-block">
+    <div class="code-block-header">
+      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+      <div class="code-block-label">JSON · n8n workflow import skeleton</div>
+      <button class="copy-btn" onclick="copyCode('workflow-json', this)">⎘ Copy</button>
+    </div>
+    <pre id="workflow-json">{
+  <span class="p">"name"</span>: <span class="s">"Content Pipeline — n8n + Claude"</span>,
+  <span class="p">"nodes"</span>: [
+    { <span class="p">"id"</span>: <span class="s">"1"</span>, <span class="p">"name"</span>: <span class="s">"Webhook"</span>,        <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.webhook"</span>,    <span class="p">"position"</span>: [<span class="n">240</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"2"</span>, <span class="p">"name"</span>: <span class="s">"Ideation"</span>,       <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.httpRequest"</span>, <span class="p">"position"</span>: [<span class="n">460</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"3"</span>, <span class="p">"name"</span>: <span class="s">"Set Ideation"</span>,   <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.set"</span>,         <span class="p">"position"</span>: [<span class="n">680</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"4"</span>, <span class="p">"name"</span>: <span class="s">"Drafting"</span>,       <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.httpRequest"</span>, <span class="p">"position"</span>: [<span class="n">900</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"5"</span>, <span class="p">"name"</span>: <span class="s">"Set Draft"</span>,      <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.set"</span>,         <span class="p">"position"</span>: [<span class="n">1120</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"6"</span>, <span class="p">"name"</span>: <span class="s">"SEO"</span>,            <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.httpRequest"</span>, <span class="p">"position"</span>: [<span class="n">1340</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"7"</span>, <span class="p">"name"</span>: <span class="s">"Set SEO"</span>,        <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.set"</span>,         <span class="p">"position"</span>: [<span class="n">1560</span>, <span class="n">300</span>] },
+    { <span class="p">"id"</span>: <span class="s">"8"</span>, <span class="p">"name"</span>: <span class="s">"Publish to CMS"</span>, <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.httpRequest"</span>, <span class="p">"position"</span>: [<span class="n">1780</span>, <span class="n">300</span>] }
+  ],
+  <span class="p">"connections"</span>: {
+    <span class="p">"Webhook"</span>:       { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Ideation"</span>,       <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"Ideation"</span>:      { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Set Ideation"</span>,   <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"Set Ideation"</span>:  { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Drafting"</span>,       <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"Drafting"</span>:      { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Set Draft"</span>,      <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"Set Draft"</span>:     { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"SEO"</span>,            <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"SEO"</span>:           { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Set SEO"</span>,        <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] },
+    <span class="p">"Set SEO"</span>:       { <span class="p">"main"</span>: [[{ <span class="p">"node"</span>: <span class="s">"Publish to CMS"</span>, <span class="p">"type"</span>: <span class="s">"main"</span>, <span class="p">"index"</span>: <span class="n">0</span> }]] }
+  },
+  <span class="p">"active"</span>: <span class="k">false</span>
+}</pre>
+  </div>
+
+  <h3 style="font-family:var(--font-display);font-size:24px;color:var(--text);margin:40px 0 16px;font-weight:400;">Forks &amp; extensions worth building next</h3>
+  <p class="guide-body">Once the core pipeline runs reliably, these are the highest-value extensions:</p>
+
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num-wrap"><div class="step-num">A</div></div>
+      <div class="step-title-text">Human-in-the-loop gate</div>
+      <div class="step-desc-text">After the SEO node, add a <strong>Wait node</strong> + a Slack message with approve/reject buttons. The pipeline pauses until you sign off. Approved posts proceed to publish; rejected ones go into a Notion review queue.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">B</div></div>
+      <div class="step-title-text">Social media derivatives</div>
+      <div class="step-desc-text">Branch after the draft node: send the article to a 4th Claude node that writes 3 LinkedIn post variants and a Twitter/X thread. Route to Buffer or Typefully via their APIs.</div>
+    </div>
+    <div class="step-card">
+      <div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">C</div></div>
+      <div class="step-title-text">Batch mode from Airtable</div>
+      <div class="step-desc-text">Replace the webhook trigger with an <strong>Airtable node</strong> that reads rows from a content calendar. Add a Schedule trigger to run every Monday morning — your whole week's content publishes automatically.</div>
+    </div>
+  </div>
+
+  <div class="callout callout-violet">
+    <div class="callout-icon">🔮</div>
+    <div class="callout-text"><strong>Quality control tip:</strong> Run the pipeline 3–5 times on different topics before enabling batch mode. Tune the ideation and drafting system prompts based on what you see. The prompts in this guide are solid starting points, but your specific topic niche, tone, and CMS conventions will benefit from one iteration cycle.</div>
+  </div>
+</section>
+
+</div><!-- /article-wrap -->
+</main>
+
+<!-- BOTTOM CTA (dark, matching homepage) -->
+<section class="bottom-cta">
+  <div class="bottom-cta-inner">
+    <h2 class="cta-title">Workflows like<br>this, <em>every Tuesday.</em></h2>
+    <p class="cta-sub">n8n builds, Claude teardowns, and the AI workflow patterns your competitors haven't found yet. 8 minutes. Free forever.</p>
+    <a href="https://outclaw.xyz" class="cta-btn">Subscribe to OutClaw AI →</a>
+  </div>
+</section>
+
+<!-- FOOTER (dark, matching homepage) -->
+<footer>
+  <a href="../index.html" class="footer-logo">
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+    <div class="footer-wordmark" style="color:#fff;">Out<em>claw</em> AI</div>
+  </a>
+  <div class="footer-links">
+    <a href="index.html">All Guides</a>
+    <a href="../about/index.html">About</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+    <a href="#">GitHub</a>
+    <a href="#">Privacy</a>
+  </div>
+  <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+</footer>
+
+<script>
+  function toggleDrawer() {
+    document.getElementById('navDrawer').classList.toggle('open');
+  }
+  document.addEventListener('click', function(e) {
+    const nav = document.getElementById('mainNav');
+    const drawer = document.getElementById('navDrawer');
+    if (!nav.contains(e.target) && !drawer.contains(e.target)) drawer.classList.remove('open');
+  });
+
+  window.addEventListener('scroll', () => {
+    const el = document.getElementById('reading-progress');
+    const scroll = window.scrollY;
+    const total = document.documentElement.scrollHeight - window.innerHeight;
+    el.style.width = ((scroll / total) * 100) + '%';
+    const btn = document.getElementById('back-top');
+    scroll > 600 ? btn.classList.add('visible') : btn.classList.remove('visible');
+  });
+
+  function copyCode(id, btn) {
+    const el = document.getElementById(id);
+    const text = el.innerText || el.textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      btn.classList.add('copied');
+      btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '⎘ Copy'; }, 2000);
+    }).catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.cssText = 'position:fixed;opacity:0';
+      document.body.appendChild(ta); ta.select(); document.execCommand('copy');
+      document.body.removeChild(ta);
+      btn.classList.add('copied'); btn.textContent = '✓ Copied!';
+      setTimeout(() => { btn.classList.remove('copied'); btn.textContent = '⎘ Copy'; }, 2000);
+    });
+  }
+
+  // Scroll-triggered card animations
+  const cards = document.querySelectorAll('.feature-card, .step-card, .toc-card, .node-config');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const idx = Array.from(cards).indexOf(entry.target) % 4;
+        entry.target.style.animation = `cardReveal 0.5s ease ${idx * 70}ms both`;
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  cards.forEach(el => { el.style.opacity = '0'; obs.observe(el); });
+</script>
+</body>
+</html>

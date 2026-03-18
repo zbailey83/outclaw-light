@@ -1,520 +1,1140 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OutClaw AI Newsletter — Pure Signal for AI Practitioners</title>
-<meta name="description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
-<link rel="canonical" href="https://outclaw.xyz/newsletter/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OutClaw AI Newsletter — Pure Signal for AI Practitioners</title>
+  <meta name="description"
+    content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+  <link rel="canonical" href="https://outclaw.xyz/newsletter/">
 
-<!-- Open Graph / Facebook -->
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://outclaw.xyz/newsletter/">
-<meta property="og:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
-<meta property="og:description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
-<meta property="og:image" content="https://outclaw.xyz/outclaw-icons/hero-alt.gif">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://outclaw.xyz/newsletter/">
+  <meta property="og:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
+  <meta property="og:description"
+    content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+  <meta property="og:image" content="https://outclaw.xyz/outclaw-icons/hero-alt.gif">
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://outclaw.xyz/newsletter/">
-<meta property="twitter:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
-<meta property="twitter:description" content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
-<meta property="twitter:image" content="https://outclaw.xyz/outclaw-icons/hero-alt.gif">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://outclaw.xyz/newsletter/">
+  <meta property="twitter:title" content="OutClaw AI Newsletter — Pure Signal for AI Practitioners">
+  <meta property="twitter:description"
+    content="Subscribe to the OutClaw AI newsletter for weekly deep-dives on the latest AI releases, model benchmarks, and production-ready workflows.">
+  <meta property="twitter:image" content="https://outclaw.xyz/outclaw-icons/hero-alt.gif">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-<style>
-:root {
-  /* Flamingo Palette */
-  --sky:#5AADDB;
-  --sky-light:#B8DFF0;
-  --sky-pale:#EDF7FC;
-  --flamingo:#F4678A;
-  --flamingo-light:#FBB8CB;
-  --flamingo-pale:#FEF0F4;
-  --coral:#FF7E5A;
-  --coral-pale:#FFF0EB;
-  --sand:#F5EDD8;
-  --sand-dark:#E8D9B8;
-  --leaf:#4A9E7A;
-  --leaf-pale:#E8F5EF;
-  --deep-navy:#1A1A2E;
-  --navy-mid:#2F2F52;
-  --text:#1A1A2E;
-  --text-mid:#4A4A6E;
-  --text-soft:#7A7A9E;
-  --text-dim:#ADADC8;
-  --white:#FFFFFF;
-  --bg:#FAFAF8;
-  --surface:#FFFFFF;
-  --border:#E8E8F2;
-  --border-soft:#F0F0F8;
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      /* Flamingo Palette */
+      --sky: #5AADDB;
+      --sky-light: #B8DFF0;
+      --sky-pale: #EDF7FC;
+      --flamingo: #F4678A;
+      --flamingo-light: #FBB8CB;
+      --flamingo-pale: #FEF0F4;
+      --coral: #FF7E5A;
+      --coral-pale: #FFF0EB;
+      --sand: #F5EDD8;
+      --sand-dark: #E8D9B8;
+      --leaf: #4A9E7A;
+      --leaf-pale: #E8F5EF;
+      --deep-navy: #1A1A2E;
+      --navy-mid: #2F2F52;
+      --text: #1A1A2E;
+      --text-mid: #4A4A6E;
+      --text-soft: #7A7A9E;
+      --text-dim: #ADADC8;
+      --white: #FFFFFF;
+      --bg: #FAFAF8;
+      --surface: #FFFFFF;
+      --border: #E8E8F2;
+      --border-soft: #F0F0F8;
 
-  --font-display:'DM Serif Display', serif;
-  --font-body:'DM Sans', sans-serif;
+      --font-display: 'DM Serif Display', serif;
+      --font-body: 'DM Sans', sans-serif;
 
-  /* Gradients */
-  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#FF9BB5 50%,#FFB8CB 100%);
-  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#7EC5E8 100%);
-  --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
-  --grad-sand:linear-gradient(135deg,#F5EDD8 0%,#FAF3E8 100%);
-  --grad-hero:linear-gradient(160deg,#EDF7FC 0%,#FEF0F4 50%,#FAFAF8 100%);
-}
+      /* Gradients */
+      --grad-sky: linear-gradient(135deg, #5AADDB 0%, #FF9BB5 50%, #FFB8CB 100%);
+      --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #7EC5E8 100%);
+      --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+      --grad-sand: linear-gradient(135deg, #F5EDD8 0%, #FAF3E8 100%);
+      --grad-hero: linear-gradient(160deg, #EDF7FC 0%, #FEF0F4 50%, #FAFAF8 100%);
+    }
 
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
-::-webkit-scrollbar{width:5px;}
-::-webkit-scrollbar-track{background:var(--bg);}
-::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-/* ─── UTILS ─────────────────────────────── */
-.container{max-width:1120px;margin:0 auto;padding:0 40px;}
-.badge-pill {
-  display:inline-flex;align-items:center;gap:6px;
-  padding:5px 14px;border-radius:100px;
-  font-family:var(--font-body);font-size:11px;font-weight:700;
-  letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;
-  border:1px solid transparent;
-}
-.badge-flamingo{background:var(--grad-flamingo);color:#fff;box-shadow:0 2px 12px rgba(90,173,219,.3);}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.eyebrow {
-  display:inline-flex;align-items:center;gap:10px;
-  font-family:var(--font-body);font-size:12px;font-weight:700;
-  letter-spacing:0.1em;text-transform:uppercase;color:var(--sky);
-}
-.eyebrow::before{content:'';display:block;width:28px;height:2px;background:var(--sky);border-radius:2px;flex-shrink:0;}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
 
-.section-title {
-  font-family:var(--font-display);
-  font-size:46px;font-weight:400;line-height:1.1;
-  letter-spacing:-0.02em;color:var(--text);
-}
-.section-title em{font-style:italic;color:var(--sky);}
-.section-sub{font-size:16px;color:var(--text-soft);max-width:540px;font-weight:400;line-height:1.7;margin-top:12px;}
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
 
-/* ─── ANIMATIONS ────────────────────────── */
-@keyframes fadeInUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInDown{from{opacity:0;transform:translateY(-16px);}to{opacity:1;transform:translateY(0);}}
-@keyframes waveIn{from{opacity:0;transform:translateX(-20px);}to{opacity:1;transform:translateX(0);}}
-@keyframes cardReveal{from{opacity:0;transform:translateY(24px);}to{opacity:1;transform:translateY(0);}}
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
 
-/* ─── NAVBAR ────────────────────────────── */
-.navbar {
-  position:sticky;top:0;z-index:200;
-  height:64px;background:rgba(255,255,255,0.92);
-  backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 48px;
-}
-.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
-.navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
-.navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
-.navbar-wordmark{font-family:var(--font-display);font-size:22px;color:var(--text);}
-.navbar-wordmark em{font-style:normal;color:var(--sky);}
-.navbar-links{display:flex;align-items:center;gap:4px;}
-.navbar-links a{
-  font-size:14px;font-weight:500;color:var(--text-soft);
-  text-decoration:none;padding:8px 16px;border-radius:8px;transition:all .15s;white-space:nowrap;
-}
-.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
-.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
-.navbar-right{display:flex;align-items:center;gap:12px;}
-.nav-cta{
-  display:inline-flex;align-items:center;gap:6px;
-  padding:9px 20px;background:var(--grad-flamingo);color:#fff !important;
-  font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;
-  box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;
-}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
-.nav-hamburger{
-  display:none;flex-direction:column;gap:5px;
-  cursor:pointer;padding:8px;border:none;background:transparent;
-}
-.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
-.nav-drawer{
-  display:none;position:fixed;top:64px;left:0;right:0;
-  background:rgba(255,255,255,.97);backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--border);
-  padding:16px 24px 24px;z-index:199;
-  flex-direction:column;gap:4px;
-}
-.nav-drawer.open{display:flex;}
-.nav-drawer a{
-  font-size:15px;font-weight:500;color:var(--text-soft);
-  text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;
-}
-.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
-.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
-@media(max-width:860px){
-  .navbar{padding:0 24px;}
-  .navbar-links{display:none;}
-  .nav-hamburger{display:flex;}
-  .navbar-right .nav-cta{display:none;}
-}
+    ::-webkit-scrollbar-thumb {
+      background: var(--sky-light);
+      border-radius: 10px;
+    }
 
-/* ─── HERO ──────────────────────────────── */
-.hero {
-  position:relative;overflow:hidden;
-  padding:100px 0 80px;
-  background:var(--grad-hero);
-  display:flex;align-items:center;
-}
-.hero-inner{
-  position:relative;z-index:2;
-  text-align:center;
-  max-width:800px;margin:0 auto;width:100%;
-}
-.hero-headline{
-  font-family:var(--font-display);
-  font-size:clamp(40px, 6vw, 68px);font-weight:400;line-height:1.0;
-  letter-spacing:-0.025em;color:var(--text);
-  margin-bottom:24px;
-  animation:fadeInUp .7s ease .1s both;
-}
-.hero-headline em{font-style:italic;color:var(--sky);}
-.hero-sub{
-  font-size:18px;color:var(--text-soft);line-height:1.75;
-  max-width:600px;margin:0 auto 40px;
-  animation:fadeInUp .7s ease .2s both;
-}
+    /* ─── UTILS ─────────────────────────────── */
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
 
-/* ─── WHAT YOU GET ──────────────────────── */
-.what-section{padding:100px 0;background:var(--white);}
-.section-header.centered{text-align:center;display:flex;flex-direction:column;align-items:center;margin-bottom:64px;}
-.section-header.centered .eyebrow{margin-bottom:16px;}
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      border: 1px solid transparent;
+    }
 
-.content-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);gap:20px;
-  max-width:1060px;margin:0 auto;
-}
-.content-card{
-  background:var(--white);border:1px solid var(--border);
-  border-radius:20px;padding:32px 28px;
-  position:relative;overflow:hidden;
-  transition:all .25s ease;
-  box-shadow:0 1px 4px rgba(26,26,46,.04);
-}
-.content-card:hover{
-  border-color:rgba(90,173,219,0.3);transform:translateY(-3px);
-  box-shadow:0 12px 40px rgba(90,173,219,.10);
-}
-.card-emoji-wrap{
-  width:56px;height:56px;border-radius:16px;
-  background:var(--sky-pale);display:flex;align-items:center;justify-content:center;
-  margin-bottom:20px;flex-shrink:0;
-}
-.card-emoji-wrap img{width:28px;height:28px;display:block;}
-.card-title-text{font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:10px;font-weight:400;}
-.card-desc-text{font-size:14px;color:var(--text-soft);line-height:1.75;}
+    .badge-flamingo {
+      background: var(--grad-flamingo);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(90, 173, 219, .3);
+    }
 
-/* ─── SAMPLE ISSUE ──────────────────────── */
-.preview-section{padding:100px 0;background:var(--sand);}
-.issue-preview{
-  max-width:760px;margin:0 auto;
-  background:var(--white);border:1px solid var(--border);
-  border-radius:24px;overflow:hidden;
-  box-shadow:0 16px 60px rgba(26,26,46,.08);
-}
-.issue-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:24px 32px;border-bottom:1px solid var(--border-soft);
-  background:rgba(250,250,248,.6);
-}
-.issue-meta{display:flex;align-items:center;gap:12px;font-weight:700;font-size:14px;color:var(--text);}
-.issue-meta-flamingo{font-size:20px;}
-.issue-date{font-size:13px;font-weight:600;color:var(--text-soft);letter-spacing:.02em;}
-.issue-body{padding:32px;}
-.issue-item{display:flex;gap:24px;margin-bottom:40px;animation:waveIn .6s ease both;}
-.issue-item:last-child{margin-bottom:0;}
-.issue-tag{
-  padding:4px 12px;border-radius:8px;font-size:11px;font-weight:800;
-  text-transform:uppercase;letter-spacing:.1em;height:fit-content;min-width:80px;text-align:center;
-}
-.tag-news{background:var(--sky-pale);color:var(--sky);border:1px solid var(--sky-light);}
-.tag-release{background:var(--flamingo-pale);color:var(--flamingo);border:1px solid var(--flamingo-light);}
-.tag-alpha{background:var(--coral-pale);color:var(--coral);border:1px solid rgba(255,126,90,.3);}
-.tag-workflow{background:var(--leaf-pale);color:var(--leaf);border:1px solid rgba(74,158,122,.3);}
-.tag-recap{background:var(--sand);color:#92400e;border:1px solid rgba(232,213,181,.7);}
-.issue-item-title{font-family:var(--font-display);font-size:20px;color:var(--text);margin-bottom:8px;line-height:1.3;}
-.issue-item-desc{font-size:14px;color:var(--text-mid);line-height:1.7;}
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+    }
 
-/* ─── TESTIMONIALS ──────────────────────── */
-.testimonials-section{padding:100px 0;background:var(--bg);}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;max-width:1120px;margin:0 auto;}
-.testimonial-card{
-  background:var(--white);border:1px solid var(--border);border-radius:24px;
-  padding:32px;box-shadow:0 4px 20px rgba(26,26,46,.04);
-}
-.stars{color:var(--coral);font-size:14px;margin-bottom:16px;}
-.testimonial-text{font-size:15px;color:var(--text-mid);line-height:1.8;font-style:italic;margin-bottom:24px;}
-.testimonial-author{display:flex;align-items:center;gap:12px;}
-.author-avatar{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:18px;}
-.author-avatar.a1{background:var(--grad-sky);}
-.author-avatar.a2{background:var(--grad-flamingo);}
-.author-avatar.a3{background:var(--grad-coral);}
-.author-name{font-size:14px;font-weight:700;color:var(--text);}
-.author-handle{font-size:12px;color:var(--text-dim);}
+    .eyebrow::before {
+      content: '';
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: var(--sky);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
 
-/* ─── BOTTOM CTA ────────────────────────── */
-.bottom-cta{padding:100px 0;background:var(--deep-navy);position:relative;overflow:hidden;}
-.bottom-cta::before{
-  content:'';position:absolute;top:-100px;left:-100px;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(90,173,219,.08) 0%,transparent 70%);
-}
-.bottom-cta-inner{position:relative;z-index:2;text-align:center;max-width:700px;margin:0 auto;}
-.cta-title{font-family:var(--font-display);font-size:52px;font-weight:400;color:#fff;line-height:1.0;margin-bottom:20px;}
-.cta-title em{font-style:italic;color:var(--sky);}
-.cta-sub{font-size:18px;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:40px;}
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 46px;
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
 
-/* ─── FOOTER ────────────────────────────── */
-footer{background:var(--bg);padding:80px 48px 40px;border-top:1px solid var(--border);text-align:center;}
-.footer-logo{display:inline-flex;align-items:center;gap:12px;text-decoration:none;margin-bottom:32px;}
-.footer-logo-img{width:36px;height:36px;object-fit:contain;filter:grayscale(1) opacity(0.5);transition:all 0.3s ease;}
-.footer-logo:hover .footer-logo-img{filter:grayscale(0) opacity(1);transform:scale(1.1);}
-.footer-wordmark{font-family:var(--font-display);font-size:24px;color:var(--text);}
-.footer-wordmark em{font-style:normal;color:var(--sky);}
-.footer-links{display:flex;justify-content:center;gap:32px;margin-bottom:32px;}
-.footer-links a{color:var(--text-soft);text-decoration:none;font-size:14px;font-weight:500;transition:color .2s;}
-.footer-links a:hover{color:var(--sky);}
-.footer-copy{font-size:12px;color:var(--text-dim);letter-spacing:.02em;}
+    .section-title em {
+      font-style: italic;
+      color: var(--sky);
+    }
 
-@media(max-width:900px){
-  .content-grid{grid-template-columns:1fr 1fr;}
-  .testimonials-grid{grid-template-columns:1fr 1fr;}
-}
-@media(max-width:600px){
-  .content-grid{grid-template-columns:1fr;}
-  .testimonials-grid{grid-template-columns:1fr;}
-  .issue-item{flex-direction:column;gap:10px;}
-  .hero-headline{font-size:42px;}
-  .cta-title{font-size:40px;}
-}
-</style>
+    .section-sub {
+      font-size: 16px;
+      color: var(--text-soft);
+      max-width: 540px;
+      font-weight: 400;
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+
+    /* ─── ANIMATIONS ────────────────────────── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-16px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes waveIn {
+      from {
+        opacity: 0;
+        transform: translateX(-20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes cardReveal {
+      from {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ─── NAVBAR ────────────────────────────── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .navbar-logo-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), filter .3s ease;
+      filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));
+    }
+
+    .navbar-logo:hover .navbar-logo-img {
+      transform: scale(1.15) rotate(-5deg);
+      filter: drop-shadow(0 4px 16px rgba(244, 103, 138, .5));
+    }
+
+    .navbar-wordmark {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--text);
+    }
+
+    .navbar-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .navbar-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+
+    .navbar-links a:hover {
+      color: var(--text);
+      background: var(--sky-pale);
+    }
+
+    .navbar-links a.active {
+      color: var(--sky);
+      background: var(--sky-pale);
+      font-weight: 600;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      background: var(--grad-flamingo);
+      color: #fff !important;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(90, 173, 219, .3);
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(90, 173, 219, .45);
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-soft);
+      border-radius: 2px;
+    }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      z-index: 199;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-drawer.open {
+      display: flex;
+    }
+
+    .nav-drawer a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+      transition: all .15s;
+    }
+
+    .nav-drawer a:hover {
+      color: var(--sky);
+      background: var(--sky-pale);
+    }
+
+    .nav-drawer .nav-cta {
+      margin-top: 8px;
+      justify-content: center;
+    }
+
+    @media(max-width:860px) {
+      .navbar {
+        padding: 0 24px;
+      }
+
+      .navbar-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .navbar-right .nav-cta {
+        display: none;
+      }
+    }
+
+    /* ─── HERO ──────────────────────────────── */
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 100px 0 80px;
+      background: var(--grad-hero);
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      margin-bottom: 24px;
+      animation: fadeInUp .7s ease .1s both;
+    }
+
+    .hero-headline em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .hero-sub {
+      font-size: 18px;
+      color: var(--text-soft);
+      line-height: 1.75;
+      max-width: 600px;
+      margin: 0 auto 40px;
+      animation: fadeInUp .7s ease .2s both;
+    }
+
+    /* ─── WHAT YOU GET ──────────────────────── */
+    .what-section {
+      padding: 100px 0;
+      background: var(--white);
+    }
+
+    .section-header.centered {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 64px;
+    }
+
+    .section-header.centered .eyebrow {
+      margin-bottom: 16px;
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+
+    .content-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: all .25s ease;
+      box-shadow: 0 1px 4px rgba(26, 26, 46, .04);
+    }
+
+    .content-card:hover {
+      border-color: rgba(90, 173, 219, 0.3);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(90, 173, 219, .10);
+    }
+
+    .card-emoji-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: var(--sky-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .card-emoji-wrap img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    .card-title-text {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 10px;
+      font-weight: 400;
+    }
+
+    .card-desc-text {
+      font-size: 14px;
+      color: var(--text-soft);
+      line-height: 1.75;
+    }
+
+    /* ─── SAMPLE ISSUE ──────────────────────── */
+    .preview-section {
+      padding: 100px 0;
+      background: var(--sand);
+    }
+
+    .issue-preview {
+      max-width: 760px;
+      margin: 0 auto;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 16px 60px rgba(26, 26, 46, .08);
+    }
+
+    .issue-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 32px;
+      border-bottom: 1px solid var(--border-soft);
+      background: rgba(250, 250, 248, .6);
+    }
+
+    .issue-meta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .issue-meta-flamingo {
+      font-size: 20px;
+    }
+
+    .issue-date {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-soft);
+      letter-spacing: .02em;
+    }
+
+    .issue-body {
+      padding: 32px;
+    }
+
+    .issue-item {
+      display: flex;
+      gap: 24px;
+      margin-bottom: 40px;
+      animation: waveIn .6s ease both;
+    }
+
+    .issue-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .issue-tag {
+      padding: 4px 12px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      height: fit-content;
+      min-width: 80px;
+      text-align: center;
+    }
+
+    .tag-news {
+      background: var(--sky-pale);
+      color: var(--sky);
+      border: 1px solid var(--sky-light);
+    }
+
+    .tag-release {
+      background: var(--flamingo-pale);
+      color: var(--flamingo);
+      border: 1px solid var(--flamingo-light);
+    }
+
+    .tag-alpha {
+      background: var(--coral-pale);
+      color: var(--coral);
+      border: 1px solid rgba(255, 126, 90, .3);
+    }
+
+    .tag-workflow {
+      background: var(--leaf-pale);
+      color: var(--leaf);
+      border: 1px solid rgba(74, 158, 122, .3);
+    }
+
+    .tag-recap {
+      background: var(--sand);
+      color: #92400e;
+      border: 1px solid rgba(232, 213, 181, .7);
+    }
+
+    .issue-item-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .issue-item-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ─── TESTIMONIALS ──────────────────────── */
+    .testimonials-section {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(26, 26, 46, .04);
+    }
+
+    .stars {
+      color: var(--coral);
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .testimonial-text {
+      font-size: 15px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 18px;
+    }
+
+    .author-avatar.a1 {
+      background: var(--grad-sky);
+    }
+
+    .author-avatar.a2 {
+      background: var(--grad-flamingo);
+    }
+
+    .author-avatar.a3 {
+      background: var(--grad-coral);
+    }
+
+    .author-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .author-handle {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    /* ─── BOTTOM CTA ────────────────────────── */
+    .bottom-cta {
+      padding: 100px 0;
+      background: var(--deep-navy);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bottom-cta::before {
+      content: '';
+      position: absolute;
+      top: -100px;
+      left: -100px;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(90, 173, 219, .08) 0%, transparent 70%);
+    }
+
+    .bottom-cta-inner {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: 52px;
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.0;
+      margin-bottom: 20px;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .cta-sub {
+      font-size: 18px;
+      color: rgba(255, 255, 255, .5);
+      line-height: 1.75;
+      margin-bottom: 40px;
+    }
+
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--bg);
+      padding: 80px 48px 40px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      margin-bottom: 32px;
+    }
+
+    .footer-logo-img {
+      width: 36px;
+      height: 36px;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.5);
+      transition: all 0.3s ease;
+    }
+
+    .footer-logo:hover .footer-logo-img {
+      filter: grayscale(0) opacity(1);
+      transform: scale(1.1);
+    }
+
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 24px;
+      color: var(--text);
+    }
+
+    .footer-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-bottom: 32px;
+    }
+
+    .footer-links a {
+      color: var(--text-soft);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .footer-links a:hover {
+      color: var(--sky);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: .02em;
+    }
+
+    @media(max-width:900px) {
+      .content-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media(max-width:600px) {
+      .content-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .issue-item {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero-headline {
+        font-size: 42px;
+      }
+
+      .cta-title {
+        font-size: 40px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar" id="mainNav">
-  <a href="../index.html" class="navbar-logo" aria-label="OutClaw AI Home">
-    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
-    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
-  </a>
-  <div class="navbar-links">
+  <nav class="navbar" id="mainNav">
+    <a href="../index.html" class="navbar-logo" aria-label="OutClaw AI Home">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/index.html">About</a>
+      <a href="../articles/index.html">Articles</a>
+      <a href="../guides/index.html">Guides</a>
+      <a href="../tools/index.html">Tools</a>
+      <a href="index.html" class="active">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="#subscribe" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()"
+        aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
     <a href="../about/index.html">About</a>
     <a href="../articles/index.html">Articles</a>
     <a href="../guides/index.html">Guides</a>
     <a href="../tools/index.html">Tools</a>
     <a href="index.html" class="active">Newsletter</a>
-  </div>
-  <div class="navbar-right">
     <a href="#subscribe" class="nav-cta">Subscribe Free &#x2192;</a>
-    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
 
-<div class="nav-drawer" id="navDrawer">
-    <a href="../about/index.html">About</a>
-    <a href="../articles/index.html">Articles</a>
-    <a href="../guides/index.html">Guides</a>
-    <a href="../tools/index.html">Tools</a>
-    <a href="index.html" class="active">Newsletter</a>
-  <a href="#subscribe" class="nav-cta">Subscribe Free &#x2192;</a>
-</div>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <div class="eyebrow">The OutClaw Newsletter</div>
+        <h1 class="hero-headline">AI intel that <em>hits different.</em> Every Tuesday.</h1>
+        <p class="hero-sub">8 minutes of pure signal &mdash; news, model breakdowns, workflows, alpha drops, and X
+          recaps. Free forever.</p>
 
-<section class="hero">
-  <div class="container">
-    <div class="hero-inner">
-      <div class="eyebrow">The OutClaw Newsletter</div>
-      <h1 class="hero-headline">AI intel that <em>hits different.</em> Every Tuesday.</h1>
-      <p class="hero-sub">8 minutes of pure signal &mdash; news, model breakdowns, workflows, alpha drops, and X recaps. Free forever.</p>
-      
-      <div class="hero-form-beehiiv" id="subscribe" style="margin: 0 auto; max-width: 560px;">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-      </div>
-
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin: 48px auto 0; max-width: 800px;">
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">12<span style="color:var(--sky);">k+</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Subscribers</div></div>
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">53<span style="color:var(--sky);">&times;</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Issues</div></div>
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">48<span style="color:var(--sky);">%</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Open Rate</div></div>
-        <div style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;"><div style="font-family:var(--font-display);font-size:36px;color:var(--text);">4.9<span style="color:var(--sky);">&#9733;</span></div><div style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">Rating</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="what-section">
-  <div class="container">
-    <div class="section-header centered">
-      <div class="eyebrow">What you get</div>
-      <h2 class="section-title">Six sections of <em>pure signal</em></h2>
-      <p class="section-sub">We filter the noise so you dont have to. Every issue is structured for high-speed absorption.</p>
-    </div>
-    <div class="content-grid">
-      <div class="content-card">
-        <div class="card-emoji-wrap"><img src="../outclaw-icons/News.svg" alt="News"></div>
-        <div class="card-title-text">News Rundown</div>
-        <div class="card-desc-text">The weeks biggest releases and model updates, filtered for what actually matters to builders.</div>
-      </div>
-      <div class="content-card">
-        <div class="card-emoji-wrap" style="background:var(--flamingo-pale);"><img src="../outclaw-icons/Releases.svg" alt="Releases"></div>
-        <div class="card-title-text">Model Breakdowns</div>
-        <div class="card-desc-text">New models broken down without the hype. What changed, what it means, when to switch.</div>
-      </div>
-      <div class="content-card">
-        <div class="card-emoji-wrap" style="background:var(--sand);"><img src="../outclaw-icons/Guides.svg" alt="Guides"></div>
-        <div class="card-title-text">How-To Guides</div>
-        <div class="card-desc-text">Step-by-step walkthroughs for getting max value from Claude, GPT, Gemini, and friends.</div>
-      </div>
-      <div class="content-card">
-        <div class="card-emoji-wrap" style="background:var(--coral-pale);"><img src="../outclaw-icons/Alpha-Gems.svg" alt="Alpha"></div>
-        <div class="card-title-text">Alpha Drops</div>
-        <div class="card-desc-text">The prompts, tools, and repo links your feed buries. The stuff that gives you an edge.</div>
-      </div>
-      <div class="content-card">
-        <div class="card-emoji-wrap" style="background:var(--leaf-pale);"><img src="../outclaw-icons/Workflows.svg" alt="Workflows"></div>
-        <div class="card-title-text">Workflow Intel</div>
-        <div class="card-desc-text">Production-ready AI workflows we've battle-tested. Copy, paste, and ship faster.</div>
-      </div>
-      <div class="content-card">
-        <div class="card-emoji-wrap" style="background:rgba(244,103,138,.08);"><img src="../outclaw-icons/SocialMediaRecaps.svg" alt="Recaps"></div>
-        <div class="card-title-text">X & Blog Recaps</div>
-        <div class="card-desc-text">The best AI content from researchers, engineers, and practitioners — curated so you dont have to doomscroll.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="preview-section" id="preview">
-  <div class="container">
-    <div class="section-header centered">
-      <div class="eyebrow">Sample Issue</div>
-      <h2 class="section-title">This is what lands <em>in your inbox.</em></h2>
-      <p class="section-sub">Heres a taste of a recent issue — the kind of intel that makes you the smartest person in the room.</p>
-    </div>
-    <div class="issue-preview">
-      <div class="issue-header">
-        <div class="issue-meta">
-          <span class="issue-meta-flamingo">🦩</span>
-          OutClaw AI · Issue #53
+        <div class="hero-form-beehiiv" id="subscribe" style="margin: 0 auto; max-width: 560px;">
+          <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe
+            src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed"
+            data-test-id="beehiiv-embed" frameborder="0" scrolling="no"
+            style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
         </div>
-        <div class="issue-date">March 11, 2026</div>
-      </div>
-      <div class="issue-body">
-        <div class="issue-item">
-          <span class="issue-tag tag-news">News</span>
-          <div>
-            <div class="issue-item-title">Anthropic sues the Pentagon — and Google & OpenAI employees sign on</div>
-            <div class="issue-item-desc">The DoD labeled Anthropic a "supply-chain risk," threatening to bar government contractors from using Claude. Nearly 40 employees from rival labs are backing Anthropics suit.</div>
+
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin: 48px auto 0; max-width: 800px;">
+          <div
+            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">250<span
+                style="color:var(--sky);">+</span></div>
+            <div
+              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
+              Subscribers</div>
           </div>
-        </div>
-        <div class="issue-item">
-          <span class="issue-tag tag-release">Release</span>
-          <div>
-            <div class="issue-item-title">GPT-5.4 drops with a 1M token context and autonomous desktop workflows</div>
-            <div class="issue-item-desc">OpenAIs latest scores 75% on OSWorld-V — just above the human baseline of 72.4%. It can now execute multi-step tasks across real software environments.</div>
+          <div
+            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">06<span
+                style="color:var(--sky);">&times;</span></div>
+            <div
+              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
+              Issues</div>
           </div>
-        </div>
-        <div class="issue-item">
-          <span class="issue-tag tag-alpha">Alpha</span>
-          <div>
-            <div class="issue-item-title">MiniMax M2.5 rivals Claude Opus 4.6 at a fraction of the cost</div>
-            <div class="issue-item-desc">Chinas MiniMax quietly dropped a model that benchmarks neck-and-neck with Opus 4.6 on coding and visual tasks. The arbitrage window is open.</div>
+          <div
+            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">48<span
+                style="color:var(--sky);">%</span></div>
+            <div
+              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
+              Open Rate</div>
+          </div>
+          <div
+            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
+            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">4.9<span
+                style="color:var(--sky);">&#9733;</span></div>
+            <div
+              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
+              Rating</div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="testimonials-section">
-  <div class="container">
-    <div class="section-header centered">
-      <div class="eyebrow">Reader Love</div>
-      <h2 class="section-title">People who get it, <em>get it.</em></h2>
+  <section class="what-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">What you get</div>
+        <h2 class="section-title">Six sections of <em>pure signal</em></h2>
+        <p class="section-sub">We filter the noise so you dont have to. Every issue is structured for high-speed
+          absorption.</p>
+      </div>
+      <div class="content-grid">
+        <div class="content-card">
+          <div class="card-emoji-wrap"><img src="../outclaw-icons/News.svg" alt="News"></div>
+          <div class="card-title-text">News Rundown</div>
+          <div class="card-desc-text">The weeks biggest releases and model updates, filtered for what actually matters
+            to builders.</div>
+        </div>
+        <div class="content-card">
+          <div class="card-emoji-wrap" style="background:var(--flamingo-pale);"><img src="../outclaw-icons/Releases.svg"
+              alt="Releases"></div>
+          <div class="card-title-text">Model Breakdowns</div>
+          <div class="card-desc-text">New models broken down without the hype. What changed, what it means, when to
+            switch.</div>
+        </div>
+        <div class="content-card">
+          <div class="card-emoji-wrap" style="background:var(--sand);"><img src="../outclaw-icons/Guides.svg"
+              alt="Guides"></div>
+          <div class="card-title-text">How-To Guides</div>
+          <div class="card-desc-text">Step-by-step walkthroughs for getting max value from Claude, GPT, Gemini, and
+            friends.</div>
+        </div>
+        <div class="content-card">
+          <div class="card-emoji-wrap" style="background:var(--coral-pale);"><img src="../outclaw-icons/Alpha-Gems.svg"
+              alt="Alpha"></div>
+          <div class="card-title-text">Alpha Drops</div>
+          <div class="card-desc-text">The prompts, tools, and repo links your feed buries. The stuff that gives you an
+            edge.</div>
+        </div>
+        <div class="content-card">
+          <div class="card-emoji-wrap" style="background:var(--leaf-pale);"><img src="../outclaw-icons/Workflows.svg"
+              alt="Workflows"></div>
+          <div class="card-title-text">Workflow Intel</div>
+          <div class="card-desc-text">Production-ready AI workflows we've battle-tested. Copy, paste, and ship faster.
+          </div>
+        </div>
+        <div class="content-card">
+          <div class="card-emoji-wrap" style="background:rgba(244,103,138,.08);"><img
+              src="../outclaw-icons/SocialMediaRecaps.svg" alt="Recaps"></div>
+          <div class="card-title-text">X & Blog Recaps</div>
+          <div class="card-desc-text">The best AI content from researchers, engineers, and practitioners — curated so
+            you dont have to doomscroll.</div>
+        </div>
+      </div>
     </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"Outclaw AI is the only newsletter where I actually read every single word. The alpha section alone is worth more than most paid courses."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar a1">J</div>
-          <div>
-            <div class="author-name">Jake M.</div>
-            <div class="author-handle">Product Lead · @jakembuilds</div>
+  </section>
+
+  <section class="preview-section" id="preview">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">Sample Issue</div>
+        <h2 class="section-title">This is what lands <em>in your inbox.</em></h2>
+        <p class="section-sub">Heres a taste of a recent issue — the kind of intel that makes you the smartest person in
+          the room.</p>
+      </div>
+      <div class="issue-preview">
+        <div class="issue-header">
+          <div class="issue-meta">
+            <span class="issue-meta-flamingo">🦩</span>
+            OutClaw AI · Issue #05
+          </div>
+          <div class="issue-date">March 11, 2026</div>
+        </div>
+        <div class="issue-body">
+          <div class="issue-item">
+            <span class="issue-tag tag-news">News</span>
+            <div>
+              <div class="issue-item-title">Anthropic sues the Pentagon — and Google & OpenAI employees sign on</div>
+              <div class="issue-item-desc">The DoD labeled Anthropic a "supply-chain risk," threatening to bar
+                government contractors from using Claude. Nearly 40 employees from rival labs are backing Anthropics
+                suit.</div>
+            </div>
+          </div>
+          <div class="issue-item">
+            <span class="issue-tag tag-release">Release</span>
+            <div>
+              <div class="issue-item-title">GPT-5.4 drops with a 1M token context and autonomous desktop workflows</div>
+              <div class="issue-item-desc">OpenAIs latest scores 75% on OSWorld-V — just above the human baseline of
+                72.4%. It can now execute multi-step tasks across real software environments.</div>
+            </div>
+          </div>
+          <div class="issue-item">
+            <span class="issue-tag tag-alpha">Alpha</span>
+            <div>
+              <div class="issue-item-title">MiniMax M2.5 rivals Claude Opus 4.6 at a fraction of the cost</div>
+              <div class="issue-item-desc">Chinas MiniMax quietly dropped a model that benchmarks neck-and-neck with
+                Opus 4.6 on coding and visual tasks. The arbitrage window is open.</div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"The workflow section has shipped real value to my team multiple times. Its one of three I still open every week."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar a2">S</div>
-          <div>
-            <div class="author-name">Sarah K.</div>
-            <div class="author-handle">AI Engineer · @skarayev</div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header centered">
+        <div class="eyebrow">Reader Love</div>
+        <h2 class="section-title">People who get it, <em>get it.</em></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"Outclaw AI is the only newsletter where I actually read every single word. The
+            alpha section alone is worth more than most paid courses."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar a1">J</div>
+            <div>
+              <div class="author-name">Jake M.</div>
+              <div class="author-handle">Product Lead · @jakembuilds</div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <div class="testimonial-text">"The X recaps save me 2 hours a week minimum. I forwarded last weeks issue to my whole team. Everyone subscribed immediately."</div>
-        <div class="testimonial-author">
-          <div class="author-avatar a3">R</div>
-          <div>
-            <div class="author-name">Ryan T.</div>
-            <div class="author-handle">Founder · @ryanbuildsai</div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"The workflow section has shipped real value to my team multiple times. Its one
+            of three I still open every week."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar a2">S</div>
+            <div>
+              <div class="author-name">Sarah K.</div>
+              <div class="author-handle">AI Engineer · @skarayev</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <div class="testimonial-text">"The X recaps save me 2 hours a week minimum. I forwarded last weeks issue to my
+            whole team. Everyone subscribed immediately."</div>
+          <div class="testimonial-author">
+            <div class="author-avatar a3">R</div>
+            <div>
+              <div class="author-name">Ryan T.</div>
+              <div class="author-handle">Founder · @ryanbuildsai</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="bottom-cta">
-  <div class="bottom-cta-inner">
-    <h2 class="cta-title">Stop missing the<br><em>good stuff.</em></h2>
-    <p class="cta-sub">Join 12,000+ builders and AI power users who get OutClaw AI in their inbox every Tuesday.</p>
-    <div class="cta-form-beehiiv" id="bottom-subscribe" style="margin: 0 auto; max-width: 560px;">
-      <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed" data-test-id="beehiiv-embed" frameborder="0" scrolling="no" style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+  <section class="bottom-cta">
+    <div class="bottom-cta-inner">
+      <h2 class="cta-title">Stop missing the<br><em>good stuff.</em></h2>
+      <p class="cta-sub">Join 250+ builders and AI power users who get OutClaw AI in their inbox every Tuesday.</p>
+      <div class="cta-form-beehiiv" id="bottom-subscribe" style="margin: 0 auto; max-width: 560px;">
+        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe
+          src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed"
+          data-test-id="beehiiv-embed" frameborder="0" scrolling="no"
+          style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <a href="../index.html" class="footer-logo">
-    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="footer-logo-img">
-    <div class="footer-wordmark">Out<em>claw</em> AI</div>
-  </a>
-  <div class="footer-links">
-    <a href="#">Archive</a>
-    <a href="#">Privacy</a>
-    <a href="#">Unsubscribe</a>
-    <a href="https://twitter.com/outclaw">X / Twitter</a>
-  </div>
-  <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
-</footer>
+  <footer>
+    <a href="../index.html" class="footer-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="footer-logo-img">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="footer-links">
+      <a href="#">Archive</a>
+      <a href="#">Privacy</a>
+      <a href="#">Unsubscribe</a>
+      <a href="https://twitter.com/outclaw">X / Twitter</a>
+    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
 
-<script>
-function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
-document.addEventListener("click",function(e){
-  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
-  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
-});
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
 
-const cards = document.querySelectorAll('.content-card, .testimonial-card, .issue-item');
-const obs = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const idx = Array.from(cards).indexOf(entry.target) % 3;
-      entry.target.style.animation = `cardReveal 0.55s ease ${idx * 90}ms both`;
-      obs.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-cards.forEach(el => { el.style.opacity = '0'; obs.observe(el); });
-</script>
+    const cards = document.querySelectorAll('.content-card, .testimonial-card, .issue-item');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          const idx = Array.from(cards).indexOf(entry.target) % 3;
+          entry.target.style.animation = `cardReveal 0.55s ease ${idx * 90}ms both`;
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cards.forEach(el => { el.style.opacity = '0'; obs.observe(el); });
+  </script>
 </body>
+
 </html>

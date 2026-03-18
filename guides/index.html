@@ -90,11 +90,12 @@
       border-radius: 10px;
     }
 
+    /* ── NAVBAR ── */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 200;
-      height: 68px;
+      height: 64px;
       background: rgba(255, 255, 255, .92);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -126,7 +127,7 @@
 
     .navbar-wordmark {
       font-family: var(--font-display);
-      font-size: 21px;
+      font-size: 22px;
       color: var(--text);
     }
 
@@ -138,7 +139,7 @@
     .navbar-links {
       display: flex;
       align-items: center;
-      gap: 2px;
+      gap: 4px;
     }
 
     .navbar-links a {
@@ -146,10 +147,9 @@
       font-weight: 500;
       color: var(--text-soft);
       text-decoration: none;
-      padding: 7px 14px;
+      padding: 8px 16px;
       border-radius: 8px;
       transition: all .15s;
-      white-space: nowrap;
     }
 
     .navbar-links a:hover {
@@ -174,7 +174,7 @@
       align-items: center;
       gap: 6px;
       padding: 9px 20px;
-      background: var(--grad-sky);
+      background: var(--grad-flamingo);
       color: #fff !important;
       font-size: 13px;
       font-weight: 600;
@@ -211,7 +211,7 @@
     .nav-drawer {
       display: none;
       position: fixed;
-      top: 68px;
+      top: 64px;
       left: 0;
       right: 0;
       background: rgba(255, 255, 255, .97);
@@ -240,11 +240,6 @@
     .nav-drawer a:hover {
       color: var(--sky);
       background: var(--sky-pale);
-    }
-
-    .nav-drawer .nav-cta {
-      margin-top: 8px;
-      justify-content: center;
     }
 
     @media(max-width:860px) {
@@ -1185,7 +1180,7 @@
         <div class="card-arrow"><span>Read guide &#x2192;</span><span style="font-size:12px;color:var(--text-dim);">35
             min &middot; All levels</span></div>
       </a>
-      <a href="#" class="card">
+      <a href="automate-content-workflow-n8n-claude.html" class="card">
         <div class="card-icon-wrap" style="background:var(--leaf-pale);"><img src="../outclaw-icons/automation.svg"
             width="24" height="24" alt="Automation"></div>
         <div class="card-badge badge-leaf">Automation</div>
@@ -1195,17 +1190,7 @@
         <div class="card-arrow"><span>Read guide &#x2192;</span><span style="font-size:12px;color:var(--text-dim);">45
             min &middot; Intermediate</span></div>
       </a>
-      <a href="#" class="card">
-        <div class="card-icon-wrap" style="background:var(--coral-pale);"><img src="../outclaw-icons/claude-analyst.svg"
-            width="24" height="24" alt="Analyst"></div>
-        <div class="card-badge badge-coral">Claude</div>
-        <div class="card-title">Claude as your analyst: building a repeatable data pipeline</div>
-        <div class="card-desc">Upload CSVs, ask natural language questions, get structured outputs. A lightweight
-          internal analytics tool your whole team can use without a data scientist.</div>
-        <div class="card-arrow"><span>Read guide &#x2192;</span><span style="font-size:12px;color:var(--text-dim);">30
-            min &middot; Intermediate</span></div>
-      </a>
-      <a href="#" class="card">
+      <a href="gpt-54-1m-context-practical-guide.html" class="card">
         <div class="card-icon-wrap"><img src="../outclaw-icons/ChatGPT.svg" width="24" height="24" alt="ChatGPT"></div>
         <div class="card-badge badge-sand">ChatGPT</div>
         <div class="card-title">GPT-5.4 with 1M context: the practical use cases that actually work</div>
@@ -1213,16 +1198,6 @@
           them, what falls apart, and how to prompt for coherent output at scale.</div>
         <div class="card-arrow"><span>Read guide &#x2192;</span><span style="font-size:12px;color:var(--text-dim);">25
             min &middot; All levels</span></div>
-      </a>
-      <a href="#" class="card">
-        <div class="card-icon-wrap" style="background:var(--sky-pale);"><img src="../outclaw-icons/mcp.svg" width="24"
-            height="24" alt="MCP"></div>
-        <div class="card-badge badge-sky">MCP &amp; Agents</div>
-        <div class="card-title">Setting up MCP servers: the definitive 2026 guide</div>
-        <div class="card-desc">Model Context Protocol unlocks Claude&apos;s ability to talk to your tools. A complete
-          walkthrough of setup, authentication, and 12 integrations worth building first.</div>
-        <div class="card-arrow"><span>Read guide &#x2192;</span><span style="font-size:12px;color:var(--text-dim);">40
-            min &middot; Advanced</span></div>
       </a>
     </div>
     <div class="cta-banner">

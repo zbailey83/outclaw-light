@@ -138,32 +138,19 @@
     }
 
     /* ── NAVBAR ── */
-    .navbar {
-      position: sticky; top: 0; z-index: 200;
-      height: 64px;
-      background: rgba(255,255,255,.92);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px;
-    }
-    .navbar-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .navbar { position:sticky; top:0; z-index:200; height:64px; background:rgba(255,255,255,.92); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 48px; }
+    .navbar-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .navbar-logo-img { width: 32px; height: 32px; object-fit: contain; transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), filter .3s ease; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2)); }
+    .navbar-logo:hover .navbar-logo-img { transform: scale(1.15) rotate(-5deg); filter: drop-shadow(0 4px 16px rgba(244, 103, 138, .5)); }
     .navbar-wordmark { font-family: var(--font-display); font-size: 22px; color: var(--text); }
     .navbar-wordmark em { font-style: normal; color: var(--sky); }
     .navbar-links { display: flex; align-items: center; gap: 4px; }
-    .navbar-links a {
-      font-size: 14px; font-weight: 500; color: var(--text-soft);
-      text-decoration: none; padding: 8px 16px; border-radius: 8px; transition: all .15s;
-    }
+    .navbar-links a { font-size: 14px; font-weight: 500; color: var(--text-soft); text-decoration: none; padding: 8px 16px; border-radius: 8px; transition: all .15s; }
     .navbar-links a:hover { color: var(--text); background: var(--sky-pale); }
-    .nav-cta {
-      display: inline-flex; align-items: center; gap: 6px;
-      padding: 9px 20px; background: var(--grad-flamingo);
-      color: #fff !important; font-size: 13px; font-weight: 600;
-      border-radius: 100px; text-decoration: none;
-      box-shadow: 0 2px 12px rgba(90,173,219,.3); transition: all .2s; white-space: nowrap;
-    }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(90,173,219,.45); }
+    .navbar-links a.active { color:var(--sky); background:var(--sky-pale); font-weight:600; }
+    .navbar-right { display:flex; align-items:center; gap:12px; }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; background: var(--grad-flamingo); color: #fff !important; font-size: 13px; font-weight: 600; border-radius: 100px; text-decoration: none; box-shadow: 0 2px 12px rgba(90,173,219,.3); transition: all .2s; white-space: nowrap; }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(90,173,219, .45); }
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border: none; background: transparent; }
     .nav-hamburger span { display: block; width: 20px; height: 2px; background: var(--text-soft); border-radius: 2px; }
     .nav-drawer {
@@ -524,33 +511,31 @@
 
   <!-- NAVBAR -->
   <nav class="navbar" id="mainNav">
-    <a href="https://openclaw.xyz" class="navbar-logo">
-      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-        <path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/>
-      </svg>
-      <div class="navbar-wordmark">Open<em>claw</em></div>
+    <a href="../index.html" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
     </a>
     <div class="navbar-links">
-      <a href="#">About</a>
-      <a href="#">Articles</a>
-      <a href="#">Guides</a>
-      <a href="#">Tools</a>
-      <a href="#">Newsletter</a>
+      <a href="../about/index.html">About</a>
+      <a href="../articles/index.html">Articles</a>
+      <a href="index.html" class="active">Guides</a>
+      <a href="../tools/index.html">Tools</a>
+      <a href="../newsletter/index.html">Newsletter</a>
     </div>
     <div class="navbar-right">
-      <a href="https://outclaw.xyz" class="nav-cta">← Back to OutClaw</a>
+      <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
     </div>
     <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
   </nav>
   <div class="nav-drawer" id="navDrawer">
-    <a href="#">About</a>
-    <a href="#">Articles</a>
-    <a href="#">Guides</a>
-    <a href="#">Tools</a>
-    <a href="#">Newsletter</a>
-    <a href="https://outclaw.xyz" class="nav-cta">← Back to OutClaw</a>
+    <a href="../about/index.html">About</a>
+    <a href="../articles/index.html">Articles</a>
+    <a href="index.html" class="active">Guides</a>
+    <a href="../tools/index.html">Tools</a>
+    <a href="../newsletter/index.html">Newsletter</a>
+    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
   </div>
 
   <!-- TICKER -->
@@ -608,9 +593,9 @@
   <!-- BREADCRUMB -->
   <div class="breadcrumb-wrap">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="https://openclaw.xyz">OpenClaw</a>
+      <a href="../index.html">OutClaw AI</a>
       <span>›</span>
-      <a href="#">Guides</a>
+      <a href="index.html">Guides</a>
       <span>›</span>
       Setting Up on a VPS &amp; Mac Mini
     </nav>
@@ -1393,20 +1378,18 @@ module.exports = {
 
   <!-- FOOTER -->
   <footer>
-    <a href="https://openclaw.xyz" class="footer-logo">
-      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-        <path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB"/>
-      </svg>
-      <div class="footer-wordmark">Open<em>claw</em></div>
+    <a href="../index.html" class="footer-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="footer-wordmark" style="color:#fff;">Out<em>claw</em> AI</div>
     </a>
     <div class="footer-links">
-      <a href="#">All Guides</a>
-      <a href="#">Claude Workflows</a>
-      <a href="#">Outclaw Newsletter</a>
+      <a href="index.html">All Guides</a>
+      <a href="../about/index.html">About</a>
+      <a href="../newsletter/index.html">Outclaw Newsletter</a>
       <a href="#">GitHub</a>
       <a href="#">Privacy</a>
     </div>
-    <div class="footer-copy">© 2026 Antigravity. All rights reserved.</div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
   </footer>
 
   <script>
