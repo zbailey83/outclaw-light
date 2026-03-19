@@ -420,7 +420,7 @@
 
     .hero-headline {
       font-family: var(--font-display);
-      font-size: clamp(40px, 6vw, 68px);
+      font-size: clamp(40px, 8vw, 68px); /* Increased min font size scaling */
       font-weight: 400;
       line-height: 1.0;
       letter-spacing: -0.025em;
@@ -441,6 +441,47 @@
       max-width: 600px;
       margin: 0 auto 40px;
       animation: fadeInUp .7s ease .2s both;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin: 48px auto 0;
+      max-width: 800px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: transform .25s ease, border-color .25s ease;
+    }
+
+    .stat-card:hover {
+      border-color: var(--sky-light);
+      transform: translateY(-2px);
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--text);
+    }
+
+    .stat-value span {
+      color: var(--sky);
+    }
+
+    .stat-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin-top: 4px;
     }
 
     /* ─── WHAT YOU GET ──────────────────────── */
@@ -831,9 +872,31 @@
       .testimonials-grid {
         grid-template-columns: 1fr 1fr;
       }
+
+      .hero-stats {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+      }
     }
 
     @media(max-width:600px) {
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .hero-stats {
+        gap: 12px;
+        margin-top: 32px;
+      }
+
+      .stat-card {
+        padding: 16px;
+      }
+
+      .stat-value {
+        font-size: 28px;
+      }
+
       .content-grid {
         grid-template-columns: 1fr;
       }
@@ -848,7 +911,13 @@
       }
 
       .hero-headline {
-        font-size: 42px;
+        font-size: 38px;
+        line-height: 1.1;
+      }
+
+      .hero-sub {
+        font-size: 16px;
+        margin-bottom: 32px;
       }
 
       .cta-title {
@@ -867,7 +936,6 @@
     </a>
     <div class="navbar-links">
       <a href="../about/index.html">About</a>
-      <a href="../articles/index.html">Articles</a>
       <a href="../guides/index.html">Guides</a>
       <a href="../tools/index.html">Tools</a>
       <a href="index.html" class="active">Newsletter</a>
@@ -881,7 +949,6 @@
 
   <div class="nav-drawer" id="navDrawer">
     <a href="../about/index.html">About</a>
-    <a href="../articles/index.html">Articles</a>
     <a href="../guides/index.html">Guides</a>
     <a href="../tools/index.html">Tools</a>
     <a href="index.html" class="active">Newsletter</a>
@@ -903,38 +970,22 @@
             style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
         </div>
 
-        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin: 48px auto 0; max-width: 800px;">
-          <div
-            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
-            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">250<span
-                style="color:var(--sky);">+</span></div>
-            <div
-              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
-              Subscribers</div>
+        <div class="hero-stats">
+          <div class="stat-card">
+            <div class="stat-value">250<span>+</span></div>
+            <div class="stat-label">Subscribers</div>
           </div>
-          <div
-            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
-            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">06<span
-                style="color:var(--sky);">&times;</span></div>
-            <div
-              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
-              Issues</div>
+          <div class="stat-card">
+            <div class="stat-value">06<span>&times;</span></div>
+            <div class="stat-label">Issues</div>
           </div>
-          <div
-            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
-            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">48<span
-                style="color:var(--sky);">%</span></div>
-            <div
-              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
-              Open Rate</div>
+          <div class="stat-card">
+            <div class="stat-value">48<span>%</span></div>
+            <div class="stat-label">Open Rate</div>
           </div>
-          <div
-            style="background:var(--white);border:1px solid var(--border);border-radius:16px;padding:24px;text-align:center;">
-            <div style="font-family:var(--font-display);font-size:36px;color:var(--text);">4.9<span
-                style="color:var(--sky);">&#9733;</span></div>
-            <div
-              style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin-top:4px;">
-              Rating</div>
+          <div class="stat-card">
+            <div class="stat-value">4.9<span>&#9733;</span></div>
+            <div class="stat-label">Rating</div>
           </div>
         </div>
       </div>
@@ -1108,10 +1159,9 @@
       <div class="footer-wordmark">Out<em>claw</em> AI</div>
     </a>
     <div class="footer-links">
-      <a href="#">Archive</a>
-      <a href="#">Privacy</a>
-      <a href="#">Unsubscribe</a>
-      <a href="https://twitter.com/outclaw">X / Twitter</a>
+      <a href="../privacy/index.html">Privacy</a>
+      <a href="https://x.com/zbailey83" target="_blank">X / Twitter</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
     </div>
     <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
   </footer>
