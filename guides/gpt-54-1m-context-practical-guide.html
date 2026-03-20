@@ -94,6 +94,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+    
+    a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+    a:hover { color: var(--text); text-decoration-color: var(--text); }
 
     @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
@@ -203,8 +206,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .section-heading .rs { font-style:italic; color:var(--rose); }
     .guide-body { font-size:16px; color:var(--text-soft); line-height:1.82; margin-bottom:28px; }
     .guide-body strong { color:var(--text); font-weight:600; }
-    .guide-body a { color:var(--sky); text-decoration:underline; text-underline-offset:3px; }
-    .guide-body a:hover { color:var(--flamingo); }
+    .guide-body strong { color:var(--text); font-weight:600; }
+    .guide-body a { color: inherit; }
 
     /* ── CODE BLOCKS ── */
     .code-block { background:var(--navy-code); border-radius:16px; overflow:hidden; margin:24px 0; box-shadow:0 4px 24px rgba(26,26,46,.12); }
@@ -426,7 +429,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-meta-item">🔬 OpenAI GPT-5.4</div>
     </div>
     <p class="hero-sub">
-      Large context windows sound impressive. Here's exactly what tasks justify using them, what falls apart at scale, and how to prompt for coherent output when you're feeding GPT-5.4 a novel's worth of data.
+      Large context windows sound impressive. Here's exactly what tasks justify using them, what falls apart at scale, and how to prompt for coherent output when you're feeding <a href="https://openai.com" target="_blank" style="color:inherit;text-decoration:underline;">GPT-5.4</a> a novel's worth of data.
     </p>
     <div class="hero-tags">
       <span class="hero-tag">Context Window</span>
@@ -504,7 +507,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Before GPT-5.4, working with large documents meant one of three workarounds: chunking (splitting the document and summarising each piece), retrieval-augmented generation (embedding + semantic search), or truncation and hoping the critical context made it into the window. Each workaround introduces error. Chunking loses cross-chunk references. RAG misses context that doesn't match the retrieval query. Truncation is just truncation.
   </p>
   <p class="guide-body">
-    A 1M token context window changes the calculus on one specific question: <strong>does the answer to this task depend on having access to the entire document simultaneously?</strong> If yes — if the answer in paragraph 3 depends on something buried in paragraph 847 — then a large context window isn't a nice-to-have. It's the only way to get the right answer without engineering around the limitation.
+    A 1M token context window changes the calculus on one specific question: <strong>does the answer to this task depend on having access to the entire document simultaneously?</strong> If yes — if the answer in paragraph 3 depends on something buried in paragraph 847 — then a large context window isn't a nice-to-have. It's the only way to get the right answer without engineering around the limitation. Compare this to our <a href="../tools/model-comparison.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">model comparison tool</a> to see how this stacks up against Claude.
   </p>
 
   <div class="callout callout-info">
@@ -526,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="feature-card">
       <div class="feature-icon">🎯</div>
       <div class="feature-title">RAG Can't Replace It</div>
-      <div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis or legal discovery, the unknown unknowns are often the most important findings.</div>
+      <div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis (like setting up <a href="openclaw-vps-mac-mini-setup-guide.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">OpenClaw</a>) or legal discovery, the unknown unknowns are often the most important findings.</div>
     </div>
   </div>
 </section>

@@ -37,6 +37,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+a:hover { color: var(--text); text-decoration-color: var(--text); }
 
 /* NAV */
 .navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
@@ -219,7 +221,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="eyebrow">Free Tool</div>
     <h1>Paste a prompt. Get a <em>sharper</em> one back.</h1>
-    <p class="tool-hero-sub">Paste any prompt. Claude rewrites it for better structure, clarity, and output consistency — plus a full breakdown of exactly what changed and why it works better.</p>
+    <p class="tool-hero-sub">Paste any prompt. <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Claude</a> rewrites it for better structure, clarity, and output consistency — plus a full breakdown of exactly what changed and why it works better.</p>
     <div class="hero-badges">
       <span class="hero-badge badge-free">✓ Free forever</span>
       <span class="hero-badge badge-noauth">No account needed</span>
@@ -303,7 +305,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- TIPS -->
 <div class="tips-section">
   <div class="section-label">Why prompts fail</div>
-  <div class="section-heading">The most common <em>prompt mistakes</em></div>
+  <div class="section-heading">The most common <a href="../guides/claude-sonnet-prompting-playbook.html" style="color:inherit;text-decoration:underline;">prompt mistakes</a></div>
   <div class="section-divider"></div>
   <div class="tips-grid">
     <div class="tip-card">

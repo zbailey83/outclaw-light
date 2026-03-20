@@ -91,6 +91,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+    
+    a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+    a:hover { color: var(--text); text-decoration-color: var(--text); }
 
     @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
     @keyframes fadeInDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
@@ -206,8 +209,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .section-heading .lf { font-style:italic; color:var(--leaf); }
     .guide-body { font-size:16px; color:var(--text-soft); line-height:1.82; margin-bottom:28px; }
     .guide-body strong { color:var(--text); font-weight:600; }
-    .guide-body a { color:var(--sky); text-decoration:underline; text-underline-offset:3px; }
-    .guide-body a:hover { color:var(--flamingo); }
+    .guide-body strong { color:var(--text); font-weight:600; }
+    .guide-body a { color: inherit; }
 
     /* ── WORKFLOW DIAGRAM ── */
     .workflow-diagram {
@@ -451,7 +454,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-meta-dot"></div>
       <div class="hero-meta-item">🎯 Intermediate</div>
       <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">🔧 n8n + Claude Sonnet 4.6</div>
+      <div class="hero-meta-item">🔧 n8n + <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Claude Sonnet 4.6</a></div>
     </div>
     <p class="hero-sub">
       From brief to draft to publish — a full n8n + Claude automation that handles ideation, drafting, SEO optimisation, and scheduling with one trigger. No more copy-pasting between tabs. One workflow, every content type, always consistent.
@@ -592,7 +595,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <p class="guide-body">
-    Each Claude node uses a separate, focused system prompt — ideation, drafting, and SEO are deliberately kept apart so each prompt can be tuned independently. The outputs chain: the ideation node's structured outline becomes the drafting node's input; the draft becomes the SEO node's input. This sequential chaining is what produces consistent, high-quality output rather than asking one prompt to do everything at once.
+    Each Claude node uses a separate, focused <a href="claude-sonnet-prompting-playbook.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">system prompt</a> — ideation, drafting, and SEO are deliberately kept apart so each prompt can be tuned independently. The outputs chain: the ideation node's structured outline becomes the drafting node's input; the draft becomes the SEO node's input. This sequential chaining is what produces consistent, high-quality output rather than asking one prompt to do everything at once.
   </p>
 
   <div class="feature-grid">

@@ -49,6 +49,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+a:hover { color: var(--text); text-decoration-color: var(--text); }
 .navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
 .navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
 .navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
@@ -215,7 +217,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="page-hero-inner">
     <div class="eyebrow">Free Tools</div>
     <h1>Built to save you time. <em>No account required.</em></h1>
-    <p class="page-hero-sub">Six tools (and counting) built by the OutClaw team. Free to use, no paywalls, no sign-up walls.</p>
+    <p class="page-hero-sub">Six tools (and counting) built by the OutClaw team. Free to use with <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;">Claude</a>, <a href="https://openai.com" target="_blank" style="color:inherit;text-decoration:underline;">ChatGPT</a>, and more.</p>
   </div>
 </section>
 <div class="page-body">

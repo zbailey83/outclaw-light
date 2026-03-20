@@ -151,6 +151,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 10px;
     }
 
+    a {
+      color: var(--text-soft);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(122, 122, 158, 0.3);
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: var(--text);
+      text-decoration-color: var(--text);
+    }
+
     /* ─── UTILS ─────────────────────────────── */
     .container {
       max-width: 1120px;
@@ -1909,6 +1922,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           fill="#5AADDB" />
       </svg>
       <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83" target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
     </a>
     <div class="footer-links">
       <a href="privacy/index.html">Privacy</a>

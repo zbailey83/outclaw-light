@@ -38,7 +38,21 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     h1 { font-family: var(--font-display); font-size: 48px; margin-bottom: 32px; }
     h2 { font-family: var(--font-display); font-size: 24px; margin: 40px 0 16px; }
     p { margin-bottom: 20px; color: var(--text-soft); }
-    .back-link { display: inline-block; margin-bottom: 40px; color: var(--sky); text-decoration: none; font-weight: 600; }
+    
+    a {
+      color: var(--text-soft);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(122, 122, 158, 0.3);
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: var(--text);
+      text-decoration-color: var(--text);
+    }
+    
+    .back-link { display: inline-block; margin-bottom: 40px; text-decoration: none; font-weight: 600; }
   </style>
 </head>
 
@@ -104,8 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     .footer-wordmark { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
     .footer-wordmark em { font-style: italic; color: var(--sky); }
     .footer-col h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; color: var(--text); }
-    .footer-col a { display: block; margin-bottom: 12px; color: var(--text-soft); text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    .footer-col a:hover { color: var(--sky); }
+    .footer-col a { display: block; margin-bottom: 12px; text-decoration: none; font-size: 14px; transition: color 0.2s; }
     @media (max-width: 768px) {
       .site-footer { grid-template-columns: 1fr 1fr; }
       .footer-brand { grid-column: span 2; }

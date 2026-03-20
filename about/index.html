@@ -97,6 +97,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border-radius: 10px;
     }
 
+    a {
+      color: var(--text-soft);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(122, 122, 158, 0.3);
+      transition: all 0.2s;
+    }
+
+    a:hover {
+      color: var(--text);
+      text-decoration-color: var(--text);
+    }
+
     .navbar {
       position: sticky;
       top: 0;

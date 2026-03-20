@@ -44,6 +44,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 html{scroll-behavior:smooth;}
 body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
 ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+a:hover { color: var(--text); text-decoration-color: var(--text); }
 
 /* NAV */
 .navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
@@ -412,7 +414,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <td>Excellent</td>
       <td>Good</td>
       <td><span class="badge-win">🏆 Best</span> — 2M token context</td>
-      <td>Limited by context window</td>
+      <td>Limited by context window (see <a href="../guides/gpt-54-1m-context-practical-guide.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">GPT-5.4 1M guide</a>)</td>
     </tr>
     <tr data-category="usecases">
       <td>Image / vision tasks</td>
@@ -507,7 +509,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qp-icon" style="background:var(--claude-pale);">✍️</div>
       <div>
         <div class="qp-title">Best for writing & nuance</div>
-        <div class="qp-model" style="color:var(--claude);">Claude Sonnet 4.5</div>
+        <div class="qp-model" style="color:var(--claude);"><a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:none;">Claude Sonnet 4.5</a></div>
       </div>
     </div>
     <div class="qp-desc">Consistently produces the most natural, nuanced writing. Doesn't hallucinate citations. Best for customer-facing content and brand voice work.</div>
@@ -517,7 +519,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qp-icon" style="background:var(--gpt-pale);">🖼️</div>
       <div>
         <div class="qp-title">Best for vision & multimodal</div>
-        <div class="qp-model" style="color:var(--gpt);">GPT-4o</div>
+        <div class="qp-model" style="color:var(--gpt);"><a href="https://openai.com" target="_blank" style="color:inherit;text-decoration:none;">GPT-4o</a></div>
       </div>
     </div>
     <div class="qp-desc">No other model matches GPT-4o's vision capabilities. Best for analyzing images, charts, screenshots, and mixed-media inputs.</div>
@@ -527,7 +529,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="qp-icon" style="background:var(--gemini-pale);">📚</div>
       <div>
         <div class="qp-title">Best for long documents</div>
-        <div class="qp-model" style="color:var(--gemini);">Gemini 2.5 Pro</div>
+        <div class="qp-model" style="color:var(--gemini);"><a href="https://gemini.google.com" target="_blank" style="color:inherit;text-decoration:none;">Gemini 2.5 Pro</a></div>
       </div>
     </div>
     <div class="qp-desc">2 million token context window is in a class of its own. If you need to ingest entire codebases or 500-page PDFs, Gemini is your only real option.</div>

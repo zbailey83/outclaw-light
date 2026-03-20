@@ -115,6 +115,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+    
+    a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+    a:hover { color: var(--text); text-decoration-color: var(--text); }
 
     .container { max-width: 1120px; margin: 0 auto; padding: 0 40px; }
 
@@ -311,8 +314,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .guide-body { font-size: 16px; color: var(--text-soft); line-height: 1.8; margin-bottom: 28px; }
     .guide-body strong { color: var(--text); font-weight: 600; }
-    .guide-body a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
-    .guide-body a:hover { color: var(--flamingo); }
+    .guide-body a { color: inherit; }
 
     /* ── CODE BLOCKS ── */
     .code-block {
@@ -585,7 +587,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="hero-meta-item">🐧 Ubuntu 24.04 + macOS 15</div>
       </div>
       <p class="hero-sub">
-        The definitive walkthrough for self-hosting OpenClaw — Outclaw's Claude-powered content layer — on either a cloud VPS or a local Mac Mini. No hand-waving. No skipped steps. From zero to a running server with a working Anthropic API connection, persistent process management, and optional MCP workflow integrations.
+        The definitive walkthrough for self-hosting OpenClaw — Outclaw's <a href="claude-sonnet-prompting-playbook.html" style="color:inherit;text-decoration:underline;">Claude-powered</a> content layer — on either a cloud VPS or a local Mac Mini. No hand-waving. No skipped steps. From zero to a running server with a working <a href="https://anthropic.com" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Anthropic API</a> connection, persistent process management, and optional <a href="automate-content-workflow-n8n-claude.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">MCP workflow</a> integrations.
       </p>
       <div class="hero-tags">
         <span class="hero-tag">Ubuntu 24.04</span>

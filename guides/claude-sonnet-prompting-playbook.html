@@ -95,6 +95,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     ::-webkit-scrollbar { width: 5px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
     ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+    
+    a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+    a:hover { color: var(--text); text-decoration-color: var(--text); }
 
     /* ── KEYFRAMES ── */
     @keyframes fadeInUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
@@ -212,8 +215,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
     .guide-body { font-size:16px; color:var(--text-soft); line-height:1.82; margin-bottom:28px; }
     .guide-body strong { color:var(--text); font-weight:600; }
-    .guide-body a { color:var(--sky); text-decoration:underline; text-underline-offset:3px; }
-    .guide-body a:hover { color:var(--flamingo); }
+    .guide-body strong { color:var(--text); font-weight:600; }
+    .guide-body a { color: inherit; }
 
     /* ── PROMPT TEMPLATE CARD ── */
     .template-card {
@@ -438,7 +441,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="hero-meta-item">🎯 All skill levels</div>
     </div>
     <p class="hero-sub">
-      System prompts, chain-of-thought techniques, XML structuring, few-shot patterns, and output control — the exact methods that unlock Claude Sonnet 4.6's best work. Every template is annotated, explained, and ready to drop into your workflows.
+      System prompts, chain-of-thought techniques, XML structuring, few-shot patterns, and output control — the exact methods that unlock <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;">Claude Sonnet 4.6</a>'s best work. Every template is annotated, explained, and ready to drop into your <a href="automate-content-workflow-n8n-claude.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">workflows</a>.
     </p>
     <div class="hero-tags">
       <span class="hero-tag">System Prompts</span>
@@ -537,7 +540,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="callout callout-info">
     <div class="callout-icon">ℹ️</div>
-    <div class="callout-text"><strong>Sonnet 4.6 vs Opus 4.6 prompting:</strong> The techniques here work on both models, but Sonnet responds more strongly to explicit structure and less tolerant of ambiguity than Opus. Opus handles fuzzy instructions more gracefully; Sonnet rewards precision. The templates in this guide are optimised for Sonnet's prompt-processing style.</div>
+    <div class="callout-text"><strong>Sonnet 4.6 vs Opus 4.6 prompting:</strong> The techniques here work on both models, but Sonnet responds more strongly to explicit structure and less tolerant of ambiguity than Opus. Opus handles fuzzy instructions more gracefully; Sonnet rewards precision. The templates in this guide are <a href="../tools/prompt-sharpener.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">optimised</a> for Sonnet's prompt-processing style.</div>
   </div>
 
   <p class="guide-body">
