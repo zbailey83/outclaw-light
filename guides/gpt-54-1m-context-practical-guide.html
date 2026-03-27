@@ -21,8 +21,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>OpenAI GPT-5.4 with 1M Context: The Practical Use Cases That Actually Work</title>
   <meta name="description" content="Large context windows sound impressive. Here's exactly what tasks justify using GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when you're feeding the model a novel's worth of data.">
-  <meta name="keywords" content="GPT-5.4 1M context window, large context LLM, GPT-5.4 use cases, 1 million token context, GPT-5.4 prompting, long context AI, GPT-5.4 guide 2026, OpenAI GPT-5.4 practical">
-  <link rel="canonical" href="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html">
+  <link rel="canonical" href="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
 
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html">
@@ -375,29 +374,29 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAVBAR -->
 <nav class="navbar" id="mainNav">
-  <a href="../index.html" class="navbar-logo">
+  <a href="../" class="navbar-logo">
     <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
     <div class="navbar-wordmark">Out<em>claw</em> AI</div>
   </a>
   <div class="navbar-links">
-    <a href="../about/index.html">About</a>
-    <a href="index.html" class="active">Guides</a>
-    <a href="../tools/index.html">Tools</a>
-    <a href="../newsletter/index.html">Newsletter</a>
+    <a href="../about/">About</a>
+    <a href="./" class="active">Guides</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
   </div>
   <div class="navbar-right">
-    <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
   </div>
   <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
     <span></span><span></span><span></span>
   </button>
 </nav>
 <div class="nav-drawer" id="navDrawer">
-  <a href="../about/index.html">About</a>
-  <a href="index.html" class="active">Guides</a>
-  <a href="../tools/index.html">Tools</a>
-  <a href="../newsletter/index.html">Newsletter</a>
-  <a href="../newsletter/index.html" class="nav-cta">Subscribe Free →</a>
+  <a href="../about/">About</a>
+  <a href="./" class="active">Guides</a>
+  <a href="../tools/">Tools</a>
+  <a href="../newsletter/">Newsletter</a>
+  <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
 </div>
 
 <!-- TICKER -->
@@ -480,8 +479,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- BREADCRUMB -->
 <div class="breadcrumb-wrap">
   <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../index.html">OutClaw AI</a><span>›</span>
-    <a href="index.html">Guides</a><span>›</span>
+    <a href="../">OutClaw AI</a><span>›</span>
+    <a href="./">Guides</a><span>›</span>
     GPT-5.4 1M Context — Practical Use Cases
   </nav>
 </div>
@@ -516,7 +515,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     Before GPT-5.4, working with large documents meant one of three workarounds: chunking (splitting the document and summarising each piece), retrieval-augmented generation (embedding + semantic search), or truncation and hoping the critical context made it into the window. Each workaround introduces error. Chunking loses cross-chunk references. RAG misses context that doesn't match the retrieval query. Truncation is just truncation.
   </p>
   <p class="guide-body">
-    A 1M token context window changes the calculus on one specific question: <strong>does the answer to this task depend on having access to the entire document simultaneously?</strong> If yes — if the answer in paragraph 3 depends on something buried in paragraph 847 — then a large context window isn't a nice-to-have. It's the only way to get the right answer without engineering around the limitation. Compare this to our <a href="../tools/model-comparison.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">model comparison tool</a> to see how this stacks up against Claude.
+    A 1M token context window changes the calculus on one specific question: <strong>does the answer to this task depend on having access to the entire document simultaneously?</strong> If yes — if the answer in paragraph 3 depends on something buried in paragraph 847 — then a large context window isn't a nice-to-have. It's the only way to get the right answer without engineering around the limitation. Compare this to our <a href="../tools/model-comparison" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">model comparison tool</a> to see how this stacks up against Claude.
   </p>
 
   <div class="callout callout-info">
@@ -538,7 +537,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="feature-card">
       <div class="feature-icon">🎯</div>
       <div class="feature-title">RAG Can't Replace It</div>
-      <div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis (like setting up <a href="openclaw-vps-mac-mini-setup-guide.html" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">OpenClaw</a>) or legal discovery, the unknown unknowns are often the most important findings.</div>
+      <div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis (like setting up <a href="openclaw-vps-mac-mini-setup-guide" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">OpenClaw</a>) or legal discovery, the unknown unknowns are often the most important findings.</div>
     </div>
   </div>
 </section>
@@ -975,12 +974,12 @@ from the early documents, the middle-section content takes precedence.
 
 <!-- FOOTER -->
 <footer>
-  <a href="../index.html" class="footer-logo">
+  <a href="../" class="footer-logo">
     <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
     <div class="footer-wordmark" style="color:#fff;">Out<em>claw</em> AI</div>
   </a>
   <div class="footer-links">
-    <a href="../privacy/index.html">Privacy</a>
+    <a href="../privacy/">Privacy</a>
     <a href="https://x.com/zbailey83" target="_blank">X / Twitter</a>
     <a href="mailto:zbailey83@gmail.com">Contact</a>
   </div>
