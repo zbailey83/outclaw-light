@@ -39,16 +39,57 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Automate Your Entire Content Workflow With AI in One Afternoon",
-    "description": "Build a full n8n + Claude automation pipeline covering content ideation, drafting, SEO optimization, and publishing — triggered by a single webhook.",
-    "author": { "@type": "Organization", "name": "OutClaw AI", "url": "https://outclaw.xyz" },
-    "publisher": { "@type": "Organization", "name": "OutClaw AI" },
-    "datePublished": "2026-03-17",
-    "dateModified": "2026-03-17",
-    "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html",
-    "inLanguage": "en-US",
-    "keywords": ["n8n", "Claude API", "content automation", "AI workflow", "SEO automation", "content pipeline"]
+    "@graph": [
+      {
+        "@type": "TechArticle",
+        "headline": "Automate Your Entire Content Workflow With AI in One Afternoon",
+        "description": "Build a full n8n + Claude automation pipeline covering content ideation, drafting, SEO optimization, and publishing — triggered by a single webhook.",
+        "author": { "@type": "Organization", "name": "OutClaw AI", "url": "https://outclaw.xyz" },
+        "publisher": { "@type": "Organization", "name": "OutClaw AI" },
+        "datePublished": "2026-03-17",
+        "dateModified": "2026-03-27",
+        "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html",
+        "inLanguage": "en-US",
+        "keywords": ["n8n", "Claude API", "content automation", "AI workflow", "SEO automation", "content pipeline"]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How to Automate Your Content Workflow with n8n and Claude",
+        "description": "A step-by-step guide to building a fully automated content pipeline that handles ideation, drafting, and SEO.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "name": "Configure Webhook Trigger",
+            "text": "Set up an n8n Webhook node to receive your content brief as a JSON payload.",
+            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#trigger-node"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Claude Ideation Phase",
+            "text": "Send the brief to Claude to generate a structured content plan and outline.",
+            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#ideation-node"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "Claude Drafting Phase",
+            "text": "Pass the outline to a second Claude node to write the full article draft in markdown.",
+            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#drafting-node"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "SEO Metadata Generation",
+            "text": "Use a specialized Claude node to generate SEO titles, meta descriptions, and JSON-LD schema based on the draft.",
+            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#seo-node"
+          },
+          {
+            "@type": "HowToStep",
+            "name": "CMS Publication",
+            "text": "Send the final SEO-enriched content to your CMS via HTTP Request.",
+            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#publish-node"
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -541,7 +582,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- ═══════ SECTION 01 ═══════ -->
 <section class="guide-section" id="the-pipeline">
   <div class="eyebrow">Section 01</div>
-  <h2 class="section-heading">The Full Pipeline — <em>How It Works</em></h2>
+  <h2 class="section-heading">How does the n8n + Claude <em>content pipeline work?</em></h2>
   <p class="guide-body">
     The workflow chains five nodes in sequence. Each node does one thing well and passes its output to the next. The trigger accepts a JSON brief via webhook. Claude handles all the creative and analytical work across three dedicated nodes. A final HTTP node pushes the finished, SEO-optimised post to your CMS.
   </p>
@@ -648,7 +689,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="section-divider"></div>
 <section class="guide-section" id="prerequisites">
   <div class="eyebrow">Section 02</div>
-  <h2 class="section-heading">Prerequisites &amp; <em>Stack Setup</em></h2>
+  <h2 class="section-heading">What do I need to <em>set up for this AI workflow?</em></h2>
   <p class="guide-body">
     Before building, get these in order. The whole pipeline takes under 45 minutes once these are ready — don't skip the setup.
   </p>
@@ -707,7 +748,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="section-divider"></div>
 <section class="guide-section" id="trigger-node">
   <div class="eyebrow eyebrow-leaf">Step 01</div>
-  <h2 class="section-heading">Webhook <em>Trigger Node</em></h2>
+  <h2 class="section-heading">Step 1: How do I set up the <em>Webhook Trigger node?</em></h2>
   <p class="guide-body">
     The pipeline starts with an n8n Webhook node. It listens for an HTTP POST containing your content brief as JSON. This is what you send each time you want to kick off a new content run — manually, from a Slack command, a Notion button, a cron job, or any other trigger.
   </p>
@@ -767,7 +808,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="section-divider"></div>
 <section class="guide-section" id="ideation-node">
   <div class="eyebrow eyebrow-violet">Step 02</div>
-  <h2 class="section-heading">Claude <em>Ideation Node</em></h2>
+  <h2 class="section-heading">Step 2: How do I configure the <em>Claude Ideation node?</em></h2>
   <p class="guide-body">
     The ideation node receives the brief and produces a structured content plan: three potential angles, a recommended angle with rationale, and a detailed section-by-section outline. This becomes the drafting node's structural input — critically, the draft never starts from a blank page.
   </p>
@@ -846,7 +887,7 @@ content-type: application/json</div>
 <div class="section-divider"></div>
 <section class="guide-section" id="drafting-node">
   <div class="eyebrow eyebrow-flamingo">Step 03</div>
-  <h2 class="section-heading">Claude <em>Drafting Node</em></h2>
+  <h2 class="section-heading">Step 3: How do I set up the <em>Claude Drafting node?</em></h2>
   <p class="guide-body">
     The drafting node takes the ideation plan — specifically the recommended angle and the full section outline — and writes the complete article. By injecting the structured outline into the system prompt, you ensure the draft always follows the planned structure. Claude writes section by section, hits the target word count, and maintains the specified tone throughout.
   </p>
@@ -914,7 +955,7 @@ content-type: application/json</div>
 <div class="section-divider"></div>
 <section class="guide-section" id="seo-node">
   <div class="eyebrow eyebrow-amber">Step 04</div>
-  <h2 class="section-heading">SEO &amp; Meta <em>Generation Node</em></h2>
+  <h2 class="section-heading">Step 4: How do I generate <em>SEO metadata with Claude?</em></h2>
   <p class="guide-body">
     The SEO node reads the finished draft and generates all the metadata needed for publication: an SEO-optimised title tag, meta description, focus keyword, secondary keyword list, and JSON-LD <code class="inline">Article</code> schema markup. Claude reads the actual content — not just the topic — so the SEO output reflects what's really in the draft.
   </p>
@@ -981,7 +1022,7 @@ content-type: application/json</div>
 <div class="section-divider"></div>
 <section class="guide-section" id="publish-node">
   <div class="eyebrow eyebrow-leaf">Step 05</div>
-  <h2 class="section-heading">CMS Publish &amp; <em>Scheduling</em></h2>
+  <h2 class="section-heading">Step 5: How do I <em>publish and schedule to my CMS?</em></h2>
   <p class="guide-body">
     The final node posts the completed, SEO-enriched article to your CMS. The examples below cover WordPress REST API v2 and Ghost Admin API — the two most common targets. The pattern is identical for any CMS with an HTTP endpoint: construct the post body, set the auth header, fire the POST.
   </p>
