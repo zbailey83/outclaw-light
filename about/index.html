@@ -294,80 +294,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
-    .site-footer {
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
       background: var(--deep-navy);
-      padding: 56px 48px 40px;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 40px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .footer-brand .footer-wordmark {
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .footer-wordmark {
       font-family: var(--font-display);
-      font-size: 20px;
-      color: rgba(255, 255, 255, .45);
+      font-size: 17px;
+      color: rgba(255, 255, 255, .4);
     }
 
-    .footer-brand .footer-wordmark em {
+    .footer-wordmark em {
       font-style: normal;
       color: var(--sky);
     }
 
-    .footer-brand p {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .28);
-      margin-top: 10px;
-      line-height: 1.65;
-      max-width: 210px;
-    }
-
-    .footer-col h4 {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .22);
-      margin-bottom: 14px;
-    }
-
-    .footer-col a {
-      display: block;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .38);
-      text-decoration: none;
-      margin-bottom: 9px;
-      transition: color .15s;
-    }
-
-    .footer-col a:hover {
-      color: rgba(255, 255, 255, .75);
-    }
-
-    .footer-bottom {
-      background: var(--deep-navy);
-      border-top: 1px solid rgba(255, 255, 255, .06);
-      padding: 18px 48px;
+    .footer-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 28px;
     }
 
-    .footer-bottom p {
+    .footer-links a {
       font-size: 12px;
-      color: rgba(255, 255, 255, .18);
+      color: rgba(255, 255, 255, .25);
+      text-decoration: none;
+      transition: color .15s;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
-    @media(max-width:760px) {
-      .site-footer {
-        grid-template-columns: 1fr 1fr;
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    @media(max-width:768px) {
+      footer {
+        flex-direction: column;
+        text-align: center;
         padding: 40px 24px;
       }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 6px;
-        padding: 16px 24px;
-        text-align: center;
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
       }
     }
 
@@ -1159,6 +1154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="navbar-links">
       <a href="./" class="active">About</a>
       <a href="../guides/">Guides</a>
+      <a href="../videos/">Videos</a>
       <a href="../tools/">Tools</a>
       <a href="../newsletter/">Newsletter</a>
     </div>
@@ -1171,6 +1167,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-drawer" id="navDrawer">
     <a href="./" class="active">About</a>
     <a href="../guides/">Guides</a>
+    <a href="../videos/">Videos</a>
     <a href="../tools/">Tools</a>
     <a href="../newsletter/">Newsletter</a>
 
@@ -1179,9 +1176,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="page-hero">
     <div class="page-hero-inner">
       <div class="eyebrow">Our Story</div>
-      <h1>About OutClaw AI:<br>Newsletter for AI Practitioners.</h1>
-      <p class="page-hero-sub">OutClaw AI exists because most AI content is written by people who have never shipped
-        anything with AI. We fix that every Tuesday.</p>
+      <h1>Directives for the <em>AI Practitioner.</em></h1>
+      <p class="page-hero-sub">OutClaw AI was built because most AI content is written by hype-merchants who have never shipped a single line of agentic code. We fix that every Tuesday.</p>
     </div>
   </section>
   <div class="page-body">
@@ -1272,47 +1268,99 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           genuinely worth your time &mdash; and why.</div>
       </div>
     </div>
-    <div class="cta-banner">
-      <div class="cta-banner-text">
-        <h3>Ready to get the <em>good stuff?</em></h3>
-        <p>Join 250+ builders who read OutClaw every Tuesday. Free forever.</p>
+    <!-- AEO FAQ Section -->
+    <section class="aeo-faq" style="margin-top: 100px; padding: 80px 0; border-top: 1px solid var(--border-soft);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-size: 32px; margin-bottom: 40px; text-align: center;">About OutClaw <em>FAQ</em></h2>
+        
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Who is Behind OutClaw AI?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">Zach Bailey is the founder and primary editor. With a background in software engineering and systems architecture, Zach focuses on the intersection of AI models and production-ready implementation.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">What is the "Claw" in OutClaw?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">The "Claw" represents our commitment to sharp, technical, and unapologetically opinionated content. We don't just report news; we "claw" through the fluff to find the actionable signal.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Can I support OutClaw AI?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">The best way to support us is by sharing our content with other AI builders. We are currently a self-funded resource hub and value organic growth above all else.</p>
+        </div>
       </div>
-      <div class="cta-banner-beehiiv" style="margin-top: 24px;">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe
-          src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed"
-          data-test-id="beehiiv-embed" frameborder="0" scrolling="no"
-          style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-      </div>
-    </div>
+    </section>
+
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "AboutPage",
+          "mainEntity": {
+            "@type": "Person",
+            "name": "Zach Bailey",
+            "jobTitle": "Founder & Editor",
+            "description": "AI systems architect and publisher of the OutClaw AI newsletter."
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Who is Behind OutClaw AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Zach Bailey is the founder and primary editor. With a background in software engineering and systems architecture, Zach focuses on the intersection of AI models and production-ready implementation."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What is the \"Claw\" in OutClaw?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The \"Claw\" represents our commitment to sharp, technical, and unapologetically opinionated content. We don't just report news; we \"claw\" through the fluff to find the actionable signal."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I support OutClaw AI?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "The best way to support us is by sharing our content with other AI builders. We are currently a self-funded resource hub and value organic growth above all else."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </div>
-  <footer class="site-footer">
-    <div class="footer-brand">
+  <!-- FOOTER -->
+  <footer>
+    <a href="../" class="footer-logo">
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <title>OutClaw AI Footer Logo</title>
+        <path
+          d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z"
+          fill="#5AADDB" />
+      </svg>
       <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Content</h4>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83"
+          target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+    </a>
+    <div class="footer-links">
+      <a href="./" class="active">About</a>
       <a href="../guides/">Guides</a>
+      <a href="../videos/">Videos</a>
       <a href="../tools/">Tools</a>
       <a href="../newsletter/">Newsletter</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="./">About</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
       <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
     </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <a href="https://x.com/zbailey83" target="_blank">X / Twitter</a>
-      <a href="https://calendly.com/zbailey83/30min">Book a call</a>
-      <a href="../newsletter/">Subscribe</a>
-    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
   </footer>
-  <div class="footer-bottom">
-    <p>© 2026 Antigravity · outclaw.xyz</p>
-    <p>The newsletter with actual claws &#x1F9A9;</p>
-  </div>
   <script>
     function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
     document.addEventListener("click", function (e) {

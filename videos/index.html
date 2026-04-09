@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-JHMN90H7MC');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5VC26C47');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Videos — OutClaw AI</title>
+  <meta name="description" content="Watch AI video tutorials, workflow walkthroughs, and deep-dives from OutClaw AI.">
+  <link rel="canonical" href="https://outclaw.xyz/videos/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#5AADDB">
+  <link rel="shortcut icon" href="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --sky: #5AADDB;
+      --sky-light: #B8DFF0;
+      --sky-pale: #EDF7FC;
+      --flamingo: #F4678A;
+      --flamingo-light: #FBB8CB;
+      --flamingo-pale: #FEF0F4;
+      --deep-navy: #1A1A2E;
+      --text: #1A1A2E;
+      --text-soft: #7A7A9E;
+      --text-dim: #ADADC8;
+      --white: #FFFFFF;
+      --bg: #FAFAF8;
+      --border: #E8E8F2;
+      --border-soft: #F0F0F8;
+      --font-display: 'DM Serif Display', serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    /* Standard Site Styles copied for consistency */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    /* Navbar Styles (Existing) */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+    }
+
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .navbar-logo-img {
+      width: 32px;
+      height: 32px;
+      filter: drop-shadow(0 2px 6px rgba(244, 103, 138, 0.2));
+    }
+
+    .navbar-wordmark {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--text);
+    }
+
+    .navbar-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .navbar-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all .15s;
+    }
+
+    .navbar-links a:hover {
+      color: var(--text);
+      background: var(--sky-pale);
+    }
+
+    .navbar-links a.active {
+      color: var(--sky);
+      background: var(--sky-pale);
+      font-weight: 600;
+    }
+
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: transparent;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-soft);
+      border-radius: 2px;
+    }
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      background: linear-gradient(135deg, #F4678A 0%, #7EC5E8 100%);
+      color: #fff !important;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 2px 12px rgba(90, 173, 219, .3);
+    }
+
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      z-index: 199;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-drawer.open {
+      display: flex;
+    }
+
+    .nav-drawer a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 12px 16px;
+      border-radius: 12px;
+    }
+
+    @media(max-width:860px) {
+      .navbar {
+        padding: 0 24px;
+      }
+
+      .navbar-links {
+        display: none;
+      }
+
+      .nav-hamburger {
+        display: flex;
+      }
+
+      .navbar-right .nav-cta {
+        display: none;
+      }
+    }
+
+    /* Page Hero Styles */
+    .page-hero {
+      padding: 80px 0 60px;
+      background: linear-gradient(160deg, #EDF7FC 0%, #FEF0F4 50%, #FAFAF8 100%);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .page-hero-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--sky);
+      border-radius: 2px;
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 400;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .page-hero h1 em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .page-hero-sub {
+      font-size: 18px;
+      color: var(--text-soft);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    /* Video Grid Styles */
+    .page-body {
+      padding: 60px 0 100px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 32px;
+    }
+
+    .video-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      cursor: pointer;
+      position: relative;
+    }
+
+    .video-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sky-light);
+      box-shadow: 0 20px 40px rgba(90, 173, 219, 0.1);
+    }
+
+    .video-thumb-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: var(--border-soft);
+      overflow: hidden;
+    }
+
+    .video-thumb {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.92;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .video-card:hover .video-thumb {
+      opacity: 1;
+      transform: scale(1.03);
+    }
+
+    .video-card:hover .video-thumb-flamingo {
+      display: none;
+    }
+
+    .video-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 68px;
+      height: 68px;
+      background: rgba(255, 255, 255, 0.98);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      color: var(--text);
+    }
+
+    .video-card:hover .video-play-btn {
+      transform: translate(-50%, -50%) scale(1.12);
+      background: var(--grad-sky);
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(90, 173, 219, 0.4);
+    }
+
+    .video-play-btn svg {
+      width: 28px;
+      height: 28px;
+      margin-left: 3px;
+    }
+
+    .video-info {
+      padding: 24px;
+    }
+
+    .video-badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: var(--sky-pale);
+      color: var(--sky);
+      font-size: 11px;
+      font-weight: 700;
+      border-radius: 100px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .video-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .video-desc {
+      font-size: 14px;
+      color: var(--text-soft);
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    /* Modal Styles */
+    .video-modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px;
+    }
+
+    .video-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modal-content {
+      width: 100%;
+      max-width: 1000px;
+      position: relative;
+      animation: modalSlide 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @keyframes modalSlide {
+      from {
+        transform: translateY(40px) scale(0.95);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -50px;
+      right: 0;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+
+    .modal-close:hover {
+      opacity: 1;
+    }
+
+    .modal-close svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .video-iframe-wrap {
+      position: relative;
+      padding-top: 56.25%;
+      background: #000;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    }
+
+    .video-iframe-wrap iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Footer Styles (Existing) */
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .footer-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+      text-decoration: none;
+      transition: color .15s;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    @media(max-width:768px) {
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+
+      .page-hero h1 {
+        font-size: 42px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <nav class="navbar" id="mainNav">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="./" class="active">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()"
+        aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../about/">About</a>
+    <a href="../guides/">Guides</a>
+    <a href="./" class="active">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <section class="page-hero">
+    <div class="page-hero-inner container">
+      <div class="eyebrow">Video Tutorials</div>
+      <h1>Alpha in <em>High Definition.</em></h1>
+      <p class="page-hero-sub">Step-by-step video deep-dives into AI models, agentic workflows, and the latest tooling.
+      </p>
+    </div>
+  </section>
+
+  <div class="page-body container">
+    <div class="video-grid">
+      <!-- Latest Video -->
+      <div class="video-card" onclick="openVideo('E4TbBA4fc0U')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/E4TbBA4fc0U/maxresdefault.jpg"
+            alt="Cursor 3.0: Agent-First Interface & Composer 2 Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Tutorial</div>
+          <h3 class="video-title">Cursor 3.0: Agent-First Interface & Composer 2</h3>
+          <p class="video-desc">Explore the revolutionary Agent-First interface in Cursor 3.0, including Composer 2 model capabilities and how to build full AI workflows.</p>
+        </div>
+      </div>
+
+      <!-- New Video 2 -->
+      <div class="video-card" onclick="openVideo('Lm3qwR02h14')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Lm3qwR02h14/maxresdefault.jpg"
+            alt="Run Google Gemma 4 Locally on 4GB RAM Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Analysis</div>
+          <h3 class="video-title">Run Google Gemma 4 Locally on 4GB RAM</h3>
+          <p class="video-desc">A deep dive into Google's Gemma 4. See how this breakthrough model runs locally on low-end hardware with only 4GB of RAM.</p>
+        </div>
+      </div>
+
+      <!-- New Video 3 -->
+      <div class="video-card" onclick="openVideo('SXEJjZ-xU1A')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/SXEJjZ-xU1A/maxresdefault.jpg"
+            alt="Google Gemma 4 Full-Stack Ecosystem Updates Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Ecosystem</div>
+          <h3 class="video-title">Gemma 4: Google's Full-Stack Ecosystem</h3>
+          <p class="video-desc">Breaking down the Google Gemma 4 full-stack ecosystem updates, API changes, and what it means for enterprise integration.</p>
+        </div>
+      </div>
+
+      <!-- Video 4 -->
+      <div class="video-card" onclick="openVideo('0B2_D2qIDnE')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/0B2_D2qIDnE/maxresdefault.jpg"
+            alt="Use New QWEN 3.6 Pro (FREE)! Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Tutorial</div>
+          <h3 class="video-title">Use New QWEN 3.6 Pro (FREE)!</h3>
+          <p class="video-desc">A complete visual breakdown of the Qwen 3.6 Plus preview, diving deep into its system architecture, agentic loops, and advanced reasoning traces.</p>
+        </div>
+      </div>
+
+      <!-- First Video -->
+      <div class="video-card" onclick="openVideo('AqYx4Q0D2Ss')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/AqYx4Q0D2Ss/sddefault.jpg"
+            alt="Why Claw Code Hit 100K GitHub Stars in Days Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Backstory</div>
+          <h3 class="video-title">Why Claw Code Hit 100K GitHub Stars in Days (Insane Backstory)</h3>
+          <p class="video-desc">The untold story of how a small coding utility became a global GitHub sensation in under
+            a week. Strategy, timing, and a bit of luck.</p>
+        </div>
+      </div>
+
+      <!-- Second Video -->
+      <div class="video-card" onclick="openVideo('gXDJkTBb2Yc')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/gXDJkTBb2Yc/maxresdefault.jpg"
+            alt="Inside the 500k Line Claude Code Leak Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Analysis</div>
+          <h3 class="video-title">Inside the 500k Line Claude Code Leak: Fake Tools & Undercover AI</h3>
+          <p class="video-desc">Deep diving into the massive source code leak that revealed how Claude really works
+            under the hood. The hidden tools, the prompts, and more.</p>
+        </div>
+      </div>
+
+      <!-- Third Video -->
+      <div class="video-card" onclick="openVideo('Ri70G0Atq3g')">
+        <div class="video-thumb-wrap">
+          <img src="https://img.youtube.com/vi/Ri70G0Atq3g/sddefault.jpg"
+            alt="Claude Code Leak Exposes Anthropic's Real Architecture Thumbnail" class="video-thumb">
+          <div class="video-play-btn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+        </div>
+        <div class="video-info">
+          <div class="video-badge">Breaking</div>
+          <h3 class="video-title">Claude Code Leak Exposes Anthropic's Real Architecture</h3>
+          <p class="video-desc">Analyzing the massive source code leak that revealed Anthropic's internal architecture,
+            the 'Capiara' model, and hidden agent features.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ & Schema Section -->
+  <section class="aeo-faq"
+    style="padding: 100px 0; border-top: 1px solid var(--border-soft); background: var(--bg-soft);">
+    <div class="container" style="max-width: 800px; margin: 0 auto;">
+      <h2 style="font-family: var(--font-display); font-size: 36px; margin-bottom: 48px; text-align: center;">Frequently
+        Asked <em>Questions</em></h2>
+
+      <div class="faq-item"
+        style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 20px; color: var(--text); margin-bottom: 12px; font-weight: 600;">What content will I find
+          in the OutClaw AI Video Library?</h3>
+        <p style="color: var(--text-soft); line-height: 1.7; font-size: 16px;">Our video library features technical
+          deep-dives into AI model architectures, source code analysis, and step-by-step tutorials on building
+          autonomous agents. We focus on the "alpha" that moves the needle for practitioners.</p>
+      </div>
+
+      <div class="faq-item"
+        style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 20px; color: var(--text); margin-bottom: 12px; font-weight: 600;">How can I stay updated
+          on new releases?</h3>
+        <p style="color: var(--text-soft); line-height: 1.7; font-size: 16px;">The best way is to subscribe to our free
+          weekly newsletter. Every Tuesday, we send out a detailed breakdown of the latest AI trends along with any new
+          video content and technical guides.</p>
+      </div>
+
+      <div class="faq-item"
+        style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 20px; color: var(--text); margin-bottom: 12px; font-weight: 600;">How does Cursor 3.0 integrate with Composer 2 for AI workflows?</h3>
+        <p style="color: var(--text-soft); line-height: 1.7; font-size: 16px;">Cursor 3.0 introduces an "Agent-First Interface" specifically designed to work seamlessly with the Composer 2 model. This allows developers to automate complex, multi-step coding scenarios, making full-stack development faster by letting the AI handle intricate reasoning steps entirely within your local IDE. It's a key topic we cover in our latest deep dive.</p>
+      </div>
+
+      <div class="faq-item"
+        style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px; margin-bottom: 24px;">
+        <h3 style="font-size: 20px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Can I run Google Gemma 4 locally on a low-end laptop (4GB RAM)?</h3>
+        <p style="color: var(--text-soft); line-height: 1.7; font-size: 16px;">Yes, Google Gemma 4 is highly optimized for local execution and edge compute environments. According to the latest architecture analysis, developers can successfully run Gemma 4 locally on consumer-grade hardware with as little as 4GB of RAM without sacrificing substantial reasoning capabilities.</p>
+      </div>
+
+      <div class="faq-item"
+        style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px;">
+        <h3 style="font-size: 20px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Is this content suitable
+          for beginners?</h3>
+        <p style="color: var(--text-soft); line-height: 1.7; font-size: 16px;">While we cover technical topics, we
+          strive to keep our guides and videos accessible. We provide context and step-by-step explanations so that both
+          beginners and advanced users can level up their AI game.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schema Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Cursor 3.0: Agent-First Interface & Composer 2",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Run Google Gemma 4 Locally on 4GB RAM",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Gemma 4: Google's Full-Stack Ecosystem",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Use New QWEN 3.6 Pro (FREE)!",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "name": "Why Claw Code Hit 100K GitHub Stars in Days",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 6,
+        "name": "Inside the 500k Line Claude Code Leak",
+        "url": "https://outclaw.xyz/videos/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 7,
+        "name": "Claude Code Leak Exposes Anthropic's Real Architecture",
+        "url": "https://outclaw.xyz/videos/"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Video Modal -->
+  <div class="video-modal" id="videoModal" onclick="closeVideo()">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <button class="modal-close" onclick="closeVideo()">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+        Close Escape
+      </button>
+      <div class="video-iframe-wrap" id="videoPlaceholder">
+        <!-- Iframe injected here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <a href="../" class="footer-logo">
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <title>OutClaw AI Footer Logo</title>
+        <path
+          d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z"
+          fill="#5AADDB" />
+      </svg>
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83"
+          target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="./">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+
+    function openVideo(id) {
+      const modal = document.getElementById('videoModal');
+      const placeholder = document.getElementById('videoPlaceholder');
+      placeholder.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeVideo() {
+      const modal = document.getElementById('videoModal');
+      const placeholder = document.getElementById('videoPlaceholder');
+      placeholder.innerHTML = '';
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeVideo();
+    });
+
+    // Close drawer on outside click
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+
+</html>

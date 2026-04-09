@@ -62,6 +62,78 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     }
     
     .back-link { display: inline-block; margin-bottom: 40px; text-decoration: none; font-weight: 600; }
+
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .footer-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+      text-decoration: none;
+      transition: color .15s;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    @media(max-width:768px) {
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+    }
   </style>
 </head>
 
@@ -88,51 +160,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p>If you have any questions about our privacy policy, please contact us at <a href="mailto:zbailey83@gmail.com">zbailey83@gmail.com</a>.</p>
   </div>
 
-  <footer class="site-footer">
-    <div class="footer-brand">
+  <!-- FOOTER -->
+  <footer>
+    <a href="../" class="footer-logo">
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <title>OutClaw AI Footer Logo</title>
+        <path
+          d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z"
+          fill="#5AADDB" />
+      </svg>
       <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Content</h4>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83"
+          target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
       <a href="../guides/">Guides</a>
+      <a href="../videos/">Videos</a>
       <a href="../tools/">Tools</a>
       <a href="../newsletter/">Newsletter</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="../about/">About</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
       <a href="./">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
     </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <a href="https://x.com/zbailey83" target="_blank">&#120535; X / Twitter</a>
-      <a href="https://calendly.com/zbailey83/30min">Book a call</a>
-      <a href="../newsletter/">Subscribe</a>
-    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
   </footer>
-
-  <style>
-    .site-footer {
-      max-width: 1200px;
-      margin: 80px auto 0;
-      padding: 60px 24px;
-      border-top: 1px solid var(--border);
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr 1fr;
-      gap: 40px;
-    }
-    .footer-brand p { font-size: 14px; margin-top: 12px; }
-    .footer-wordmark { font-family: var(--font-display); font-size: 24px; font-weight: 700; }
-    .footer-wordmark em { font-style: italic; color: var(--sky); }
-    .footer-col h4 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 20px; color: var(--text); }
-    .footer-col a { display: block; margin-bottom: 12px; text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    @media (max-width: 768px) {
-      .site-footer { grid-template-columns: 1fr 1fr; }
-      .footer-brand { grid-column: span 2; }
-    }
-  </style>
 </body>
 
 </html>

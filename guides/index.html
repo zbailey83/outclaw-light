@@ -42,6 +42,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta property="twitter:description"
     content="Step-by-step guides on building agentic workflows, implementing MCP servers, and mastering Claude and OpenAI.">
   <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "name": "Technical AI Guides & Tutorials",
+        "description": "Step-by-step guides on building agentic workflows, implementing MCP servers, and mastering Claude and OpenAI.",
+        "url": "https://outclaw.xyz/guides/",
+        "publisher": { "@type": "Organization", "name": "OutClaw AI" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "OutClaw AI",
+            "item": "https://outclaw.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Guides",
+            "item": "https://outclaw.xyz/guides/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -281,80 +313,75 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
 
-    .site-footer {
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
       background: var(--deep-navy);
-      padding: 56px 48px 40px;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
-      gap: 40px;
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
-    .footer-brand .footer-wordmark {
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .footer-wordmark {
       font-family: var(--font-display);
-      font-size: 20px;
-      color: rgba(255, 255, 255, .45);
+      font-size: 17px;
+      color: rgba(255, 255, 255, .4);
     }
 
-    .footer-brand .footer-wordmark em {
+    .footer-wordmark em {
       font-style: normal;
       color: var(--sky);
     }
 
-    .footer-brand p {
-      font-size: 13px;
-      color: rgba(255, 255, 255, .28);
-      margin-top: 10px;
-      line-height: 1.65;
-      max-width: 210px;
-    }
-
-    .footer-col h4 {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, .22);
-      margin-bottom: 14px;
-    }
-
-    .footer-col a {
-      display: block;
-      font-size: 13px;
-      color: rgba(255, 255, 255, .38);
-      text-decoration: none;
-      margin-bottom: 9px;
-      transition: color .15s;
-    }
-
-    .footer-col a:hover {
-      color: rgba(255, 255, 255, .75);
-    }
-
-    .footer-bottom {
-      background: var(--deep-navy);
-      border-top: 1px solid rgba(255, 255, 255, .06);
-      padding: 18px 48px;
+    .footer-links {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 28px;
     }
 
-    .footer-bottom p {
+    .footer-links a {
       font-size: 12px;
-      color: rgba(255, 255, 255, .18);
+      color: rgba(255, 255, 255, .25);
+      text-decoration: none;
+      transition: color .15s;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
     }
 
-    @media(max-width:760px) {
-      .site-footer {
-        grid-template-columns: 1fr 1fr;
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    @media(max-width:768px) {
+      footer {
+        flex-direction: column;
+        text-align: center;
         padding: 40px 24px;
       }
-
-      .footer-bottom {
-        flex-direction: column;
-        gap: 6px;
-        padding: 16px 24px;
-        text-align: center;
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
       }
     }
 
@@ -1146,6 +1173,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="navbar-links">
       <a href="../about/">About</a>
       <a href="./" class="active">Guides</a>
+      <a href="../videos/">Videos</a>
       <a href="../tools/">Tools</a>
       <a href="../newsletter/">Newsletter</a>
     </div>
@@ -1158,15 +1186,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="nav-drawer" id="navDrawer">
     <a href="../about/">About</a>
     <a href="./" class="active">Guides</a>
+    <a href="../videos/">Videos</a>
     <a href="../tools/">Tools</a>
     <a href="../newsletter/">Newsletter</a>
     <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
   </div>
   <section class="page-hero">
     <div class="page-hero-inner">
-      <div class="eyebrow">Step-by-Step Guides</div>
-      <h1>Playbooks for getting real work done <em><br>via tooling & workflows.</em></h1>
-      <p class="page-hero-sub">Not theoretical.<br>Actual step-by-step workflows you can copy and use today.</p>
+      <div class="eyebrow">AI Implementation Playbooks</div>
+      <h1>Directives for getting real work done <em><br>via agentic tooling.</em></h1>
+      <p class="page-hero-sub">Battle-tested AI workflows for engineers and practitioners.<br>Actual step-by-step playbooks you can deploy today.</p>
     </div>
   </section>
   <div class="page-body">
@@ -1223,47 +1252,110 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             min &middot; All levels</span></div>
       </a>
     </div>
-    <div class="cta-banner">
-      <div class="cta-banner-text">
-        <h3>New guides drop in the <em>newsletter first.</em></h3>
-        <p>Subscribe to get step-by-step guides, prompt templates, and workflow breakdowns every Tuesday.</p>
+    <!-- AEO FAQ Section -->
+    <section class="aeo-faq" style="margin: 80px 0; padding-top: 80px; border-top: 1px solid var(--border-soft);">
+      <div style="max-width: 800px; margin: 0 auto;">
+        <h2 style="font-family: var(--font-display); font-size: 32px; margin-bottom: 40px; text-align: center;">AI Implementation <em>FAQ</em></h2>
+        
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">How do I use these AI guides?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">Each playbook is designed as a standalone implementation guide. You can follow the steps chronologically to build out specific agentic systems, automation chains, or prompting structures for models like Claude and GPT.</p>
+        </div>
+        
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Are these workflows updated for new model releases?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">Yes. When major models like Claude 3.5 or GPT-5.4 are released, we revisit our core guides to ensure the prompting patterns and technical steps still deliver optimal performance.</p>
+        </div>
+
+        <div class="faq-item" style="margin-bottom: 32px;">
+          <h3 style="font-size: 18px; color: var(--text); margin-bottom: 12px; font-weight: 600;">Do I need to be a developer to use these?</h3>
+          <p style="color: var(--text-mid); line-height: 1.75;">We provide options for all skill levels. Some guides focus on low-code automation (n8n), while others deep-dive into model context protocol (MCP) and VPS management. We always flag the difficulty level at the top of each guide.</p>
+        </div>
       </div>
-      <div class="cta-banner-beehiiv" style="margin-top: 24px;">
-        <script async src="https://subscribe-forms.beehiiv.com/embed.js"></script><iframe
-          src="https://subscribe-forms.beehiiv.com/49e7fa2a-ae25-45c4-a9f4-a3a2f79fcf3a" class="beehiiv-embed"
-          data-test-id="beehiiv-embed" frameborder="0" scrolling="no"
-          style="width: 560px; height: 208px; margin: 0; border-radius: 0px 0px 0px 0px !important; background-color: transparent; box-shadow: 0 0 #0000; max-width: 100%;"></iframe>
-      </div>
-    </div>
+    </section>
+
+    <!-- Schema Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "CollectionPage",
+          "name": "OutClaw AI Implementation Guides",
+          "description": "Technical playbooks and step-by-step workflows for AI practitioners.",
+          "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "OpenClaw VPS Setup Guide"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Claude Sonnet Prompting Playbook"
+              }
+            ]
+          }
+        },
+        {
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I use these AI guides?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Each playbook is designed as a standalone implementation guide. You can follow the steps chronologically to build out specific agentic systems, automation chains, or prompting structures for models like Claude and GPT."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Are these workflows updated for new model releases?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. When major models like Claude 3.5 or GPT-5.4 are released, we revisit our core guides to ensure the prompting patterns and technical steps still deliver optimal performance."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to be a developer to use these?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We provide options for all skill levels. Some guides focus on low-code automation (n8n), while others deep-dive into model context protocol (MCP) and VPS management. We always flag the difficulty level at the top of each guide."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </div>
-  <footer class="site-footer">
-    <div class="footer-brand">
+  <!-- FOOTER -->
+  <footer>
+    <a href="../" class="footer-logo">
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <title>OutClaw AI Footer Logo</title>
+        <path
+          d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z"
+          fill="#5AADDB" />
+      </svg>
       <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Content</h4>
-      <a href="./">Guides</a>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83"
+          target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="./" class="active">Guides</a>
+      <a href="../videos/">Videos</a>
       <a href="../tools/">Tools</a>
       <a href="../newsletter/">Newsletter</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="../about/">About</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
       <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
     </div>
-    <div class="footer-col">
-      <h4>Connect</h4>
-      <a href="https://x.com/zbailey83" target="_blank">&#120535; X / Twitter</a>
-      <a href="https://calendly.com/zbailey83/30min">Book a call</a>
-      <a href="../newsletter/">Subscribe</a>
-    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
   </footer>
-  <div class="footer-bottom">
-    <p>&#169; 2026 OutClaw AI &middot; outclaw.xyz</p>
-    <p>The newsletter with actual claws &#x1F9A9;</p>
-  </div>
   <script>
     function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
     document.addEventListener("click", function (e) {

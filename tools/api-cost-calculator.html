@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JHMN90H7MC');
+  </script>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>API Cost Calculator — OutClaw AI</title>
+<meta name="description" content="Calculate and compare API costs across major LLM providers (Claude, GPT, Gemini). Get volume-based estimates and model recommendations for your specific AI use case.">
+<link rel="canonical" href="https://outclaw.xyz/tools/api-cost-calculator">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://outclaw.xyz/tools/api-cost-calculator">
+<meta property="og:title" content="AI API Cost Calculator — OutClaw AI">
+<meta property="og:description" content="Real-time cost comparison across LLM providers. Input your volume and tokens to find the most cost-effective model.">
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.gif">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-sand:linear-gradient(135deg,#F5EDD8 0%,#FAF3E8 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+a { color: var(--text-soft); text-decoration: underline; text-underline-offset: 4px; text-decoration-color: rgba(122, 122, 158, 0.3); transition: all 0.2s; }
+a:hover { color: var(--text); text-decoration-color: var(--text); }
+
+/* NAV */
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
+.navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+/* HERO */
+.tool-hero{background:linear-gradient(160deg,var(--sand) 0%,#FAFAF8 60%);border-bottom:1px solid var(--border);padding:64px 48px 56px;}
+.tool-hero-inner{max-width:1120px;margin:0 auto;}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-dim);margin-bottom:20px;}
+.breadcrumb a{color:var(--text-dim);text-decoration:none;transition:color .15s;}
+.breadcrumb a:hover{color:var(--sky);}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-mid);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+.tool-hero h1{font-family:var(--font-display);font-size:clamp(32px,4.5vw,52px);font-weight:400;line-height:1.08;letter-spacing:-0.02em;color:var(--text);margin-bottom:16px;}
+.tool-hero h1 em{font-style:italic;color:var(--sky);}
+.tool-hero-sub{font-size:16px;color:var(--text-soft);line-height:1.75;margin-bottom:28px;max-width:600px;}
+.hero-badges{display:flex;gap:8px;flex-wrap:wrap;}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:12px;font-weight:600;border:1.5px solid;}
+.badge-free{background:var(--leaf-pale);border-color:rgba(74,158,122,.25);color:var(--leaf);}
+.badge-noauth{background:var(--sky-pale);border-color:var(--sky-light);color:var(--sky);}
+@media(max-width:640px){.tool-hero{padding:44px 24px 40px;}}
+
+/* PAGE BODY */
+.page-body{max-width:1120px;margin:0 auto;padding:64px 48px 96px;}
+@media(max-width:640px){.page-body{padding:48px 24px 72px;}}
+
+/* TOOL AREA */
+.calculator-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:32px;margin-bottom:64px;}
+@media(max-width:960px){.calculator-grid{grid-template-columns:1fr;}}
+
+/* PANEL STYLING */
+.panel{background:var(--white);border:1px solid var(--border);border-radius:24px;padding:32px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.panel-title{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-soft);margin-bottom:24px;display:flex;align-items:center;gap:10px;}
+.panel-title::after{content:"";flex:1;height:1px;background:var(--border-soft);}
+
+/* INPUT GROUP */
+.input-group{margin-bottom:24px;}
+.input-label{display:block;font-size:13px;font-weight:600;color:var(--text);margin-bottom:8px;}
+.input-field-wrap{position:relative;}
+.input-field{width:100%;padding:12px 16px;border:1.5px solid var(--border);border-radius:12px;font-family:var(--font-body);font-size:15px;color:var(--text);background:var(--bg);outline:none;transition:all .15s;}
+.input-field:focus{border-color:var(--sky);box-shadow:0 0 0 4px var(--sky-pale);background:var(--white);}
+.input-unit{position:absolute;right:16px;top:50%;transform:translateY(-50%);font-size:12px;font-weight:600;color:var(--text-dim);}
+
+.input-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+@media(max-width:480px){.input-row{grid-template-columns:1fr;}}
+
+/* SLIDER */
+.slider-wrap{margin-top:12px;}
+.range-slider{width:100%;height:6px;background:var(--border);border-radius:100px;appearance:none;outline:none;cursor:pointer;}
+.range-slider::-webkit-slider-thumb{appearance:none;width:18px;height:18px;background:var(--sky);border:3px solid #fff;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.15);}
+
+/* PRESETS */
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+.preset-btn{padding:6px 12px;border:1px solid var(--border);border-radius:100px;font-size:11px;font-weight:600;background:var(--white);color:var(--text-soft);cursor:pointer;transition:all .15s;}
+.preset-btn:hover{border-color:var(--sky);color:var(--sky);}
+.preset-btn.active{background:var(--sky-pale);border-color:var(--sky);color:var(--sky);}
+
+/* RESULTS PANEL */
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;}
+.comparison-table{width:100%;border-collapse:separate;border-spacing:0 8px;}
+.comp-row{background:var(--bg);transition:transform .15s;}
+.comp-row:hover{transform:scale(1.01);z-index:2;position:relative;}
+.comp-cell{padding:16px 20px;font-size:14px;border-top:1px solid var(--border-soft);border-bottom:1px solid var(--border-soft);}
+.comp-cell:first-child{border-left:1px solid var(--border-soft);border-radius:12px 0 0 12px;}
+.comp-cell:last-child{border-right:1px solid var(--border-soft);border-radius:0 12px 12px 0;text-align:right;}
+
+.model-name{font-weight:700;color:var(--text);display:flex;align-items:center;gap:8px;}
+.model-provider{font-size:11px;font-weight:500;color:var(--text-dim);text-transform:uppercase;letter-spacing:.04em;}
+.cost-val{font-family:var(--font-display);font-size:18px;color:var(--text);}
+.cost-sub{font-size:11px;color:var(--text-dim);display:block;margin-top:2px;}
+
+.row-highlight{background:var(--sky-pale);border-color:var(--sky-light);}
+.badge-winner{padding:2px 8px;background:var(--sky);color:#fff;font-size:10px;font-weight:700;border-radius:4px;text-transform:uppercase;margin-left:8px;}
+
+/* RECOMMENDATION */
+.rec-box{margin-top:32px;background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.2);border-radius:20px;padding:24px;display:flex;gap:20px;align-items:center;}
+.rec-icon{width:48px;height:48px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0;box-shadow:0 4px 12px rgba(0,0,0,.05);}
+.rec-content h4{font-size:15px;color:var(--text);margin-bottom:4px;}
+.rec-content p{font-size:13px;color:var(--text-mid);line-height:1.6;}
+
+/* ─── FOOTER ────────────────────────────── */
+footer {
+  background: var(--deep-navy);
+  border-top: 1px solid rgba(255, 255, 255, .06);
+  padding: 32px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.footer-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.footer-logo svg { width: 22px; height: 22px; }
+.footer-wordmark { font-family: var(--font-display); font-size: 17px; color: rgba(255, 255, 255, .4); }
+.footer-wordmark em { font-style: normal; color: var(--sky); }
+.footer-links { display: flex; gap: 28px; }
+.footer-links a { font-size: 12px; color: rgba(255, 255, 255, .25); text-decoration: none; transition: color .15s; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+.footer-links a:hover { color: rgba(255, 255, 255, .55); }
+.footer-copy { font-size: 12px; color: rgba(255, 255, 255, .2); }
+@media(max-width:768px) {
+  footer { flex-direction: column; text-align: center; padding: 40px 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; gap: 16px; }
+}
+
+/* ── SHARE STRIP STYLE ── */
+.share-strip { display: flex; align-items: center; gap: 12px; margin: 24px 0; justify-content: flex-start; }
+.share-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
+.share-btn { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid var(--border); color: var(--text-soft); text-decoration: none; transition: all .2s cubic-bezier(.34,1.56,.64,1); cursor: pointer; }
+.share-btn:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(90, 173, 219, .15); }
+.share-btn svg { width: 15px; height: 15px; fill: currentColor; }
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<nav class="navbar" id="mainNav">
+  <a href="../" class="navbar-logo">
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/">About</a>
+    <a href="../guides/">Guides</a>
+    <a href="../videos/">Videos</a>
+    <a href="./" class="active">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/">About</a>
+  <a href="../guides/">Guides</a>
+  <a href="../videos/">Videos</a>
+  <a href="./" class="active">Tools</a>
+  <a href="../newsletter/">Newsletter</a>
+  <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+</div>
+
+<section class="tool-hero">
+  <div class="tool-hero-inner">
+    <div class="breadcrumb">
+      <a href="./">Tools</a>
+      <span>›</span>
+      <span>API Cost Calculator</span>
+    </div>
+    <div class="eyebrow">Financial Utility</div>
+    <h1>Stop guessing your <em>AI spend.</em></h1>
+    <div class="share-strip" style="margin-top: 16px;">
+      <span class="share-label">Share</span>
+      <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank');return false;" class="share-btn" aria-label="Share on X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+      <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on Facebook">
+        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+    </div>
+    <p class="tool-hero-sub">Compare real-world API costs across Claude, GPT-4, and Gemini. Input your expected volume and token counts to find the perfect balance between reasoning quality and budget.</p>
+    <div class="hero-badges">
+      <span class="hero-badge badge-free">✓ Free tool</span>
+      <span class="hero-badge badge-noauth">Updated Weekly</span>
+    </div>
+  </div>
+</section>
+
+<div class="page-body">
+  <div class="calculator-grid">
+    <!-- INPUTS -->
+    <div class="panel">
+      <div class="panel-title">Usage Estimates</div>
+      
+      <div class="input-group">
+        <label class="input-label">Projected Volume</label>
+        <div class="input-field-wrap">
+          <input type="number" class="input-field" id="volInput" value="10000" oninput="calculate()">
+          <span class="input-unit">Reqs / month</span>
+        </div>
+        <div class="presets">
+          <button class="preset-btn" onclick="setVol(1000)">1k</button>
+          <button class="preset-btn active" onclick="setVol(10000)">10k</button>
+          <button class="preset-btn" onclick="setVol(100000)">100k</button>
+          <button class="preset-btn" onclick="setVol(1000000)">1M</button>
+        </div>
+      </div>
+
+      <div class="input-row">
+        <div class="input-group">
+          <label class="input-label">Input Tokens</label>
+          <div class="input-field-wrap">
+            <input type="number" class="input-field" id="tokensIn" value="500" oninput="calculate()">
+            <span class="input-unit">tokens</span>
+          </div>
+        </div>
+        <div class="input-group">
+          <label class="input-label">Output Tokens</label>
+          <div class="input-field-wrap">
+            <input type="number" class="input-field" id="tokensOut" value="1000" oninput="calculate()">
+            <span class="input-unit">tokens</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="input-group" style="margin-top:20px;">
+        <div class="panel-title" style="margin-bottom:16px;">Common Use Case Presets</div>
+        <div class="presets">
+          <button class="preset-btn" onclick="setPreset('chatbot')">Chatbot</button>
+          <button class="preset-btn" onclick="setPreset('coding')">Coding Assistant</button>
+          <button class="preset-btn" onclick="setPreset('summary')">Document Summary</button>
+          <button class="preset-btn" onclick="setPreset('extract')">Data Extraction</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="panel">
+      <div class="results-header">
+        <div class="panel-title" style="margin-bottom:0;">Estimated Monthly Spend</div>
+        <div style="font-size:12px;color:var(--text-soft);font-weight:600;">USD ($)</div>
+      </div>
+
+      <div id="resultsTable" class="comparison-table">
+        <!-- Rows injected here -->
+      </div>
+
+      <div class="rec-box" id="recommendation">
+        <div class="rec-icon">🎯</div>
+        <div class="rec-content">
+          <h4 id="recTitle">Checking...</h4>
+          <p id="recDesc">Adjust inputs to see our recommendation.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDU CONTENT -->
+  <div style="max-width:800px;">
+    <h3 style="font-family:var(--font-display);font-size:32px;margin-bottom:20px;">How to optimize <em>your spend</em></h3>
+    <p style="margin-bottom:24px;color:var(--text-mid);">Finding the right model isn't just about the cheapest price-per-token. It's about "Effective Cost" &mdash; the total amount you pay to get a successful, high-quality result without needing multiple retries.</p>
+    
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+      <div>
+        <h5 style="margin-bottom:8px;font-size:16px;">1. Cascading Model Strategy</h5>
+        <p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Use a "small" model (like GPT-4o-mini or Haiku) for intent classification and simple routing. Only trigger the "large" model (Sonnet or Pro) when the task requires high reasoning.</p>
+      </div>
+      <div>
+        <h5 style="margin-bottom:8px;font-size:16px;">2. Context Window Caching</h5>
+        <p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Models like Claude 3.5 Sonnet offer prompt caching. If you reuse large system prompts or documents, caching can reduce your input costs by up to 90%.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <a href="../" class="footer-logo">
+    <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+      <title>OutClaw AI Footer Logo</title>
+      <path d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z" fill="#5AADDB" />
+    </svg>
+    <div class="footer-wordmark">Out<em>claw</em> AI</div>
+    <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83" target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+  </a>
+  <div class="footer-links">
+    <a href="../about/">About</a>
+    <a href="../guides/">Guides</a>
+    <a href="../videos/">Videos</a>
+    <a href="./">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../privacy/">Privacy</a>
+    <a href="mailto:zbailey83@gmail.com">Contact</a>
+  </div>
+  <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+</footer>
+
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+
+const models = [
+  { name: 'Claude 3.5 Sonnet', provider: 'Anthropic', in: 3.00, out: 15.00, type: 'pro' },
+  { name: 'GPT-4o', provider: 'OpenAI', in: 2.50, out: 10.00, type: 'pro' },
+  { name: 'Gemini 1.5 Pro', provider: 'Google', in: 1.25, out: 5.00, type: 'pro' },
+  { name: 'Claude 3.5 Haiku', provider: 'Anthropic', in: 0.25, out: 1.25, type: 'mini' },
+  { name: 'GPT-4o-mini', provider: 'OpenAI', in: 0.15, out: 0.60, type: 'mini' },
+  { name: 'Gemini 1.5 Flash', provider: 'Google', in: 0.075, out: 0.30, type: 'mini' }
+];
+
+function setVol(val) {
+  document.getElementById('volInput').value = val;
+  document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+  calculate();
+}
+
+function setPreset(type) {
+  if(type === 'chatbot') { document.getElementById('tokensIn').value = 500; document.getElementById('tokensOut').value = 300; }
+  if(type === 'coding') { document.getElementById('tokensIn').value = 4000; document.getElementById('tokensOut').value = 1500; }
+  if(type === 'summary') { document.getElementById('tokensIn').value = 8000; document.getElementById('tokensOut').value = 800; }
+  if(type === 'extract') { document.getElementById('tokensIn').value = 2000; document.getElementById('tokensOut').value = 400; }
+  calculate();
+}
+
+function calculate() {
+  const vol = parseFloat(document.getElementById('volInput').value) || 0;
+  const tin = parseFloat(document.getElementById('tokensIn').value) || 0;
+  const tout = parseFloat(document.getElementById('tokensOut').value) || 0;
+  
+  const results = models.map(m => {
+    const costIn = (vol * tin / 1000000) * m.in;
+    const costOut = (vol * tout / 1000000) * m.out;
+    return { ...m, total: costIn + costOut };
+  }).sort((a,b) => a.total - b.total);
+
+  const container = document.getElementById('resultsTable');
+  container.innerHTML = results.map((m, i) => `
+    <div class="comp-row ${i === 0 ? 'row-highlight' : ''}" style="display:grid; grid-template-columns: 1fr auto; align-items: center; border:1px solid var(--border-soft); border-radius:12px; margin-bottom:8px; background: ${i === 0 ? 'var(--sky-pale)' : 'var(--white)'}">
+      <div class="comp-cell">
+        <div class="model-provider">${m.provider}</div>
+        <div class="model-name">${m.name} ${i === 0 ? '<span class="badge-winner">Cheapest</span>' : ''}</div>
+      </div>
+      <div class="comp-cell">
+        <div class="cost-val">$${m.total.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})}</div>
+        <div class="cost-sub">total / month</div>
+      </div>
+    </div>
+  `).join('');
+
+  updateRecommendation(results);
+}
+
+function updateRecommendation(results) {
+  const vol = parseInt(document.getElementById('volInput').value);
+  const tin = parseInt(document.getElementById('tokensIn').value);
+  
+  const cheapest = results[0];
+  const bestPro = results.find(r => r.type === 'pro');
+  
+  let title = `Use ${cheapest.name}`;
+  let desc = `At your volume, this is the most cost-effective path. Excellent for high-scale workflows.`;
+
+  if (tin > 5000) {
+    title = `Recommendation: ${bestPro.name}`;
+    desc = `For high-context tasks (like docs or code), ${bestPro.name}'s reasoning superiority justifies the $${bestPro.total.toFixed(2)} monthly cost over cheaper alternatives.`;
+  } else if (vol < 5000) {
+    title = `Recommendation: Claude 3.5 Sonnet`;
+    desc = `At low volumes, your focus should be on accuracy. Sonnet provides the best developer experience and most reliable outputs for just $${results.find(r => r.name === 'Claude 3.5 Sonnet').total.toFixed(2)}.`;
+  }
+
+  document.getElementById('recTitle').textContent = title;
+  document.getElementById('recDesc').textContent = desc;
+}
+
+calculate();
+</script>
+</body>
+</html>

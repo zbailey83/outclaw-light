@@ -178,18 +178,84 @@ a:hover { color: var(--text); text-decoration-color: var(--text); }
 .after-label{color:var(--flamingo);}
 .example-text{font-size:13px;line-height:1.7;color:var(--text-mid);}
 
-/* FOOTER */
-.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
-.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
-.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
-.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
-.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
-.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
-.footer-col a:hover{color:rgba(255,255,255,.75);}
-.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
-.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
-@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
-</style>
+    /* ─── FOOTER ────────────────────────────── */
+    footer {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 32px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .footer-logo svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 17px;
+      color: rgba(255, 255, 255, .4);
+    }
+
+    .footer-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+
+    /* ── SHARE STRIP STYLE ── */
+    .share-strip { display: flex; align-items: center; gap: 12px; margin: 24px 0; justify-content: flex-start; }
+    .share-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
+    .share-btn { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid var(--border); color: var(--text-soft); text-decoration: none; transition: all .2s cubic-bezier(.34,1.56,.64,1); cursor: pointer; }
+    .share-btn:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(90, 173, 219, .15); }
+    .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
+    .footer-links {
+      display: flex;
+      gap: 28px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+      text-decoration: none;
+      transition: color .15s;
+      font-weight: 500;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .footer-links a:hover {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .2);
+    }
+
+    @media(max-width:768px) {
+      footer {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 24px;
+      }
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+      }
+    }
+  </style>
 </head>
 <body>
   <!-- Google Tag Manager (noscript) -->
@@ -205,6 +271,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="navbar-links">
     <a href="../about/">About</a>
     <a href="../guides/">Guides</a>
+    <a href="../videos/">Videos</a>
     <a href="./" class="active">Tools</a>
     <a href="../newsletter/">Newsletter</a>
   </div>
@@ -216,6 +283,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="nav-drawer" id="navDrawer">
   <a href="../about/">About</a>
   <a href="../guides/">Guides</a>
+  <a href="../videos/">Videos</a>
   <a href="./" class="active">Tools</a>
   <a href="../newsletter/">Newsletter</a>
   <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
@@ -229,8 +297,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <span>Prompt Sharpener</span>
     </div>
     <div class="eyebrow">Free Tool</div>
-    <h1>Paste a prompt. Get a <em>sharper</em> one back.</h1>
-    <p class="tool-hero-sub">Paste any prompt. <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Claude</a> rewrites it for better structure, clarity, and output consistency — plus a full breakdown of exactly what changed and why it works better.</p>
+      <h1>Sharpen your prompts<br>with <em>precision.</em></h1>
+      <div class="share-strip" style="margin-top: 16px;">
+        <span class="share-label">Share</span>
+        <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank');return false;" class="share-btn" aria-label="Share on X">
+          <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on LinkedIn">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on Facebook">
+          <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        </a>
+      </div>
+      <p class="tool-hero-sub">Paste any prompt. <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Claude</a> rewrites it for better structure, clarity, and output consistency — plus a full breakdown of exactly what changed and why it works better.</p>
     <div class="hero-badges">
       <span class="hero-badge badge-free">✓ Free forever</span>
       <span class="hero-badge badge-noauth">No account needed</span>
@@ -401,34 +481,30 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </div><!-- /page-body -->
 
-<footer class="site-footer">
-  <div class="footer-brand">
-    <div class="footer-wordmark">Out<em>claw</em> AI</div>
-    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
-  </div>
-  <div class="footer-col">
-    <h4>Content</h4>
-    <a href="../guides/">Guides</a>
-    <a href="./">Tools</a>
-    <a href="../newsletter/">Newsletter</a>
-  </div>
-  <div class="footer-col">
-    <h4>Company</h4>
-    <a href="../about/">About</a>
-    <a href="mailto:zbailey83@gmail.com">Contact</a>
-    <a href="../privacy/">Privacy</a>
-  </div>
-  <div class="footer-col">
-    <h4>Connect</h4>
-    <a href="https://x.com/zbailey83" target="_blank">&#120535; X / Twitter</a>
-    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
-    <a href="../newsletter/">Subscribe</a>
-  </div>
-</footer>
-<div class="footer-bottom">
-  <p>© 2026 OutClaw AI · outclaw.xyz</p>
-  <p>The newsletter with actual claws 🦩</p>
-</div>
+  <!-- FOOTER -->
+  <footer>
+    <a href="../" class="footer-logo">
+      <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
+        <title>OutClaw AI Footer Logo</title>
+        <path
+          d="M477.51118 419.590244c7.807376 0 31.634107 1.620917 71.480196 4.862751 64.12238 5.217405 129.663376 55.832976 128.936585 123.274615s-59.726673 111.888234-113.072078 123.334556c-53.345405 11.443824-82.132293 7.150517-133.115005 0-50.982712-7.153015-97.787005-58.667707-97.787005-117.992273-12.075707-3.221854-40.660293-15.429932-39.189229-23.114927C304.607532 478.472741 345.984624 437.440312 399.464898 429.430634 443.267122 422.869541 469.281717 419.590244 477.51118 419.590244z"
+          fill="#5AADDB" />
+      </svg>
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/zbailey83"
+          target="_blank">@zbailey83</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="../videos/">Videos</a>
+      <a href="./">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
 
 <script>
 function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}

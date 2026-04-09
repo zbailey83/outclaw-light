@@ -1,22 +1,33 @@
-# OutClaw AI
+# OutClaw AI — LLM Interface
 
-> The AI Newsletter With Claws
+> The AI Newsletter With Claws. Weekly deep-dives on AI releases, agentic workflows, and the alpha your feed buries.
 
-OutClaw AI provides weekly deep-dives on the latest AI releases, Claude & OpenAI updates, battle-tested workflows, and the alpha your feed buries.
+## Core Navigation
+- [Home](https://outclaw.xyz/) — Newsletter landing page and weekly ticker.
+- [About](https://outclaw.xyz/about/) — Mission and story of OutClaw AI.
+- [Guides](https://outclaw.xyz/guides/) — Technical step-by-step playbooks.
+- [Videos](https://outclaw.xyz/videos/) — Embedded YouTube video tutorials and deep-dives.
+- [Tools](https://outclaw.xyz/tools/) — Free AI utilities for practitioners.
+- [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
 
-## Navigation
+## Technical Guides (Documentation)
+- [Automate Content Workflow with n8n + Claude](https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html) — Build a full pipeline for ideation, drafting, and SEO.
+- [Claude Sonnet 4.6 Prompting Playbook](https://outclaw.xyz/guides/claude-sonnet-prompting-playbook.html) — 30+ templates for XML structuring and CoT.
+- [OpenClaw Setup Guide (VPS & MacMini)](https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide.html) — Self-hosting instructions for agentic systems.
+- [GPT-5.4 1M Context Practical Guide](https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html) — Use cases for massive context windows.
 
-- [Home](https://outclaw.xyz/)
-- [About](https://outclaw.xyz/about/)
-- [Articles](https://outclaw.xyz/articles/)
-- [Guides](https://outclaw.xyz/guides/)
-- [Tools](https://outclaw.xyz/tools/)
-- [Newsletter](https://outclaw.xyz/newsletter/)
+## Free Practitioner Tools
+- [AI Brand Identity Builder](https://outclaw.xyz/tools/brand-identity.html) — Generate voice, tone, and strategy documents.
+- [Prompt Sharpener](https://outclaw.xyz/tools/prompt-sharpener.html) — Refine and structure LLM prompts for better results.
+- [Model Comparison Cheatsheet](https://outclaw.xyz/tools/model-comparison.html) — Real-time stats on the latest LLMs.
 
-## Core Content
+## Content Pillars
+- **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.
+- **Model Releases**: Benchmarks and analysis of Claude, OpenAI, and Gemini.
+- **Prompt Engineering**: Technical patterns like XML and Chain-of-Thought (CoT).
+- **Tooling Reviews**: Technical deep-dives into n8n, LangChain, and Promptfoo.
 
-OutClaw focuses on providing actionable AI insights for developers and AI enthusiasts. Every Tuesday, we publish a newsletter covering:
-- New AI Model releases and benchmarks.
-- MCP (Model Context Protocol) implementations.
-- Agentic workflows and system prompts.
-- Technical tutorials and tool reviews.
+## Meta
+- Frequency: Weekly (Every Tuesday)
+- Target: AI Practitioners, Developers, and Systems Builders.
+- URL Structure: Clean HTML endpoints for high crawlability.
