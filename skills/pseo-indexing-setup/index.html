@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JHMN90H7MC');
+  </script>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+  <!-- End Google Tag Manager -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>pSEO Indexing Setup — OutClaw AI Skills</title>
+  <meta name="description" content="The complete technical indexing stack to get your programmatic SEO pages crawled and indexed fast.">
+  <link rel="canonical" href="https://outclaw.xyz/skills/pseo-indexing-setup/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+  <style>
+    :root {
+      --sky: #5AADDB; --sky-light: #B8DFF0; --sky-pale: #EDF7FC;
+      --flamingo: #F4678A; --flamingo-light: #FBB8CB; --flamingo-pale: #FEF0F4;
+      --leaf: #4A9E7A; --leaf-pale: #E8F5EF;
+      --deep-navy: #1A1A2E; --text: #1A1A2E; --text-mid: #4A4A6E;
+      --text-soft: #7A7A9E; --text-dim: #B0B0C8;
+      --white: #FFFFFF; --bg: #FAFAF8; --border: #E8E8F2;
+      --font-display: "DM Serif Display", serif; --font-body: "DM Sans", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    
+    .navbar { position: sticky; top: 0; z-index: 200; height: 68px; background: rgba(255,255,255,.92); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 48px; }
+    .navbar-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .navbar-logo-img { width:32px; height:32px; filter: drop-shadow(0 2px 6px rgba(244,103,138,.2)); }
+    .navbar-wordmark { font-family:var(--font-display); font-size:21px; color:var(--text); }
+    .navbar-wordmark em { font-style:normal; color:var(--sky); }
+    .navbar-links { display: flex; gap: 4px; }
+    .navbar-links a { font-size:14px; font-weight:500; color:var(--text-soft); text-decoration:none; padding:7px 14px; border-radius:8px; transition:all .15s; }
+    .navbar-links a:hover { color:var(--text); background:var(--sky-pale); }
+    
+    .nav-hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; padding:8px; border:none; background:transparent; }
+    .nav-hamburger span { display:block; width:20px; height:2px; background:var(--text-soft); border-radius:2px; }
+    .nav-drawer { display:none; position:fixed; top:68px; left:0; right:0; background:rgba(255,255,255,.97); backdrop-filter:blur(20px); border-bottom:1px solid var(--border); padding:16px 24px 24px; z-index:199; flex-direction:column; gap:4px; }
+    .nav-drawer.open { display:flex; }
+    .nav-drawer a { font-size:15px; font-weight:500; color:var(--text-soft); text-decoration:none; padding:12px 16px; border-radius:12px; transition:all .15s; }
+    
+    .skill-hero { padding: 80px 48px 60px; background: linear-gradient(160deg, var(--leaf-pale) 0%, var(--bg) 100%); border-bottom: 1px solid var(--border); }
+    .skill-hero-inner { max-width: 800px; margin: 0 auto; }
+    .eyebrow { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--leaf); letter-spacing: 0.1em; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 24px; height: 2px; background: var(--leaf); border-radius: 2px; }
+    .skill-hero h1 { font-family: var(--font-display); font-size: clamp(32px, 5vw, 48px); font-weight: 400; color: var(--text); line-height: 1.1; margin-bottom: 20px; }
+    
+    .back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--sky); text-decoration: none; margin-bottom: 32px; transition: transform 0.2s; }
+    .back-link:hover { transform: translateX(-4px); }
+
+    .skill-content { max-width: 800px; margin: 0 auto; padding: 60px 48px 100px; }
+    
+    .markdown-body { font-size: 16px; color: var(--text-mid); }
+    .markdown-body h1 { display: none; }
+    .markdown-body h2 { font-family: var(--font-display); font-size: 28px; color: var(--text); margin: 48px 0 24px; padding-bottom: 12px; border-bottom: 1px solid var(--border); font-weight: 400; }
+    .markdown-body h3 { font-size: 20px; color: var(--text); margin: 32px 0 16px; font-weight: 600; }
+    .markdown-body p { margin-bottom: 20px; line-height: 1.8; }
+    .markdown-body blockquote { border-left: 4px solid var(--leaf); background: var(--leaf-pale); padding: 20px 24px; border-radius: 0 12px 12px 0; margin: 24px 0; color: var(--text); font-style: italic; }
+    .markdown-body ul, .markdown-body ol { margin-bottom: 24px; padding-left: 20px; }
+    .markdown-body li { margin-bottom: 10px; }
+    .markdown-body table { width: 100%; border-collapse: collapse; margin: 32px 0; font-size: 14px; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: block; overflow-x: auto; }
+    .markdown-body th { background: var(--leaf-pale); color: var(--leaf); text-align: left; padding: 12px 16px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+    .markdown-body td { padding: 14px 16px; border-top: 1px solid var(--border); }
+    .markdown-body code { background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 0.9em; color: var(--leaf); }
+    .markdown-body pre { background: var(--deep-navy); color: #fff; padding: 24px; border-radius: 16px; margin: 32px 0; overflow-x: auto; }
+    .markdown-body pre code { background: transparent; padding: 0; color: #7EC5E8; }
+    .markdown-body hr { height: 1px; background: var(--border); border: none; margin: 48px 0; }
+    .markdown-body strong { color: var(--text); font-weight: 600; }
+    
+    footer { background: var(--deep-navy); padding: 48px; color: rgba(255,255,255,0.4); text-align: center; }
+    .footer-links { display: flex; justify-content: center; gap: 24px; margin-bottom: 24px; }
+    .footer-links a { color: rgba(255,255,255,0.6); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+
+    @media (max-width: 860px) {
+      .navbar-links { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .navbar { padding: 0 24px; }
+      .skill-hero { padding: 60px 24px 40px; }
+      .skill-content { padding: 40px 24px 80px; }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+  </div>
+
+  <section class="skill-hero">
+    <div class="skill-hero-inner">
+      <div class="eyebrow">Professional Skill</div>
+      <h1>pSEO Indexing <em>Setup.</em></h1>
+      <p style="color: var(--text-soft); font-size: 18px; line-height: 1.6;">The complete technical stack to get programmatic SEO sites indexed fast.</p>
+    </div>
+  </section>
+
+  <div class="skill-content">
+    <a href="../../tools/" class="back-link">← Back to Tools Library</a>
+    <div id="content" class="markdown-body">
+      <div style="padding: 40px 0; text-align: center; color: var(--text-dim);">Loading skill documentation...</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div style="font-size: 12px;">© 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+
+  <script>
+    function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+    document.addEventListener("click",function(e){
+      var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+      if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+    });
+
+    fetch('./README.md')
+      .then(response => response.text())
+      .then(text => {
+        document.getElementById('content').innerHTML = marked.parse(text);
+      })
+      .catch(err => {
+        document.getElementById('content').innerHTML = '<p>Error loading content. Please try again later.</p>';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
