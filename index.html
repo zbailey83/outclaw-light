@@ -26,9 +26,9 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Newsletter for Builders | OutClaw</title>
+  <title>AI Newsletter for Builders: Master Workflows, MCP & Prompts | OutClaw</title>
   <meta name="description"
-    content="Actionable AI workflows, tools, and prompts for builders. Learn how to use AI to ship faster and automate smarter.">
+    content="The actionable AI newsletter for builders. Master model workflows, MCP implementations, prompt engineering, and automation tools to ship faster.">
   <link rel="canonical" href="https://outclaw.xyz/">
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#5AADDB">
@@ -36,17 +36,17 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://outclaw.xyz/">
-  <meta property="og:title" content="AI Newsletter for Builders | OutClaw">
+  <meta property="og:title" content="AI Newsletter for Builders: Master Workflows & Prompts">
   <meta property="og:description"
-    content="Actionable AI workflows, tools, and prompts for builders. Learn how to use AI to ship faster and automate smarter.">
+    content="Get weekly AI workflows, MCP guides, and prompt frameworks. Built for practitioners who actually ship.">
   <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://outclaw.xyz/">
-  <meta property="twitter:title" content="AI Newsletter for Builders | OutClaw">
+  <meta property="twitter:title" content="AI Newsletter for Builders: Master Workflows & Prompts">
   <meta property="twitter:description"
-    content="Actionable AI workflows, tools, and prompts for builders. Learn how to use AI to ship faster and automate smarter.">
+    content="Get weekly AI workflows, MCP guides, and prompt frameworks. Built for practitioners who actually ship.">
   <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
 
   <!-- JSON-LD Schema -->
@@ -1464,7 +1464,19 @@
     }
 
     /* ─── RESPONSIVE ────────────────────────── */
+    .hero-mobile-icon {
+      display: none;
+      width: 64px;
+      height: 64px;
+      margin-bottom: 24px;
+      filter: drop-shadow(0 4px 12px rgba(244, 103, 138, 0.3));
+      animation: floatBird 6s ease-in-out infinite;
+    }
+
     @media(max-width: 900px) {
+      .hero-mobile-icon {
+        display: block;
+      }
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 48px;
@@ -1678,15 +1690,16 @@
     <div class="hero-shape-2"></div>
     <div class="hero-inner">
       <div class="hero-left">
+        <img src="outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="" class="hero-mobile-icon">
         <div class="hero-badge">
           <span class="hero-badge-dot"></span>
           AI Newsletter for Builders
         </div>
         <h1 class="hero-headline">
-          AI Newsletter for Builders Who Actually Ship
+          The AI Newsletter for <em>Builders.</em>
         </h1>
         <p class="hero-sub">
-          Actionable AI workflows, tools, and model breakdowns—so you can build faster, automate smarter, and stop guessing.
+          Weekly deep-dives on <strong>AI workflows</strong>, MCP implementations, and prompt engineering—helping practitioners automate their stack and ship faster.
         </p>
         
         <div class="hero-form-container" style="margin-top: 32px; animation: fadeInUp .7s ease .3s both;">
@@ -1695,7 +1708,7 @@
             <button type="submit" class="hero-form-btn">Subscribe Free</button>
           </form>
           <div class="hero-microcopy">
-            Join 250+ builders • 4.8★ rating • Weekly, no fluff
+            Join 250+ AI practitioners • No fluff • Weekly on Tuesdays
           </div>
         </div>
       </div>
@@ -1721,11 +1734,17 @@
     <div class="container max-800 text-center">
       <div class="eyebrow" style="margin-bottom: 16px;">The Definition</div>
       <h2 class="section-title" style="margin-bottom: 24px;">What is <em>OutClaw?</em></h2>
-      <p style="font-size: 20px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px;">
-        OutClaw is an AI newsletter for builders, developers, and operators who want <strong>practical workflows</strong>—not theory.
-      </p>
-      <p style="font-size: 18px; color: var(--text-soft); line-height: 1.7;">
-        Each issue breaks down real tools, prompt strategies, and model use cases you can apply immediately to your stack.
+      
+      <!-- Answer Block -->
+      <div style="background: var(--sky-pale); padding: 32px; border-radius: 20px; border: 1px solid var(--sky-light); margin-bottom: 40px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
+        <div style="font-size: 11px; font-weight: 700; color: var(--sky); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">AI Fast Pack: The OutClaw Mission</div>
+        <p style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">
+          OutClaw is the definitive <strong>AI newsletter for builders</strong> focused on moving from theory to implementation. We provide weekly <strong>workflows</strong>, technical <strong>MCP</strong> (Model Context Protocol) guides, and <strong>prompt</strong> frameworks that help developers and operators build production-ready <strong>automation</strong> using the latest AI <strong>tools</strong>.
+        </p>
+      </div>
+
+      <p style="font-size: 18px; color: var(--text-mid); line-height: 1.7; margin-bottom: 24px;">
+        OutClaw helps you navigate the noise of AI releases by focusing on what actually works in a real production environment.
       </p>
     </div>
   </section>
@@ -1776,6 +1795,24 @@
               <span style="font-size: 16px; color: var(--text-mid);">Automation systems and agent setups</span>
             </li>
           </ul>
+        </div>
+      </div>
+    </div>
+  <section class="aeo-faq section-padding bg-bg" style="border-top: 1px solid var(--border-soft);">
+    <div class="container max-800">
+      <h2 class="section-title text-center" style="margin-bottom: 48px;">AI Newsletter <em>FAQ</em></h2>
+      <div style="display: flex; flex-direction: column; gap: 24px;">
+        <div style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px;">
+          <h4 style="font-size: 18px; margin-bottom: 12px; font-weight: 600;">What makes OutClaw different from other AI newsletters?</h4>
+          <p style="color:var(--text-mid); line-height: 1.7;">While most newsletters focus on AI news or hype, OutClaw focuses on <strong>implementation</strong>. We provide specific <strong>prompts</strong>, walk through <strong>MCP</strong> server setups, and share <strong>automation</strong> workflows that builders can fork and use immediately.</p>
+        </div>
+        <div style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px;">
+          <h4 style="font-size: 18px; margin-bottom: 12px; font-weight: 600;">Who is the target audience for OutClaw?</h4>
+          <p style="color:var(--text-mid); line-height: 1.7;">We build for <strong>practitioners</strong>. This includes developers building with LLM APIs, solo founders using AI to scale, and operators looking to replace manual <strong>workflows</strong> with autonomous systems.</p>
+        </div>
+        <div style="background: var(--white); border: 1px solid var(--border); padding: 32px; border-radius: 20px;">
+          <h4 style="font-size: 18px; margin-bottom: 12px; font-weight: 600;">How often is it published?</h4>
+          <p style="color:var(--text-mid); line-height: 1.7;">Every Tuesday morning. We prioritize high-signal content over frequency, ensuring every issue contains at least one actionable <strong>workflow</strong> or <strong>prompt</strong> framework you can use.</p>
         </div>
       </div>
     </div>
