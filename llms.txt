@@ -20,6 +20,14 @@
 - [AI Brand Identity Builder](https://outclaw.xyz/tools/brand-identity.html) — Generate voice, tone, and strategy documents.
 - [Prompt Sharpener](https://outclaw.xyz/tools/prompt-sharpener.html) — Refine and structure LLM prompts for better results.
 - [Model Comparison Cheatsheet](https://outclaw.xyz/tools/model-comparison.html) — Real-time stats on the latest LLMs.
+- [API Cost Calculator](https://outclaw.xyz/tools/api-cost-calculator.html) — Estimate model usage costs across Claude, OpenAI, and Gemini.
+- [MCP Server Directory](https://outclaw.xyz/tools/mcp-server-directory.html) — A curated list of Model Context Protocol servers.
+
+## Professional Skills (Quick Guides)
+- [Organic Marketing Blitz](https://outclaw.xyz/skills/organic-marketing-blitz/) — 12-channel organic growth system.
+- [Google Dorking for OSINT](https://outclaw.xyz/skills/google-dorking/) — Advanced search operators for data retrieval.
+- [pSEO Indexing Setup](https://outclaw.xyz/skills/pseo-indexing-setup/) — Technical stack for programmatic SEO indexing.
+- [The Application Engine](https://outclaw.xyz/skills/resume-coverletter-skill/) — ATS-optimized resume and cover letter systems.
 
 ## Content Pillars
 - **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.
