@@ -203,15 +203,14 @@
     fetch('./README.md')
       .then(response => response.text())
       .then(text => {
-        document.getElementById('content').innerHTML = marked.parse(text);
+        // Remove the first h1 (title) from markdown to avoid redundant h1 for SEO
+        const content = text.replace(/^#\s+.+\n?/, '');
+        document.getElementById('content').innerHTML = marked.parse(content);
       })
       .catch(err => {
         document.getElementById('content').innerHTML = '<p>Error loading content. Please try again later.</p>';
         console.error(err);
       });
   </script>
-</body>
-</html>
-
 </body>
 </html>
