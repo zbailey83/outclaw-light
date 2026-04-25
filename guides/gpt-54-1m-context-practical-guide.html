@@ -19,22 +19,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- End Google Tag Manager -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenAI GPT-5.4 with 1M Context: The Practical Use Cases That Actually Work</title>
-  <meta name="description" content="Large context windows sound impressive. Here's exactly what tasks justify using GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when you're feeding the model a novel's worth of data.">
+  <title>GPT-5.4 1M Context Guide | OutClaw AI</title>
+  <meta name="description" content="Learn when to use GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when processing massive datasets with AI.">
   <link rel="canonical" href="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
+  
+  <!-- Schema.org Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "GPT-5.4 with 1M context: what actually works and what falls apart",
+    "description": "A practical guide to using large context windows effectively. Learn what tasks justify 1M tokens, what failure modes to watch for, and how to prompt at scale.",
+    "image": "https://outclaw.xyz/hero-alt.webp",
+    "author": {
+      "@type": "Person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/about/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "OutClaw AI",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    "datePublished": "2026-03-01",
+    "dateModified": "2026-04-17"
+  }
+  </script>
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#5AADDB">
 
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html">
-  <meta property="og:title" content="OpenAI GPT-5.4 with 1M Context: The Practical Use Cases That Actually Work">
-  <meta property="og:description" content="Large context windows sound impressive. Here's exactly what tasks justify using them, what falls apart, and how to prompt for coherent output at scale.">
+  <meta property="og:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
+  <meta property="og:title" content="GPT-5.4 1M Context Practical Guide | OutClaw AI">
+  <meta property="og:description" content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents.">
   <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
 
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="GPT-5.4 1M Context: What Actually Works vs. What Falls Apart">
-  <meta name="twitter:description" content="Real use cases, real failure modes, and exact prompting patterns for GPT-5.4's 1M context window.">
-  <meta name="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
+  <meta property="twitter:title" content="GPT-5.4 1M Context Practical Guide | OutClaw AI">
+  <meta property="twitter:description" content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents.">
+  <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
 
   <script type="application/ld+json">
   {
@@ -951,7 +980,6 @@ Do not reference information from documents not listed in this index.
 
 Produce your analysis in the following structure.
 <span class="k">Each section is independent</span> — do not forward-reference or refer back to previous sections.
-
 <span class="k">Section 1 — Executive Summary</span>  (max 200 words)
 <span class="k">Section 2 — Key Findings</span>        (max 8 bullet points, each under 30 words)
 <span class="k">Section 3 — Risk Factors</span>        (max 5 items, with severity and supporting document ID)

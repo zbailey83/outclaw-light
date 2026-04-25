@@ -26,27 +26,29 @@
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Newsletter for Builders: Master Workflows, MCP & Prompts | OutClaw</title>
+  <title>AI Newsletter for Builders | OutClaw AI</title>
   <meta name="description"
-    content="The actionable AI newsletter for builders. Master model workflows, MCP implementations, prompt engineering, and automation tools to ship faster.">
+    content="The actionable AI newsletter for builders, marketers, and solo-founders. Real workflows, no hype. Join 12,000+ others shipping faster with AI.">
   <link rel="canonical" href="https://outclaw.xyz/">
+
   <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#5AADDB">
   <link rel="shortcut icon" href="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png">
+  
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://outclaw.xyz/">
-  <meta property="og:title" content="AI Newsletter for Builders: Master Workflows & Prompts">
+  <meta property="og:title" content="AI Newsletter for Builders | OutClaw AI">
   <meta property="og:description"
-    content="Get weekly AI workflows, MCP guides, and prompt frameworks. Built for practitioners who actually ship.">
+    content="OutClaw AI is the weekly newsletter for builders. Get practical AI workflows, MCP guides, and prompt frameworks to automate your stack and ship faster.">
   <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://outclaw.xyz/">
-  <meta property="twitter:title" content="AI Newsletter for Builders: Master Workflows & Prompts">
+  <meta property="twitter:title" content="AI Newsletter for Builders | OutClaw AI">
   <meta property="twitter:description"
-    content="Get weekly AI workflows, MCP guides, and prompt frameworks. Built for practitioners who actually ship.">
+    content="OutClaw AI is the weekly newsletter for builders. Get practical AI workflows, MCP guides, and prompt frameworks to automate your stack and ship faster.">
   <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
 
   <!-- JSON-LD Schema -->
@@ -63,7 +65,12 @@
       "publisher": {
         "@id": "https://outclaw.xyz/#organization"
       },
-      "inLanguage": "en-US"
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://outclaw.xyz/guides/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
     },
     {
       "@type": "Organization",
@@ -72,7 +79,7 @@
       "url": "https://outclaw.xyz/",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://outclaw.xyz/outclaw-icons/favicon.png"
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
       },
       "sameAs": [
         "https://x.com/outclawai"
@@ -529,7 +536,6 @@
 
     .nav-drawer .nav-cta {
       margin-top: 8px;
-      justify-content: center;
     }
 
     @media(max-width:860px) {
@@ -1587,7 +1593,7 @@
       }
       
       .navbar {
-        padding: 0 20px;
+        padding: 0 24px;
       }
     }
 
@@ -1670,10 +1676,10 @@
     </div>
     <div class="navbar-right">
       <a href="newsletter/" class="nav-cta">Subscribe Free →</a>
-      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
     </div>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
   <div class="nav-drawer" id="navDrawer">
     <a href="about/">About</a>
