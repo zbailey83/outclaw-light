@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Analytics | OutClaw Admin</title>
+    <link rel="shortcut icon" href="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="user-analytics.css">
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+
+
+    <div class="admin-layout" id="dashboard-content">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <a href="/" class="logo-section">
+                <img src="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw Logo">
+                <span>OutClaw <em>Admin</em></span>
+            </a>
+            
+            <nav class="nav-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <i data-lucide="layout-dashboard"></i>
+                        Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="user-analytics.html" class="nav-link active">
+                        <i data-lucide="bar-chart-2"></i>
+                        User Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i data-lucide="search"></i>
+                        Search Console
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i data-lucide="users"></i>
+                        Subscribers
+                    </a>
+                </li>
+            </nav>
+
+            <div class="sidebar-footer">
+                <a href="/" class="nav-link">
+                    <i data-lucide="log-out"></i>
+                    Exit Admin
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="analytics-banner">
+                User Analytics Dashboard - For Internal Use Only
+            </div>
+
+            <header class="header-section">
+                <div class="header-title">
+                    <h1>User Analytics</h1>
+                    <p>Live session and event data from Supabase</p>
+                </div>
+                <div class="date-picker-group">
+                    <select id="date-range-selector" onchange="updateDateRange()" class="date-select">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- 1. Platform Totals -->
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-label">Total Sessions</div>
+                        <div class="stat-trend trend-up"><i data-lucide="arrow-up-right"></i> <span id="trend-sessions">12%</span></div>
+                    </div>
+                    <div class="stat-value" id="val-sessions">...</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-label">Unique Visitors</div>
+                        <div class="stat-trend trend-up"><i data-lucide="arrow-up-right"></i> <span id="trend-visitors">8%</span></div>
+                    </div>
+                    <div class="stat-value" id="val-visitors">...</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-label">Total Lead Actions</div>
+                        <div class="stat-trend trend-up"><i data-lucide="arrow-up-right"></i> <span id="trend-leads">15%</span></div>
+                    </div>
+                    <div class="stat-value" id="val-leads">...</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-label">Total Searches</div>
+                        <div class="stat-trend trend-down"><i data-lucide="arrow-down-right"></i> <span id="trend-searches">2%</span></div>
+                    </div>
+                    <div class="stat-value" id="val-searches">...</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-header">
+                        <div class="stat-label">Total Impressions</div>
+                        <div class="stat-trend trend-up"><i data-lucide="arrow-up-right"></i> <span id="trend-impressions">5%</span></div>
+                    </div>
+                    <div class="stat-value" id="val-impressions">...</div>
+                </div>
+            </section>
+
+            <!-- 2. Lead Actions & 3. Discovery Paths -->
+            <section class="charts-grid analytics-split-grid">
+                <div class="chart-card">
+                    <h3>Lead Actions Trend</h3>
+                    <div class="chart-container">
+                        <canvas id="leadActionsChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <h3>Discovery Paths</h3>
+                    <div class="chart-container">
+                        <canvas id="discoveryPathsChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. Search Intelligence -->
+            <section class="charts-grid single-col">
+                <div class="chart-card search-intelligence">
+                    <div class="card-header-flex">
+                        <h3>Search Intelligence</h3>
+                        <div class="stat-pill">
+                            <span>Search-to-Click Rate: </span>
+                            <strong id="val-search-conv">...</strong>
+                        </div>
+                    </div>
+                    <div class="search-intel-grid">
+                        <div class="intel-col">
+                            <h4>Top Queries</h4>
+                            <div id="top-queries-list" class="intel-list"></div>
+                        </div>
+                        <div class="intel-col">
+                            <h4>Zero-Result Queries</h4>
+                            <div id="zero-queries-list" class="intel-list"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. Listing Performance -->
+            <section class="charts-grid single-col">
+                <div class="chart-card">
+                    <h3>Listing Performance</h3>
+                    <div class="table-responsive">
+                        <table class="performance-table">
+                            <thead>
+                                <tr>
+                                    <th>Center Name</th>
+                                    <th>Brand</th>
+                                    <th>City</th>
+                                    <th>Impressions</th>
+                                    <th>Clicks</th>
+                                    <th>Lead Actions</th>
+                                    <th>Action Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody id="listing-performance-body">
+                                <!-- Populated by JS -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="user-analytics.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

@@ -1,0 +1,128 @@
+/* user-analytics.css */
+.analytics-banner {
+    background: #FEF3C7;
+    color: #92400E;
+    text-align: center;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    border: 1px solid #FDE68A;
+}
+
+.date-select {
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid #E2E8F0;
+    background: white;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: var(--text-main);
+    cursor: pointer;
+    outline: none;
+}
+
+.date-select:focus {
+    border-color: var(--sky);
+}
+
+.analytics-split-grid {
+    grid-template-columns: 2fr 1fr;
+}
+
+.single-col {
+    grid-template-columns: 1fr;
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.stat-pill {
+    background: #F8FAFC;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid #E2E8F0;
+}
+
+.stat-pill strong {
+    color: var(--sky);
+}
+
+.search-intel-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.intel-col h4 {
+    font-size: 14px;
+    color: var(--text-soft);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.intel-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.intel-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: #F8FAFC;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.intel-item .val {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+.performance-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.performance-table th {
+    padding: 12px 16px;
+    font-size: 13px;
+    color: var(--text-soft);
+    border-bottom: 2px solid #E2E8F0;
+    font-weight: 500;
+}
+
+.performance-table td {
+    padding: 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #F1F5F9;
+    color: var(--text-main);
+}
+
+.performance-table tr:hover td {
+    background: #F8FAFC;
+}
+
+.rate-badge {
+    background: rgba(90, 173, 219, 0.1);
+    color: var(--sky);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 13px;
+}

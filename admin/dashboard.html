@@ -17,19 +17,9 @@
 </head>
 <body>
 
-    <!-- Auth Gate -->
-    <div id="auth-gate">
-        <div class="auth-card">
-            <img src="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw Logo">
-            <h2>Admin Access</h2>
-            <p>Please enter your access key to continue.</p>
-            <input type="password" id="access-key" class="auth-input" placeholder="Enter key...">
-            <button onclick="checkAuth()" class="auth-btn">Access Dashboard</button>
-            <p id="auth-error" style="color: #EF4444; font-size: 12px; margin-top: 12px; display: none;">Invalid access key.</p>
-        </div>
-    </div>
 
-    <div class="admin-layout" id="dashboard-content" style="display: none;">
+
+    <div class="admin-layout" id="dashboard-content">
         <!-- Sidebar -->
         <aside class="sidebar">
             <a href="/" class="logo-section">
@@ -39,15 +29,15 @@
             
             <nav class="nav-menu">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
+                    <a href="dashboard.html" class="nav-link active">
                         <i data-lucide="layout-dashboard"></i>
                         Overview
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="user-analytics.html" class="nav-link">
                         <i data-lucide="bar-chart-2"></i>
-                        Analytics
+                        User Analytics
                     </a>
                 </li>
                 <li class="nav-item">
@@ -65,9 +55,9 @@
             </nav>
 
             <div class="sidebar-footer">
-                <a href="#" onclick="logout()" class="nav-link">
+                <a href="/" class="nav-link">
                     <i data-lucide="log-out"></i>
-                    Logout
+                    Exit Admin
                 </a>
             </div>
         </aside>

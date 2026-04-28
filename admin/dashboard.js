@@ -1,6 +1,6 @@
 let tokenClient;
 let accessToken = null;
-const CLIENT_ID = '477890661542-9luu0td5glsfse8dh0qvsu3oos9leigj.apps.googleusercontent.com';
+const CLIENT_ID = '477890661542-kq4od7d760149lqqn7pt4iku0acht25s.apps.googleusercontent.com';
 const GA_PROPERTY_ID = '529241982';
 const SECRET_KEY = 'outclaw2026';
 
@@ -77,45 +77,12 @@ function showSuccessToast(msg) {
     setTimeout(() => toast.remove(), 3000);
 }
 
-function checkAuth() {
-    const input = document.getElementById('access-key').value;
-    const error = document.getElementById('auth-error');
-    
-    if (input === SECRET_KEY) {
-        document.getElementById('auth-gate').style.opacity = '0';
-        setTimeout(() => {
-            document.getElementById('auth-gate').style.display = 'none';
-            document.getElementById('dashboard-content').style.display = 'flex';
-            initCharts();
-            renderQueries();
-        }, 500);
-        localStorage.setItem('outclaw_admin_auth', 'true');
-    } else {
-        error.style.display = 'block';
-    }
-}
 
-function logout() {
-    localStorage.removeItem('outclaw_admin_auth');
-    location.reload();
-}
 
 // Auto-login if already authenticated
 window.onload = () => {
-    // Add Enter key listener
-    const accessInput = document.getElementById('access-key');
-    if (accessInput) {
-        accessInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') checkAuth();
-        });
-    }
-
-    if (localStorage.getItem('outclaw_admin_auth') === 'true') {
-        document.getElementById('auth-gate').style.display = 'none';
-        document.getElementById('dashboard-content').style.display = 'flex';
-        initCharts();
-        renderQueries();
-    }
+    initCharts();
+    renderQueries();
 };
 
 function initCharts() {

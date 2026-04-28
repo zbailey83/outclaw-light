@@ -27,7 +27,7 @@
 - [Organic Marketing Blitz](https://outclaw.xyz/skills/organic-marketing-blitz/) — 12-channel organic growth system.
 - [Google Dorking for OSINT](https://outclaw.xyz/skills/google-dorking/) — Advanced search operators for data retrieval.
 - [pSEO Indexing Setup](https://outclaw.xyz/skills/pseo-indexing-setup/) — Technical stack for programmatic SEO indexing.
-- [The Application Engine](https://outclaw.xyz/skills/resume-coverletter-skill/) — ATS-optimized resume and cover letter systems.
+- [Resume-Cover Letter & Role Map Claude Skill](https://outclaw.xyz/skills/resume-coverletter-skill/) — ATS-optimized resume and cover letter systems.
 
 ## Content Pillars
 - **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.
