@@ -110,8 +110,10 @@ async function fetchDashboardData(days) {
             console.warn('No events found in table. Returning empty totals.');
             return getEmptyData(days);
         }
+
+        const totals = {
             sessions: events.filter(e => e.event_type === 'session_start').length,
-            visitors: new Set(events.map(e => e.session_id || Math.random())).size,
+            visitors: events.filter(e => e.event_type === 'session_start').length,
             leads: events.filter(e => e.event_type === 'lead_action').length,
             searches: events.filter(e => e.event_type === 'search').length,
             impressions: events.filter(e => e.event_type === 'impression').length,
