@@ -105,64 +105,9 @@
     .tldr-box p{font-size:15.5px;color:var(--text-mid);line-height:1.8;}
     .tldr-box strong{color:var(--text);}
 
-    /* ---- TIMELINE NAV (signature element) ---- */
-    .timeline-shell{
-      position:sticky; top:68px; z-index:40;
-      background:rgba(250,250,248,0.95); backdrop-filter:blur(20px);
-      border-bottom:1px solid var(--border); padding:12px 0 14px;
-    }
-    .timeline-inner{ max-width:920px; margin:0 auto; padding:0 48px; }
-    @media(max-width:640px){.timeline-inner{padding:0 24px;}}
-    .timeline-head{
-      display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;
-      font-family:var(--font-mono); font-size:11px; color:var(--text-soft); letter-spacing:0.05em;
-    }
-    .timeline-legend{ display:flex; gap:16px; flex-wrap:wrap; }
-    .timeline-legend span{ display:inline-flex; align-items:center; gap:6px; }
-    .legend-dot{ width:7px; height:7px; border-radius:1px; display:inline-block; }
-    .legend-dot.a{ background:var(--coral); }
-    .legend-dot.b{ background:var(--sky); }
-    #nowPlaying{ color:var(--text-mid); font-weight:500; }
-    .ruler{
-      position:relative; height:8px; border-bottom:1px solid var(--border-soft); margin-bottom:6px;
-      overflow:hidden;
-    }
-    .ruler::before{
-      content:''; position:absolute; inset:0;
-      background-image:repeating-linear-gradient(90deg, var(--border) 0, var(--border) 1px, transparent 1px, transparent 8.333%);
-    }
-    .tracks{ position:relative; overflow-x:auto; padding-bottom:2px; }
-    .track-row{ position:relative; height:22px; margin-bottom:4px; }
-    .track-row::before{
-      content:''; position:absolute; inset:0; border-radius:2px;
-    }
-    .track-row.a::before{ background:var(--coral-pale); }
-    .track-row.b::before{ background:var(--sky-pale); }
-    .clip{
-      position:absolute; top:2px; bottom:2px; left:0; width:8%;
-      border-radius:2px; font-family:var(--font-mono); font-size:10px;
-      display:flex; align-items:center; padding:0 7px; white-space:nowrap; overflow:hidden;
-      text-overflow:ellipsis; color:var(--white); text-decoration:none; border:none;
-      transition:filter 0.15s ease, transform 0.15s ease;
-      font-weight:500;
-    }
-    .track-row.a .clip{ background:var(--coral); }
-    .track-row.b .clip{ background:var(--sky); }
-    .clip:hover{ filter:brightness(1.08); }
-    .clip.active{ transform:translateY(-1px); box-shadow:0 0 0 2px var(--white) inset; }
-    .playhead{
-      position:absolute; top:-6px; bottom:-46px; width:1px; background:var(--text);
-      left:0; pointer-events:none; opacity:0.85;
-    }
-    .playhead::before{
-      content:''; position:absolute; top:0; left:-4px; width:0; height:0;
-      border-left:5px solid transparent; border-right:5px solid transparent; border-top:6px solid var(--text);
-    }
-    .timeline-wrap{ position:relative; }
-
     /* ---- Section chrome ---- */
     section[id]{
-      scroll-margin-top: 170px; /* Offset for sticky navbar (68px) + timeline-shell (~100px) */
+      scroll-margin-top: 80px; /* Offset for sticky navbar (68px) */
     }
     section{ padding:56px 0; border-bottom:1px solid var(--border-soft); }
     section:last-of-type{ border-bottom:none; }
@@ -333,36 +278,7 @@
     </div>
   </section>
 
-  <div class="timeline-shell">
-    <div class="timeline-inner">
-      <div class="timeline-head">
-        <div class="timeline-legend">
-          <span><span class="legend-dot a"></span> Codex Config</span>
-          <span><span class="legend-dot b"></span> Agentic Loops</span>
-        </div>
-        <div id="nowPlaying">Scroll to navigate</div>
-      </div>
-      <div class="timeline-wrap">
-        <div class="ruler"></div>
-        <div class="tracks">
-          <div class="track-row a">
-            <a class="clip" data-target="runtime-contract" href="#runtime-contract">Contract</a>
-            <a class="clip" data-target="token-math" href="#token-math">Token Math</a>
-            <a class="clip" data-target="guardrails" href="#guardrails">Guardrails</a>
-            <a class="clip" data-target="start-here" href="#start-here">Start here</a>
-          </div>
-          <div class="track-row b">
-            <a class="clip" data-target="runtime-contract" href="#runtime-contract">Contract</a>
-            <a class="clip" data-target="self-repair" href="#self-repair">Self-Repair</a>
-            <a class="clip" data-target="mcp-servers" href="#mcp-servers">MCP Tooling</a>
-            <a class="clip" data-target="guardrails" href="#guardrails">Guardrails</a>
-            <a class="clip" data-target="start-here" href="#start-here">Start here</a>
-          </div>
-        </div>
-        <div class="playhead" id="playhead"></div>
-      </div>
-    </div>
-  </div>
+
 
   <main class="page-body wide">
 
@@ -629,67 +545,7 @@ export CODEX_ALLOWED_COMMANDS="npm test,pytest,git status,git diff"</code></pre>
       if(window.scrollY>600){btn.classList.add("visible");}else{btn.classList.remove("visible");}
     });
 
-    // Timeline functionality
-    (function(){
-      var main = document.querySelector('main');
-      var clips = Array.prototype.slice.call(document.querySelectorAll('.clip'));
-      var playhead = document.getElementById('playhead');
-      var nowPlaying = document.getElementById('nowPlaying');
-      var sections = Array.prototype.slice.call(document.querySelectorAll('main > section[id]'));
 
-      function layout(){
-        var mainTop = main.offsetTop;
-        var totalHeight = main.offsetHeight || 1;
-        sections.forEach(function(sec){
-          var top = sec.offsetTop - mainTop;
-          var left = (top / totalHeight) * 100;
-          var width = (sec.offsetHeight / totalHeight) * 100;
-          clips.filter(function(c){ return c.dataset.target === sec.id; }).forEach(function(c){
-            c.style.left = left + '%';
-            c.style.width = Math.max(width, 4) + '%';
-          });
-        });
-      }
-
-      function updatePlayhead(){
-        var mainTop = main.offsetTop;
-        var totalHeight = main.offsetHeight || 1;
-        var pos = (window.scrollY - mainTop + window.innerHeight * 0.35);
-        var pct = Math.max(0, Math.min(100, (pos / totalHeight) * 100));
-        playhead.style.left = pct + '%';
-      }
-
-      var ticking = false;
-      window.addEventListener('scroll', function(){
-        if(!ticking){
-          requestAnimationFrame(function(){ updatePlayhead(); ticking = false; });
-          ticking = true;
-        }
-      });
-      window.addEventListener('resize', function(){ layout(); updatePlayhead(); });
-
-      if('IntersectionObserver' in window){
-        var titles = {};
-        sections.forEach(function(sec){
-          var h = sec.querySelector('h2');
-          titles[sec.id] = h ? h.textContent : sec.id;
-        });
-        var observer = new IntersectionObserver(function(entries){
-          entries.forEach(function(entry){
-            if(entry.isIntersecting){
-              var id = entry.target.id;
-              clips.forEach(function(c){ c.classList.toggle('active', c.dataset.target === id); });
-              nowPlaying.textContent = titles[id] || id;
-            }
-          });
-        }, { rootMargin: '-40% 0px -50% 0px' });
-        sections.forEach(function(sec){ observer.observe(sec); });
-      }
-
-      window.addEventListener('load', function(){ layout(); updatePlayhead(); });
-      layout();
-      updatePlayhead();
-    })();
   </script>
 </body>
 </html>
