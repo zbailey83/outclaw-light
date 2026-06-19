@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Hermes Agent Setup: VPS + Telegram Gateway Guide | OutClaw AI</title>
+<meta name="description" content="Set up Hermes Agent on a VPS and connect it to Telegram with BotFather, gateway config, and a restart policy that survives reboots. Step-by-step, ~30 minutes, no Linux experience required.">
+<meta name="theme-color" content="#5AADDB">
+<style>
+:root{
+  --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+  --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+  --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+  --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+  --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+  --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+  --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+  --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;--font-mono:"JetBrains Mono",monospace;
+  --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+  --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+  --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+/* ---- Navbar (brand-consistent) ---- */
+.navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+.navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
+.navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
+.navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+.navbar-wordmark em{font-style:normal;color:var(--sky);}
+.navbar-links{display:flex;align-items:center;gap:2px;}
+.navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+.navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+.navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+.navbar-right{display:flex;align-items:center;gap:12px;}
+.nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+.nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+.nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+.nav-drawer.open{display:flex;}
+.nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+.nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+.nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+@media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+/* ---- Footer (brand-consistent) ---- */
+.site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+.footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+.footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+.footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+.footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+.footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+.footer-col a:hover{color:rgba(255,255,255,.75);}
+.footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+@media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+
+/* ---- Hero / page chrome ---- */
+.page-hero{padding:56px 48px 40px;border-bottom:1px solid var(--border);background:linear-gradient(160deg,var(--sky-pale) 0%,var(--bg) 70%);}
+.page-hero-inner{max-width:1120px;margin:0 auto;}
+.breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:18px;}
+.breadcrumb a{color:var(--text-dim);text-decoration:none;}
+.breadcrumb a:hover{color:var(--sky);}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+.eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+.page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--text);max-width:820px;}
+.page-hero h1 em{font-style:italic;color:var(--sky);}
+.page-hero-sub{font-size:17px;color:var(--text-soft);max-width:620px;margin-top:16px;line-height:1.75;}
+.meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-size:13px;color:var(--text-soft);}
+.meta-row span{display:inline-flex;align-items:center;gap:6px;}
+.tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+.tag-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);background:var(--white);}
+.page-body{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
+.lede{font-size:16px;color:var(--text-mid);max-width:700px;line-height:1.8;margin-bottom:8px;}
+@media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:40px 24px 72px;}}
+
+/* ---- Stat row (reused for hero metrics) ---- */
+.stat-row{display:flex;background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:28px;max-width:760px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.stat-item{flex:1;padding:22px 18px;text-align:center;border-right:1px solid var(--border);}
+.stat-item:last-child{border-right:none;}
+.stat-num{font-family:var(--font-display);font-size:32px;color:var(--text);line-height:1;}
+.stat-num em{font-style:normal;color:var(--sky);}
+.stat-label{font-size:10.5px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.07em;margin-top:6px;}
+@media(max-width:640px){.stat-row{flex-wrap:wrap;}.stat-item{flex:0 0 50%;border-bottom:1px solid var(--border);}}
+
+/* ---- TLDR ---- */
+.tldr-box{background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.2);border-radius:20px;padding:30px 34px;margin:0 0 48px;}
+.tldr-box .eyebrow{margin-bottom:10px;}
+.tldr-box p{font-size:15.5px;color:var(--text-mid);line-height:1.8;}
+.tldr-box strong{color:var(--text);}
+
+/* ---- TOC ---- */
+.toc-wrap{margin:0 0 56px;}
+.toc-heading{font-family:var(--font-display);font-size:15px;font-style:italic;color:var(--text-soft);margin-bottom:14px;}
+.toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.toc-link{display:flex;gap:12px;align-items:baseline;padding:13px 16px;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text-mid);font-size:13.5px;transition:all .15s;background:var(--white);}
+.toc-link:hover{border-color:var(--sky);background:var(--sky-pale);color:var(--text);}
+.toc-num{font-family:var(--font-display);font-style:italic;color:var(--sky);font-size:15px;flex-shrink:0;}
+@media(max-width:640px){.toc-grid{grid-template-columns:1fr;}}
+
+/* ---- Section chrome ---- */
+.section{margin-bottom:64px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+.section-heading{font-family:var(--font-display);font-size:30px;font-weight:400;color:var(--text);margin-bottom:6px;}
+.section-heading em{font-style:italic;color:var(--sky);}
+.section-divider{width:40px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:28px;}
+.section-intro{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:720px;margin-bottom:24px;}
+.section p.body-text{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:720px;margin:16px 0;}
+.section h3.sub-heading{font-family:var(--font-display);font-size:19px;font-weight:400;color:var(--text);margin:28px 0 12px;}
+
+/* ---- Cards (why-VPS grid, systemd/docker grid) ---- */
+.card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+.info-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.info-card .card-icon{font-size:26px;margin-bottom:12px;}
+.info-card h4{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--text);margin-bottom:8px;}
+.info-card p{font-size:13.5px;color:var(--text-soft);line-height:1.7;}
+@media(max-width:900px){.card-grid-3{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.card-grid-3,.card-grid-2{grid-template-columns:1fr;}}
+
+/* ---- Code blocks ---- */
+.code-block{background:var(--deep-navy);border-radius:16px;overflow:hidden;margin:20px 0;box-shadow:0 4px 24px rgba(26,26,46,.1);}
+.code-block-header{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+.code-tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:rgba(90,173,219,.18);color:var(--sky-light);}
+.code-caption{font-size:12px;color:rgba(255,255,255,.32);font-family:var(--font-mono);}
+.code-copy-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.65);font-size:11.5px;font-weight:500;padding:5px 12px;border-radius:8px;cursor:pointer;font-family:var(--font-body);transition:all .15s;}
+.code-copy-btn:hover{background:rgba(255,255,255,.14);color:#fff;}
+.code-block pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.75;color:#E8EDF4;}
+.code-block .cm{color:rgba(255,255,255,.32);}
+
+/* ---- Callouts ---- */
+.callout{display:flex;gap:14px;padding:18px 22px;border-radius:14px;margin:22px 0;border:1px solid;max-width:720px;}
+.callout-icon{font-size:19px;flex-shrink:0;line-height:1.6;}
+.callout p{font-size:13.5px;color:var(--text-mid);line-height:1.75;}
+.callout strong{color:var(--text);}
+.callout-tip{background:var(--sky-pale);border-color:var(--sky-light);}
+.callout-warning{background:var(--coral-pale);border-color:rgba(255,126,90,.25);}
+.callout-info{background:var(--leaf-pale);border-color:rgba(74,158,122,.2);}
+
+/* ---- Tables ---- */
+.table-wrap{overflow-x:auto;margin:24px 0;}
+.data-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:13.5px;min-width:480px;}
+.data-table th{background:var(--sky-pale);color:var(--text);font-weight:700;text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+.data-table td{padding:13px 16px;border-top:1px solid var(--border-soft);color:var(--text-mid);}
+.data-table code{font-family:var(--font-mono);font-size:12.5px;background:var(--sand);padding:2px 6px;border-radius:5px;color:#6b5217;}
+
+/* ---- Numbered steps ---- */
+.step-list{list-style:none;counter-reset:step;max-width:680px;margin:20px 0;}
+.step-list li{counter-increment:step;display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-soft);}
+.step-list li:last-child{border-bottom:none;}
+.step-list li::before{content:counter(step);font-family:var(--font-display);font-style:italic;color:var(--sky);font-size:20px;flex-shrink:0;width:28px;}
+.step-list li span{font-size:14.5px;color:var(--text-mid);line-height:1.7;padding-top:2px;}
+.step-list code{font-family:var(--font-mono);font-size:12.5px;background:var(--sky-pale);padding:2px 7px;border-radius:5px;color:#2d6f93;}
+
+/* ---- Info list (Section 07) ---- */
+.info-list{max-width:740px;margin:20px 0;}
+.info-list-item{padding:16px 0;border-top:1px solid var(--border-soft);display:flex;gap:14px;}
+.info-list-item:first-child{border-top:none;}
+.info-list-item .li-icon{font-size:17px;flex-shrink:0;}
+.info-list-item p{font-size:14.5px;color:var(--text-mid);line-height:1.75;}
+.info-list-item strong{color:var(--text);}
+
+/* ---- FAQ ---- */
+.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+.faq-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+.faq-card h4{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.faq-card p{font-size:13.5px;color:var(--text-soft);line-height:1.7;}
+@media(max-width:760px){.faq-grid{grid-template-columns:1fr;}}
+
+/* ---- CTA banner (reused brand pattern) ---- */
+.cta-banner{background:var(--deep-navy);border-radius:24px;padding:44px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;}
+.cta-banner-text h3{font-family:var(--font-display);font-size:26px;font-weight:400;color:#fff;margin-bottom:8px;}
+.cta-banner-text h3 em{font-style:italic;color:var(--sky);}
+.cta-banner-text p{font-size:14px;color:rgba(255,255,255,.5);max-width:360px;line-height:1.65;}
+.cta-banner-form{display:flex;gap:0;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:5px;min-width:360px;}
+.cta-banner-form input{flex:1;height:42px;padding:0 16px;background:transparent;border:none;font-family:var(--font-body);font-size:14px;color:#fff;outline:none;}
+.cta-banner-form input::placeholder{color:rgba(255,255,255,.35);}
+.cta-banner-btn{height:42px;padding:0 20px;background:var(--grad-sky);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;}
+.cta-banner-btn:hover{opacity:.9;}
+@media(max-width:760px){.cta-banner{flex-direction:column;}.cta-banner-form{min-width:auto;width:100%;}}
+
+/* ---- Back to top ---- */
+.back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--grad-sky);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;box-shadow:0 4px 18px rgba(90,173,219,.4);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;z-index:150;}
+.back-to-top.visible{opacity:1;pointer-events:auto;}
+.back-to-top:hover{transform:translateY(-2px);}
+</style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="navbar" id="mainNav">
+  <a href="../" class="navbar-logo">
+    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Logo" class="navbar-logo-img">
+    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+  </a>
+  <div class="navbar-links">
+    <a href="../about/">About</a>
+    <a href="./" class="active">Guides</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+  </div>
+  <div class="navbar-right">
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &rarr;</a>
+    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+  <a href="../about/">About</a>
+  <a href="./" class="active">Guides</a>
+  <a href="../videos/">Videos</a>
+  <a href="../tools/">Tools</a>
+  <a href="../newsletter/">Newsletter</a>
+  <a href="../newsletter/" class="nav-cta">Subscribe Free &rarr;</a>
+</div>
+
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="../">OutClaw AI</a> &rsaquo; <a href="./">Guides</a> &rsaquo; Hermes Setup (VPS + Telegram)</div>
+    <div class="eyebrow">Self-Hosted AI &middot; VPS Setup</div>
+    <h1>The complete <em>Hermes Agent</em> setup guide &mdash; VPS + Telegram</h1>
+    <p class="page-hero-sub">Provision a cheap Ubuntu box, install Hermes Agent, wire it into a Telegram bot, and put a restart policy in front of the gateway so it survives reboots &mdash; not just your next coffee run.</p>
+    <div class="meta-row">
+      <span>&#9997;&#65039; By Zach Bailey</span>
+      <span>&#128736;&#65039; Tutorial</span>
+      <span>&#9889; Hands-on, no Linux experience required</span>
+    </div>
+    <div class="tag-row">
+      <div class="tag-chip">Hermes Agent</div>
+      <div class="tag-chip">Nous Research</div>
+      <div class="tag-chip">VPS Deployment</div>
+      <div class="tag-chip">Telegram Gateway</div>
+      <div class="tag-chip">MIT Licensed</div>
+      <div class="tag-chip">Self-Hosted</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-item"><div class="stat-num"><em>30</em></div><div class="stat-label">Min Setup Time</div></div>
+      <div class="stat-item"><div class="stat-num"><em>$5</em></div><div class="stat-label">Per Month VPS</div></div>
+      <div class="stat-item"><div class="stat-num"><em>5</em></div><div class="stat-label">Setup Steps</div></div>
+      <div class="stat-item"><div class="stat-num"><em>0</em></div><div class="stat-label">New API Keys*</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="page-body">
+
+  <p class="lede">Hermes Agent is Nous Research's open-source, self-improving AI agent &mdash; and on paper it sounds like something that should just run itself. In practice, it only behaves like an agent if it's running somewhere that never sleeps, never closes its lid, and never drops wifi when you walk into the next room. That somewhere is a $5/month VPS, not the laptop you're reading this on.</p>
+
+  <div class="tldr-box">
+    <div class="eyebrow">TL;DR</div>
+    <p><strong>Hermes Agent needs an always-on host to actually act like an agent</strong> &mdash; a laptop isn't one. Provision a small Ubuntu VPS, run Hermes's one-line installer, create a bot through Telegram's @BotFather, wire the token into <code>hermes gateway setup</code>, then wrap the gateway in a systemd service or Docker restart policy so a reboot doesn't quietly kill it. Budget 30 minutes and about $5/month. If you already pay for ChatGPT, you can skip API billing entirely via OAuth.</p>
+  </div>
+
+  <div class="toc-wrap">
+    <div class="toc-heading"><em>Jump to any section</em></div>
+    <div class="toc-grid">
+      <a href="#why-vps" class="toc-link"><span class="toc-num">01</span><span>Why your laptop isn't a server</span></a>
+      <a href="#provisioning" class="toc-link"><span class="toc-num">02</span><span>Picking and provisioning a VPS</span></a>
+      <a href="#installing" class="toc-link"><span class="toc-num">03</span><span>Installing Hermes on the box</span></a>
+      <a href="#telegram-bot" class="toc-link"><span class="toc-num">04</span><span>Creating the Telegram bot</span></a>
+      <a href="#gateway" class="toc-link"><span class="toc-num">05</span><span>Wiring the gateway</span></a>
+      <a href="#always-on" class="toc-link"><span class="toc-num">06</span><span>Keeping it alive 24/7</span></a>
+      <a href="#locking-down" class="toc-link"><span class="toc-num">07</span><span>Locking it down</span></a>
+    </div>
+  </div>
+
+  <!-- SECTION 01 -->
+  <div class="section" id="why-vps">
+    <div class="section-label">Section 01</div>
+    <h2 class="section-heading">Why your laptop <em>isn't</em> a server</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Every Hermes Agent tutorial starts the same way &mdash; install it, get it talking, feel like a wizard. The part that goes unsaid is what happens the moment you close the lid to grab coffee. Here's the failure mode nobody mentions upfront, and why a VPS sidesteps all three versions of it.</p>
+
+    <div class="card-grid-3">
+      <div class="info-card">
+        <div class="card-icon">&#128164;</div>
+        <h4>Sleep kills the gateway silently</h4>
+        <p>The instant your laptop sleeps, the process running Hermes's Telegram gateway pauses with it. No crash log, no error in Telegram &mdash; your bot just stops answering, and you won't know until you message it from the train and get nothing back.</p>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">&#128225;</div>
+        <h4>Network changes break the session</h4>
+        <p>Switching wifi, reconnecting a VPN, even a flaky router &mdash; all of it renegotiates your laptop's outbound connection. A VPS sits on one static IP with a wired uplink, so the gateway's connection to Telegram's servers just stays open.</p>
+      </div>
+      <div class="info-card">
+        <div class="card-icon">&#128260;</div>
+        <h4>Reboots need a human</h4>
+        <p>Update your OS, restart for a driver fix, anything &mdash; Hermes doesn't come back on its own unless something is watching for it. Section 06 covers the restart policy that makes a VPS recover automatically. A laptop never will.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 02 -->
+  <div class="section" id="provisioning">
+    <div class="section-label">Section 02</div>
+    <h2 class="section-heading">Picking and <em>provisioning</em> a VPS</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Hermes itself is light. What it actually needs depends almost entirely on whether the model runs on your provider's API or on the box itself.</p>
+
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Resource</th><th>API-only (cloud LLM)</th><th>Local models / heavy tool use</th></tr></thead>
+        <tbody>
+          <tr><td>vCPU</td><td>1</td><td>2+</td></tr>
+          <tr><td>RAM</td><td>1&nbsp;GB</td><td>2&ndash;4&nbsp;GB</td></tr>
+          <tr><td>Storage</td><td>10&nbsp;GB SSD</td><td>20&nbsp;GB+ SSD</td></tr>
+          <tr><td>OS</td><td>Ubuntu 24.04 LTS</td><td>Ubuntu 24.04 LTS</td></tr>
+          <tr><td>Typical cost</td><td>~$4&ndash;6/month</td><td>~$8&ndash;12/month</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="body-text">Any KVM-based provider works &mdash; Hostinger, Contabo, DigitalOcean, Hetzner. The only hard requirement is a public IPv4 address and outbound HTTPS, since the gateway needs to reach both <code>api.telegram.org</code> and whichever LLM provider you point Hermes at. Pick the smallest plan in the left column unless you already know you want local models.</p>
+
+    <h3 class="sub-heading">Connect and update the box</h3>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">Shell</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre>ssh root@your-vps-ip
+apt update &amp;&amp; apt upgrade -y
+apt install -y git</pre>
+    </div>
+    <p class="body-text" style="margin-top:-4px;">Git is the only manual prerequisite &mdash; the Hermes installer handles everything else.</p>
+  </div>
+
+  <!-- SECTION 03 -->
+  <div class="section" id="installing">
+    <div class="section-label">Section 03</div>
+    <h2 class="section-heading">Installing Hermes <em>on the box</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">One command bootstraps the entire runtime &mdash; no manually wrangling Python versions or Node installs first.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">Install</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre>curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash</pre>
+    </div>
+    <p class="body-text">That single command bootstraps Python 3.11, Node.js v22, ripgrep, and ffmpeg, clones the repository, and puts the <code>hermes</code> command on your PATH. It's the same path Linux, macOS, and WSL2 all use &mdash; there's no separate manual route worth taking unless you specifically want control over the dependency graph.</p>
+
+    <h3 class="sub-heading">Verify it actually works</h3>
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">Verify</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre>source ~/.bashrc
+hermes setup
+hermes doctor
+hermes status
+hermes chat -q "Hello! What tools do you have available?"</pre>
+    </div>
+    <p class="body-text"><code>hermes setup</code> walks through your model provider. <code>hermes doctor</code> flags missing dependencies or PATH issues. <code>hermes status</code> confirms the config actually initialized. The last line is the only check that proves the agent can respond &mdash; not just that files exist on disk.</p>
+
+    <div class="callout callout-tip">
+      <div class="callout-icon">&#128161;</div>
+      <p><strong>Already paying for ChatGPT?</strong> <code>hermes setup</code> supports OpenAI Codex OAuth as an alternative to API key billing. It opens a URL, you sign in and grant access, then paste a nine-digit code back into the terminal. No new API account, no separate bill &mdash; Hermes runs against the subscription you already have.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 04 -->
+  <div class="section" id="telegram-bot">
+    <div class="section-label">Section 04</div>
+    <h2 class="section-heading">Creating the <em>Telegram</em> bot</h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Telegram bots authenticate with a token from BotFather, Telegram's own bot-management bot. Five messages and you're done.</p>
+
+    <ol class="step-list">
+      <li><span>Open Telegram and start a chat with <code>@BotFather</code>.</span></li>
+      <li><span>Send <code>/newbot</code>.</span></li>
+      <li><span>Give it a display name &mdash; anything works, e.g. "My Hermes Agent."</span></li>
+      <li><span>Give it a username ending in <code>bot</code>, e.g. <code>my_hermes_agent_bot</code>.</span></li>
+      <li><span>BotFather replies with a token like <code>7123456789:AAFq3xampletoken</code> &mdash; copy it somewhere temporary.</span></li>
+    </ol>
+
+    <div class="callout callout-warning">
+      <div class="callout-icon">&#9888;&#65039;</div>
+      <p><strong>Treat that token like a production secret.</strong> Anyone holding it can read every message your bot receives and send replies as it. Don't paste it into a group chat, a GitHub issue, or a commit &mdash; ever.</p>
+    </div>
+
+    <h3 class="sub-heading">Get your numeric user ID</h3>
+    <p class="body-text">Message <code>@userinfobot</code> on Telegram and it replies instantly with a number, e.g. <code>123456789</code>. That number &mdash; not your @username &mdash; is what controls access in the next step. It never changes even if you rename your account.</p>
+  </div>
+
+  <!-- SECTION 05 -->
+  <div class="section" id="gateway">
+    <div class="section-label">Section 05</div>
+    <h2 class="section-heading">Wiring the <em>gateway</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">The gateway is the service layer that points Hermes at Telegram. Configuration takes about thirty seconds once you have the token and user ID in hand.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">Configure</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre>hermes gateway setup</pre>
+    </div>
+    <p class="body-text">The wizard lists available platforms. Choose Telegram, then paste the bot token followed by your numeric user ID. Both get written to <code>~/.hermes/.env</code> on the host, in plain unquoted form &mdash; Telegram tokens contain a colon that some shell parsers mishandle when quoted.</p>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">~/.hermes/.env</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre><span class="cm"># written by the setup wizard &mdash; no quotes around either value</span>
+TELEGRAM_BOT_TOKEN=7123456789:AAFq3xampletoken
+TELEGRAM_ALLOWED_USER_IDS=123456789</pre>
+    </div>
+
+    <div class="code-block">
+      <div class="code-block-header"><span class="code-tag">Start</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+      <pre>hermes gateway start</pre>
+    </div>
+    <p class="body-text">Open Telegram, message your bot by username, and expect a reply in 2&ndash;10 seconds depending on your LLM provider's latency. Nothing back? Jump to the troubleshooting table near the end of this guide.</p>
+  </div>
+
+  <!-- SECTION 06 -->
+  <div class="section" id="always-on">
+    <div class="section-label">Section 06</div>
+    <h2 class="section-heading">Keeping it alive <em>24/7</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-intro"><code>hermes gateway start</code> works perfectly &mdash; right up until you close the SSH session running it. The moment that terminal disconnects, the process dies with it, and the bot goes quiet the exact same way it would on a laptop. A VPS only solves the always-on problem if something restarts the gateway for you.</p>
+
+    <div class="card-grid-2">
+      <div>
+        <h3 class="sub-heading" style="margin-top:0;">Option A &mdash; systemd</h3>
+        <p class="body-text" style="margin-top:0;">The simpler choice if you installed Hermes straight onto the host.</p>
+        <div class="code-block">
+          <div class="code-block-header"><span class="code-tag">/etc/systemd/system/hermes-gateway.service</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+          <pre>[Unit]
+Description=Hermes Agent Telegram Gateway
+After=network-online.target
+
+[Service]
+Type=simple
+User=youruser
+ExecStart=/home/youruser/.local/bin/hermes gateway start
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target</pre>
+        </div>
+        <div class="code-block">
+          <div class="code-block-header"><span class="code-tag">Enable</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+          <pre>sudo systemctl daemon-reload
+sudo systemctl enable --now hermes-gateway
+sudo systemctl status hermes-gateway</pre>
+        </div>
+      </div>
+      <div>
+        <h3 class="sub-heading" style="margin-top:0;">Option B &mdash; Docker Compose</h3>
+        <p class="body-text" style="margin-top:0;">Worth the extra step once Hermes runs unsupervised tasks &mdash; it boxes in filesystem access.</p>
+        <div class="code-block">
+          <div class="code-block-header"><span class="code-tag">docker-compose.yaml</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+          <pre>services:
+  hermes:
+    image: nousresearch/hermes-agent:latest
+    restart: unless-stopped
+    env_file: .env
+    volumes:
+      - ~/.hermes:/root/.hermes</pre>
+        </div>
+        <div class="code-block">
+          <div class="code-block-header"><span class="code-tag">Run</span><button class="code-copy-btn" onclick="copyCode(this)">&#10063; Copy</button></div>
+          <pre>docker compose up -d</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout callout-info">
+      <div class="callout-icon">&#8505;&#65039;</div>
+      <p><strong>Pick one path, not both.</strong> systemd is simplest if Hermes lives directly on the host. Docker is the better default once you let it run unattended &mdash; an autonomous agent with the run of your whole VPS is a bigger blast radius than one container.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 07 -->
+  <div class="section" id="locking-down">
+    <div class="section-label">Section 07</div>
+    <h2 class="section-heading">Locking it <em>down</em></h2>
+    <div class="section-divider"></div>
+    <p class="section-intro">Five things worth knowing before you forget the bot is running and stop thinking about it.</p>
+
+    <div class="info-list">
+      <div class="info-list-item">
+        <span class="li-icon">&#128274;</span>
+        <p><strong>User ID allowlist.</strong> Only numeric IDs listed in <code>TELEGRAM_ALLOWED_USER_IDS</code> get a reply. Everyone else who finds the bot's username is silently ignored.</p>
+      </div>
+      <div class="info-list-item">
+        <span class="li-icon">&#128101;</span>
+        <p><strong>Group chats are off by default.</strong> Enable them via BotFather &rarr; <code>/mybots</code> &rarr; your bot &rarr; Bot Settings &rarr; Group Privacy &rarr; OFF. Hermes then only responds when explicitly @mentioned.</p>
+      </div>
+      <div class="info-list-item">
+        <span class="li-icon">&#9201;&#65039;</span>
+        <p><strong>Rate limits exist.</strong> Telegram caps bots around 30 messages/second globally and 1/second per chat &mdash; irrelevant for personal use, worth knowing if you fan a cron report out to a busy group.</p>
+      </div>
+      <div class="info-list-item">
+        <span class="li-icon">&#128274;</span>
+        <p><strong>No end-to-end encryption.</strong> Telegram bot traffic transits Telegram's servers like any Bot API call. Don't route credentials or anything sensitive through it.</p>
+      </div>
+      <div class="info-list-item">
+        <span class="li-icon">&#128270;</span>
+        <p><strong>Audit the agent's self-writes.</strong> Hermes writes and updates its own skills over time at <code>~/.hermes/skills/</code>, with memory and session history at <code>~/.hermes/memories/</code> and <code>~/.hermes/sessions/</code>. After the first complex unsupervised task, it's worth an <code>ls</code>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUICK REFERENCE -->
+  <div class="section">
+    <div class="section-label">Quick Reference</div>
+    <h2 class="section-heading">The <em>cheat sheet</em></h2>
+    <div class="section-divider"></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Task</th><th>Command</th></tr></thead>
+        <tbody>
+          <tr><td>Install Hermes</td><td><code>curl -fsSL .../install.sh | bash</code></td></tr>
+          <tr><td>Run diagnostics</td><td><code>hermes doctor</code></td></tr>
+          <tr><td>Configure Telegram</td><td><code>hermes gateway setup</code></td></tr>
+          <tr><td>Start gateway (foreground)</td><td><code>hermes gateway start</code></td></tr>
+          <tr><td>View gateway logs</td><td><code>hermes gateway logs</code></td></tr>
+          <tr><td>Check model provider</td><td><code>hermes model</code></td></tr>
+          <tr><td>Enable group chat</td><td>BotFather &rarr; Group Privacy &rarr; OFF</td></tr>
+          <tr><td>Persist across reboot (systemd)</td><td><code>systemctl enable --now hermes-gateway</code></td></tr>
+          <tr><td>Persist across reboot (Docker)</td><td><code>restart: unless-stopped</code> in compose</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- TROUBLESHOOTING -->
+  <div class="section">
+    <div class="section-label">Troubleshooting</div>
+    <h2 class="section-heading">When it <em>doesn't</em> work</h2>
+    <div class="section-divider"></div>
+    <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>Symptom</th><th>Likely cause</th><th>Fix</th></tr></thead>
+        <tbody>
+          <tr><td>Bot never replies</td><td>Wrong numeric user ID</td><td>Re-check the ID from @userinfobot &mdash; not your @username</td></tr>
+          <tr><td>"401 Unauthorized" on start</td><td>Truncated or wrong token</td><td>Re-copy the full token from BotFather; the half after the colon is easy to cut off</td></tr>
+          <tr><td>Gateway dies after you disconnect SSH</td><td>No restart policy in place</td><td>Wrap it in the systemd unit or Docker <code>restart: unless-stopped</code> from Section 06</td></tr>
+          <tr><td>Bot ignores everything in a group</td><td>Privacy mode still on</td><td>BotFather &rarr; Group Privacy &rarr; OFF, then @mention the bot</td></tr>
+          <tr><td>Replies take 10+ seconds</td><td>Cloud LLM latency, or a local model on too small a VPS</td><td>2&ndash;10s is normal for cloud APIs; bump vCPU/RAM if running locally</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="section">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-heading">Common <em>questions</em></h2>
+    <div class="section-divider"></div>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h4>Do I need a GPU for this?</h4>
+        <p>No. If Hermes is calling a cloud LLM provider via API key or OAuth, the model runs remotely &mdash; the VPS just needs to stay online. A GPU only matters if you point Hermes at a local model.</p>
+      </div>
+      <div class="faq-card">
+        <h4>Can I really skip API billing?</h4>
+        <p>Yes, if you already pay for ChatGPT. <code>hermes setup</code> can authenticate against that subscription through OAuth instead of a separate API key, so there's no new billing relationship to manage.</p>
+      </div>
+      <div class="faq-card">
+        <h4>What happens if the VPS reboots?</h4>
+        <p>With the systemd unit or Docker restart policy from Section 06, the gateway comes back on its own. Without it, you'll need to SSH in and run <code>hermes gateway start</code> manually every time.</p>
+      </div>
+      <div class="faq-card">
+        <h4>Can I add Discord or Slack on the same instance?</h4>
+        <p>Yes. Re-run <code>hermes gateway setup</code> and choose another platform. Multiple gateways can run from one Hermes instance, sharing the same memory and skills.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <div class="cta-banner-text"><h3>More self-hosted setups, <em>every Tuesday.</em></h3><p>VPS workflows, agent teardowns, and the exact configs we test before recommending them. Free forever.</p></div>
+    <div class="cta-banner-form"><input type="email" id="hg-email" placeholder="your@email.com"><button class="cta-banner-btn" onclick="handleSubscribe('hg-email','hg-btn')" id="hg-btn">Get the guides &rarr;</button></div>
+  </div>
+
+</div>
+
+<footer class="site-footer">
+  <div class="footer-brand">
+    <a href="../" class="footer-logo" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 10px;">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark" style="color: rgba(255,255,255,.4);">Out<em>claw</em> AI</div>
+    </a>
+    <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+  </div>
+  <div class="footer-col">
+    <h4>Content</h4>
+    <a href="../videos">Videos</a>
+    <a href="./" class="active">Guides</a>
+    <a href="../tools">Tools</a>
+    <a href="../newsletter">Newsletter</a>
+  </div>
+  <div class="footer-col">
+    <h4>Company</h4>
+    <a href="../about">About</a>
+    <a href="mailto:zach@outclaw.xyz">Contact</a>
+    <a href="../privacy">Privacy</a>
+  </div>
+  <div class="footer-col">
+    <h4>Connect</h4>
+    <a href="https://twitter.com">&#120143; Twitter</a>
+    <a href="https://calendly.com/zbailey83/30min">Book a call</a>
+    <a href="../newsletter">Subscribe</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>&copy; 2026 OutClaw AI &middot; outclaw.xyz</p>
+  <p>The newsletter with actual claws &#129449;</p>
+</div>
+
+<a href="#mainNav" class="back-to-top" id="backToTop" aria-label="Back to top">&uarr;</a>
+
+<script>
+function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+document.addEventListener("click",function(e){
+  var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+  if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+});
+function handleSubscribe(inputId,btnId){
+  var input=document.getElementById(inputId),btn=document.getElementById(btnId);
+  var email=input.value.trim();
+  if(!email||!email.includes("@")){input.style.outline="2px solid #F4678A";input.focus();setTimeout(function(){input.style.outline="";},2000);return;}
+  btn.textContent="You are in!";btn.style.background="linear-gradient(135deg,#4A9E7A,#6BBF9A)";btn.disabled=true;input.disabled=true;
+}
+function copyCode(btn){
+  var pre=btn.closest(".code-block").querySelector("pre");
+  var text=pre.innerText;
+  navigator.clipboard.writeText(text).then(function(){
+    var orig=btn.innerHTML;
+    btn.innerHTML="&#10003; Copied";
+    setTimeout(function(){btn.innerHTML=orig;},1600);
+  });
+}
+window.addEventListener("scroll",function(){
+  var btn=document.getElementById("backToTop");
+  if(window.scrollY>600){btn.classList.add("visible");}else{btn.classList.remove("visible");}
+});
+</script>
+</body>
+</html>
