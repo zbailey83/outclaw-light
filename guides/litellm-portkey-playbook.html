@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-JHMN90H7MC');
+  </script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<title>The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching | OutClaw AI</title>
+<meta content="A comprehensive playbook for building a resilient, cost-optimized, and provider-agnostic LLM gateway using LiteLLM and Portkey AI. Includes failover, routing configs, and semantic caching." name="description"/>
+<link href="https://outclaw.xyz/guides/litellm-portkey-playbook" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/litellm-portkey-playbook" property="og:url"/>
+<meta content="The LiteLLM + Portkey Playbook: Failovers, Routing, and Caching | OutClaw AI" property="og:title"/>
+<meta content="Build a production-grade LLM gateway. Standardize APIs with LiteLLM, handle model failovers, and save 80%+ on tokens using Portkey's semantic caching." property="og:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/litellm-portkey-playbook" property="twitter:url"/>
+<meta content="The LiteLLM + Portkey Playbook: Failovers, Routing, and Caching | OutClaw AI" property="twitter:title"/>
+<meta content="Build a production-grade LLM gateway. Standardize APIs with LiteLLM, handle model failovers, and save 80%+ on tokens using Portkey's semantic caching." property="twitter:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
+<style>
+    :root{
+      --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+      --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+      --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+      --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+      --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+      --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+      --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+      --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;--font-mono:"JetBrains Mono",monospace;
+      --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+      --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+      --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+    /* ---- Navbar (brand-consistent) ---- */
+    .navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+    .navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
+    .navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
+    .navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+    .navbar-wordmark em{font-style:normal;color:var(--sky);}
+    .navbar-links{display:flex;align-items:center;gap:2px;}
+    .navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+    .navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+    .navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+    .navbar-right{display:flex;align-items:center;gap:12px;}
+    .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+    .nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+    .nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+    .nav-drawer.open{display:flex;}
+    .nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+    .nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+    .nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+    @media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+    /* ---- Footer (brand-consistent) ---- */
+    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+    .footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+    .footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+    .footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+    .footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+    .footer-col a:hover{color:rgba(255,255,255,.75);}
+    .footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+    @media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+
+    /* ---- Hero / page chrome ---- */
+    .page-hero{padding:56px 48px 40px;border-bottom:1px solid var(--border);background:linear-gradient(160deg,var(--sky-pale) 0%,var(--bg) 70%);}
+    .page-hero-inner{max-width:1120px;margin:0 auto;}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:18px;}
+    .breadcrumb a{color:var(--text-dim);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--sky);}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+    .eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+    .page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--text);max-width:820px;}
+    .page-hero h1 em{font-style:italic;color:var(--sky);}
+    .page-hero-sub{font-size:17px;color:var(--text-soft);max-width:620px;margin-top:16px;line-height:1.75;}
+    .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-size:13px;color:var(--text-soft);}
+    .meta-row span{display:inline-flex;align-items:center;gap:6px;}
+    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+    .tag-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);background:var(--white);}
+    .page-body{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
+    .lede{font-size:16px;color:var(--text-mid);max-width:700px;line-height:1.8;margin-bottom:8px;}
+    @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:40px 24px 72px;}}
+
+    /* ---- Stat row (reused for hero metrics) ---- */
+    .stat-row{display:flex;background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:28px;max-width:760px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+    .stat-item{flex:1;padding:22px 18px;text-align:center;border-right:1px solid var(--border);}
+    .stat-item:last-child{border-right:none;}
+    .stat-num{font-family:var(--font-display);font-size:32px;color:var(--text);line-height:1;}
+    .stat-num em{font-style:normal;color:var(--sky);}
+    .stat-label{font-size:10.5px;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:.07em;margin-top:6px;}
+    @media(max-width:640px){.stat-row{flex-wrap:wrap;}.stat-item{flex:0 0 50%;border-bottom:1px solid var(--border);}}
+
+    /* ---- TLDR ---- */
+    .tldr-box{background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.2);border-radius:20px;padding:30px 34px;margin:0 0 48px;}
+    .tldr-box .eyebrow{margin-bottom:10px;}
+    .tldr-box p{font-size:15.5px;color:var(--text-mid);line-height:1.8;}
+    .tldr-box strong{color:var(--text);}
+
+    /* ---- TOC ---- */
+    .toc-wrap{margin:0 0 56px;}
+    .toc-heading{font-family:var(--font-display);font-size:15px;font-style:italic;color:var(--text-soft);margin-bottom:14px;}
+    .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .toc-link{display:flex;gap:12px;align-items:baseline;padding:13px 16px;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text-mid);font-size:13.5px;transition:all .15s;background:var(--white);}
+    .toc-link:hover{border-color:var(--sky);background:var(--sky-pale);color:var(--text);}
+    .toc-num{font-family:var(--font-display);font-style:italic;color:var(--sky);font-size:15px;flex-shrink:0;}
+    @media(max-width:640px){.toc-grid{grid-template-columns:1fr;}}
+
+    /* ---- Section chrome ---- */
+    .section{margin-bottom:64px;}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+    .section-heading{font-family:var(--font-display);font-size:30px;font-weight:400;color:var(--text);margin-bottom:6px;}
+    .section-heading em{font-style:italic;color:var(--sky);}
+    .section-divider{width:40px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:28px;}
+    .section-intro{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:720px;margin-bottom:24px;}
+    .section p.body-text{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:720px;margin:16px 0;}
+    .section h3.sub-heading{font-family:var(--font-display);font-size:19px;font-weight:400;color:var(--text);margin:28px 0 12px;}
+
+    /* ---- Cards ---- */
+    .card-grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .card-grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;}
+    .info-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:26px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+    .info-card .card-icon{font-size:26px;margin-bottom:12px;}
+    .info-card h4{font-family:var(--font-display);font-size:18px;font-weight:400;color:var(--text);margin-bottom:8px;}
+    .info-card p{font-size:13.5px;color:var(--text-soft);line-height:1.7;}
+    @media(max-width:900px){.card-grid-3{grid-template-columns:1fr 1fr;}}
+    @media(max-width:600px){.card-grid-3,.card-grid-2{grid-template-columns:1fr;}}
+
+    /* ---- Code blocks ---- */
+    .code-block{background:var(--deep-navy);border-radius:16px;overflow:hidden;margin:20px 0;box-shadow:0 4px 24px rgba(26,26,46,.1);}
+    .code-block-header{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+    .code-tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:rgba(90,173,219,.18);color:var(--sky-light);}
+    .code-caption{font-size:12px;color:rgba(255,255,255,.32);font-family:var(--font-mono);}
+    .code-copy-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.65);font-size:11.5px;font-weight:500;padding:5px 12px;border-radius:8px;cursor:pointer;font-family:var(--font-body);transition:all .15s;}
+    .code-copy-btn:hover{background:rgba(255,255,255,.14);color:#fff;}
+    .code-block pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.75;color:#E8EDF4;}
+    .code-block .cm{color:rgba(255,255,255,.32);}
+
+    /* ---- Callouts ---- */
+    .callout{display:flex;gap:14px;padding:18px 22px;border-radius:14px;margin:22px 0;border:1px solid;max-width:720px;}
+    .callout-icon{font-size:19px;flex-shrink:0;line-height:1.6;}
+    .callout p{font-size:13.5px;color:var(--text-mid);line-height:1.75;}
+    .callout strong{color:var(--text);}
+    .callout-tip{background:var(--sky-pale);border-color:var(--sky-light);}
+    .callout-warning{background:var(--coral-pale);border-color:rgba(255,126,90,.25);}
+    .callout-info{background:var(--leaf-pale);border-color:rgba(74,158,122,.2);}
+
+    /* ---- Tables ---- */
+    .table-wrap{overflow-x:auto;margin:24px 0;}
+    .data-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:13.5px;min-width:480px;}
+    .data-table th{background:var(--sky-pale);color:var(--text);font-weight:700;text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+    .data-table td{padding:13px 16px;border-top:1px solid var(--border-soft);color:var(--text-mid);}
+    .data-table code{font-family:var(--font-mono);font-size:12.5px;background:var(--sand);padding:2px 6px;border-radius:5px;color:#6b5217;}
+
+    /* ---- Numbered steps ---- */
+    .step-list{list-style:none;counter-reset:step;max-width:680px;margin:20px 0;}
+    .step-list li{counter-increment:step;display:flex;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-soft);}
+    .step-list li:last-child{border-bottom:none;}
+    .step-list li::before{content:counter(step);font-family:var(--font-display);font-style:italic;color:var(--sky);font-size:20px;flex-shrink:0;width:28px;}
+    .step-list li span{font-size:14.5px;color:var(--text-mid);line-height:1.7;padding-top:2px;}
+    .step-list code{font-family:var(--font-mono);font-size:12.5px;background:var(--sky-pale);padding:2px 7px;border-radius:5px;color:#2d6f93;}
+
+    /* ---- Info list ---- */
+    .info-list{max-width:740px;margin:20px 0;}
+    .info-list-item{padding:16px 0;border-top:1px solid var(--border-soft);display:flex;gap:14px;}
+    .info-list-item:first-child{border-top:none;}
+    .info-list-item .li-icon{font-size:17px;flex-shrink:0;}
+    .info-list-item p{font-size:14.5px;color:var(--text-mid);line-height:1.75;}
+    .info-list-item strong{color:var(--text);}
+
+    /* ---- FAQ ---- */
+    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    .faq-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 1px 4px rgba(26,26,46,.04);}
+    .faq-card h4{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .faq-card p{font-size:13.5px;color:var(--text-soft);line-height:1.7;}
+    @media(max-width:760px){.faq-grid{grid-template-columns:1fr;}}
+
+    /* ---- CTA banner (reused brand pattern) ---- */
+    .cta-banner{background:var(--deep-navy);border-radius:24px;padding:44px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;}
+    .cta-banner-text h3{font-family:var(--font-display);font-size:26px;font-weight:400;color:#fff;margin-bottom:8px;}
+    .cta-banner-text h3 em{font-style:italic;color:var(--sky);}
+    .cta-banner-text p{font-size:14px;color:rgba(255,255,255,.5);max-width:360px;line-height:1.65;}
+    .cta-banner-form{display:flex;gap:0;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:5px;min-width:360px;}
+    .cta-banner-form input{flex:1;height:42px;padding:0 16px;background:transparent;border:none;font-family:var(--font-body);font-size:14px;color:#fff;outline:none;}
+    .cta-banner-form input::placeholder{color:rgba(255,255,255,.35);}
+    .cta-banner-btn{height:42px;padding:0 20px;background:var(--grad-sky);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;}
+    .cta-banner-btn:hover{opacity:.9;}
+    @media(max-width:760px){.cta-banner{flex-direction:column;}.cta-banner-form{min-width:auto;width:100%;}}
+
+    /* ---- Back to top ---- */
+    .back-to-top{position:fixed;bottom:28px;right:28px;width:44px;height:44px;border-radius:50%;background:var(--grad-sky);color:#fff;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:18px;box-shadow:0 4px 18px rgba(90,173,219,.4);opacity:0;pointer-events:none;transition:opacity .25s,transform .2s;z-index:150;}
+    .back-to-top.visible{opacity:1;pointer-events:auto;}
+    .back-to-top:hover{transform:translateY(-2px);}
+  </style>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/litellm-portkey-playbook#webpage",
+      "url": "https://outclaw.xyz/guides/litellm-portkey-playbook",
+      "name": "The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "Article",
+        "BlogPosting",
+        "TechArticle"
+      ],
+      "@id": "https://outclaw.xyz/guides/litellm-portkey-playbook#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/litellm-portkey-playbook#webpage"
+      },
+      "headline": "The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching",
+      "description": "A comprehensive playbook for building a resilient, cost-optimized, and provider-agnostic LLM gateway using LiteLLM and Portkey AI. Includes failover, routing configs, and semantic caching.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/litellm-portkey-playbook",
+      "image": "https://outclaw.xyz/hero-alt.webp",
+      "datePublished": "2026-03-05",
+      "dateModified": "2026-03-12",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 1273
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/litellm-portkey-playbook#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching",
+          "item": "https://outclaw.xyz/guides/litellm-portkey-playbook"
+        }
+      ]
+    }
+  ]
+}</script></head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" style="display:none;visibility:hidden" width="0"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<nav class="navbar" id="mainNav">
+<a class="navbar-logo" href="../">
+<img alt="OutClaw AI Logo" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<div class="navbar-wordmark">Out<em>claw</em> AI</div>
+</a>
+<div class="navbar-links">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+</div>
+<div class="navbar-right">
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+<button aria-label="Menu" class="nav-hamburger" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+</div>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+</div>
+<section class="page-hero">
+<div class="page-hero-inner">
+<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › LiteLLM &amp; Portkey Playbook</div>
+<div class="eyebrow">Gateway Orchestration · Cost Management</div>
+<h1>The <em>LiteLLM + Portkey</em> Playbook: Failovers, Routing, &amp; Semantic Caching</h1>
+<p class="page-hero-sub">Standardize API models under a single interface, configure automatic fallbacks, and save up to 80%+ on API costs using vector similarity-based prompt caching.</p>
+<div class="meta-row">
+<span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
+<span>🛠️ Advanced Tutorial</span>
+<span>⚡ Production Stack Blueprint</span>
+</div>
+<div class="tag-row">
+<div class="tag-chip">LiteLLM</div>
+<div class="tag-chip">Portkey AI</div>
+<div class="tag-chip">Semantic Caching</div>
+<div class="tag-chip">Failover Routing</div>
+<div class="tag-chip">API Gateways</div>
+<div class="tag-chip">Cost Optimization</div>
+</div>
+<div class="stat-row">
+<div class="stat-item"><div class="stat-num"><em>20</em></div><div class="stat-label">Min Setup Time</div></div>
+<div class="stat-item"><div class="stat-num"><em>80%+</em></div><div class="stat-label">Token Savings</div></div>
+<div class="stat-item"><div class="stat-num"><em>&lt;150ms</em></div><div class="stat-label">Cache Latency</div></div>
+<div class="stat-item"><div class="stat-num"><em>0</em></div><div class="stat-label">Downtime Incidents</div></div>
+</div>
+</div>
+</section>
+<div class="page-body">
+<p class="lede">When you run AI agentic workflows in production, calling provider endpoints directly is a design anti-pattern. If Anthropic experiences rate limits, or OpenAI encounters latency spikes, your agent loops crash. By wrapping your model calls in a combined <strong>LiteLLM Proxy</strong> and <strong>Portkey Gateway</strong>, you get bulletproof failovers, unified interfaces, and massive cost savings through semantic caching.</p>
+<div class="tldr-box">
+<div class="eyebrow">TL;DR</div>
+<p><strong>A robust production AI gateway uses LiteLLM to unify upstream providers and Portkey to control cache policy.</strong> Group your API endpoints into virtual models with failover groups in a LiteLLM <code>config.yaml</code>. Then, route outbound requests through Portkey to check a semantic (vector similarity-based) cache at 0.95+ cosine threshold. Identical or closely rephrased queries return instantly, saving up to 80%+ on your total token bills.</p>
+</div>
+<div class="toc-wrap">
+<div class="toc-heading"><em>Jump to any section</em></div>
+<div class="toc-grid">
+<a class="toc-link" href="#why-gateway"><span class="toc-num">01</span><span>The API Fragility Problem</span></a>
+<a class="toc-link" href="#architecture"><span class="toc-num">02</span><span>Gateway Stack Architecture</span></a>
+<a class="toc-link" href="#litellm-setup"><span class="toc-num">03</span><span>Configuring LiteLLM Proxies</span></a>
+<a class="toc-link" href="#portkey-setup"><span class="toc-num">04</span><span>Configuring Semantic Caching</span></a>
+<a class="toc-link" href="#integration"><span class="toc-num">05</span><span>Unified Python Client Code</span></a>
+<a class="toc-link" href="#observability"><span class="toc-num">06</span><span>Monitoring &amp; Benchmarks</span></a>
+</div>
+</div>
+<!-- SECTION 01 -->
+<div class="section" id="why-gateway">
+<div class="section-label">Section 01</div>
+<h2 class="section-heading">Why direct LLM API calls are a <em>production risk</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">Hardcoding LLM calls directly to provider APIs (like calling Anthropic's SDK directly) creates single points of failure. As agentic applications scale, three main bottlenecks emerge that require a dedicated proxy layer:</p>
+<div class="card-grid-3">
+<div class="info-card">
+<div class="card-icon">⏳</div>
+<h4>Rate limits are hard ceilings</h4>
+<p>If your autonomous code agent loops hit Anthropic's Tier-1 limits (or OpenAI's requests/min cap), the script throws a 429 error and dies. Resolving this requires immediate routing to fallback models.</p>
+</div>
+<div class="info-card">
+<div class="card-icon">💸</div>
+<h4>Redundant queries burn cash</h4>
+<p>Agents often run repetitive check loops, executing the exact same prompts (or minor variations of them) against codebases or databases. Standard exact-string caching misses slight rephrasings, wasting thousands of dollars.</p>
+</div>
+<div class="info-card">
+<div class="card-icon">🔒</div>
+<h4>Zero provider switching capability</h4>
+<p>If OpenAI experiences global API degradation, switching to Claude requires changing codebase logic, redeploying code, and refactoring API response parsing. An abstraction layer lets you redirect traffic instantly.</p>
+</div>
+</div>
+</div>
+<!-- SECTION 02 -->
+<div class="section" id="architecture">
+<div class="section-label">Section 02</div>
+<h2 class="section-heading">The Gateway Stack <em>Architecture</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">The production gateway splits responsibilities between two layers: <strong>LiteLLM Proxy</strong> (acting as the provider aggregator) and <strong>Portkey AI</strong> (acting as the control plane). Here is the flow of an inbound prompt request:</p>
+<div class="info-card" style="margin: 24px 0;">
+<h4 style="margin-bottom: 12px;">Unified Request Lifecycle</h4>
+<p class="body-text" style="font-size:14.5px; color:var(--text-mid);">
+          1. <strong>Client Call</strong>: The client sends a request to the Portkey Endpoint containing a unified OpenAI-compatible payload.<br/>
+          2. <strong>Semantic Cache Check</strong>: Portkey generates an embedding of the query and checks if a semantically similar prompt exists in the cache database. If a match is found (&gt; 0.95 cosine similarity), the cached response returns in &lt;150ms.<br/>
+          3. <strong>LiteLLM Routing</strong>: On a cache miss, the request goes to the LiteLLM Proxy. LiteLLM routes the request to the active primary model (e.g., Claude 3.5 Sonnet).<br/>
+          4. <strong>Automatic Failover</strong>: If Claude returns a timeout or rate-limit error, LiteLLM redirects the request to Gemini 1.5 Pro or GPT-4o seamlessly without the client noticing.
+        </p>
+</div>
+</div>
+<!-- SECTION 03 -->
+<div class="section" id="litellm-setup">
+<div class="section-label">Section 03</div>
+<h2 class="section-heading">Configuring LiteLLM <em>Failovers</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">LiteLLM takes model configurations and maps them to a single virtual group. Here is how to configure a multi-provider model group inside <code>config.yaml</code>.</p>
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">config.yaml</span><button class="code-copy-btn" onclick="copyCode(this)">❏ Copy</button></div>
+<pre><span class="cm"># Define model list mapping and parameters</span>
+model_list:
+  - model_name: llm-agent-core
+    litellm_params:
+      model: claude-3-5-sonnet-20241022
+      api_key: os.environ/ANTHROPIC_API_KEY
+      rpm: 1000
+      timeout: 10
+  
+  - model_name: llm-agent-core
+    litellm_params:
+      model: gemini/gemini-1.5-pro
+      api_key: os.environ/GEMINI_API_KEY
+      rpm: 2000
+      timeout: 10
+
+  - model_name: llm-agent-core
+    litellm_params:
+      model: gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+      rpm: 5000
+      timeout: 8
+
+router_settings:
+  routing_strategy: failover
+  allowed_fails: 2
+  cooldown_time: 30</pre>
+</div>
+<p class="body-text">Running this configuration locally or in Docker creates an endpoint mapping all requests from virtual model `llm-agent-core` to the active backup models on rate-limit triggers.</p>
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">Shell</span><button class="code-copy-btn" onclick="copyCode(this)">❏ Copy</button></div>
+<pre>docker run -d -p 4000:4000 \
+  -v $(pwd)/config.yaml:/app/config.yaml \
+  -e ANTHROPIC_API_KEY="your-key" \
+  -e GEMINI_API_KEY="your-key" \
+  -e OPENAI_API_KEY="your-key" \
+  ghcr.io/berriai/litellm:main --config /app/config.yaml</pre>
+</div>
+</div>
+<!-- SECTION 04 -->
+<div class="section" id="portkey-setup">
+<div class="section-label">Section 04</div>
+<h2 class="section-heading">Configuring <em>Semantic Caching</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">Portkey sits in front of LiteLLM, intercepting queries and querying the local semantic database using embeddings. Standard caches require exact string matches; semantic caching relies on similarity.</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th>Prompt Variant</th><th>Exact Cache</th><th>Semantic Cache (Cosine Similarity &gt; 0.95)</th></tr></thead>
+<tbody>
+<tr><td>"Write a Python script to sort a list."</td><td>MISS (Saves initial response)</td><td>MISS (Saves initial response)</td></tr>
+<tr><td>"Write a Python script to sort a list."</td><td><strong>HIT</strong> (Returns saved response)</td><td><strong>HIT</strong> (Returns saved response)</td></tr>
+<tr><td>"Write Python code that sorts a list."</td><td>MISS (Treated as completely new)</td><td><strong>HIT</strong> (Recognized similarity, returns cached result)</td></tr>
+<tr><td>"Help me write a list sorting script in Python."</td><td>MISS (Treated as completely new)</td><td><strong>HIT</strong> (Recognized similarity, returns cached result)</td></tr>
+</tbody>
+</table>
+</div>
+<p class="body-text">Create a JSON config containing the routing and semantic cache settings for Portkey:</p>
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">portkey_config.json</span><button class="code-copy-btn" onclick="copyCode(this)">❏ Copy</button></div>
+<pre>{
+  "strategy": {
+    "mode": "fallback"
+  },
+  "cache": {
+    "mode": "semantic",
+    "max_age": 86400,
+    "similarity_threshold": 0.96,
+    "vector_embeddings": {
+      "provider": "openai",
+      "model": "text-embedding-3-small"
+    }
+  },
+  "retry": {
+    "attempts": 3,
+    "backoff": "exponential"
+  }
+}</pre>
+</div>
+</div>
+<!-- SECTION 05 -->
+<div class="section" id="integration">
+<div class="section-label">Section 05</div>
+<h2 class="section-heading">Unified <em>Python Client Code</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">With LiteLLM running on `localhost:4000` and Portkey routing the calls, we initialize the unified SDK and run semantic cache hit assertions.</p>
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">gateway_client.py</span><button class="code-copy-btn" onclick="copyCode(this)">❏ Copy</button></div>
+<pre>import os
+import time
+from portkey_ai import Portkey
+
+# Initialize client targeting LiteLLM's local proxy endpoint
+client = Portkey(
+    api_key=os.environ.get("PORTKEY_API_KEY"),
+    base_url="http://localhost:4000",
+    config={
+        "cache": {
+            "mode": "semantic",
+            "max_age": 86400,
+            "similarity_threshold": 0.95
+        }
+    }
+)
+
+def query_gateway(prompt: str):
+    start_time = time.time()
+    response = client.chat.completions.create(
+        model="llm-agent-core",
+        messages=[
+            {"role": "system", "content": "You are a code optimization engine."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    duration = time.time() - start_time
+    cache_status = response.headers.get("x-portkey-cache", "MISS")
+    print(f"Prompt: '{prompt}'")
+    print(f"Latency: {duration:.2f}s | Cache Status: {cache_status}")
+    print(f"Model Used: {response.model}\n")
+
+# Run 1: Cold start (Cache Miss)
+query_gateway("Write a quicksort implementation in Python.")
+
+# Run 2: Semantic Variant (Cache Hit!)
+query_gateway("Can you write a Python quicksort script?")</pre>
+</div>
+</div>
+<!-- SECTION 06 -->
+<div class="section" id="observability">
+<div class="section-label">Section 06</div>
+<h2 class="section-heading">Monitoring &amp; <em>Benchmarking</em></h2>
+<div class="section-divider"></div>
+<p class="section-intro">Observability is built-in. By monitoring traces, you can identify failing models, token costs, and exact cache hit rates across your architecture.</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th>Metric</th><th>Without Gateway Stack</th><th>With Gateway Stack</th></tr></thead>
+<tbody>
+<tr><td>Downtime Resiliency</td><td>Low (Single API failure crashes script)</td><td><strong>High</strong> (Auto-failover to backup providers)</td></tr>
+<tr><td>Average Latency</td><td>~1200ms - 2500ms</td><td><strong>~120ms</strong> (On semantic cache hits)</td></tr>
+<tr><td>Total Token Bills</td><td>100% full cost</td><td><strong>Saved 80%+</strong> (Repetitive tasks)</td></tr>
+<tr><td>Multi-provider Code integration</td><td>Custom code wrappers per SDK</td><td><strong>Unified OpenAI-compatible SDK</strong></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- QUICK REFERENCE -->
+<div class="section">
+<div class="section-label">Quick Reference</div>
+<h2 class="section-heading">The <em>Cheat Sheet</em></h2>
+<div class="section-divider"></div>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th>Action</th><th>Configuration / Command</th></tr></thead>
+<tbody>
+<tr><td>Unify Models</td><td>LiteLLM <code>config.yaml</code> mapping parameters</td></tr>
+<tr><td>Enable Semantic Caching</td><td>Set <code>"mode": "semantic"</code> in Portkey Config JSON</td></tr>
+<tr><td>Similarity Threshold</td><td>Configure <code>"similarity_threshold": 0.95</code> (Cosine Similarity)</td></tr>
+<tr><td>Run Proxy (Local)</td><td><code>litellm --config config.yaml</code></td></tr>
+<tr><td>Verify Failover logs</td><td>Run LiteLLM CLI with <code>--debug</code> flag</td></tr>
+<tr><td>Cache Validation header</td><td>Inspect response header <code>x-portkey-cache</code></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- TROUBLESHOOTING -->
+<div class="section">
+<div class="section-label">Troubleshooting</div>
+<h2 class="section-heading">When it <em>doesn't</em> work</h2>
+<div class="section-divider"></div>
+<div class="table-wrap">
+<table class="data-table">
+<thead><tr><th>Symptom</th><th>Potential Cause</th><th>Solution</th></tr></thead>
+<tbody>
+<tr><td>Cache is always a MISS</td><td>Low similarity score, or different system prompts</td><td>Set similarity threshold down to 0.94, or verify system prompts match exactly.</td></tr>
+<tr><td>LiteLLM returns 500 error</td><td>Missing environment API keys</td><td>Ensure environment variables are exported (e.g., <code>export ANTHROPIC_API_KEY="key"</code>).</td></tr>
+<tr><td>Failover takes too long</td><td>High individual model timeout settings</td><td>Reduce individual model timeout parameters in <code>config.yaml</code> to 5-8 seconds.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- FAQ -->
+<div class="section">
+<div class="section-label">FAQ</div>
+<h2 class="section-heading">Common <em>questions</em></h2>
+<div class="section-divider"></div>
+<div class="faq-grid">
+<div class="faq-card">
+<h4>Does semantic caching risk outdated data?</h4>
+<p>Yes. If the context of your data changes frequently, set a lower cache TTL (e.g., <code>"max_age": 3600</code> for 1 hour) or use conditional tags to bypass cache on writes.</p>
+</div>
+<div class="faq-card">
+<h4>How secure is my data in Portkey?</h4>
+<p>If you require local compliance, Portkey's gateway proxy can be self-hosted on your own AWS/GCP clusters, storing embeddings and cached completions entirely within your private subnet.</p>
+</div>
+<div class="faq-card">
+<h4>Does routing increase latency?</h4>
+<p>No. LiteLLM adds &lt;5ms proxy overhead. Portkey's cache checks run concurrent to API calls on miss, meaning zero added penalty on miss, and huge speed gains on hit.</p>
+</div>
+<div class="faq-card">
+<h4>Can I use local embedding models?</h4>
+<p>Yes. You can route embedding generations to a local HuggingFace/Ollama server by changing the <code>vector_embeddings</code> provider setting in the JSON config.</p>
+</div>
+</div>
+</div>
+<!-- Related Resources -->
+    <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
+      <div class="section-label">Expand Your Knowledge</div>
+      <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
+      <div class="section-divider" style="margin-bottom: 28px;"></div>
+      
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-bottom: 32px;">
+        <!-- Guides Column -->
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../guides/gpt-54-1m-context-practical-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 GPT-5.4 with 1M Context: What Actually Works and What Falls Apart</a></li>
+            <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenClaw VPS & Mac Mini Setup</a></li>
+            <li><a href="../guides/hermes-vps-telegram-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Hermes Agent Setup: VPS + Telegram Gateway Guide</a></li>
+            <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
+            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
+          </ul>
+        </div>
+        
+        <!-- Tools & Channels Column -->
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../tools/api-cost-calculator.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ API Cost Calculator</a></li>
+            <li><a href="../tools/model-comparison.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ Model Comparison Matrix</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">OutClaw Channels</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">📧 Weekly AI Newsletter &rarr;</a></li>
+              <li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎥 Video Walkthroughs &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- /Related Resources -->
+    <div class="cta-banner">
+<div class="cta-banner-text"><h3>Production AI workflows, <em>every Tuesday.</em></h3><p>API gateway configs, caching playbooks, and the exact architectures we test in production. Free forever.</p></div>
+<div class="cta-banner-form"><input id="hg-email" placeholder="your@email.com" type="email"/><button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook →</button></div>
+</div>
+</div>
+<footer class="site-footer">
+<div class="footer-brand">
+<a class="footer-logo" href="../" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 10px;">
+<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<div class="footer-wordmark" style="color: rgba(255,255,255,.4);">Out<em>claw</em> AI</div>
+</a>
+<p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
+</div>
+<div class="footer-col">
+<h4>Content</h4>
+<a href="../videos">Videos</a>
+<a class="active" href="./">Guides</a>
+<a href="../tools">Tools</a>
+<a href="../newsletter">Newsletter</a>
+</div>
+<div class="footer-col">
+<h4>Company</h4>
+<a href="../about">About</a>
+<a href="mailto:zach@outclaw.xyz">Contact</a>
+<a href="../privacy">Privacy</a>
+</div>
+<div class="footer-col">
+<h4>Connect</h4>
+<a href="https://twitter.com">𝕏 Twitter</a>
+<a href="https://calendly.com/zbailey83/30min">Book a call</a>
+<a href="../newsletter">Subscribe</a>
+</div>
+</footer>
+<div class="footer-bottom">
+<p>© 2026 OutClaw AI · outclaw.xyz</p>
+<p>The newsletter with actual claws 🦞</p>
+</div>
+<a aria-label="Back to top" class="back-to-top" href="#mainNav" id="backToTop">↑</a>
+<script>
+    function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+    document.addEventListener("click",function(e){
+      var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+      if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+    });
+    function handleSubscribe(inputId,btnId){
+      var input=document.getElementById(inputId),btn=document.getElementById(btnId);
+      var email=input.value.trim();
+      if(!email||!email.includes("@")){input.style.outline="2px solid #F4678A";input.focus();setTimeout(function(){input.style.outline="";},2000);return;}
+      btn.textContent="You are in!";btn.style.background="linear-gradient(135deg,#4A9E7A,#6BBF9A)";btn.disabled=true;input.disabled=true;
+    }
+    function copyCode(btn){
+      var pre=btn.closest(".code-block").querySelector("pre");
+      var text=pre.innerText;
+      navigator.clipboard.writeText(text).then(function(){
+        var orig=btn.innerHTML;
+        btn.innerHTML="&#10003; Copied";
+        setTimeout(function(){btn.innerHTML=orig;},1600);
+      });
+    }
+    window.addEventListener("scroll",function(){
+      var btn=document.getElementById("backToTop");
+      if(window.scrollY>600){btn.classList.add("visible");}else{btn.classList.remove("visible");}
+    });
+  </script>
+</body>
+</html>

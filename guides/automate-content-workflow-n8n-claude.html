@@ -1,127 +1,45 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
-  <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-JHMN90H7MC');
   </script>
-  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
 <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>n8n + Claude Content Automation | OutClaw AI</title>
-  <meta name="description" content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup.">
-  <link rel="canonical" href="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#5AADDB">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>n8n + Claude Content Automation | OutClaw AI</title>
+<meta content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup." name="description"/>
+<link href="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude" property="og:url"/>
+<meta content="n8n + Claude Content Automation | OutClaw AI" property="og:title"/>
+<meta content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup." property="og:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude" property="twitter:url"/>
+<meta content="n8n + Claude Content Automation | OutClaw AI" property="twitter:title"/>
+<meta content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup." property="twitter:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
 
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude">
-  <meta property="og:title" content="n8n + Claude Content Automation | OutClaw AI">
-  <meta property="og:description" content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup.">
-  <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://outclaw.xyz/guides/automate-content-workflow-n8n-claude">
-  <meta property="twitter:title" content="n8n + Claude Content Automation | OutClaw AI">
-  <meta property="twitter:description" content="Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup.">
-  <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "TechArticle",
-        "headline": "Automate Your Entire Content Workflow With AI in One Afternoon",
-        "description": "Build a full n8n + Claude automation pipeline covering content ideation, drafting, SEO optimization, and publishing — triggered by a single webhook.",
-        "author": { "@type": "Organization", "name": "OutClaw AI", "url": "https://outclaw.xyz" },
-        "publisher": { "@type": "Organization", "name": "OutClaw AI" },
-        "datePublished": "2026-03-17",
-        "dateModified": "2026-03-27",
-        "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html",
-        "inLanguage": "en-US",
-        "keywords": ["n8n", "Claude API", "content automation", "AI workflow", "SEO automation", "content pipeline"]
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          {
-            "@type": "ListItem",
-            "position": 1,
-            "name": "OutClaw AI",
-            "item": "https://outclaw.xyz/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 2,
-            "name": "Guides",
-            "item": "https://outclaw.xyz/guides/"
-          },
-          {
-            "@type": "ListItem",
-            "position": 3,
-            "name": "Automate Your Content Workflow",
-            "item": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html"
-          }
-        ]
-      },
-      {
-        "@type": "HowTo",
-        "name": "How to Automate Your Content Workflow with n8n and Claude",
-        "description": "A step-by-step guide to building a fully automated content pipeline that handles ideation, drafting, and SEO.",
-        "step": [
-          {
-            "@type": "HowToStep",
-            "name": "Configure Webhook Trigger",
-            "text": "Set up an n8n Webhook node to receive your content brief as a JSON payload.",
-            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#trigger-node"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Claude Ideation Phase",
-            "text": "Send the brief to Claude to generate a structured content plan and outline.",
-            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#ideation-node"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "Claude Drafting Phase",
-            "text": "Pass the outline to a second Claude node to write the full article draft in markdown.",
-            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#drafting-node"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "SEO Metadata Generation",
-            "text": "Use a specialized Claude node to generate SEO titles, meta descriptions, and JSON-LD schema based on the draft.",
-            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#seo-node"
-          },
-          {
-            "@type": "HowToStep",
-            "name": "CMS Publication",
-            "text": "Send the final SEO-enriched content to your CMS via HTTP Request.",
-            "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#publish-node"
-          }
-        ]
-      }
-    ]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --sky: #5AADDB;
       --sky-light: #B8DFF0;
@@ -518,384 +436,501 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
   </style>
-
-  <!-- SHARE STRIP STYLE -->
-  <style>
+<!-- SHARE STRIP STYLE -->
+<style>
     .share-strip { display: flex; align-items: center; gap: 12px; margin: 24px 0; justify-content: flex-start; }
     .share-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
     .share-btn { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid var(--border); color: var(--text-soft); text-decoration: none; transition: all .2s cubic-bezier(.34,1.56,.64,1); cursor: pointer; }
     .share-btn:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(90, 173, 219, .15); }
     .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
   </style>
-</head>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude#webpage",
+      "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude",
+      "name": "n8n + Claude Content Automation",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "Article",
+        "BlogPosting",
+        "TechArticle"
+      ],
+      "@id": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude#webpage"
+      },
+      "headline": "n8n + Claude Content Automation",
+      "description": "Build a complete n8n and Claude automation for content ideation, drafting, and SEO. Includes a step-by-step guide and workflow JSON for easy setup.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude",
+      "image": "https://outclaw.xyz/hero-alt.webp",
+      "datePublished": "2026-03-17",
+      "dateModified": "2026-03-27",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 2674
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "n8n + Claude Content Automation",
+          "item": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude"
+        }
+      ]
+    },
+    {
+      "@type": "HowTo",
+      "name": "How to Automate Your Content Workflow with n8n and Claude",
+      "description": "A step-by-step guide to building a fully automated content pipeline that handles ideation, drafting, and SEO.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Configure Webhook Trigger",
+          "text": "Set up an n8n Webhook node to receive your content brief as a JSON payload.",
+          "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#trigger-node"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Claude Ideation Phase",
+          "text": "Send the brief to Claude to generate a structured content plan and outline.",
+          "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#ideation-node"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Claude Drafting Phase",
+          "text": "Pass the outline to a second Claude node to write the full article draft in markdown.",
+          "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#drafting-node"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "SEO Metadata Generation",
+          "text": "Use a specialized Claude node to generate SEO titles, meta descriptions, and JSON-LD schema based on the draft.",
+          "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#seo-node"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "CMS Publication",
+          "text": "Send the final SEO-enriched content to your CMS via HTTP Request.",
+          "url": "https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html#publish-node"
+        }
+      ]
+    }
+  ]
+}</script></head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <div id="reading-progress"></div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
+<button aria-label="Back to top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <!-- NAVBAR -->
 <nav class="navbar" id="mainNav">
-  <a href="../" class="navbar-logo">
-    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
-    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
-  </a>
-  <div class="navbar-links">
-    <a href="../about/">About</a>
-    <a href="./" class="active">Guides</a>
-    <a href="../videos/">Videos</a>
-    <a href="../tools/">Tools</a>
-    <a href="../newsletter/">Newsletter</a>
-  </div>
-  <div class="navbar-right">
-    <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
-  </div>
-  <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<a class="navbar-logo" href="../">
+<img alt="OutClaw AI" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<div class="navbar-wordmark">Out<em>claw</em> AI</div>
+</a>
+<div class="navbar-links">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+</div>
+<div class="navbar-right">
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+</div>
+<button aria-label="Menu" class="nav-hamburger" onclick="toggleDrawer()">
+<span></span><span></span><span></span>
+</button>
 </nav>
 <div class="nav-drawer" id="navDrawer">
-  <a href="../about/">About</a>
-  <a href="./" class="active">Guides</a>
-  <a href="../videos/">Videos</a>
-  <a href="../tools/">Tools</a>
-  <a href="../newsletter/">Newsletter</a>
-  <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
 </div>
-
 <!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
-    <div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
-    <div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
-    <div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
-    <div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
-    <div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
-    <div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import & go</div>
-    <div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
-    <div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
-    <div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
-    <div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
-    <div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
-    <div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
-    <div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import & go</div>
-  </div>
+<div aria-hidden="true" class="ticker">
+<div class="ticker-track">
+<div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
+<div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
+<div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
+<div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
+<div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
+<div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
+<div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import &amp; go</div>
+<div class="ticker-item"><span class="hi">n8n</span><span class="ticker-sep">·</span> Self-hosted or n8n Cloud</div>
+<div class="ticker-item"><span class="hi">Claude Sonnet 4.6</span><span class="ticker-sep">·</span> Ideation + drafting engine</div>
+<div class="ticker-item"><span class="hi">Webhook trigger</span><span class="ticker-sep">·</span> One click → full pipeline</div>
+<div class="ticker-item"><span class="hi">SEO node</span><span class="ticker-sep">·</span> Meta, keywords, schema auto-generated</div>
+<div class="ticker-item"><span class="hi">CMS publish</span><span class="ticker-sep">·</span> WordPress, Ghost, Webflow, Notion</div>
+<div class="ticker-item"><span class="hi">45 min build</span><span class="ticker-sep">·</span> Intermediate level</div>
+<div class="ticker-item"><span class="hi">Workflow JSON</span><span class="ticker-sep">·</span> Import &amp; go</div>
 </div>
-
+</div>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-shape"></div>
-  <div class="hero-shape-2"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
+<div class="hero-shape"></div>
+<div class="hero-shape-2"></div>
+<div class="hero-inner">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
       Automation Guide · March 2026
     </div>
-    <h1 class="hero-headline">Automate your entire<br>content workflow <em>with AI</em><br>in one <span class="fl">afternoon</span></h1>
-    <div class="hero-meta">
-      <div class="hero-meta-item">✍️ By <a href="../about/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">⏱ 45 min build</div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">🎯 Intermediate</div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">🔧 n8n + <a href="https://claude.ai" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Claude Sonnet 4.6</a></div>
-    </div>
-    <p class="hero-sub">
+<h1 class="hero-headline">Automate your entire<br/>content workflow <em>with AI</em><br/>in one <span class="fl">afternoon</span></h1>
+<div class="hero-meta">
+<div class="hero-meta-item">✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">⏱ 45 min build</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">🎯 Intermediate</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">🔧 n8n + <a href="https://claude.ai" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);" target="_blank">Claude Sonnet 4.6</a></div>
+</div>
+<p class="hero-sub">
       From brief to draft to publish — a full n8n + Claude automation that handles ideation, drafting, SEO optimisation, and scheduling with one trigger. No more copy-pasting between tabs. One workflow, every content type, always consistent.
     </p>
-    <div class="share-strip">
-      <span class="share-label">Share</span>
-      <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank');return false;" class="share-btn" aria-label="Share on X">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-    </div>
-    <div class="hero-tags">
-      <span class="hero-tag">n8n Workflow</span>
-      <span class="hero-tag">Claude API</span>
-      <span class="hero-tag">Content Automation</span>
-      <span class="hero-tag">SEO Generation</span>
-      <span class="hero-tag">CMS Publishing</span>
-      <span class="hero-tag">Webhook Trigger</span>
-    </div>
-  </div>
+<div class="share-strip">
+<span class="share-label">Share</span>
+<a aria-label="Share on X" class="share-btn" href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&amp;text='+encodeURIComponent(document.title),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="Share on LinkedIn" class="share-btn" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</a>
+<a aria-label="Share on Facebook" class="share-btn" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+<div class="hero-tags">
+<span class="hero-tag">n8n Workflow</span>
+<span class="hero-tag">Claude API</span>
+<span class="hero-tag">Content Automation</span>
+<span class="hero-tag">SEO Generation</span>
+<span class="hero-tag">CMS Publishing</span>
+<span class="hero-tag">Webhook Trigger</span>
+</div>
+</div>
 </section>
-
 <!-- WHAT YOU'LL BUILD STRIP -->
 <div class="build-strip">
-  <div class="build-strip-inner">
-    <div class="build-item">
-      <div class="build-num">1</div>
-      <div class="build-label">Trigger</div>
-      <div class="build-desc">Webhook receives your content brief</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">3</div>
-      <div class="build-label">Claude Nodes</div>
-      <div class="build-desc">Ideation, drafting, and SEO in sequence</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">1</div>
-      <div class="build-label">SEO Pass</div>
-      <div class="build-desc">Meta, keywords & schema auto-written</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">∞</div>
-      <div class="build-label">CMS Targets</div>
-      <div class="build-desc">WordPress, Ghost, Notion, Webflow & more</div>
-    </div>
-  </div>
+<div class="build-strip-inner">
+<div class="build-item">
+<div class="build-num">1</div>
+<div class="build-label">Trigger</div>
+<div class="build-desc">Webhook receives your content brief</div>
 </div>
-
+<div class="build-item">
+<div class="build-num">3</div>
+<div class="build-label">Claude Nodes</div>
+<div class="build-desc">Ideation, drafting, and SEO in sequence</div>
+</div>
+<div class="build-item">
+<div class="build-num">1</div>
+<div class="build-label">SEO Pass</div>
+<div class="build-desc">Meta, keywords &amp; schema auto-written</div>
+</div>
+<div class="build-item">
+<div class="build-num">∞</div>
+<div class="build-label">CMS Targets</div>
+<div class="build-desc">WordPress, Ghost, Notion, Webflow &amp; more</div>
+</div>
+</div>
+</div>
 <div class="breadcrumb-wrap">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../">OutClaw AI</a><span>›</span>
-    <a href="./">Guides</a><span>›</span>
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="../">OutClaw AI</a><span>›</span>
+<a href="./">Guides</a><span>›</span>
     Automate Your Content Workflow With AI
   </nav>
 </div>
-
 <!-- TOC -->
 <div class="toc-section">
-  <div class="article-wrap">
-    <div class="eyebrow">On This Page</div>
-    <h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
-    <div class="toc-grid">
-      <a href="#the-pipeline" class="toc-card"><div class="toc-num">01</div><div class="toc-label">The Full Pipeline — How It Works</div></a>
-      <a href="#prerequisites" class="toc-card"><div class="toc-num">02</div><div class="toc-label">Prerequisites & Stack Setup</div></a>
-      <a href="#trigger-node" class="toc-card"><div class="toc-num">03</div><div class="toc-label">Step 1 — Webhook Trigger Node</div></a>
-      <a href="#ideation-node" class="toc-card"><div class="toc-num">04</div><div class="toc-label">Step 2 — Claude Ideation Node</div></a>
-      <a href="#drafting-node" class="toc-card"><div class="toc-num">05</div><div class="toc-label">Step 3 — Claude Drafting Node</div></a>
-      <a href="#seo-node" class="toc-card"><div class="toc-num">06</div><div class="toc-label">Step 4 — SEO & Meta Generation Node</div></a>
-      <a href="#publish-node" class="toc-card"><div class="toc-num">07</div><div class="toc-label">Step 5 — CMS Publish & Scheduling</div></a>
-      <a href="#full-workflow" class="toc-card"><div class="toc-num">08</div><div class="toc-label">Full Workflow JSON + Customisations</div></a>
-    </div>
-  </div>
+<div class="article-wrap">
+<div class="eyebrow">On This Page</div>
+<h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
+<div class="toc-grid">
+<a class="toc-card" href="#the-pipeline"><div class="toc-num">01</div><div class="toc-label">The Full Pipeline — How It Works</div></a>
+<a class="toc-card" href="#prerequisites"><div class="toc-num">02</div><div class="toc-label">Prerequisites &amp; Stack Setup</div></a>
+<a class="toc-card" href="#trigger-node"><div class="toc-num">03</div><div class="toc-label">Step 1 — Webhook Trigger Node</div></a>
+<a class="toc-card" href="#ideation-node"><div class="toc-num">04</div><div class="toc-label">Step 2 — Claude Ideation Node</div></a>
+<a class="toc-card" href="#drafting-node"><div class="toc-num">05</div><div class="toc-label">Step 3 — Claude Drafting Node</div></a>
+<a class="toc-card" href="#seo-node"><div class="toc-num">06</div><div class="toc-label">Step 4 — SEO &amp; Meta Generation Node</div></a>
+<a class="toc-card" href="#publish-node"><div class="toc-num">07</div><div class="toc-label">Step 5 — CMS Publish &amp; Scheduling</div></a>
+<a class="toc-card" href="#full-workflow"><div class="toc-num">08</div><div class="toc-label">Full Workflow JSON + Customisations</div></a>
 </div>
-
+</div>
+</div>
 <!-- MAIN CONTENT -->
 <main style="background:var(--bg);">
 <div class="article-wrap">
-
 <!-- ═══════ SECTION 01 ═══════ -->
 <section class="guide-section" id="the-pipeline">
-  <div class="eyebrow">Section 01</div>
-  <h2 class="section-heading">How does the n8n + Claude <em>content pipeline work?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 01</div>
+<h2 class="section-heading">How does the n8n + Claude <em>content pipeline work?</em></h2>
+<p class="guide-body">
     The workflow chains five nodes in sequence. Each node does one thing well and passes its output to the next. The trigger accepts a JSON brief via webhook. Claude handles all the creative and analytical work across three dedicated nodes. A final HTTP node pushes the finished, SEO-optimised post to your CMS.
   </p>
-
-  <!-- FLOW DIAGRAM -->
-  <div class="workflow-diagram">
-    <div class="flow-phases">
-      <div class="flow-phase" style="width:120px;">
-        <div class="phase-bar ph-sky" style="width:80px;"></div>
-        <div class="phase-label">Input</div>
-      </div>
-      <div class="flow-phase" style="width:80px;"></div>
-      <div class="flow-phase" style="width:300px;">
-        <div class="phase-bar ph-flamingo" style="width:260px;"></div>
-        <div class="phase-label">Claude Processing</div>
-      </div>
-      <div class="flow-phase" style="width:80px;"></div>
-      <div class="flow-phase" style="width:160px;">
-        <div class="phase-bar ph-leaf" style="width:120px;"></div>
-        <div class="phase-label">Publish</div>
-      </div>
-    </div>
-    <div class="flow-row">
-      <div class="flow-node">
-        <div class="flow-icon fi-sky">🌐</div>
-        <div class="flow-label">Webhook Trigger</div>
-        <div class="flow-sub">Receives brief JSON</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon fi-violet" style="position:relative;">
+<!-- FLOW DIAGRAM -->
+<div class="workflow-diagram">
+<div class="flow-phases">
+<div class="flow-phase" style="width:120px;">
+<div class="phase-bar ph-sky" style="width:80px;"></div>
+<div class="phase-label">Input</div>
+</div>
+<div class="flow-phase" style="width:80px;"></div>
+<div class="flow-phase" style="width:300px;">
+<div class="phase-bar ph-flamingo" style="width:260px;"></div>
+<div class="phase-label">Claude Processing</div>
+</div>
+<div class="flow-phase" style="width:80px;"></div>
+<div class="flow-phase" style="width:160px;">
+<div class="phase-bar ph-leaf" style="width:120px;"></div>
+<div class="phase-label">Publish</div>
+</div>
+</div>
+<div class="flow-row">
+<div class="flow-node">
+<div class="flow-icon fi-sky">🌐</div>
+<div class="flow-label">Webhook Trigger</div>
+<div class="flow-sub">Receives brief JSON</div>
+</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">
+<div class="flow-icon fi-violet" style="position:relative;">
           🧠
           <span class="flow-badge">Claude</span>
-        </div>
-        <div class="flow-label">Ideation Node</div>
-        <div class="flow-sub">Angles + outline</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon fi-flamingo" style="position:relative;">
+</div>
+<div class="flow-label">Ideation Node</div>
+<div class="flow-sub">Angles + outline</div>
+</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">
+<div class="flow-icon fi-flamingo" style="position:relative;">
           ✍️
           <span class="flow-badge">Claude</span>
-        </div>
-        <div class="flow-label">Drafting Node</div>
-        <div class="flow-sub">Full article draft</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon fi-amber" style="position:relative;">
+</div>
+<div class="flow-label">Drafting Node</div>
+<div class="flow-sub">Full article draft</div>
+</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">
+<div class="flow-icon fi-amber" style="position:relative;">
           🔍
           <span class="flow-badge">Claude</span>
-        </div>
-        <div class="flow-label">SEO Node</div>
-        <div class="flow-sub">Meta + schema</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon fi-leaf">🚀</div>
-        <div class="flow-label">Publish Node</div>
-        <div class="flow-sub">CMS + schedule</div>
-      </div>
-    </div>
-  </div>
-
-  <p class="guide-body">
+</div>
+<div class="flow-label">SEO Node</div>
+<div class="flow-sub">Meta + schema</div>
+</div>
+<div class="flow-arrow">→</div>
+<div class="flow-node">
+<div class="flow-icon fi-leaf">🚀</div>
+<div class="flow-label">Publish Node</div>
+<div class="flow-sub">CMS + schedule</div>
+</div>
+</div>
+</div>
+<p class="guide-body">
     Each Claude node uses a separate, focused <a href="claude-sonnet-prompting-playbook" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">system prompt</a> — ideation, drafting, and SEO are deliberately kept apart so each prompt can be tuned independently. The outputs chain: the ideation node's structured outline becomes the drafting node's input; the draft becomes the SEO node's input. This sequential chaining is what produces consistent, high-quality output rather than asking one prompt to do everything at once.
   </p>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">⚡</div>
-      <div class="feature-title">One Trigger</div>
-      <div class="feature-desc">Send a webhook payload with topic, audience, tone, and target length. Everything else is automated — no manual steps between brief and published post.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🧠</div>
-      <div class="feature-title">Separate Claude Nodes</div>
-      <div class="feature-desc">Ideation, drafting, and SEO use different system prompts. Tune each independently. Change the drafting style without touching SEO logic.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔍</div>
-      <div class="feature-title">SEO Built-In</div>
-      <div class="feature-desc">The SEO node generates title tag, meta description, focus keyword, secondary keywords, and JSON-LD schema markup automatically from the draft.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">📅</div>
-      <div class="feature-title">Schedule or Publish Now</div>
-      <div class="feature-desc">The publish node accepts a <code class="inline">publish_at</code> timestamp. Send it to publish immediately or at a future date — your CMS handles the scheduling.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🔌</div>
-      <div class="feature-title">CMS-Agnostic</div>
-      <div class="feature-desc">The final HTTP node works with any CMS that has a REST API: WordPress, Ghost, Webflow, Notion, Contentful, Sanity, or a custom endpoint.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">♻️</div>
-      <div class="feature-title">Reusable & Forkable</div>
-      <div class="feature-desc">The workflow JSON is importable in one click. Fork it for different content types: blog posts, LinkedIn articles, email newsletters, product descriptions.</div>
-    </div>
-  </div>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<div class="feature-title">One Trigger</div>
+<div class="feature-desc">Send a webhook payload with topic, audience, tone, and target length. Everything else is automated — no manual steps between brief and published post.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🧠</div>
+<div class="feature-title">Separate Claude Nodes</div>
+<div class="feature-desc">Ideation, drafting, and SEO use different system prompts. Tune each independently. Change the drafting style without touching SEO logic.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔍</div>
+<div class="feature-title">SEO Built-In</div>
+<div class="feature-desc">The SEO node generates title tag, meta description, focus keyword, secondary keywords, and JSON-LD schema markup automatically from the draft.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📅</div>
+<div class="feature-title">Schedule or Publish Now</div>
+<div class="feature-desc">The publish node accepts a <code class="inline">publish_at</code> timestamp. Send it to publish immediately or at a future date — your CMS handles the scheduling.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔌</div>
+<div class="feature-title">CMS-Agnostic</div>
+<div class="feature-desc">The final HTTP node works with any CMS that has a REST API: WordPress, Ghost, Webflow, Notion, Contentful, Sanity, or a custom endpoint.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">♻️</div>
+<div class="feature-title">Reusable &amp; Forkable</div>
+<div class="feature-desc">The workflow JSON is importable in one click. Fork it for different content types: blog posts, LinkedIn articles, email newsletters, product descriptions.</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 02 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="prerequisites">
-  <div class="eyebrow">Section 02</div>
-  <h2 class="section-heading">What do I need to <em>set up for this AI workflow?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 02</div>
+<h2 class="section-heading">What do I need to <em>set up for this AI workflow?</em></h2>
+<p class="guide-body">
     Before building, get these in order. The whole pipeline takes under 45 minutes once these are ready — don't skip the setup.
   </p>
-
-  <table class="prereq-table">
-    <thead><tr><th>Tool</th><th>What you need</th><th>Cost</th></tr></thead>
-    <tbody>
-      <tr>
-        <td><strong>n8n</strong></td>
-        <td>Self-hosted (Docker) or n8n Cloud. Version 1.40+ recommended for the HTTP node improvements.</td>
-        <td><span class="status-dot status-free"></span>Free (self-hosted) / <span class="status-dot status-paid"></span>$20+/mo cloud</td>
-      </tr>
-      <tr>
-        <td><strong>Anthropic API Key</strong></td>
-        <td>Starts with <code>sk-ant-</code>. Get from <code>console.anthropic.com</code>. Set a usage cap before starting.</td>
-        <td><span class="status-dot status-paid"></span>Pay-per-token</td>
-      </tr>
-      <tr>
-        <td><strong>CMS with REST API</strong></td>
-        <td>WordPress (WP REST API v2), Ghost (Admin API), or any CMS accepting JSON via HTTP POST.</td>
-        <td><span class="status-dot status-free"></span>Depends on CMS</td>
-      </tr>
-      <tr>
-        <td><strong>n8n Claude credential</strong></td>
-        <td>In n8n, go to Credentials → New → HTTP Header Auth. Set header <code>x-api-key</code> to your Anthropic key.</td>
-        <td>—</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-text"><strong>n8n Cloud vs self-hosted:</strong> Either works. If you're new to n8n, start with the free Cloud trial — you get 5 active workflows and 2,500 executions/month, more than enough to build and test this pipeline. For production use, self-host on a $5–6/mo VPS using the official Docker image.</div>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num-wrap"><div class="step-num">01</div></div>
-      <div class="step-title-text">Create a new workflow</div>
-      <div class="step-desc-text">In n8n, click <strong>New Workflow</strong>. Name it "Content Pipeline." Keep it inactive while building — you'll activate after testing.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
-      <div class="step-title-text">Add Claude credential</div>
-      <div class="step-desc-text">Credentials → New → HTTP Header Auth. Name: "Claude API". Header name: <code class="inline">x-api-key</code>. Value: your Anthropic key. Save.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">03</div></div>
-      <div class="step-title-text">Add CMS credential</div>
-      <div class="step-desc-text">Add a second credential for your CMS. WordPress uses Basic Auth (username + app password). Ghost uses an Admin API key in the Authorization header.</div>
-    </div>
-  </div>
+<table class="prereq-table">
+<thead><tr><th>Tool</th><th>What you need</th><th>Cost</th></tr></thead>
+<tbody>
+<tr>
+<td><strong>n8n</strong></td>
+<td>Self-hosted (Docker) or n8n Cloud. Version 1.40+ recommended for the HTTP node improvements.</td>
+<td><span class="status-dot status-free"></span>Free (self-hosted) / <span class="status-dot status-paid"></span>$20+/mo cloud</td>
+</tr>
+<tr>
+<td><strong>Anthropic API Key</strong></td>
+<td>Starts with <code>sk-ant-</code>. Get from <code>console.anthropic.com</code>. Set a usage cap before starting.</td>
+<td><span class="status-dot status-paid"></span>Pay-per-token</td>
+</tr>
+<tr>
+<td><strong>CMS with REST API</strong></td>
+<td>WordPress (WP REST API v2), Ghost (Admin API), or any CMS accepting JSON via HTTP POST.</td>
+<td><span class="status-dot status-free"></span>Depends on CMS</td>
+</tr>
+<tr>
+<td><strong>n8n Claude credential</strong></td>
+<td>In n8n, go to Credentials → New → HTTP Header Auth. Set header <code>x-api-key</code> to your Anthropic key.</td>
+<td>—</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-info">
+<div class="callout-icon">ℹ️</div>
+<div class="callout-text"><strong>n8n Cloud vs self-hosted:</strong> Either works. If you're new to n8n, start with the free Cloud trial — you get 5 active workflows and 2,500 executions/month, more than enough to build and test this pipeline. For production use, self-host on a $5–6/mo VPS using the official Docker image.</div>
+</div>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num-wrap"><div class="step-num">01</div></div>
+<div class="step-title-text">Create a new workflow</div>
+<div class="step-desc-text">In n8n, click <strong>New Workflow</strong>. Name it "Content Pipeline." Keep it inactive while building — you'll activate after testing.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
+<div class="step-title-text">Add Claude credential</div>
+<div class="step-desc-text">Credentials → New → HTTP Header Auth. Name: "Claude API". Header name: <code class="inline">x-api-key</code>. Value: your Anthropic key. Save.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">03</div></div>
+<div class="step-title-text">Add CMS credential</div>
+<div class="step-desc-text">Add a second credential for your CMS. WordPress uses Basic Auth (username + app password). Ghost uses an Admin API key in the Authorization header.</div>
+</div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 03 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="trigger-node">
-  <div class="eyebrow eyebrow-leaf">Step 01</div>
-  <h2 class="section-heading">Step 1: How do I set up the <em>Webhook Trigger node?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-leaf">Step 01</div>
+<h2 class="section-heading">Step 1: How do I set up the <em>Webhook Trigger node?</em></h2>
+<p class="guide-body">
     The pipeline starts with an n8n Webhook node. It listens for an HTTP POST containing your content brief as JSON. This is what you send each time you want to kick off a new content run — manually, from a Slack command, a Notion button, a cron job, or any other trigger.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-sky" style="font-size:20px;">🌐</div>
-      <div class="node-config-title">Node 1 — Webhook Trigger</div>
-      <span class="node-config-tag tag-webhook">Webhook</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Node Type</div>
-        <div class="node-field-value">Webhook</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">HTTP Method</div>
-        <div class="node-field-value">POST</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Path</div>
-        <div class="node-field-value">/content-pipeline</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Response Mode</div>
-        <div class="node-field-value">Respond with Last Node</div>
-      </div>
-    </div>
-  </div>
-
-  <p class="guide-body">The webhook expects a JSON payload in this shape. All fields except <code class="inline">publish_at</code> are required.</p>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · Webhook payload schema</div>
-      <button class="copy-btn" onclick="copyCode('wb-payload', this)">⎘ Copy</button>
-    </div>
-    <pre id="wb-payload">{
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon fi-sky" style="font-size:20px;">🌐</div>
+<div class="node-config-title">Node 1 — Webhook Trigger</div>
+<span class="node-config-tag tag-webhook">Webhook</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Node Type</div>
+<div class="node-field-value">Webhook</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">HTTP Method</div>
+<div class="node-field-value">POST</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Path</div>
+<div class="node-field-value">/content-pipeline</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Response Mode</div>
+<div class="node-field-value">Respond with Last Node</div>
+</div>
+</div>
+</div>
+<p class="guide-body">The webhook expects a JSON payload in this shape. All fields except <code class="inline">publish_at</code> are required.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · Webhook payload schema</div>
+<button class="copy-btn" onclick="copyCode('wb-payload', this)">⎘ Copy</button>
+</div>
+<pre id="wb-payload">{
   <span class="p">"topic"</span>:        <span class="s">"How to reduce churn in B2B SaaS"</span>,
   <span class="p">"audience"</span>:     <span class="s">"SaaS founders and heads of customer success"</span>,
   <span class="p">"tone"</span>:         <span class="s">"Direct, data-led, no fluff. Use second person."</span>,
@@ -904,58 +939,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <span class="p">"keywords"</span>:     [<span class="s">"churn reduction"</span>, <span class="s">"customer retention SaaS"</span>, <span class="s">"churn prevention"</span>],
   <span class="p">"publish_at"</span>:   <span class="s">"2026-03-20T09:00:00Z"</span>  <span class="c">// optional — omit to publish immediately</span>
 }</pre>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>Testing the trigger:</strong> After saving the Webhook node, click <strong>Listen for Test Event</strong> in n8n, then send the payload above using curl or Postman. You'll see the data appear in the node's output panel. Only proceed to Node 2 once you've confirmed the payload comes through cleanly.</div>
-  </div>
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Testing the trigger:</strong> After saving the Webhook node, click <strong>Listen for Test Event</strong> in n8n, then send the payload above using curl or Postman. You'll see the data appear in the node's output panel. Only proceed to Node 2 once you've confirmed the payload comes through cleanly.</div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 04 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="ideation-node">
-  <div class="eyebrow eyebrow-violet">Step 02</div>
-  <h2 class="section-heading">Step 2: How do I configure the <em>Claude Ideation node?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-violet">Step 02</div>
+<h2 class="section-heading">Step 2: How do I configure the <em>Claude Ideation node?</em></h2>
+<p class="guide-body">
     The ideation node receives the brief and produces a structured content plan: three potential angles, a recommended angle with rationale, and a detailed section-by-section outline. This becomes the drafting node's structural input — critically, the draft never starts from a blank page.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-violet" style="font-size:20px;">🧠</div>
-      <div class="node-config-title">Node 2 — Ideation (HTTP Request to Claude API)</div>
-      <span class="node-config-tag tag-claude">Claude API</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Node Type</div>
-        <div class="node-field-value">HTTP Request</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Method</div>
-        <div class="node-field-value">POST</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">URL</div>
-        <div class="node-field-value">https://api.anthropic.com/v1/messages</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Headers</div>
-        <div class="node-field-value">x-api-key: {{ $credentials.claudeApi.value }}
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon fi-violet" style="font-size:20px;">🧠</div>
+<div class="node-config-title">Node 2 — Ideation (HTTP Request to Claude API)</div>
+<span class="node-config-tag tag-claude">Claude API</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Node Type</div>
+<div class="node-field-value">HTTP Request</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Method</div>
+<div class="node-field-value">POST</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">URL</div>
+<div class="node-field-value">https://api.anthropic.com/v1/messages</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Headers</div>
+<div class="node-field-value">x-api-key: {{ $credentials.claudeApi.value }}
 anthropic-version: 2023-06-01
 content-type: application/json</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · Ideation node body</div>
-      <button class="copy-btn" onclick="copyCode('ideation-body', this)">⎘ Copy</button>
-    </div>
-    <pre id="ideation-body">{
+</div>
+</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · Ideation node body</div>
+<button class="copy-btn" onclick="copyCode('ideation-body', this)">⎘ Copy</button>
+</div>
+<pre id="ideation-body">{
   <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
   <span class="p">"max_tokens"</span>: <span class="n">1024</span>,
   <span class="p">"system"</span>: <span class="s">"You are an expert content strategist. Your job is to produce a structured content plan given a brief. Respond ONLY with valid JSON matching the schema in the user message. No preamble, no markdown fences."</span>,
@@ -966,20 +997,18 @@ content-type: application/json</div>
     }
   ]
 }</pre>
-  </div>
-
-  <div class="callout callout-warn">
-    <div class="callout-icon">⚠️</div>
-    <div class="callout-text"><strong>Extracting the response:</strong> Claude's API returns the text inside <code>{{ $json.content[0].text }}</code>. Add a <strong>Set node</strong> immediately after the HTTP Request to parse this: set a field <code>ideation_plan</code> = <code>{{ JSON.parse($json.content[0].text) }}</code>. This makes the structured plan accessible by name in all downstream nodes.</div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">n8n Set Node · Parse ideation response</div>
-      <button class="copy-btn" onclick="copyCode('set-ideation', this)">⎘ Copy</button>
-    </div>
-    <pre id="set-ideation"><span class="c">// Set node configuration — add these fields:</span>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>Extracting the response:</strong> Claude's API returns the text inside <code>{{ $json.content[0].text }}</code>. Add a <strong>Set node</strong> immediately after the HTTP Request to parse this: set a field <code>ideation_plan</code> = <code>{{ JSON.parse($json.content[0].text) }}</code>. This makes the structured plan accessible by name in all downstream nodes.</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">n8n Set Node · Parse ideation response</div>
+<button class="copy-btn" onclick="copyCode('set-ideation', this)">⎘ Copy</button>
+</div>
+<pre id="set-ideation"><span class="c">// Set node configuration — add these fields:</span>
 
 <span class="k">ideation_plan</span>  =  {{ JSON.parse($node["Ideation"].json.content[0].text) }}
 <span class="k">topic</span>          =  {{ $node["Webhook"].json.body.topic }}
@@ -988,39 +1017,36 @@ content-type: application/json</div>
 <span class="k">word_count</span>     =  {{ $node["Webhook"].json.body.word_count }}
 <span class="k">content_type</span>   =  {{ $node["Webhook"].json.body.content_type }}
 <span class="k">publish_at</span>     =  {{ $node["Webhook"].json.body.publish_at }}</pre>
-  </div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 05 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="drafting-node">
-  <div class="eyebrow eyebrow-flamingo">Step 03</div>
-  <h2 class="section-heading">Step 3: How do I set up the <em>Claude Drafting node?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-flamingo">Step 03</div>
+<h2 class="section-heading">Step 3: How do I set up the <em>Claude Drafting node?</em></h2>
+<p class="guide-body">
     The drafting node takes the ideation plan — specifically the recommended angle and the full section outline — and writes the complete article. By injecting the structured outline into the system prompt, you ensure the draft always follows the planned structure. Claude writes section by section, hits the target word count, and maintains the specified tone throughout.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-flamingo" style="font-size:20px;">✍️</div>
-      <div class="node-config-title">Node 4 — Drafting (HTTP Request to Claude API)</div>
-      <span class="node-config-tag tag-claude">Claude API</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">URL & Headers</div>
-        <div class="node-field-value">Same as Ideation node — reuse Claude API credential</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · Drafting node body</div>
-      <button class="copy-btn" onclick="copyCode('draft-body', this)">⎘ Copy</button>
-    </div>
-    <pre id="draft-body">{
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon fi-flamingo" style="font-size:20px;">✍️</div>
+<div class="node-config-title">Node 4 — Drafting (HTTP Request to Claude API)</div>
+<span class="node-config-tag tag-claude">Claude API</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">URL &amp; Headers</div>
+<div class="node-field-value">Same as Ideation node — reuse Claude API credential</div>
+</div>
+</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · Drafting node body</div>
+<button class="copy-btn" onclick="copyCode('draft-body', this)">⎘ Copy</button>
+</div>
+<pre id="draft-body">{
   <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
   <span class="p">"max_tokens"</span>: <span class="n">4096</span>,
   <span class="p">"system"</span>: <span class="s">"You are an expert content writer. Write exactly to the provided outline and word count. Use the specified tone throughout. Return ONLY the article in markdown — no preamble, no meta-commentary, no word count note at the end."</span>,
@@ -1031,22 +1057,19 @@ content-type: application/json</div>
     }
   ]
 }</pre>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>Word count accuracy:</strong> Claude Sonnet 4.6 hits target word counts reliably when the count appears in both the system prompt context AND the user message. For articles over 2,000 words, increase <code class="inline">max_tokens</code> to 6,000. The 4,096 default is suitable for posts up to ~1,600 words.</div>
-  </div>
-
-  <p class="guide-body">After the drafting HTTP Request, add another <strong>Set node</strong> to extract and store the draft:</p>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">n8n Set Node · Store draft</div>
-      <button class="copy-btn" onclick="copyCode('set-draft', this)">⎘ Copy</button>
-    </div>
-    <pre id="set-draft"><span class="c">// Merge with previous fields, add:</span>
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Word count accuracy:</strong> Claude Sonnet 4.6 hits target word counts reliably when the count appears in both the system prompt context AND the user message. For articles over 2,000 words, increase <code class="inline">max_tokens</code> to 6,000. The 4,096 default is suitable for posts up to ~1,600 words.</div>
+</div>
+<p class="guide-body">After the drafting HTTP Request, add another <strong>Set node</strong> to extract and store the draft:</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">n8n Set Node · Store draft</div>
+<button class="copy-btn" onclick="copyCode('set-draft', this)">⎘ Copy</button>
+</div>
+<pre id="set-draft"><span class="c">// Merge with previous fields, add:</span>
 <span class="k">draft_markdown</span>  =  {{ $node["Drafting"].json.content[0].text }}
 
 <span class="c">// Pass through all previous fields unchanged:</span>
@@ -1056,39 +1079,36 @@ content-type: application/json</div>
 <span class="k">content_type</span>   =  {{ $json.content_type }}
 <span class="k">publish_at</span>     =  {{ $json.publish_at }}
 <span class="k">ideation_plan</span>  =  {{ $json.ideation_plan }}</pre>
-  </div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 06 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="seo-node">
-  <div class="eyebrow eyebrow-amber">Step 04</div>
-  <h2 class="section-heading">Step 4: How do I generate <em>SEO metadata with Claude?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-amber">Step 04</div>
+<h2 class="section-heading">Step 4: How do I generate <em>SEO metadata with Claude?</em></h2>
+<p class="guide-body">
     The SEO node reads the finished draft and generates all the metadata needed for publication: an SEO-optimised title tag, meta description, focus keyword, secondary keyword list, and JSON-LD <code class="inline">Article</code> schema markup. Claude reads the actual content — not just the topic — so the SEO output reflects what's really in the draft.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-amber" style="font-size:20px;">🔍</div>
-      <div class="node-config-title">Node 6 — SEO Generation (HTTP Request to Claude API)</div>
-      <span class="node-config-tag tag-claude">Claude API</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">max_tokens</div>
-        <div class="node-field-value">1024 (SEO output is compact JSON)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · SEO node body</div>
-      <button class="copy-btn" onclick="copyCode('seo-body', this)">⎘ Copy</button>
-    </div>
-    <pre id="seo-body">{
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon fi-amber" style="font-size:20px;">🔍</div>
+<div class="node-config-title">Node 6 — SEO Generation (HTTP Request to Claude API)</div>
+<span class="node-config-tag tag-claude">Claude API</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">max_tokens</div>
+<div class="node-field-value">1024 (SEO output is compact JSON)</div>
+</div>
+</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · SEO node body</div>
+<button class="copy-btn" onclick="copyCode('seo-body', this)">⎘ Copy</button>
+</div>
+<pre id="seo-body">{
   <span class="p">"model"</span>: <span class="s">"claude-sonnet-4-6"</span>,
   <span class="p">"max_tokens"</span>: <span class="n">1024</span>,
   <span class="p">"system"</span>: <span class="s">"You are an expert SEO specialist. Generate SEO metadata for the article provided. Return ONLY valid JSON. No markdown fences. No preamble."</span>,
@@ -1099,22 +1119,19 @@ content-type: application/json</div>
     }
   ]
 }</pre>
-  </div>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">ℹ️</div>
-    <div class="callout-text"><strong>Why a separate SEO node?</strong> Asking the drafting prompt to also handle SEO metadata degrades both outputs — the draft loses focus and the SEO metadata gets generic. A dedicated SEO node with its own system prompt produces title tags and meta descriptions that are meaningfully better than what a combined prompt generates.</div>
-  </div>
-
-  <p class="guide-body">Add a final Set node after the SEO node to consolidate everything into the <code class="inline">publish_payload</code> object used by the publish node:</p>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">n8n Set Node · Build publish payload</div>
-      <button class="copy-btn" onclick="copyCode('set-seo', this)">⎘ Copy</button>
-    </div>
-    <pre id="set-seo"><span class="k">seo_data</span>         =  {{ JSON.parse($node["SEO"].json.content[0].text) }}
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">ℹ️</div>
+<div class="callout-text"><strong>Why a separate SEO node?</strong> Asking the drafting prompt to also handle SEO metadata degrades both outputs — the draft loses focus and the SEO metadata gets generic. A dedicated SEO node with its own system prompt produces title tags and meta descriptions that are meaningfully better than what a combined prompt generates.</div>
+</div>
+<p class="guide-body">Add a final Set node after the SEO node to consolidate everything into the <code class="inline">publish_payload</code> object used by the publish node:</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">n8n Set Node · Build publish payload</div>
+<button class="copy-btn" onclick="copyCode('set-seo', this)">⎘ Copy</button>
+</div>
+<pre id="set-seo"><span class="k">seo_data</span>         =  {{ JSON.parse($node["SEO"].json.content[0].text) }}
 <span class="k">draft_markdown</span>   =  {{ $json.draft_markdown }}
 <span class="k">publish_at</span>       =  {{ $json.publish_at }}
 <span class="k">content_type</span>     =  {{ $json.content_type }}
@@ -1123,47 +1140,44 @@ content-type: application/json</div>
 <span class="k">post_title</span>       =  {{ JSON.parse($node["SEO"].json.content[0].text).title_tag }}
 <span class="k">post_slug</span>        =  {{ JSON.parse($node["SEO"].json.content[0].text).slug }}
 <span class="k">post_excerpt</span>     =  {{ JSON.parse($node["SEO"].json.content[0].text).meta_description }}</pre>
-  </div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 07 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="publish-node">
-  <div class="eyebrow eyebrow-leaf">Step 05</div>
-  <h2 class="section-heading">Step 5: How do I <em>publish and schedule to my CMS?</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-leaf">Step 05</div>
+<h2 class="section-heading">Step 5: How do I <em>publish and schedule to my CMS?</em></h2>
+<p class="guide-body">
     The final node posts the completed, SEO-enriched article to your CMS. The examples below cover WordPress REST API v2 and Ghost Admin API — the two most common targets. The pattern is identical for any CMS with an HTTP endpoint: construct the post body, set the auth header, fire the POST.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-leaf" style="font-size:20px;">🟡</div>
-      <div class="node-config-title">Node 8 — WordPress Publish</div>
-      <span class="node-config-tag tag-http">HTTP Request</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">URL</div>
-        <div class="node-field-value">https://yourdomain.com/wp-json/wp/v2/posts</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Method</div>
-        <div class="node-field-value">POST</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Authentication</div>
-        <div class="node-field-value">Basic Auth — WP username + Application Password (not your login password)</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · WordPress post body</div>
-      <button class="copy-btn" onclick="copyCode('wp-body', this)">⎘ Copy</button>
-    </div>
-    <pre id="wp-body">{
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon fi-leaf" style="font-size:20px;">🟡</div>
+<div class="node-config-title">Node 8 — WordPress Publish</div>
+<span class="node-config-tag tag-http">HTTP Request</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">URL</div>
+<div class="node-field-value">https://yourdomain.com/wp-json/wp/v2/posts</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Method</div>
+<div class="node-field-value">POST</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Authentication</div>
+<div class="node-field-value">Basic Auth — WP username + Application Password (not your login password)</div>
+</div>
+</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · WordPress post body</div>
+<button class="copy-btn" onclick="copyCode('wp-body', this)">⎘ Copy</button>
+</div>
+<pre id="wp-body">{
   <span class="p">"title"</span>:        <span class="s">"{{ $json.post_title }}"</span>,
   <span class="p">"content"</span>:      <span class="s">"{{ $json.draft_markdown }}"</span>,
   <span class="p">"excerpt"</span>:      <span class="s">"{{ $json.post_excerpt }}"</span>,
@@ -1177,33 +1191,31 @@ content-type: application/json</div>
   },
   <span class="p">"yoast_head_json"</span>: {{ JSON.stringify($json.seo_data.json_ld_schema) }}
 }</pre>
-  </div>
-
-  <div class="node-config" style="margin-top:32px;">
-    <div class="node-config-header">
-      <div class="node-config-icon fi-sky" style="font-size:20px;">👻</div>
-      <div class="node-config-title">Node 8 (alt) — Ghost Publish</div>
-      <span class="node-config-tag tag-http">HTTP Request</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">URL</div>
-        <div class="node-field-value">https://yourdomain.com/ghost/api/admin/posts/</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Auth Header</div>
-        <div class="node-field-value">Authorization: Ghost [your-admin-api-key]</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · Ghost post body</div>
-      <button class="copy-btn" onclick="copyCode('ghost-body', this)">⎘ Copy</button>
-    </div>
-    <pre id="ghost-body">{
+</div>
+<div class="node-config" style="margin-top:32px;">
+<div class="node-config-header">
+<div class="node-config-icon fi-sky" style="font-size:20px;">👻</div>
+<div class="node-config-title">Node 8 (alt) — Ghost Publish</div>
+<span class="node-config-tag tag-http">HTTP Request</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">URL</div>
+<div class="node-field-value">https://yourdomain.com/ghost/api/admin/posts/</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Auth Header</div>
+<div class="node-field-value">Authorization: Ghost [your-admin-api-key]</div>
+</div>
+</div>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · Ghost post body</div>
+<button class="copy-btn" onclick="copyCode('ghost-body', this)">⎘ Copy</button>
+</div>
+<pre id="ghost-body">{
   <span class="p">"posts"</span>: [{
     <span class="p">"title"</span>:             <span class="s">"{{ $json.post_title }}"</span>,
     <span class="p">"markdown"</span>:          <span class="s">"{{ $json.draft_markdown }}"</span>,
@@ -1218,30 +1230,27 @@ content-type: application/json</div>
     <span class="p">"codeinjection_head"</span>: <span class="s">"&lt;script type='application/ld+json'&gt;{{ JSON.stringify($json.seo_data.json_ld_schema) }}&lt;/script&gt;"</span>
   }]
 }</pre>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>Non-WordPress/Ghost CMS:</strong> For Notion, Contentful, or Sanity, replace Node 8 with the corresponding n8n built-in node (Notion has a native n8n integration). Pass <code class="inline">post_title</code>, <code class="inline">draft_markdown</code>, and <code class="inline">seo_data</code> as the content fields. The upstream nodes stay identical.</div>
-  </div>
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Non-WordPress/Ghost CMS:</strong> For Notion, Contentful, or Sanity, replace Node 8 with the corresponding n8n built-in node (Notion has a native n8n integration). Pass <code class="inline">post_title</code>, <code class="inline">draft_markdown</code>, and <code class="inline">seo_data</code> as the content fields. The upstream nodes stay identical.</div>
+</div>
 </section>
-
 <!-- ═══════ SECTION 08 ═══════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="full-workflow">
-  <div class="eyebrow">Section 08</div>
-  <h2 class="section-heading">Full Workflow JSON &amp; <em>Customisations</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 08</div>
+<h2 class="section-heading">Full Workflow JSON &amp; <em>Customisations</em></h2>
+<p class="guide-body">
     The importable n8n workflow JSON below wires all eight nodes together with the correct data mappings. Import it via <strong>Workflows → Import from File</strong> in your n8n instance, then update three things before activating: your Claude credential, your CMS credential, and your CMS endpoint URL.
   </p>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">JSON · n8n workflow import skeleton</div>
-      <button class="copy-btn" onclick="copyCode('workflow-json', this)">⎘ Copy</button>
-    </div>
-    <pre id="workflow-json">{
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">JSON · n8n workflow import skeleton</div>
+<button class="copy-btn" onclick="copyCode('workflow-json', this)">⎘ Copy</button>
+</div>
+<pre id="workflow-json">{
   <span class="p">"name"</span>: <span class="s">"Content Pipeline — n8n + Claude"</span>,
   <span class="p">"nodes"</span>: [
     { <span class="p">"id"</span>: <span class="s">"1"</span>, <span class="p">"name"</span>: <span class="s">"Webhook"</span>,        <span class="p">"type"</span>: <span class="s">"n8n-nodes-base.webhook"</span>,    <span class="p">"position"</span>: [<span class="n">240</span>, <span class="n">300</span>] },
@@ -1264,68 +1273,99 @@ content-type: application/json</div>
   },
   <span class="p">"active"</span>: <span class="k">false</span>
 }</pre>
-  </div>
-
-  <h3 style="font-family:var(--font-display);font-size:24px;color:var(--text);margin:40px 0 16px;font-weight:400;">Forks &amp; extensions worth building next</h3>
-  <p class="guide-body">Once the core pipeline runs reliably, these are the highest-value extensions:</p>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num-wrap"><div class="step-num">A</div></div>
-      <div class="step-title-text">Human-in-the-loop gate</div>
-      <div class="step-desc-text">After the SEO node, add a <strong>Wait node</strong> + a Slack message with approve/reject buttons. The pipeline pauses until you sign off. Approved posts proceed to publish; rejected ones go into a Notion review queue.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">B</div></div>
-      <div class="step-title-text">Social media derivatives</div>
-      <div class="step-desc-text">Branch after the draft node: send the article to a 4th Claude node that writes 3 LinkedIn post variants and a Twitter/X thread. Route to Buffer or Typefully via their APIs.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">C</div></div>
-      <div class="step-title-text">Batch mode from Airtable</div>
-      <div class="step-desc-text">Replace the webhook trigger with an <strong>Airtable node</strong> that reads rows from a content calendar. Add a Schedule trigger to run every Monday morning — your whole week's content publishes automatically.</div>
-    </div>
-  </div>
-
-  <div class="callout callout-violet">
-    <div class="callout-icon">🔮</div>
-    <div class="callout-text"><strong>Quality control tip:</strong> Run the pipeline 3–5 times on different topics before enabling batch mode. Tune the ideation and drafting system prompts based on what you see. The prompts in this guide are solid starting points, but your specific topic niche, tone, and CMS conventions will benefit from one iteration cycle.</div>
-  </div>
+</div>
+<h3 style="font-family:var(--font-display);font-size:24px;color:var(--text);margin:40px 0 16px;font-weight:400;">Forks &amp; extensions worth building next</h3>
+<p class="guide-body">Once the core pipeline runs reliably, these are the highest-value extensions:</p>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num-wrap"><div class="step-num">A</div></div>
+<div class="step-title-text">Human-in-the-loop gate</div>
+<div class="step-desc-text">After the SEO node, add a <strong>Wait node</strong> + a Slack message with approve/reject buttons. The pipeline pauses until you sign off. Approved posts proceed to publish; rejected ones go into a Notion review queue.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">B</div></div>
+<div class="step-title-text">Social media derivatives</div>
+<div class="step-desc-text">Branch after the draft node: send the article to a 4th Claude node that writes 3 LinkedIn post variants and a Twitter/X thread. Route to Buffer or Typefully via their APIs.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">C</div></div>
+<div class="step-title-text">Batch mode from Airtable</div>
+<div class="step-desc-text">Replace the webhook trigger with an <strong>Airtable node</strong> that reads rows from a content calendar. Add a Schedule trigger to run every Monday morning — your whole week's content publishes automatically.</div>
+</div>
+</div>
+<div class="callout callout-violet">
+<div class="callout-icon">🔮</div>
+<div class="callout-text"><strong>Quality control tip:</strong> Run the pipeline 3–5 times on different topics before enabling batch mode. Tune the ideation and drafting system prompts based on what you see. The prompts in this guide are solid starting points, but your specific topic niche, tone, and CMS conventions will benefit from one iteration cycle.</div>
+</div>
 </section>
-
 </div><!-- /article-wrap -->
 </main>
-
 <!-- BOTTOM CTA (dark, matching homepage) -->
-<section class="bottom-cta">
-  <div class="bottom-cta-inner">
-    <h2 class="cta-title">Workflows like<br>this, <em>every Tuesday.</em></h2>
-    <p class="cta-sub">n8n builds, Claude teardowns, and the AI workflow patterns your competitors haven't found yet. 8 minutes. Free forever.</p>
-    <a href="https://outclaw.xyz" class="cta-btn">Subscribe to OutClaw AI →</a>
-  </div>
-</section>
-
-<!-- FOOTER (dark, matching homepage) -->
-  <!-- FOOTER -->
-  <footer>
-    <a href="../" class="footer-logo">
-      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
-      <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai"
-          target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
-    </a>
-    <div class="footer-links">
-      <a href="../about/">About</a>
-      <a href="./">Guides</a>
-      <a href="../videos/">Videos</a>
-      <a href="../tools/">Tools</a>
-      <a href="../newsletter/">Newsletter</a>
-      <a href="../privacy/">Privacy</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
+<!-- Related Resources -->
+    <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
+      <div class="section-label">Expand Your Knowledge</div>
+      <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
+      <div class="section-divider" style="margin-bottom: 28px;"></div>
+      
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-bottom: 32px;">
+        <!-- Guides Column -->
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
+            <li><a href="../guides/litellm-portkey-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching</a></li>
+            <li><a href="../guides/agentic-video-editing-hyperframes-remotion.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Agentic Video Editing With HyperFrames and Remotion Skills</a></li>
+            <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenClaw VPS & Mac Mini Setup</a></li>
+            <li><a href="../guides/gpt-54-1m-context-practical-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 GPT-5.4 with 1M Context: What Actually Works and What Falls Apart</a></li>
+          </ul>
+        </div>
+        
+        <!-- Tools & Channels Column -->
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../tools/prompt-sharpener.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ AI Prompt Sharpener</a></li>
+            <li><a href="../tools/api-cost-calculator.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ API Cost Calculator</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">OutClaw Channels</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">📧 Weekly AI Newsletter &rarr;</a></li>
+              <li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎥 Video Walkthroughs &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
-  </footer>
-
+<!-- /Related Resources -->
+    <section class="bottom-cta">
+<div class="bottom-cta-inner">
+<h2 class="cta-title">Workflows like<br/>this, <em>every Tuesday.</em></h2>
+<p class="cta-sub">n8n builds, Claude teardowns, and the AI workflow patterns your competitors haven't found yet. 8 minutes. Free forever.</p>
+<a class="cta-btn" href="https://outclaw.xyz">Subscribe to OutClaw AI →</a>
+</div>
+</section>
+<!-- FOOTER (dark, matching homepage) -->
+<!-- FOOTER -->
+<footer>
+<a class="footer-logo" href="../">
+<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<div class="footer-wordmark">Out<em>claw</em> AI</div>
+<p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai" target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+</a>
+<div class="footer-links">
+<a href="../about/">About</a>
+<a href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a href="../privacy/">Privacy</a>
+<a href="mailto:zbailey83@gmail.com">Contact</a>
+</div>
+<div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+</footer>
 <script>
   function toggleDrawer() {
     document.getElementById('navDrawer').classList.toggle('open');

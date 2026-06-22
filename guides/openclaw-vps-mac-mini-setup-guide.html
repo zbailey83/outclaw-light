@@ -1,79 +1,47 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
-  <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-JHMN90H7MC');
   </script>
-  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
 <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>OpenClaw VPS & Mac Mini Setup | OutClaw AI</title>
-  <meta name="description" content="Master OpenClaw deployment with this 2026 guide. Learn to configure your VPS or Mac Mini, wire the Claude API, and manage 24/7 AI processes efficiently.">
-  <link rel="canonical" href="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide">
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#5AADDB">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>OpenClaw VPS &amp; Mac Mini Setup | OutClaw AI</title>
+<meta content="Master OpenClaw deployment with this 2026 guide. Learn to configure your VPS or Mac Mini, wire the Claude API, and manage 24/7 AI processes efficiently." name="description"/>
+<link href="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide" property="og:url"/>
+<meta content="OpenClaw VPS &amp; Mac Mini Setup Guide | OutClaw AI" property="og:title"/>
+<meta content="Build your own private AI powerhouse. Learn to deploy OpenClaw on a VPS or Mac Mini for local-first, high-performance agentic workflows." property="og:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide" property="twitter:url"/>
+<meta content="OpenClaw VPS &amp; Mac Mini Setup Guide | OutClaw AI" property="twitter:title"/>
+<meta content="Build your own private AI powerhouse. Learn to deploy OpenClaw on a VPS or Mac Mini for local-first, high-performance agentic workflows." property="twitter:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
+<!-- Article Schema -->
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide">
-  <meta property="og:title" content="OpenClaw VPS & Mac Mini Setup Guide | OutClaw AI">
-  <meta property="og:description" content="Build your own private AI powerhouse. Learn to deploy OpenClaw on a VPS or Mac Mini for local-first, high-performance agentic workflows.">
-  <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide">
-  <meta property="twitter:title" content="OpenClaw VPS & Mac Mini Setup Guide | OutClaw AI">
-  <meta property="twitter:description" content="Build your own private AI powerhouse. Learn to deploy OpenClaw on a VPS or Mac Mini for local-first, high-performance agentic workflows.">
-  <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
-
-  <!-- Article Schema -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "How to Set Up OpenClaw on a VPS & Mac Mini",
-    "description": "Step-by-step guide to running OpenClaw on a VPS (Ubuntu) or Mac Mini including server config, Claude API wiring, persistent hosting, and workflow automation.",
-    "author": {
-      "@type": "Organization",
-      "name": "OutClaw AI",
-      "url": "https://outclaw.xyz"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "OutClaw AI",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://outclaw.xyz/outclaw-icons/favicon.png"
-      }
-    },
-    "datePublished": "2026-03-17",
-    "dateModified": "2026-03-17",
-    "url": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide.html",
-    "inLanguage": "en-US",
-    "keywords": ["OpenClaw", "VPS", "Mac Mini", "Claude API", "self-hosted AI", "MCP server"]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-    rel="stylesheet">
-
-  <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --sky: #5AADDB;
       --sky-light: #B8DFF0;
@@ -580,320 +548,402 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .breadcrumb-wrap { background: var(--white); padding: 0 48px; }
     @media(max-width:640px) { .breadcrumb-wrap { padding: 0 24px; } }
   </style>
-
-  <!-- SHARE STRIP STYLE -->
-  <style>
+<!-- SHARE STRIP STYLE -->
+<style>
     .share-strip { display: flex; align-items: center; gap: 12px; margin: 24px 0; justify-content: flex-start; }
     .share-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
     .share-btn { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid var(--border); color: var(--text-soft); text-decoration: none; transition: all .2s cubic-bezier(.34,1.56,.64,1); cursor: pointer; }
     .share-btn:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(90, 173, 219, .15); }
     .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
   </style>
-</head>
-
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide#webpage",
+      "url": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide",
+      "name": "OpenClaw VPS & Mac Mini Setup",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "Article",
+        "BlogPosting",
+        "TechArticle"
+      ],
+      "@id": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide#webpage"
+      },
+      "headline": "OpenClaw VPS & Mac Mini Setup",
+      "description": "Master OpenClaw deployment with this 2026 guide. Learn to configure your VPS or Mac Mini, wire the Claude API, and manage 24/7 AI processes efficiently.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide",
+      "image": "https://outclaw.xyz/hero-alt.webp",
+      "datePublished": "2026-03-17",
+      "dateModified": "2026-03-17",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 2978
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "OpenClaw VPS & Mac Mini Setup",
+          "item": "https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide"
+        }
+      ]
+    }
+  ]
+}</script></head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-  <!-- NAVBAR -->
-  <nav class="navbar" id="mainNav">
-    <a href="../" class="navbar-logo">
-      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
-      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
-    </a>
-    <div class="navbar-links">
-      <a href="../about/">About</a>
-      <a href="./" class="active">Guides</a>
-      <a href="../videos/">Videos</a>
-      <a href="../tools/">Tools</a>
-      <a href="../newsletter/">Newsletter</a>
-    </div>
-    <div class="navbar-right">
-      <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
-    </div>
-    <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-  <div class="nav-drawer" id="navDrawer">
-    <a href="../about/">About</a>
-    <a href="./" class="active">Guides</a>
-    <a href="../videos/">Videos</a>
-    <a href="../tools/">Tools</a>
-    <a href="../newsletter/">Newsletter</a>
-    <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
-  </div>
-
-  <!-- TICKER -->
-  <div class="ticker" aria-hidden="true">
-    <div class="ticker-track">
-      <div class="ticker-item"><span class="hi">VPS</span><span class="ticker-sep">·</span> Ubuntu 24.04 LTS recommended</div>
-      <div class="ticker-item"><span class="hi">Mac Mini</span><span class="ticker-sep">·</span> Apple Silicon M2 / M4 supported</div>
-      <div class="ticker-item"><span class="hi">Claude API</span><span class="ticker-sep">·</span> claude-sonnet-4-6 + claude-opus-4-6</div>
-      <div class="ticker-item"><span class="hi">MCP</span><span class="ticker-sep">·</span> Model Context Protocol integration</div>
-      <div class="ticker-item"><span class="hi">Node 20+</span><span class="ticker-sep">·</span> Required runtime</div>
-      <div class="ticker-item"><span class="hi">Nginx</span><span class="ticker-sep">·</span> Reverse proxy for VPS</div>
-      <div class="ticker-item"><span class="hi">PM2</span><span class="ticker-sep">·</span> Process management & auto-restart</div>
-      <!-- duplicate for seamless loop -->
-      <div class="ticker-item"><span class="hi">VPS</span><span class="ticker-sep">·</span> Ubuntu 24.04 LTS recommended</div>
-      <div class="ticker-item"><span class="hi">Mac Mini</span><span class="ticker-sep">·</span> Apple Silicon M2 / M4 supported</div>
-      <div class="ticker-item"><span class="hi">Claude API</span><span class="ticker-sep">·</span> claude-sonnet-4-6 + claude-opus-4-6</div>
-      <div class="ticker-item"><span class="hi">MCP</span><span class="ticker-sep">·</span> Model Context Protocol integration</div>
-      <div class="ticker-item"><span class="hi">Node 20+</span><span class="ticker-sep">·</span> Required runtime</div>
-      <div class="ticker-item"><span class="hi">Nginx</span><span class="ticker-sep">·</span> Reverse proxy for VPS</div>
-      <div class="ticker-item"><span class="hi">PM2</span><span class="ticker-sep">·</span> Process management & auto-restart</div>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-shape"></div>
-    <div class="hero-inner">
-      <div class="hero-badge">
-        <div class="hero-badge-dot"></div>
+<!-- NAVBAR -->
+<nav class="navbar" id="mainNav">
+<a class="navbar-logo" href="../">
+<img alt="OutClaw AI" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<div class="navbar-wordmark">Out<em>claw</em> AI</div>
+</a>
+<div class="navbar-links">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+</div>
+<div class="navbar-right">
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+</div>
+<button aria-label="Menu" class="nav-hamburger" onclick="toggleDrawer()">
+<span></span><span></span><span></span>
+</button>
+</nav>
+<div class="nav-drawer" id="navDrawer">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+</div>
+<!-- TICKER -->
+<div aria-hidden="true" class="ticker">
+<div class="ticker-track">
+<div class="ticker-item"><span class="hi">VPS</span><span class="ticker-sep">·</span> Ubuntu 24.04 LTS recommended</div>
+<div class="ticker-item"><span class="hi">Mac Mini</span><span class="ticker-sep">·</span> Apple Silicon M2 / M4 supported</div>
+<div class="ticker-item"><span class="hi">Claude API</span><span class="ticker-sep">·</span> claude-sonnet-4-6 + claude-opus-4-6</div>
+<div class="ticker-item"><span class="hi">MCP</span><span class="ticker-sep">·</span> Model Context Protocol integration</div>
+<div class="ticker-item"><span class="hi">Node 20+</span><span class="ticker-sep">·</span> Required runtime</div>
+<div class="ticker-item"><span class="hi">Nginx</span><span class="ticker-sep">·</span> Reverse proxy for VPS</div>
+<div class="ticker-item"><span class="hi">PM2</span><span class="ticker-sep">·</span> Process management &amp; auto-restart</div>
+<!-- duplicate for seamless loop -->
+<div class="ticker-item"><span class="hi">VPS</span><span class="ticker-sep">·</span> Ubuntu 24.04 LTS recommended</div>
+<div class="ticker-item"><span class="hi">Mac Mini</span><span class="ticker-sep">·</span> Apple Silicon M2 / M4 supported</div>
+<div class="ticker-item"><span class="hi">Claude API</span><span class="ticker-sep">·</span> claude-sonnet-4-6 + claude-opus-4-6</div>
+<div class="ticker-item"><span class="hi">MCP</span><span class="ticker-sep">·</span> Model Context Protocol integration</div>
+<div class="ticker-item"><span class="hi">Node 20+</span><span class="ticker-sep">·</span> Required runtime</div>
+<div class="ticker-item"><span class="hi">Nginx</span><span class="ticker-sep">·</span> Reverse proxy for VPS</div>
+<div class="ticker-item"><span class="hi">PM2</span><span class="ticker-sep">·</span> Process management &amp; auto-restart</div>
+</div>
+</div>
+<!-- HERO -->
+<section class="hero">
+<div class="hero-shape"></div>
+<div class="hero-inner">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
         Setup Guide · March 2026
       </div>
-      <h1 class="hero-headline">OpenClaw on a <em>VPS</em><br>& Mac Mini</h1>
-      <div class="hero-meta">
-        <div class="hero-meta-item">✍️ By <a href="../about/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
-        <div class="hero-meta-dot"></div>
-        <div class="hero-meta-item">⏱ ~25 min setup</div>
-        <div class="hero-meta-dot"></div>
-        <div class="hero-meta-item">🎯 Intermediate</div>
-        <div class="hero-meta-dot"></div>
-        <div class="hero-meta-item">🐧 Ubuntu 24.04 + macOS 15</div>
-      </div>
-      <p class="hero-sub">
-        The definitive walkthrough for self-hosting OpenClaw — Outclaw's <a href="claude-sonnet-prompting-playbook" style="color:inherit;text-decoration:underline;">Claude-powered</a> content layer — on either a cloud VPS or a local Mac Mini. No hand-waving. No skipped steps. From zero to a running server with a working <a href="https://anthropic.com" target="_blank" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">Anthropic API</a> connection, persistent process management, and optional <a href="automate-content-workflow-n8n-claude" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">MCP workflow</a> integrations.
+<h1 class="hero-headline">OpenClaw on a <em>VPS</em><br/>&amp; Mac Mini</h1>
+<div class="hero-meta">
+<div class="hero-meta-item">✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">⏱ ~25 min setup</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">🎯 Intermediate</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">🐧 Ubuntu 24.04 + macOS 15</div>
+</div>
+<p class="hero-sub">
+        The definitive walkthrough for self-hosting OpenClaw — Outclaw's <a href="claude-sonnet-prompting-playbook" style="color:inherit;text-decoration:underline;">Claude-powered</a> content layer — on either a cloud VPS or a local Mac Mini. No hand-waving. No skipped steps. From zero to a running server with a working <a href="https://anthropic.com" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);" target="_blank">Anthropic API</a> connection, persistent process management, and optional <a href="automate-content-workflow-n8n-claude" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">MCP workflow</a> integrations.
       </p>
-      <div class="share-strip">
-      <span class="share-label">Share</span>
-      <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank');return false;" class="share-btn" aria-label="Share on X">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-    </div>
-    <div class="hero-tags">
-        <span class="hero-tag">Ubuntu 24.04</span>
-        <span class="hero-tag">macOS Sequoia 15</span>
-        <span class="hero-tag">Node.js 20+</span>
-        <span class="hero-tag">Claude API</span>
-        <span class="hero-tag">Nginx Reverse Proxy</span>
-        <span class="hero-tag">PM2</span>
-        <span class="hero-tag">MCP Server</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- BREADCRUMB -->
-  <div class="breadcrumb-wrap">
-
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../">OutClaw AI</a>
-      <span>›</span>
-      <a href="./">Guides</a>
-      <span>›</span>
+<div class="share-strip">
+<span class="share-label">Share</span>
+<a aria-label="Share on X" class="share-btn" href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&amp;text='+encodeURIComponent(document.title),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="Share on LinkedIn" class="share-btn" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</a>
+<a aria-label="Share on Facebook" class="share-btn" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+<div class="hero-tags">
+<span class="hero-tag">Ubuntu 24.04</span>
+<span class="hero-tag">macOS Sequoia 15</span>
+<span class="hero-tag">Node.js 20+</span>
+<span class="hero-tag">Claude API</span>
+<span class="hero-tag">Nginx Reverse Proxy</span>
+<span class="hero-tag">PM2</span>
+<span class="hero-tag">MCP Server</span>
+</div>
+</div>
+</section>
+<!-- BREADCRUMB -->
+<div class="breadcrumb-wrap">
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="../">OutClaw AI</a>
+<span>›</span>
+<a href="./">Guides</a>
+<span>›</span>
       Setting Up on a VPS &amp; Mac Mini
     </nav>
-  </div>
-
-  <!-- TABLE OF CONTENTS -->
-  <div style="background: var(--white); padding-bottom: 60px;">
-    <div class="article-wrap">
-      <div style="padding-top: 48px; margin-bottom: 12px;">
-        <div class="eyebrow">On This Page</div>
-        <h2 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--text); margin-top: 10px; margin-bottom: 20px;">Jump to any section</h2>
-      </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <a href="#what-is-openclaw" class="toc-card">
-          <div class="toc-num">01</div>
-          <div class="toc-label">What Is OpenClaw & Why Self-Host?</div>
-        </a>
-        <a href="#prerequisites" class="toc-card">
-          <div class="toc-num">02</div>
-          <div class="toc-label">Prerequisites & What You'll Need</div>
-        </a>
-        <a href="#vps-setup" class="toc-card">
-          <div class="toc-num">03</div>
-          <div class="toc-label">VPS Setup (Ubuntu 24.04)</div>
-        </a>
-        <a href="#mac-mini-setup" class="toc-card">
-          <div class="toc-num">04</div>
-          <div class="toc-label">Mac Mini Setup (macOS 15)</div>
-        </a>
-        <a href="#claude-api" class="toc-card">
-          <div class="toc-num">05</div>
-          <div class="toc-label">Connecting the Claude API</div>
-        </a>
-        <a href="#mcp-workflows" class="toc-card">
-          <div class="toc-num">06</div>
-          <div class="toc-label">MCP Workflow Integrations</div>
-        </a>
-        <a href="#process-management" class="toc-card">
-          <div class="toc-num">07</div>
-          <div class="toc-label">Process Management & Auto-Restart</div>
-        </a>
-        <a href="#troubleshooting" class="toc-card">
-          <div class="toc-num">08</div>
-          <div class="toc-label">Troubleshooting & Common Errors</div>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- MAIN ARTICLE BODY -->
-  <main>
-
-    <!-- SECTION 1: What Is OpenClaw -->
-    <div style="background: var(--bg);">
-      <div class="article-wrap">
-        <section class="guide-section" id="what-is-openclaw">
-          <div class="eyebrow">Section 01</div>
-          <h2 class="section-heading">What Is OpenClaw &amp; <em>Why Self-Host?</em></h2>
-          <p class="guide-body">
-            <strong>OpenClaw</strong> is the Claude-focused content and automation layer inside the Outclaw ecosystem. Think of it as the engine that runs Claude-powered workflows, newsletter automations, API integrations, and content pipelines — all built around the Anthropic Claude API. While you can use OpenClaw through the managed Outclaw platform, self-hosting gives you three meaningful advantages.
+</div>
+<!-- TABLE OF CONTENTS -->
+<div style="background: var(--white); padding-bottom: 60px;">
+<div class="article-wrap">
+<div style="padding-top: 48px; margin-bottom: 12px;">
+<div class="eyebrow">On This Page</div>
+<h2 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--text); margin-top: 10px; margin-bottom: 20px;">Jump to any section</h2>
+</div>
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+<a class="toc-card" href="#what-is-openclaw">
+<div class="toc-num">01</div>
+<div class="toc-label">What Is OpenClaw &amp; Why Self-Host?</div>
+</a>
+<a class="toc-card" href="#prerequisites">
+<div class="toc-num">02</div>
+<div class="toc-label">Prerequisites &amp; What You'll Need</div>
+</a>
+<a class="toc-card" href="#vps-setup">
+<div class="toc-num">03</div>
+<div class="toc-label">VPS Setup (Ubuntu 24.04)</div>
+</a>
+<a class="toc-card" href="#mac-mini-setup">
+<div class="toc-num">04</div>
+<div class="toc-label">Mac Mini Setup (macOS 15)</div>
+</a>
+<a class="toc-card" href="#claude-api">
+<div class="toc-num">05</div>
+<div class="toc-label">Connecting the Claude API</div>
+</a>
+<a class="toc-card" href="#mcp-workflows">
+<div class="toc-num">06</div>
+<div class="toc-label">MCP Workflow Integrations</div>
+</a>
+<a class="toc-card" href="#process-management">
+<div class="toc-num">07</div>
+<div class="toc-label">Process Management &amp; Auto-Restart</div>
+</a>
+<a class="toc-card" href="#troubleshooting">
+<div class="toc-num">08</div>
+<div class="toc-label">Troubleshooting &amp; Common Errors</div>
+</a>
+</div>
+</div>
+</div>
+<!-- MAIN ARTICLE BODY -->
+<main>
+<!-- SECTION 1: What Is OpenClaw -->
+<div style="background: var(--bg);">
+<div class="article-wrap">
+<section class="guide-section" id="what-is-openclaw">
+<div class="eyebrow">Section 01</div>
+<h2 class="section-heading">What Is OpenClaw &amp; <em>Why Self-Host?</em></h2>
+<p class="guide-body">
+<strong>OpenClaw</strong> is the Claude-focused content and automation layer inside the Outclaw ecosystem. Think of it as the engine that runs Claude-powered workflows, newsletter automations, API integrations, and content pipelines — all built around the Anthropic Claude API. While you can use OpenClaw through the managed Outclaw platform, self-hosting gives you three meaningful advantages.
           </p>
-
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="feature-icon">🔒</div>
-              <div class="feature-title">Full Data Control</div>
-              <div class="feature-desc">Your prompts, outputs, and workflow configs never touch a third-party server. Everything routes through your own infrastructure before hitting the Anthropic API.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">⚡</div>
-              <div class="feature-title">Zero Rate-Limit Sharing</div>
-              <div class="feature-desc">On a shared platform you share throughput with other users. Self-hosted means your Anthropic API key has the lane to itself — critical for high-volume automations.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔧</div>
-              <div class="feature-title">Custom MCP Integrations</div>
-              <div class="feature-desc">The managed platform limits which MCP servers you can wire in. Self-hosted OpenClaw lets you connect any Model Context Protocol server — Supabase, Linear, custom databases, anything.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">💸</div>
-              <div class="feature-title">Cost Transparency</div>
-              <div class="feature-desc">You pay Anthropic directly. A $5/mo VPS or an M2 Mac Mini you already own beats any subscription pricing at meaningful usage volumes.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🌐</div>
-              <div class="feature-title">Always-On Availability</div>
-              <div class="feature-desc">A properly configured VPS or local server runs 24/7, meaning scheduled automations and API webhooks don't depend on your laptop being awake.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🧪</div>
-              <div class="feature-title">Dev & Prod Environments</div>
-              <div class="feature-desc">Spin up separate dev and production instances, test new Claude models before they hit your live workflows, and roll back easily — impossible on a managed plan.</div>
-            </div>
-          </div>
-
-          <div class="callout callout-info">
-            <div class="callout-icon">ℹ️</div>
-            <div class="callout-text"><strong>VPS vs Mac Mini:</strong> Both paths produce an identical running server. The difference is operational: a VPS costs ~$5–12/month and runs in a datacenter; a Mac Mini costs nothing ongoing if you already own one and gives you local hardware for testing. This guide covers both in full. Jump to <a href="#vps-setup">Section 03</a> or <a href="#mac-mini-setup">Section 04</a> depending on your path.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 2: Prerequisites -->
-        <section class="guide-section" id="prerequisites">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 02</div>
-          <h2 class="section-heading">Prerequisites &amp; <em>What You'll Need</em></h2>
-          <p class="guide-body">
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">🔒</div>
+<div class="feature-title">Full Data Control</div>
+<div class="feature-desc">Your prompts, outputs, and workflow configs never touch a third-party server. Everything routes through your own infrastructure before hitting the Anthropic API.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">⚡</div>
+<div class="feature-title">Zero Rate-Limit Sharing</div>
+<div class="feature-desc">On a shared platform you share throughput with other users. Self-hosted means your Anthropic API key has the lane to itself — critical for high-volume automations.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔧</div>
+<div class="feature-title">Custom MCP Integrations</div>
+<div class="feature-desc">The managed platform limits which MCP servers you can wire in. Self-hosted OpenClaw lets you connect any Model Context Protocol server — Supabase, Linear, custom databases, anything.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">💸</div>
+<div class="feature-title">Cost Transparency</div>
+<div class="feature-desc">You pay Anthropic directly. A $5/mo VPS or an M2 Mac Mini you already own beats any subscription pricing at meaningful usage volumes.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🌐</div>
+<div class="feature-title">Always-On Availability</div>
+<div class="feature-desc">A properly configured VPS or local server runs 24/7, meaning scheduled automations and API webhooks don't depend on your laptop being awake.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🧪</div>
+<div class="feature-title">Dev &amp; Prod Environments</div>
+<div class="feature-desc">Spin up separate dev and production instances, test new Claude models before they hit your live workflows, and roll back easily — impossible on a managed plan.</div>
+</div>
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">ℹ️</div>
+<div class="callout-text"><strong>VPS vs Mac Mini:</strong> Both paths produce an identical running server. The difference is operational: a VPS costs ~$5–12/month and runs in a datacenter; a Mac Mini costs nothing ongoing if you already own one and gives you local hardware for testing. This guide covers both in full. Jump to <a href="#vps-setup">Section 03</a> or <a href="#mac-mini-setup">Section 04</a> depending on your path.</div>
+</div>
+</section>
+<!-- SECTION 2: Prerequisites -->
+<section class="guide-section" id="prerequisites">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 02</div>
+<h2 class="section-heading">Prerequisites &amp; <em>What You'll Need</em></h2>
+<p class="guide-body">
             Before touching a terminal, collect these. Missing any of them mid-setup is the #1 reason people stall.
           </p>
-
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Item</th>
-                <th>Details</th>
-                <th>Where to Get It</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Anthropic API Key</strong></td>
-                <td>Required for all Claude model calls. Starts with <code>sk-ant-</code></td>
-                <td><code>console.anthropic.com</code></td>
-              </tr>
-              <tr>
-                <td><strong>Node.js 20+</strong></td>
-                <td>OpenClaw's runtime. LTS release preferred.</td>
-                <td><code>nodejs.org</code> or nvm</td>
-              </tr>
-              <tr>
-                <td><strong>Git</strong></td>
-                <td>For cloning the OpenClaw repo and pulling updates.</td>
-                <td>Pre-installed on most systems</td>
-              </tr>
-              <tr>
-                <td><strong>VPS or Mac Mini</strong></td>
-                <td>2 GB RAM minimum. 4 GB recommended for parallel workflows.</td>
-                <td>DigitalOcean, Hetzner, Vultr, or local hardware</td>
-              </tr>
-              <tr>
-                <td><strong>Domain (optional)</strong></td>
-                <td>Needed only if you want HTTPS and a public URL for VPS hosting.</td>
-                <td>Namecheap, Cloudflare Registrar, etc.</td>
-              </tr>
-              <tr>
-                <td><strong>PM2</strong></td>
-                <td>Process manager for keeping OpenClaw alive. Installed via npm.</td>
-                <td><code>npm install -g pm2</code></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="callout callout-warn">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-text"><strong>API key billing:</strong> Your Anthropic API key is billed per token. OpenClaw's default config is conservative, but if you enable high-frequency automations, set a usage cap in the Anthropic console before you start. Go to <strong>console.anthropic.com → Billing → Usage limits</strong>.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 3: VPS Setup -->
-        <section class="guide-section" id="vps-setup">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 03</div>
-          <h2 class="section-heading">VPS Setup <em>(Ubuntu 24.04)</em></h2>
-          <p class="guide-body">
+<table class="spec-table">
+<thead>
+<tr>
+<th>Item</th>
+<th>Details</th>
+<th>Where to Get It</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Anthropic API Key</strong></td>
+<td>Required for all Claude model calls. Starts with <code>sk-ant-</code></td>
+<td><code>console.anthropic.com</code></td>
+</tr>
+<tr>
+<td><strong>Node.js 20+</strong></td>
+<td>OpenClaw's runtime. LTS release preferred.</td>
+<td><code>nodejs.org</code> or nvm</td>
+</tr>
+<tr>
+<td><strong>Git</strong></td>
+<td>For cloning the OpenClaw repo and pulling updates.</td>
+<td>Pre-installed on most systems</td>
+</tr>
+<tr>
+<td><strong>VPS or Mac Mini</strong></td>
+<td>2 GB RAM minimum. 4 GB recommended for parallel workflows.</td>
+<td>DigitalOcean, Hetzner, Vultr, or local hardware</td>
+</tr>
+<tr>
+<td><strong>Domain (optional)</strong></td>
+<td>Needed only if you want HTTPS and a public URL for VPS hosting.</td>
+<td>Namecheap, Cloudflare Registrar, etc.</td>
+</tr>
+<tr>
+<td><strong>PM2</strong></td>
+<td>Process manager for keeping OpenClaw alive. Installed via npm.</td>
+<td><code>npm install -g pm2</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-warn">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>API key billing:</strong> Your Anthropic API key is billed per token. OpenClaw's default config is conservative, but if you enable high-frequency automations, set a usage cap in the Anthropic console before you start. Go to <strong>console.anthropic.com → Billing → Usage limits</strong>.</div>
+</div>
+</section>
+<!-- SECTION 3: VPS Setup -->
+<section class="guide-section" id="vps-setup">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 03</div>
+<h2 class="section-heading">VPS Setup <em>(Ubuntu 24.04)</em></h2>
+<p class="guide-body">
             This section assumes you've just spun up a fresh Ubuntu 24.04 LTS droplet, Linode, or Hetzner VPS. We'll go from a bare root shell to a running OpenClaw instance with Nginx reverse proxy and SSL. Each command block is copy-paste ready.
           </p>
-
-          <div class="steps-grid">
-            <div class="step-card">
-              <div class="step-num-wrap"><div class="step-num">01</div></div>
-              <div class="step-title-text">Provision Server</div>
-              <div class="step-desc-text">Spin up Ubuntu 24.04 LTS. Choose at least 2 GB RAM. Add your SSH key during provisioning — don't use password auth.</div>
-            </div>
-            <div class="step-card">
-              <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
-              <div class="step-title-text">Harden & Update</div>
-              <div class="step-desc-text">Update packages, create a non-root user, configure UFW firewall. Running as root is a bad idea for a persistent server.</div>
-            </div>
-            <div class="step-card">
-              <div class="step-num-wrap" style="background:var(--coral-pale);"><div class="step-num" style="color:var(--coral);">03</div></div>
-              <div class="step-title-text">Install Stack & Deploy</div>
-              <div class="step-desc-text">Install Node 20, clone OpenClaw, wire the Anthropic API key, configure Nginx, and launch with PM2.</div>
-            </div>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 1 — Initial server hardening</h3>
-          <p class="guide-body">SSH into your new server as root, then run the following to update, create a deploy user, and lock down the firewall.</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash · Initial server setup</div>
-            </div>
-            <pre><span class="comment"># Update system packages</span>
-<span class="cmd">apt update</span> <span class="flag">&&</span> <span class="cmd">apt upgrade</span> <span class="flag">-y</span>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num-wrap"><div class="step-num">01</div></div>
+<div class="step-title-text">Provision Server</div>
+<div class="step-desc-text">Spin up Ubuntu 24.04 LTS. Choose at least 2 GB RAM. Add your SSH key during provisioning — don't use password auth.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
+<div class="step-title-text">Harden &amp; Update</div>
+<div class="step-desc-text">Update packages, create a non-root user, configure UFW firewall. Running as root is a bad idea for a persistent server.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--coral-pale);"><div class="step-num" style="color:var(--coral);">03</div></div>
+<div class="step-title-text">Install Stack &amp; Deploy</div>
+<div class="step-desc-text">Install Node 20, clone OpenClaw, wire the Anthropic API key, configure Nginx, and launch with PM2.</div>
+</div>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 1 — Initial server hardening</h3>
+<p class="guide-body">SSH into your new server as root, then run the following to update, create a deploy user, and lock down the firewall.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash · Initial server setup</div>
+</div>
+<pre><span class="comment"># Update system packages</span>
+<span class="cmd">apt update</span> <span class="flag">&amp;&amp;</span> <span class="cmd">apt upgrade</span> <span class="flag">-y</span>
 
 <span class="comment"># Create a non-root deploy user</span>
 <span class="cmd">adduser</span> <span class="val">deploy</span>
@@ -909,17 +959,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="comment"># Switch to the deploy user for the rest of setup</span>
 <span class="cmd">su</span> <span class="flag">-</span> <span class="val">deploy</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 2 — Install Node.js 20 via nvm</h3>
-          <p class="guide-body">Using nvm means you can switch Node versions per project and avoid <code class="inline">sudo npm</code> headaches later.</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash · Node.js via nvm</div>
-            </div>
-            <pre><span class="comment"># Install nvm</span>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 2 — Install Node.js 20 via nvm</h3>
+<p class="guide-body">Using nvm means you can switch Node versions per project and avoid <code class="inline">sudo npm</code> headaches later.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash · Node.js via nvm</div>
+</div>
+<pre><span class="comment"># Install nvm</span>
 <span class="cmd">curl</span> <span class="flag">-o-</span> https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh <span class="flag">|</span> <span class="cmd">bash</span>
 
 <span class="comment"># Reload shell to activate nvm</span>
@@ -933,16 +981,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="comment"># Verify</span>
 <span class="cmd">node</span> <span class="flag">-v</span>   <span class="comment"># should output v20.x.x</span>
 <span class="cmd">npm</span>  <span class="flag">-v</span>   <span class="comment"># should output 10.x.x</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 3 — Clone OpenClaw & install dependencies</h3>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash · Clone & install</div>
-            </div>
-            <pre><span class="comment"># Clone the OpenClaw repository</span>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 3 — Clone OpenClaw &amp; install dependencies</h3>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash · Clone &amp; install</div>
+</div>
+<pre><span class="comment"># Clone the OpenClaw repository</span>
 <span class="cmd">git clone</span> https://github.com/openclaw/openclaw.git ~/openclaw
 <span class="cmd">cd</span> ~/openclaw
 
@@ -951,17 +997,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="comment"># Copy the example environment config</span>
 <span class="cmd">cp</span> .env.example .env</pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 4 — Configure your environment variables</h3>
-          <p class="guide-body">Open <code class="inline">.env</code> with your preferred editor (<code class="inline">nano .env</code>) and fill in the required values.</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">.env · Environment config</div>
-            </div>
-            <pre><span class="comment"># ── Required ────────────────────────────────</span>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 4 — Configure your environment variables</h3>
+<p class="guide-body">Open <code class="inline">.env</code> with your preferred editor (<code class="inline">nano .env</code>) and fill in the required values.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">.env · Environment config</div>
+</div>
+<pre><span class="comment"># ── Required ────────────────────────────────</span>
 <span class="var">ANTHROPIC_API_KEY</span>=<span class="val">sk-ant-api03-YOUR_KEY_HERE</span>
 
 <span class="comment"># Claude model to use by default</span>
@@ -979,33 +1023,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="comment"># ── Production ──────────────────────────────</span>
 <span class="var">NODE_ENV</span>=<span class="val">production</span></pre>
-          </div>
-
-          <div class="callout callout-warn">
-            <div class="callout-icon">⚠️</div>
-            <div class="callout-text"><strong>Never commit your .env file.</strong> The repo's <code>.gitignore</code> already excludes it, but double-check: <code>cat .gitignore | grep .env</code>. If you see <code>.env</code> listed, you're safe.</div>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 5 — Set up Nginx as a reverse proxy</h3>
-          <p class="guide-body">Nginx sits in front of OpenClaw, handles SSL termination, and routes traffic on port 80/443 to your Node process on port 3000. Install Nginx, then create the site config.</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash · Install Nginx</div>
-            </div>
-            <pre><span class="cmd">sudo apt install</span> <span class="val">nginx</span> <span class="flag">-y</span>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>Never commit your .env file.</strong> The repo's <code>.gitignore</code> already excludes it, but double-check: <code>cat .gitignore | grep .env</code>. If you see <code>.env</code> listed, you're safe.</div>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 5 — Set up Nginx as a reverse proxy</h3>
+<p class="guide-body">Nginx sits in front of OpenClaw, handles SSL termination, and routes traffic on port 80/443 to your Node process on port 3000. Install Nginx, then create the site config.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash · Install Nginx</div>
+</div>
+<pre><span class="cmd">sudo apt install</span> <span class="val">nginx</span> <span class="flag">-y</span>
 <span class="cmd">sudo nano</span> /etc/nginx/sites-available/openclaw</pre>
-          </div>
-
-          <p class="guide-body">Paste the following into the Nginx config file. Replace <strong>your-domain.com</strong> with your actual domain (or your VPS IP if you're skipping DNS).</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">nginx · sites-available/openclaw</div>
-            </div>
-            <pre>server {
+</div>
+<p class="guide-body">Paste the following into the Nginx config file. Replace <strong>your-domain.com</strong> with your actual domain (or your VPS IP if you're skipping DNS).</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">nginx · sites-available/openclaw</div>
+</div>
+<pre>server {
     listen 80;
     server_name <span class="val">your-domain.com</span>;
 
@@ -1020,14 +1059,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         proxy_read_timeout 120s;
     }
 }</pre>
-          </div>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash · Enable site & obtain SSL cert</div>
-            </div>
-            <pre><span class="comment"># Enable the site config</span>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash · Enable site &amp; obtain SSL cert</div>
+</div>
+<pre><span class="comment"># Enable the site config</span>
 <span class="cmd">sudo ln</span> <span class="flag">-s</span> /etc/nginx/sites-available/openclaw /etc/nginx/sites-enabled/
 
 <span class="comment"># Test config syntax</span>
@@ -1039,79 +1077,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="comment"># Install Certbot for free SSL (requires DNS pointing to this IP)</span>
 <span class="cmd">sudo apt install</span> <span class="val">certbot python3-certbot-nginx</span> <span class="flag">-y</span>
 <span class="cmd">sudo certbot</span> <span class="flag">--nginx</span> <span class="flag">-d</span> <span class="val">your-domain.com</span></pre>
-          </div>
-
-          <div class="callout callout-tip">
-            <div class="callout-icon">💡</div>
-            <div class="callout-text"><strong>Skipping SSL for now?</strong> Totally fine for internal use. Just point your browser to <code>http://YOUR_VPS_IP:3000</code> after starting OpenClaw. You can add SSL later with Certbot when you're ready to go public.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 4: Mac Mini -->
-        <section class="guide-section" id="mac-mini-setup">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 04</div>
-          <h2 class="section-heading">Mac Mini Setup <em>(macOS 15)</em></h2>
-          <p class="guide-body">
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Skipping SSL for now?</strong> Totally fine for internal use. Just point your browser to <code>http://YOUR_VPS_IP:3000</code> after starting OpenClaw. You can add SSL later with Certbot when you're ready to go public.</div>
+</div>
+</section>
+<!-- SECTION 4: Mac Mini -->
+<section class="guide-section" id="mac-mini-setup">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 04</div>
+<h2 class="section-heading">Mac Mini Setup <em>(macOS 15)</em></h2>
+<p class="guide-body">
             A Mac Mini (M2 or M4) running macOS 15 Sequoia is an excellent self-hosting option — always-on, silent, power-efficient, and you've likely already got one. The setup is faster than the VPS path since macOS ships with some tools pre-installed.
           </p>
-
-          <div class="compare-grid">
-            <div class="compare-card vps">
-              <div class="compare-badge badge-vps">☁️ VPS</div>
-              <div class="compare-title">Cloud Server</div>
-              <ul class="compare-list">
-                <li>No hardware investment upfront</li>
-                <li>Publicly accessible URL by default</li>
-                <li>Easy to scale or snapshot</li>
-                <li>Runs independently of your home network</li>
-                <li class="con">$5–20/month ongoing cost</li>
-                <li class="con">Shared hardware (noisy neighbours)</li>
-              </ul>
-            </div>
-            <div class="compare-card mac">
-              <div class="compare-badge badge-mac">🖥️ Mac Mini</div>
-              <div class="compare-title">Local Hardware</div>
-              <ul class="compare-list">
-                <li>Zero ongoing cost if you already own it</li>
-                <li>Apple Silicon is fast for local inference</li>
-                <li>Full hardware control and privacy</li>
-                <li>Combine with ngrok/Cloudflare Tunnel for public access</li>
-                <li class="con">Depends on home internet uptime</li>
-                <li class="con">Needs manual IP/tunnel config for public URLs</li>
-              </ul>
-            </div>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 1 — Install Homebrew & Node.js</h3>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">zsh · macOS terminal</div>
-            </div>
-            <pre><span class="comment"># Install Homebrew if not already present</span>
+<div class="compare-grid">
+<div class="compare-card vps">
+<div class="compare-badge badge-vps">☁️ VPS</div>
+<div class="compare-title">Cloud Server</div>
+<ul class="compare-list">
+<li>No hardware investment upfront</li>
+<li>Publicly accessible URL by default</li>
+<li>Easy to scale or snapshot</li>
+<li>Runs independently of your home network</li>
+<li class="con">$5–20/month ongoing cost</li>
+<li class="con">Shared hardware (noisy neighbours)</li>
+</ul>
+</div>
+<div class="compare-card mac">
+<div class="compare-badge badge-mac">🖥️ Mac Mini</div>
+<div class="compare-title">Local Hardware</div>
+<ul class="compare-list">
+<li>Zero ongoing cost if you already own it</li>
+<li>Apple Silicon is fast for local inference</li>
+<li>Full hardware control and privacy</li>
+<li>Combine with ngrok/Cloudflare Tunnel for public access</li>
+<li class="con">Depends on home internet uptime</li>
+<li class="con">Needs manual IP/tunnel config for public URLs</li>
+</ul>
+</div>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 1 — Install Homebrew &amp; Node.js</h3>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">zsh · macOS terminal</div>
+</div>
+<pre><span class="comment"># Install Homebrew if not already present</span>
 <span class="cmd">/bin/bash</span> <span class="flag">-c</span> <span class="val">"$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span>
 
 <span class="comment"># Install Node.js 20 via Homebrew</span>
 <span class="cmd">brew install</span> <span class="val">node@20</span>
 
 <span class="comment"># Add Node 20 to your PATH (Apple Silicon path)</span>
-<span class="cmd">echo</span> <span class="val">'export PATH="/opt/homebrew/opt/node@20/bin:$PATH"'</span> >> ~/.zshrc
+<span class="cmd">echo</span> <span class="val">'export PATH="/opt/homebrew/opt/node@20/bin:$PATH"'</span> &gt;&gt; ~/.zshrc
 <span class="cmd">source</span> ~/.zshrc
 
 <span class="comment"># Verify</span>
 <span class="cmd">node</span> <span class="flag">-v</span>   <span class="comment"># v20.x.x</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 2 — Clone OpenClaw</h3>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">zsh · Clone & configure</div>
-            </div>
-            <pre><span class="comment"># Clone into your home directory</span>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 2 — Clone OpenClaw</h3>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">zsh · Clone &amp; configure</div>
+</div>
+<pre><span class="comment"># Clone into your home directory</span>
 <span class="cmd">git clone</span> https://github.com/openclaw/openclaw.git ~/openclaw
 <span class="cmd">cd</span> ~/openclaw
 
@@ -1121,37 +1152,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <span class="comment"># Create your .env file</span>
 <span class="cmd">cp</span> .env.example .env
 <span class="cmd">nano</span> .env   <span class="comment"># or open with VS Code: code .env</span></pre>
-          </div>
-
-          <p class="guide-body">Fill in <code class="inline">ANTHROPIC_API_KEY</code> and <code class="inline">PORT=3000</code> at minimum. The same env config from Section 03 applies here exactly.</p>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 3 — Allow incoming connections on macOS</h3>
-          <p class="guide-body">macOS Firewall can block OpenClaw's port. If you plan to access it from other devices on your network, open System Settings and allow the connection.</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">zsh · Allow port via macOS firewall</div>
-            </div>
-            <pre><span class="comment"># Check if the firewall is enabled</span>
+</div>
+<p class="guide-body">Fill in <code class="inline">ANTHROPIC_API_KEY</code> and <code class="inline">PORT=3000</code> at minimum. The same env config from Section 03 applies here exactly.</p>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 3 — Allow incoming connections on macOS</h3>
+<p class="guide-body">macOS Firewall can block OpenClaw's port. If you plan to access it from other devices on your network, open System Settings and allow the connection.</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">zsh · Allow port via macOS firewall</div>
+</div>
+<pre><span class="comment"># Check if the firewall is enabled</span>
 <span class="cmd">sudo /usr/libexec/ApplicationFirewall/socketfilterfw</span> <span class="flag">--getglobalstate</span>
 
 <span class="comment"># If enabled, add Node to allowed apps</span>
 <span class="cmd">sudo /usr/libexec/ApplicationFirewall/socketfilterfw</span> <span class="flag">--add</span> <span class="val">$(which node)</span>
 <span class="cmd">sudo /usr/libexec/ApplicationFirewall/socketfilterfw</span> <span class="flag">--unblockapp</span> <span class="val">$(which node)</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 4 (optional) — Public access via Cloudflare Tunnel</h3>
-          <p class="guide-body">
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Step 4 (optional) — Public access via Cloudflare Tunnel</h3>
+<p class="guide-body">
             If you want your Mac Mini OpenClaw instance accessible from outside your home network without port-forwarding your router, <strong>Cloudflare Tunnel</strong> is the cleanest solution. It's free for personal use.
           </p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">zsh · Cloudflare Tunnel setup</div>
-            </div>
-            <pre><span class="comment"># Install cloudflared</span>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">zsh · Cloudflare Tunnel setup</div>
+</div>
+<pre><span class="comment"># Install cloudflared</span>
 <span class="cmd">brew install</span> <span class="val">cloudflare/cloudflare/cloudflared</span>
 
 <span class="comment"># Authenticate (opens browser)</span>
@@ -1165,32 +1191,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="comment"># Cloudflare will give you a *.trycloudflare.com URL</span>
 <span class="comment"># Connect it to your own domain in the Cloudflare dashboard</span></pre>
-          </div>
-
-          <div class="callout callout-tip">
-            <div class="callout-icon">💡</div>
-            <div class="callout-text"><strong>Keep it simple:</strong> For a private Mac Mini setup (just you and your network), skip Cloudflare Tunnel entirely. Access OpenClaw at <code>http://mac-mini-local-ip:3000</code>. You can get your Mac Mini's local IP from <strong>System Settings → Network</strong>.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 5: Claude API -->
-        <section class="guide-section" id="claude-api">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 05</div>
-          <h2 class="section-heading">Connecting the <em>Claude API</em></h2>
-          <p class="guide-body">
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Keep it simple:</strong> For a private Mac Mini setup (just you and your network), skip Cloudflare Tunnel entirely. Access OpenClaw at <code>http://mac-mini-local-ip:3000</code>. You can get your Mac Mini's local IP from <strong>System Settings → Network</strong>.</div>
+</div>
+</section>
+<!-- SECTION 5: Claude API -->
+<section class="guide-section" id="claude-api">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 05</div>
+<h2 class="section-heading">Connecting the <em>Claude API</em></h2>
+<p class="guide-body">
             OpenClaw communicates with Anthropic's API using the <code class="inline">@anthropic-ai/sdk</code> package. If you followed Sections 03 or 04, the SDK is already installed as a dependency. This section explains how the connection works and how to verify it's healthy.
           </p>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Verify your API key works</h3>
-          <p class="guide-body">Before starting OpenClaw, run this one-liner to confirm your key is valid and the Anthropic endpoint is reachable from your server:</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash/zsh · Quick API smoke test</div>
-            </div>
-            <pre><span class="cmd">curl</span> https://api.anthropic.com/v1/messages \
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Verify your API key works</h3>
+<p class="guide-body">Before starting OpenClaw, run this one-liner to confirm your key is valid and the Anthropic endpoint is reachable from your server:</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash/zsh · Quick API smoke test</div>
+</div>
+<pre><span class="cmd">curl</span> https://api.anthropic.com/v1/messages \
   <span class="flag">-H</span> <span class="val">"x-api-key: $ANTHROPIC_API_KEY"</span> \
   <span class="flag">-H</span> <span class="val">"anthropic-version: 2023-06-01"</span> \
   <span class="flag">-H</span> <span class="val">"content-type: application/json"</span> \
@@ -1202,101 +1224,94 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <span class="comment"># Expected: {"content":[{"type":"text","text":"OK"}], ...}</span>
 <span class="comment"># If you see {"error": ...}, check your API key in .env</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Model selection in OpenClaw</h3>
-          <p class="guide-body">
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Model selection in OpenClaw</h3>
+<p class="guide-body">
             OpenClaw supports switching Claude models per workflow. The <code class="inline">CLAUDE_MODEL</code> env var sets the default, but individual workflow configs can override it. Here's the model matrix for 2026:
           </p>
-
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>Speed</th>
-                <th>Best For</th>
-                <th>.env value</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>claude-haiku-4-5</strong></td>
-                <td>Fastest</td>
-                <td>High-volume classification, summaries, routing</td>
-                <td><code>claude-haiku-4-5-20251001</code></td>
-              </tr>
-              <tr>
-                <td><strong>claude-sonnet-4-6</strong></td>
-                <td>Fast</td>
-                <td>Default workhorse — writing, analysis, code, workflows</td>
-                <td><code>claude-sonnet-4-6</code></td>
-              </tr>
-              <tr>
-                <td><strong>claude-opus-4-6</strong></td>
-                <td>Slower</td>
-                <td>Complex multi-step reasoning, long-form research tasks</td>
-                <td><code>claude-opus-4-6</code></td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="callout callout-tip">
-            <div class="callout-icon">💡</div>
-            <div class="callout-text"><strong>Cost tip:</strong> Start with <code>claude-sonnet-4-6</code> as your default. It handles 90%+ of OpenClaw workflows well. Upgrade specific workflows to Opus when you actually need deeper reasoning — don't default to Opus globally.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 6: MCP Workflows -->
-        <section class="guide-section" id="mcp-workflows">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 06</div>
-          <h2 class="section-heading">MCP Workflow <em>Integrations</em></h2>
-          <p class="guide-body">
+<table class="spec-table">
+<thead>
+<tr>
+<th>Model</th>
+<th>Speed</th>
+<th>Best For</th>
+<th>.env value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>claude-haiku-4-5</strong></td>
+<td>Fastest</td>
+<td>High-volume classification, summaries, routing</td>
+<td><code>claude-haiku-4-5-20251001</code></td>
+</tr>
+<tr>
+<td><strong>claude-sonnet-4-6</strong></td>
+<td>Fast</td>
+<td>Default workhorse — writing, analysis, code, workflows</td>
+<td><code>claude-sonnet-4-6</code></td>
+</tr>
+<tr>
+<td><strong>claude-opus-4-6</strong></td>
+<td>Slower</td>
+<td>Complex multi-step reasoning, long-form research tasks</td>
+<td><code>claude-opus-4-6</code></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Cost tip:</strong> Start with <code>claude-sonnet-4-6</code> as your default. It handles 90%+ of OpenClaw workflows well. Upgrade specific workflows to Opus when you actually need deeper reasoning — don't default to Opus globally.</div>
+</div>
+</section>
+<!-- SECTION 6: MCP Workflows -->
+<section class="guide-section" id="mcp-workflows">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 06</div>
+<h2 class="section-heading">MCP Workflow <em>Integrations</em></h2>
+<p class="guide-body">
             Model Context Protocol (MCP) lets OpenClaw connect Claude directly to external services — your database, email, calendar, CRM — giving it real-time context and write access. This is where self-hosted OpenClaw earns its keep versus a managed platform.
           </p>
-
-          <div class="feature-grid">
-            <div class="feature-card">
-              <div class="feature-icon">🗄️</div>
-              <div class="feature-title">Supabase MCP</div>
-              <div class="feature-desc">Connect Claude to your Supabase Postgres database. Query rows, insert records, and run migrations via natural language workflow prompts.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">📧</div>
-              <div class="feature-title">Gmail MCP</div>
-              <div class="feature-desc">Wire Gmail so Claude can read, draft, and send email from within OpenClaw workflows. Useful for newsletter automation and outreach pipelines.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">📅</div>
-              <div class="feature-title">Google Calendar MCP</div>
-              <div class="feature-desc">Give Claude calendar access for scheduling-aware workflows — auto-book slots, summarise week-ahead context, draft meeting prep docs.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🚀</div>
-              <div class="feature-title">Vercel MCP</div>
-              <div class="feature-desc">Trigger deployments, check build logs, and manage preview environments from OpenClaw workflows. Pair with GitHub for a full CI assistant.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">📊</div>
-              <div class="feature-title">PostHog MCP</div>
-              <div class="feature-desc">Pull product analytics into your Claude workflows. Generate insight summaries, spot anomalies, and auto-draft analysis reports on a schedule.</div>
-            </div>
-            <div class="feature-card">
-              <div class="feature-icon">🔗</div>
-              <div class="feature-title">Custom MCP Servers</div>
-              <div class="feature-desc">Build your own MCP server in Node.js and wire it to OpenClaw. Any REST API can become an MCP tool Claude can call mid-workflow.</div>
-            </div>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Configuring an MCP server in openclaw.config.js</h3>
-          <p class="guide-body">OpenClaw reads MCP server definitions from <code class="inline">openclaw.config.js</code> in the project root. Add each integration as a server object in the <code class="inline">mcp_servers</code> array:</p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">js · openclaw.config.js</div>
-            </div>
-            <pre><span class="comment">// openclaw.config.js</span>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">🗄️</div>
+<div class="feature-title">Supabase MCP</div>
+<div class="feature-desc">Connect Claude to your Supabase Postgres database. Query rows, insert records, and run migrations via natural language workflow prompts.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📧</div>
+<div class="feature-title">Gmail MCP</div>
+<div class="feature-desc">Wire Gmail so Claude can read, draft, and send email from within OpenClaw workflows. Useful for newsletter automation and outreach pipelines.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📅</div>
+<div class="feature-title">Google Calendar MCP</div>
+<div class="feature-desc">Give Claude calendar access for scheduling-aware workflows — auto-book slots, summarise week-ahead context, draft meeting prep docs.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🚀</div>
+<div class="feature-title">Vercel MCP</div>
+<div class="feature-desc">Trigger deployments, check build logs, and manage preview environments from OpenClaw workflows. Pair with GitHub for a full CI assistant.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">📊</div>
+<div class="feature-title">PostHog MCP</div>
+<div class="feature-desc">Pull product analytics into your Claude workflows. Generate insight summaries, spot anomalies, and auto-draft analysis reports on a schedule.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🔗</div>
+<div class="feature-title">Custom MCP Servers</div>
+<div class="feature-desc">Build your own MCP server in Node.js and wire it to OpenClaw. Any REST API can become an MCP tool Claude can call mid-workflow.</div>
+</div>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Configuring an MCP server in openclaw.config.js</h3>
+<p class="guide-body">OpenClaw reads MCP server definitions from <code class="inline">openclaw.config.js</code> in the project root. Add each integration as a server object in the <code class="inline">mcp_servers</code> array:</p>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">js · openclaw.config.js</div>
+</div>
+<pre><span class="comment">// openclaw.config.js</span>
 module.exports = {
   <span class="var">model</span>: process.env.CLAUDE_MODEL || <span class="val">'claude-sonnet-4-6'</span>,
   <span class="var">max_tokens</span>: <span class="val">4096</span>,
@@ -1320,29 +1335,26 @@ module.exports = {
     },
   ],
 };</pre>
-          </div>
-
-          <div class="callout callout-info">
-            <div class="callout-icon">ℹ️</div>
-            <div class="callout-text"><strong>OAuth-based MCP servers</strong> (Gmail, Google Calendar, Vercel) require a one-time OAuth authentication flow. After adding them to your config, run <code>npm run mcp:auth</code> and follow the browser prompts. Tokens are stored in <code>~/.openclaw/tokens.json</code>.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 7: Process Management -->
-        <section class="guide-section" id="process-management">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 07</div>
-          <h2 class="section-heading">Process Management <em>&amp; Auto-Restart</em></h2>
-          <p class="guide-body">
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">ℹ️</div>
+<div class="callout-text"><strong>OAuth-based MCP servers</strong> (Gmail, Google Calendar, Vercel) require a one-time OAuth authentication flow. After adding them to your config, run <code>npm run mcp:auth</code> and follow the browser prompts. Tokens are stored in <code>~/.openclaw/tokens.json</code>.</div>
+</div>
+</section>
+<!-- SECTION 7: Process Management -->
+<section class="guide-section" id="process-management">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 07</div>
+<h2 class="section-heading">Process Management <em>&amp; Auto-Restart</em></h2>
+<p class="guide-body">
             Running OpenClaw with a raw <code class="inline">node index.js</code> means it dies the moment your SSH session closes or the process crashes. <strong>PM2</strong> keeps it alive, restarts it on crash, and boots it on server reboot. This step applies identically to VPS and Mac Mini.
           </p>
-
-          <div class="code-block">
-            <div class="code-block-header">
-              <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-              <div class="code-block-label">bash/zsh · PM2 setup</div>
-            </div>
-            <pre><span class="comment"># Install PM2 globally</span>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">bash/zsh · PM2 setup</div>
+</div>
+<pre><span class="comment"># Install PM2 globally</span>
 <span class="cmd">npm install</span> <span class="flag">-g</span> <span class="val">pm2</span>
 
 <span class="comment"># Start OpenClaw with PM2 (from the openclaw directory)</span>
@@ -1358,148 +1370,175 @@ module.exports = {
 <span class="comment"># Enable startup on reboot (follow the printed command)</span>
 <span class="cmd">pm2 startup</span>
 <span class="cmd">pm2 save</span></pre>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Useful PM2 commands to bookmark</h3>
-
-          <table class="spec-table">
-            <thead>
-              <tr>
-                <th>Command</th>
-                <th>What it does</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><code>pm2 restart openclaw</code></td>
-                <td>Restart the OpenClaw process (zero-downtime in cluster mode)</td>
-              </tr>
-              <tr>
-                <td><code>pm2 stop openclaw</code></td>
-                <td>Stop the process without removing it from PM2's list</td>
-              </tr>
-              <tr>
-                <td><code>pm2 delete openclaw</code></td>
-                <td>Remove from PM2 entirely (re-run start to re-add)</td>
-              </tr>
-              <tr>
-                <td><code>pm2 logs openclaw --lines 100</code></td>
-                <td>Print the last 100 log lines</td>
-              </tr>
-              <tr>
-                <td><code>pm2 monit</code></td>
-                <td>Live terminal dashboard: CPU, memory, log stream</td>
-              </tr>
-              <tr>
-                <td><code>pm2 reload openclaw</code></td>
-                <td>Graceful reload — useful after updating .env or config</td>
-              </tr>
-            </tbody>
-          </table>
-
-          <div class="callout callout-tip">
-            <div class="callout-icon">💡</div>
-            <div class="callout-text"><strong>Deploying updates:</strong> When you pull new code (<code>git pull</code>), run <code>npm install</code> to catch any new deps, then <code>pm2 reload openclaw</code>. PM2 handles the graceful restart — no downtime.</div>
-          </div>
-        </section>
-
-        <!-- SECTION 8: Troubleshooting -->
-        <section class="guide-section" id="troubleshooting">
-          <div class="section-divider"></div>
-          <div class="eyebrow" style="margin-top: 64px;">Section 08</div>
-          <h2 class="section-heading">Troubleshooting &amp; <em>Common Errors</em></h2>
-          <p class="guide-body">
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Useful PM2 commands to bookmark</h3>
+<table class="spec-table">
+<thead>
+<tr>
+<th>Command</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pm2 restart openclaw</code></td>
+<td>Restart the OpenClaw process (zero-downtime in cluster mode)</td>
+</tr>
+<tr>
+<td><code>pm2 stop openclaw</code></td>
+<td>Stop the process without removing it from PM2's list</td>
+</tr>
+<tr>
+<td><code>pm2 delete openclaw</code></td>
+<td>Remove from PM2 entirely (re-run start to re-add)</td>
+</tr>
+<tr>
+<td><code>pm2 logs openclaw --lines 100</code></td>
+<td>Print the last 100 log lines</td>
+</tr>
+<tr>
+<td><code>pm2 monit</code></td>
+<td>Live terminal dashboard: CPU, memory, log stream</td>
+</tr>
+<tr>
+<td><code>pm2 reload openclaw</code></td>
+<td>Graceful reload — useful after updating .env or config</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>Deploying updates:</strong> When you pull new code (<code>git pull</code>), run <code>npm install</code> to catch any new deps, then <code>pm2 reload openclaw</code>. PM2 handles the graceful restart — no downtime.</div>
+</div>
+</section>
+<!-- SECTION 8: Troubleshooting -->
+<section class="guide-section" id="troubleshooting">
+<div class="section-divider"></div>
+<div class="eyebrow" style="margin-top: 64px;">Section 08</div>
+<h2 class="section-heading">Troubleshooting &amp; <em>Common Errors</em></h2>
+<p class="guide-body">
             These are the errors that trip up 80% of new installs. Before opening an issue on GitHub, check this list.
           </p>
-
-          <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
-            <div class="callout callout-warn">
-              <div class="callout-icon">🔴</div>
-              <div class="callout-text">
-                <strong>Error: Invalid API key · 401 Unauthorized</strong><br>
+<div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px;">
+<div class="callout callout-warn">
+<div class="callout-icon">🔴</div>
+<div class="callout-text">
+<strong>Error: Invalid API key · 401 Unauthorized</strong><br/>
                 Your <code>ANTHROPIC_API_KEY</code> in <code>.env</code> is wrong, expired, or has a trailing space. Open <code>.env</code>, remove any whitespace around the key value, and run the smoke test curl from Section 05. Also confirm the key is active in <code>console.anthropic.com</code>.
               </div>
-            </div>
-            <div class="callout callout-warn">
-              <div class="callout-icon">🔴</div>
-              <div class="callout-text">
-                <strong>EADDRINUSE: address already in use :::3000</strong><br>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">🔴</div>
+<div class="callout-text">
+<strong>EADDRINUSE: address already in use :::3000</strong><br/>
                 Something else is running on port 3000. Find and kill it: <code>lsof -ti:3000 | xargs kill -9</code>, then restart OpenClaw. Or change <code>PORT=3001</code> in your <code>.env</code> and update your Nginx proxy config to match.
               </div>
-            </div>
-            <div class="callout callout-warn">
-              <div class="callout-icon">🔴</div>
-              <div class="callout-text">
-                <strong>502 Bad Gateway (Nginx)</strong><br>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">🔴</div>
+<div class="callout-text">
+<strong>502 Bad Gateway (Nginx)</strong><br/>
                 Nginx is running but OpenClaw isn't. Check: <code>pm2 status</code> — is OpenClaw showing "online"? If not, check logs with <code>pm2 logs openclaw</code>. The most common cause is a missing <code>.env</code> file or a Node version mismatch.
               </div>
-            </div>
-            <div class="callout callout-warn">
-              <div class="callout-icon">🔴</div>
-              <div class="callout-text">
-                <strong>MCP connection refused / timeout</strong><br>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">🔴</div>
+<div class="callout-text">
+<strong>MCP connection refused / timeout</strong><br/>
                 OAuth token may have expired. Run <code>npm run mcp:auth</code> again for the affected server. For local MCP servers, ensure they're running (<code>pm2 status</code>) and that the URL in <code>openclaw.config.js</code> matches the actual port.
               </div>
-            </div>
-            <div class="callout callout-info">
-              <div class="callout-icon">🔵</div>
-              <div class="callout-text">
-                <strong>Mac Mini: node not found after reboot</strong><br>
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">🔵</div>
+<div class="callout-text">
+<strong>Mac Mini: node not found after reboot</strong><br/>
                 nvm-managed Node isn't in the PATH when PM2 starts at boot. Fix: use <code>which node</code> to find the absolute path, then update your PM2 startup script to use it: <code>pm2 start /opt/homebrew/opt/node@20/bin/node -- index.js --name openclaw</code>.
               </div>
-            </div>
-            <div class="callout callout-info">
-              <div class="callout-icon">🔵</div>
-              <div class="callout-text">
-                <strong>Cloudflare Tunnel drops intermittently</strong><br>
+</div>
+<div class="callout callout-info">
+<div class="callout-icon">🔵</div>
+<div class="callout-text">
+<strong>Cloudflare Tunnel drops intermittently</strong><br/>
                 Run cloudflared as a persistent service: <code>sudo cloudflared service install</code>. This registers it as a launchd daemon on macOS or systemd service on Linux so it auto-restarts on crash and survives reboots.
               </div>
-            </div>
-          </div>
-
-          <h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Still stuck?</h3>
-          <p class="guide-body">
+</div>
+</div>
+<h3 style="font-family: var(--font-display); font-size: 22px; color: var(--text); margin-bottom: 12px; font-weight: 400; margin-top: 36px;">Still stuck?</h3>
+<p class="guide-body">
             Run <code class="inline">pm2 logs openclaw --lines 200</code> and copy the last 50 lines. Paste into the <strong>#openclaw-support</strong> channel in the Outclaw community Discord, along with your OS and Node version (<code class="inline">node -v</code>). The community resolves most issues within a few hours.
           </p>
-        </section>
-
-      </div><!-- /article-wrap -->
-    </div><!-- /bg -->
-
-  </main>
-
-  <!-- BOTTOM CTA -->
-  <section class="bottom-cta">
-    <div class="bottom-cta-inner">
-      <h2 class="cta-title">Get the <em>alpha</em> in<br>your inbox.</h2>
-      <p class="cta-sub">Every Tuesday: Claude workflows, API deep-dives, and the OpenClaw updates your feed won't surface. 8 minutes. Zero filler.</p>
-      <a href="https://outclaw.xyz" class="cta-btn">
+</section>
+</div><!-- /article-wrap -->
+</div><!-- /bg -->
+</main>
+<!-- BOTTOM CTA -->
+<!-- Related Resources -->
+    <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
+      <div class="section-label">Expand Your Knowledge</div>
+      <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
+      <div class="section-divider" style="margin-bottom: 28px;"></div>
+      
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-bottom: 32px;">
+        <!-- Guides Column -->
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../guides/hermes-vps-telegram-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Hermes Agent Setup: VPS + Telegram Gateway Guide</a></li>
+            <li><a href="../guides/litellm-portkey-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching</a></li>
+            <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
+            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
+            <li><a href="../guides/agentic-video-editing-hyperframes-remotion.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Agentic Video Editing With HyperFrames and Remotion Skills</a></li>
+          </ul>
+        </div>
+        
+        <!-- Tools & Channels Column -->
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../tools/mcp-server-directory.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ MCP Server Directory</a></li>
+            <li><a href="../tools/prompt-sharpener.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ AI Prompt Sharpener</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">OutClaw Channels</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">📧 Weekly AI Newsletter &rarr;</a></li>
+              <li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎥 Video Walkthroughs &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+<!-- /Related Resources -->
+    <section class="bottom-cta">
+<div class="bottom-cta-inner">
+<h2 class="cta-title">Get the <em>alpha</em> in<br/>your inbox.</h2>
+<p class="cta-sub">Every Tuesday: Claude workflows, API deep-dives, and the OpenClaw updates your feed won't surface. 8 minutes. Zero filler.</p>
+<a class="cta-btn" href="https://outclaw.xyz">
         Subscribe to OutClaw AI →
       </a>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="../" class="footer-logo">
-      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
-      <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai"
-          target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
-    </a>
-    <div class="footer-links">
-      <a href="../about/">About</a>
-      <a href="./">Guides</a>
-      <a href="../videos/">Videos</a>
-      <a href="../tools/">Tools</a>
-      <a href="../newsletter/">Newsletter</a>
-      <a href="../privacy/">Privacy</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
-    </div>
-    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
-  </footer>
-
-  <script>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<a class="footer-logo" href="../">
+<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<div class="footer-wordmark">Out<em>claw</em> AI</div>
+<p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai" target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+</a>
+<div class="footer-links">
+<a href="../about/">About</a>
+<a href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a href="../privacy/">Privacy</a>
+<a href="mailto:zbailey83@gmail.com">Contact</a>
+</div>
+<div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+</footer>
+<script>
     function toggleDrawer() {
       const drawer = document.getElementById('navDrawer');
       drawer.classList.toggle('open');
@@ -1525,6 +1564,5 @@ module.exports = {
     }, { threshold: 0.10 });
     cards.forEach(el => { el.style.opacity = '0'; obs.observe(el); });
   </script>
-
 </body>
 </html>

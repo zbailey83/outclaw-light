@@ -1,90 +1,48 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
-  <script>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-JHMN90H7MC"></script>
+<script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-JHMN90H7MC');
   </script>
-  <!-- Google Tag Manager -->
+<!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
 <!-- End Google Tag Manager -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GPT-5.4 1M Context Guide | OutClaw AI</title>
-  <meta name="description" content="Learn when to use GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when processing massive datasets with AI.">
-  <link rel="canonical" href="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
-  
-  <!-- Schema.org Markup -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "headline": "GPT-5.4 with 1M context: what actually works and what falls apart",
-    "description": "A practical guide to using large context windows effectively. Learn what tasks justify 1M tokens, what failure modes to watch for, and how to prompt at scale.",
-    "image": "https://outclaw.xyz/hero-alt.webp",
-    "author": {
-      "@type": "Person",
-      "name": "Zach Bailey",
-      "url": "https://outclaw.xyz/about/"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "OutClaw AI",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
-      }
-    },
-    "datePublished": "2026-03-01",
-    "dateModified": "2026-04-17"
-  }
-  </script>
-  <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#5AADDB">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GPT-5.4 1M Context Guide | OutClaw AI</title>
+<meta content="Learn when to use GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when processing massive datasets with AI." name="description"/>
+<link href="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide" rel="canonical"/>
+<!-- Schema.org Markup -->
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
-  <meta property="og:title" content="GPT-5.4 1M Context Practical Guide | OutClaw AI">
-  <meta property="og:description" content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents.">
-  <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<!-- Open Graph / Facebook -->
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide" property="og:url"/>
+<meta content="GPT-5.4 1M Context Practical Guide | OutClaw AI" property="og:title"/>
+<meta content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents." property="og:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide" property="twitter:url"/>
+<meta content="GPT-5.4 1M Context Practical Guide | OutClaw AI" property="twitter:title"/>
+<meta content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents." property="twitter:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide">
-  <meta property="twitter:title" content="GPT-5.4 1M Context Practical Guide | OutClaw AI">
-  <meta property="twitter:description" content="Master 1M+ context windows with GPT-5.4. Learn needle-in-a-haystack limits, context packing strategies, and how to build full-repo analysis agents.">
-  <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "OpenAI GPT-5.4 with 1M Context: The Practical Use Cases That Actually Work",
-    "description": "A no-hype breakdown of GPT-5.4's 1 million token context window — which use cases it genuinely unlocks, where it degrades, and how to prompt at scale.",
-    "author": { "@type": "Organization", "name": "OutClaw AI", "url": "https://outclaw.xyz" },
-    "publisher": { "@type": "Organization", "name": "OutClaw AI" },
-    "datePublished": "2026-03-17",
-    "dateModified": "2026-03-17",
-    "url": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html",
-    "inLanguage": "en-US",
-    "keywords": ["GPT-5.4", "1M context window", "large context LLM", "long context prompting", "OpenAI", "practical AI guide"]
-  }
-  </script>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-
-  <style>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --sky: #5AADDB;
       --sky-light: #B8DFF0;
@@ -455,486 +413,556 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       }
     }
   </style>
-
-  <!-- SHARE STRIP STYLE -->
-  <style>
+<!-- SHARE STRIP STYLE -->
+<style>
     .share-strip { display: flex; align-items: center; gap: 12px; margin: 24px 0; justify-content: flex-start; }
     .share-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; color: var(--text-dim); }
     .share-btn { width: 34px; height: 34px; border-radius: 10px; display: flex; align-items: center; justify-content: center; background: #fff; border: 1.5px solid var(--border); color: var(--text-soft); text-decoration: none; transition: all .2s cubic-bezier(.34,1.56,.64,1); cursor: pointer; }
     .share-btn:hover { border-color: var(--sky); color: var(--sky); transform: translateY(-3px); box-shadow: 0 4px 12px rgba(90, 173, 219, .15); }
     .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
   </style>
-</head>
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide#webpage",
+      "url": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide",
+      "name": "GPT-5.4 1M Context Guide",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "Article",
+        "BlogPosting",
+        "TechArticle"
+      ],
+      "@id": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide#webpage"
+      },
+      "headline": "GPT-5.4 1M Context Guide",
+      "description": "Learn when to use GPT-5.4's 1M context, what falls apart at scale, and how to prompt for coherent output when processing massive datasets with AI.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide",
+      "image": "https://outclaw.xyz/hero-alt.webp",
+      "datePublished": "2026-03-01",
+      "dateModified": "2026-04-17",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 2958
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "GPT-5.4 1M Context Guide",
+          "item": "https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide"
+        }
+      ]
+    }
+  ]
+}</script></head>
 <body>
-  <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" style="display:none;visibility:hidden" width="0"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
 <div id="reading-progress"></div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
-
+<button aria-label="Back to top" id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 <!-- NAVBAR -->
 <nav class="navbar" id="mainNav">
-  <a href="../" class="navbar-logo">
-    <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
-    <div class="navbar-wordmark">Out<em>claw</em> AI</div>
-  </a>
-  <div class="navbar-links">
-    <a href="../about/">About</a>
-    <a href="./" class="active">Guides</a>
-    <a href="../videos/">Videos</a>
-    <a href="../tools/">Tools</a>
-    <a href="../newsletter/">Newsletter</a>
-  </div>
-  <div class="navbar-right">
-    <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
-  </div>
-  <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+<a class="navbar-logo" href="../">
+<img alt="OutClaw AI" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<div class="navbar-wordmark">Out<em>claw</em> AI</div>
+</a>
+<div class="navbar-links">
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+</div>
+<div class="navbar-right">
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+</div>
+<button aria-label="Menu" class="nav-hamburger" onclick="toggleDrawer()">
+<span></span><span></span><span></span>
+</button>
 </nav>
 <div class="nav-drawer" id="navDrawer">
-  <a href="../about/">About</a>
-  <a href="./" class="active">Guides</a>
-  <a href="../videos/">Videos</a>
-  <a href="../tools/">Tools</a>
-  <a href="../newsletter/">Newsletter</a>
-  <a href="../newsletter/" class="nav-cta">Subscribe Free →</a>
+<a href="../about/">About</a>
+<a class="active" href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
 </div>
-
 <!-- TICKER -->
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <div class="ticker-item"><span class="hi">GPT-5.4</span><span class="ticker-sep">·</span> 1,000,000 token context window</div>
-    <div class="ticker-item"><span class="hi">75% on OSWorld-V</span><span class="ticker-sep">·</span> vs 72.4% human baseline</div>
-    <div class="ticker-item"><span class="hi">Lost-in-the-middle</span><span class="ticker-sep">·</span> still real above 500K tokens</div>
-    <div class="ticker-item"><span class="hi">Best use case</span><span class="ticker-sep">·</span> codebase-wide refactors</div>
-    <div class="ticker-item"><span class="hi">Worst use case</span><span class="ticker-sep">·</span> summarise 200 emails at once</div>
-    <div class="ticker-item"><span class="hi">Cost warning</span><span class="ticker-sep">·</span> 1M tokens ≠ cheap per call</div>
-    <div class="ticker-item"><span class="hi">Anchor + recall</span><span class="ticker-sep">·</span> the prompting pattern that works</div>
-    <div class="ticker-item"><span class="hi">GPT-5.4</span><span class="ticker-sep">·</span> 1,000,000 token context window</div>
-    <div class="ticker-item"><span class="hi">75% on OSWorld-V</span><span class="ticker-sep">·</span> vs 72.4% human baseline</div>
-    <div class="ticker-item"><span class="hi">Lost-in-the-middle</span><span class="ticker-sep">·</span> still real above 500K tokens</div>
-    <div class="ticker-item"><span class="hi">Best use case</span><span class="ticker-sep">·</span> codebase-wide refactors</div>
-    <div class="ticker-item"><span class="hi">Worst use case</span><span class="ticker-sep">·</span> summarise 200 emails at once</div>
-    <div class="ticker-item"><span class="hi">Cost warning</span><span class="ticker-sep">·</span> 1M tokens ≠ cheap per call</div>
-    <div class="ticker-item"><span class="hi">Anchor + recall</span><span class="ticker-sep">·</span> the prompting pattern that works</div>
-  </div>
+<div aria-hidden="true" class="ticker">
+<div class="ticker-track">
+<div class="ticker-item"><span class="hi">GPT-5.4</span><span class="ticker-sep">·</span> 1,000,000 token context window</div>
+<div class="ticker-item"><span class="hi">75% on OSWorld-V</span><span class="ticker-sep">·</span> vs 72.4% human baseline</div>
+<div class="ticker-item"><span class="hi">Lost-in-the-middle</span><span class="ticker-sep">·</span> still real above 500K tokens</div>
+<div class="ticker-item"><span class="hi">Best use case</span><span class="ticker-sep">·</span> codebase-wide refactors</div>
+<div class="ticker-item"><span class="hi">Worst use case</span><span class="ticker-sep">·</span> summarise 200 emails at once</div>
+<div class="ticker-item"><span class="hi">Cost warning</span><span class="ticker-sep">·</span> 1M tokens ≠ cheap per call</div>
+<div class="ticker-item"><span class="hi">Anchor + recall</span><span class="ticker-sep">·</span> the prompting pattern that works</div>
+<div class="ticker-item"><span class="hi">GPT-5.4</span><span class="ticker-sep">·</span> 1,000,000 token context window</div>
+<div class="ticker-item"><span class="hi">75% on OSWorld-V</span><span class="ticker-sep">·</span> vs 72.4% human baseline</div>
+<div class="ticker-item"><span class="hi">Lost-in-the-middle</span><span class="ticker-sep">·</span> still real above 500K tokens</div>
+<div class="ticker-item"><span class="hi">Best use case</span><span class="ticker-sep">·</span> codebase-wide refactors</div>
+<div class="ticker-item"><span class="hi">Worst use case</span><span class="ticker-sep">·</span> summarise 200 emails at once</div>
+<div class="ticker-item"><span class="hi">Cost warning</span><span class="ticker-sep">·</span> 1M tokens ≠ cheap per call</div>
+<div class="ticker-item"><span class="hi">Anchor + recall</span><span class="ticker-sep">·</span> the prompting pattern that works</div>
 </div>
-
+</div>
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-shape"></div>
-  <div class="hero-shape-2"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">
-      <div class="hero-badge-dot"></div>
+<div class="hero-shape"></div>
+<div class="hero-shape-2"></div>
+<div class="hero-inner">
+<div class="hero-badge">
+<div class="hero-badge-dot"></div>
       Model Analysis · March 2026
     </div>
-    <h1 class="hero-headline">GPT-5.4 with 1M context:<br>what <em>actually works</em><br>and what <span class="fl">falls apart</span></h1>
-    <div class="hero-meta">
-      <div class="hero-meta-item">✍️ By <a href="../about/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">⏱ 18 min read</div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">📊 Intermediate – Advanced</div>
-      <div class="hero-meta-dot"></div>
-      <div class="hero-meta-item">🔬 OpenAI GPT-5.4</div>
-    </div>
-    <p class="hero-sub">
-      Large context windows sound impressive. Here's exactly what tasks justify using them, what falls apart at scale, and how to prompt for coherent output when you're feeding <a href="https://openai.com" target="_blank" style="color:inherit;text-decoration:underline;">GPT-5.4</a> a novel's worth of data.
+<h1 class="hero-headline">GPT-5.4 with 1M context:<br/>what <em>actually works</em><br/>and what <span class="fl">falls apart</span></h1>
+<div class="hero-meta">
+<div class="hero-meta-item">✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">⏱ 18 min read</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">📊 Intermediate – Advanced</div>
+<div class="hero-meta-dot"></div>
+<div class="hero-meta-item">🔬 OpenAI GPT-5.4</div>
+</div>
+<p class="hero-sub">
+      Large context windows sound impressive. Here's exactly what tasks justify using them, what falls apart at scale, and how to prompt for coherent output when you're feeding <a href="https://openai.com" style="color:inherit;text-decoration:underline;" target="_blank">GPT-5.4</a> a novel's worth of data.
     </p>
-    <div class="share-strip">
-      <span class="share-label">Share</span>
-      <a href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&text='+encodeURIComponent(document.title),'_blank');return false;" class="share-btn" aria-label="Share on X">
-        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on LinkedIn">
-        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-      </a>
-      <a href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;" class="share-btn" aria-label="Share on Facebook">
-        <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
-      </a>
-    </div>
-    <div class="hero-tags">
-      <span class="hero-tag">Context Window</span>
-      <span class="hero-tag">Lost-in-the-Middle</span>
-      <span class="hero-tag">Use Case Analysis</span>
-      <span class="hero-tag">Prompting at Scale</span>
-      <span class="hero-tag">Cost Breakdown</span>
-      <span class="hero-tag">GPT-5.4 vs Claude</span>
-    </div>
-  </div>
+<div class="share-strip">
+<span class="share-label">Share</span>
+<a aria-label="Share on X" class="share-btn" href="#" onclick="window.open('https://twitter.com/intent/tweet?url='+encodeURIComponent(window.location.href)+'&amp;text='+encodeURIComponent(document.title),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+</a>
+<a aria-label="Share on LinkedIn" class="share-btn" href="#" onclick="window.open('https://www.linkedin.com/sharing/share-offsite/?url='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"></path></svg>
+</a>
+<a aria-label="Share on Facebook" class="share-btn" href="#" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(window.location.href),'_blank');return false;">
+<svg viewbox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"></path></svg>
+</a>
+</div>
+<div class="hero-tags">
+<span class="hero-tag">Context Window</span>
+<span class="hero-tag">Lost-in-the-Middle</span>
+<span class="hero-tag">Use Case Analysis</span>
+<span class="hero-tag">Prompting at Scale</span>
+<span class="hero-tag">Cost Breakdown</span>
+<span class="hero-tag">GPT-5.4 vs Claude</span>
+</div>
+</div>
 </section>
-
 <!-- STATS STRIP -->
 <div class="build-strip">
-  <div class="build-strip-inner">
-    <div class="build-item">
-      <div class="build-num">1M</div>
-      <div class="build-label">Token Context</div>
-      <div class="build-desc">~750,000 words — a War and Peace and a half</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">500K</div>
-      <div class="build-label">Reliable Ceiling</div>
-      <div class="build-desc">Attention degrades measurably above this threshold</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">4</div>
-      <div class="build-label">Prompting Patterns</div>
-      <div class="build-desc">That measurably reduce coherence loss at scale</div>
-    </div>
-    <div class="build-item">
-      <div class="build-num">~$3</div>
-      <div class="build-label">Per 1M-Token Call</div>
-      <div class="build-desc">Input cost. Run the numbers before scaling.</div>
-    </div>
-  </div>
+<div class="build-strip-inner">
+<div class="build-item">
+<div class="build-num">1M</div>
+<div class="build-label">Token Context</div>
+<div class="build-desc">~750,000 words — a War and Peace and a half</div>
 </div>
-
+<div class="build-item">
+<div class="build-num">500K</div>
+<div class="build-label">Reliable Ceiling</div>
+<div class="build-desc">Attention degrades measurably above this threshold</div>
+</div>
+<div class="build-item">
+<div class="build-num">4</div>
+<div class="build-label">Prompting Patterns</div>
+<div class="build-desc">That measurably reduce coherence loss at scale</div>
+</div>
+<div class="build-item">
+<div class="build-num">~$3</div>
+<div class="build-label">Per 1M-Token Call</div>
+<div class="build-desc">Input cost. Run the numbers before scaling.</div>
+</div>
+</div>
+</div>
 <!-- BREADCRUMB -->
 <div class="breadcrumb-wrap">
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <a href="../">OutClaw AI</a><span>›</span>
-    <a href="./">Guides</a><span>›</span>
+<nav aria-label="Breadcrumb" class="breadcrumb">
+<a href="../">OutClaw AI</a><span>›</span>
+<a href="./">Guides</a><span>›</span>
     GPT-5.4 1M Context — Practical Use Cases
   </nav>
 </div>
-
 <!-- TOC -->
 <div class="toc-section">
-  <div class="article-wrap">
-    <div class="eyebrow">On This Page</div>
-    <h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
-    <div class="toc-grid">
-      <a href="#why-context-matters" class="toc-card"><div class="toc-num">01</div><div class="toc-label">Why Context Size Actually Matters</div></a>
-      <a href="#failure-modes" class="toc-card"><div class="toc-num">02</div><div class="toc-label">The Failure Modes Nobody Talks About</div></a>
-      <a href="#use-cases-work" class="toc-card"><div class="toc-num">03</div><div class="toc-label">Use Cases That Genuinely Work</div></a>
-      <a href="#use-cases-fail" class="toc-card"><div class="toc-num">04</div><div class="toc-label">Use Cases That Fall Apart</div></a>
-      <a href="#cost-reality" class="toc-card"><div class="toc-num">05</div><div class="toc-label">The Cost Reality Check</div></a>
-      <a href="#prompting-patterns" class="toc-card"><div class="toc-num">06</div><div class="toc-label">Prompting Patterns for Coherent Output at Scale</div></a>
-      <a href="#vs-claude" class="toc-card"><div class="toc-num">07</div><div class="toc-label">GPT-5.4 vs Claude for Long Context Work</div></a>
-      <a href="#verdict" class="toc-card"><div class="toc-num">08</div><div class="toc-label">The Verdict — When to Reach for 1M</div></a>
-    </div>
-  </div>
+<div class="article-wrap">
+<div class="eyebrow">On This Page</div>
+<h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
+<div class="toc-grid">
+<a class="toc-card" href="#why-context-matters"><div class="toc-num">01</div><div class="toc-label">Why Context Size Actually Matters</div></a>
+<a class="toc-card" href="#failure-modes"><div class="toc-num">02</div><div class="toc-label">The Failure Modes Nobody Talks About</div></a>
+<a class="toc-card" href="#use-cases-work"><div class="toc-num">03</div><div class="toc-label">Use Cases That Genuinely Work</div></a>
+<a class="toc-card" href="#use-cases-fail"><div class="toc-num">04</div><div class="toc-label">Use Cases That Fall Apart</div></a>
+<a class="toc-card" href="#cost-reality"><div class="toc-num">05</div><div class="toc-label">The Cost Reality Check</div></a>
+<a class="toc-card" href="#prompting-patterns"><div class="toc-num">06</div><div class="toc-label">Prompting Patterns for Coherent Output at Scale</div></a>
+<a class="toc-card" href="#vs-claude"><div class="toc-num">07</div><div class="toc-label">GPT-5.4 vs Claude for Long Context Work</div></a>
+<a class="toc-card" href="#verdict"><div class="toc-num">08</div><div class="toc-label">The Verdict — When to Reach for 1M</div></a>
 </div>
-
+</div>
+</div>
 <!-- MAIN CONTENT -->
 <main style="background:var(--bg);">
 <div class="article-wrap">
-
 <!-- ═══ SECTION 01 ═══ -->
 <section class="guide-section" id="why-context-matters">
-  <div class="eyebrow">Section 01</div>
-  <h2 class="section-heading">Why Context Size <em>Actually Matters</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 01</div>
+<h2 class="section-heading">Why Context Size <em>Actually Matters</em></h2>
+<p class="guide-body">
     Before GPT-5.4, working with large documents meant one of three workarounds: chunking (splitting the document and summarising each piece), retrieval-augmented generation (embedding + semantic search), or truncation and hoping the critical context made it into the window. Each workaround introduces error. Chunking loses cross-chunk references. RAG misses context that doesn't match the retrieval query. Truncation is just truncation.
   </p>
-  <p class="guide-body">
+<p class="guide-body">
     A 1M token context window changes the calculus on one specific question: <strong>does the answer to this task depend on having access to the entire document simultaneously?</strong> If yes — if the answer in paragraph 3 depends on something buried in paragraph 847 — then a large context window isn't a nice-to-have. It's the only way to get the right answer without engineering around the limitation. Compare this to our <a href="../tools/model-comparison" style="color:inherit;text-decoration:underline;text-decoration-color:var(--sky);">model comparison tool</a> to see how this stacks up against Claude.
   </p>
-
-  <div class="callout callout-info">
-    <div class="callout-icon">📐</div>
-    <div class="callout-text"><strong>What 1 million tokens actually looks like:</strong> roughly 750,000 words. That's a 3,000-page book, a mid-sized codebase at ~80K lines, about 2,500 average-length emails, or 40 hours of meeting transcripts. When the context bar is at 100%, you're working with material a human would need 3–4 days to read cover-to-cover.</div>
-  </div>
-
-  <div class="feature-grid">
-    <div class="feature-card">
-      <div class="feature-icon">🔗</div>
-      <div class="feature-title">Cross-Document Reasoning</div>
-      <div class="feature-desc">The unlock is asking questions that span the whole document without preprocessing. A single clause in document 40 can contradict a term in document 3 — whole-context view catches this; chunking doesn't.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🗂️</div>
-      <div class="feature-title">No Chunking Artifacts</div>
-      <div class="feature-desc">Chunked summaries lose the relationships between sections. Two summaries that seem independent often share a thread only visible when reading both in full. Large context eliminates this blind spot entirely.</div>
-    </div>
-    <div class="feature-card">
-      <div class="feature-icon">🎯</div>
-      <div class="feature-title">RAG Can't Replace It</div>
-      <div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis (like setting up <a href="openclaw-vps-mac-mini-setup-guide" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">OpenClaw</a>) or legal discovery, the unknown unknowns are often the most important findings.</div>
-    </div>
-  </div>
+<div class="callout callout-info">
+<div class="callout-icon">📐</div>
+<div class="callout-text"><strong>What 1 million tokens actually looks like:</strong> roughly 750,000 words. That's a 3,000-page book, a mid-sized codebase at ~80K lines, about 2,500 average-length emails, or 40 hours of meeting transcripts. When the context bar is at 100%, you're working with material a human would need 3–4 days to read cover-to-cover.</div>
+</div>
+<div class="feature-grid">
+<div class="feature-card">
+<div class="feature-icon">🔗</div>
+<div class="feature-title">Cross-Document Reasoning</div>
+<div class="feature-desc">The unlock is asking questions that span the whole document without preprocessing. A single clause in document 40 can contradict a term in document 3 — whole-context view catches this; chunking doesn't.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🗂️</div>
+<div class="feature-title">No Chunking Artifacts</div>
+<div class="feature-desc">Chunked summaries lose the relationships between sections. Two summaries that seem independent often share a thread only visible when reading both in full. Large context eliminates this blind spot entirely.</div>
+</div>
+<div class="feature-card">
+<div class="feature-icon">🎯</div>
+<div class="feature-title">RAG Can't Replace It</div>
+<div class="feature-desc">RAG retrieves what you know to ask for. Large context gives you what you didn't know was relevant. For codebase analysis (like setting up <a href="openclaw-vps-mac-mini-setup-guide" style="color:inherit;text-decoration:underline;text-decoration-color:var(--flamingo);">OpenClaw</a>) or legal discovery, the unknown unknowns are often the most important findings.</div>
+</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 02 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="failure-modes">
-  <div class="eyebrow eyebrow-rose">Section 02</div>
-  <h2 class="section-heading">The Failure Modes <span class="rs">Nobody Talks About</span></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-rose">Section 02</div>
+<h2 class="section-heading">The Failure Modes <span class="rs">Nobody Talks About</span></h2>
+<p class="guide-body">
     Every GPT-5.4 launch post covered what the 1M context window enables. Almost none covered where it breaks. Here are the three failure modes you will hit in production if you don't account for them upfront.
   </p>
-
-  <div class="degrade-chart">
-    <div class="degrade-title">Attention quality by context fill level</div>
-    <div class="degrade-subtitle">GPT-5.4 · ability to correctly retrieve and reason about content from the middle of context</div>
-    <div class="degrade-row">
-      <div class="degrade-label">0 – 200K tokens</div>
-      <div class="degrade-bar-wrap"><div class="degrade-bar bar-green" data-w="92%"></div></div>
-      <div class="degrade-verdict v-strong">Strong</div>
-    </div>
-    <div class="degrade-row">
-      <div class="degrade-label">200K – 500K tokens</div>
-      <div class="degrade-bar-wrap"><div class="degrade-bar bar-amber" data-w="74%"></div></div>
-      <div class="degrade-verdict v-mixed">Mixed</div>
-    </div>
-    <div class="degrade-row">
-      <div class="degrade-label">500K – 800K tokens</div>
-      <div class="degrade-bar-wrap"><div class="degrade-bar bar-amber" data-w="54%"></div></div>
-      <div class="degrade-verdict v-mixed">Degrades</div>
-    </div>
-    <div class="degrade-row">
-      <div class="degrade-label">800K – 1M tokens</div>
-      <div class="degrade-bar-wrap"><div class="degrade-bar bar-red" data-w="35%"></div></div>
-      <div class="degrade-verdict v-weak">Weak</div>
-    </div>
-  </div>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">01</div></div>
-      <div class="step-title-text">Lost-in-the-Middle</div>
-      <div class="step-desc-text">Transformer attention is stronger at the start and end of the context than the middle. At 1M tokens the "middle" is hundreds of thousands of tokens wide. Miss rates of 20–35% on multi-hop retrieval are measurable above 500K tokens — and this is <strong>not fixed by GPT-5.4</strong>.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">02</div></div>
-      <div class="step-title-text">Coherence Drift in Output</div>
-      <div class="step-desc-text">When you feed 500K tokens and ask for a comprehensive synthesis, output coherence degrades past ~4,000 generated tokens. Early sections contradict late sections. Points get re-introduced as new observations. The model forgets what it wrote 3,000 tokens ago in its own output.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">03</div></div>
-      <div class="step-title-text">Confident Hallucination</div>
-      <div class="step-desc-text">At 800K–1M token fill, hallucination rates on single-mention facts increase. The model is more likely to confabulate plausible names, numbers, and dates than to admit it can't find the information. The "I couldn't find this" response disappears at high fill.</div>
-    </div>
-  </div>
-
-  <div class="callout callout-danger">
-    <div class="callout-icon">🔴</div>
-    <div class="callout-text"><strong>The dangerous pattern:</strong> GPT-5.4 gives you a confident, well-written answer that misses content from the middle of the context — without flagging that anything was missed. The output looks right. You don't catch the error unless you verify manually. For contract review, compliance analysis, or audit trails — explicitly verify documents positioned in the 400K–800K token range.</div>
-  </div>
+<div class="degrade-chart">
+<div class="degrade-title">Attention quality by context fill level</div>
+<div class="degrade-subtitle">GPT-5.4 · ability to correctly retrieve and reason about content from the middle of context</div>
+<div class="degrade-row">
+<div class="degrade-label">0 – 200K tokens</div>
+<div class="degrade-bar-wrap"><div class="degrade-bar bar-green" data-w="92%"></div></div>
+<div class="degrade-verdict v-strong">Strong</div>
+</div>
+<div class="degrade-row">
+<div class="degrade-label">200K – 500K tokens</div>
+<div class="degrade-bar-wrap"><div class="degrade-bar bar-amber" data-w="74%"></div></div>
+<div class="degrade-verdict v-mixed">Mixed</div>
+</div>
+<div class="degrade-row">
+<div class="degrade-label">500K – 800K tokens</div>
+<div class="degrade-bar-wrap"><div class="degrade-bar bar-amber" data-w="54%"></div></div>
+<div class="degrade-verdict v-mixed">Degrades</div>
+</div>
+<div class="degrade-row">
+<div class="degrade-label">800K – 1M tokens</div>
+<div class="degrade-bar-wrap"><div class="degrade-bar bar-red" data-w="35%"></div></div>
+<div class="degrade-verdict v-weak">Weak</div>
+</div>
+</div>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">01</div></div>
+<div class="step-title-text">Lost-in-the-Middle</div>
+<div class="step-desc-text">Transformer attention is stronger at the start and end of the context than the middle. At 1M tokens the "middle" is hundreds of thousands of tokens wide. Miss rates of 20–35% on multi-hop retrieval are measurable above 500K tokens — and this is <strong>not fixed by GPT-5.4</strong>.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">02</div></div>
+<div class="step-title-text">Coherence Drift in Output</div>
+<div class="step-desc-text">When you feed 500K tokens and ask for a comprehensive synthesis, output coherence degrades past ~4,000 generated tokens. Early sections contradict late sections. Points get re-introduced as new observations. The model forgets what it wrote 3,000 tokens ago in its own output.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--rose-pale);"><div class="step-num" style="color:var(--rose);">03</div></div>
+<div class="step-title-text">Confident Hallucination</div>
+<div class="step-desc-text">At 800K–1M token fill, hallucination rates on single-mention facts increase. The model is more likely to confabulate plausible names, numbers, and dates than to admit it can't find the information. The "I couldn't find this" response disappears at high fill.</div>
+</div>
+</div>
+<div class="callout callout-danger">
+<div class="callout-icon">🔴</div>
+<div class="callout-text"><strong>The dangerous pattern:</strong> GPT-5.4 gives you a confident, well-written answer that misses content from the middle of the context — without flagging that anything was missed. The output looks right. You don't catch the error unless you verify manually. For contract review, compliance analysis, or audit trails — explicitly verify documents positioned in the 400K–800K token range.</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 03 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="use-cases-work">
-  <div class="eyebrow eyebrow-leaf">Section 03</div>
-  <h2 class="section-heading">Use Cases That <em>Genuinely Work</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-leaf">Section 03</div>
+<h2 class="section-heading">Use Cases That <em>Genuinely Work</em></h2>
+<p class="guide-body">
     The 1M context window earns its keep on tasks where the answer requires holistic awareness of the entire document, where chunking produces materially worse results, and where context fill stays below the 500K degradation threshold.
   </p>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--leaf-pale);">💻</div>
-      <div class="node-config-title">Codebase-Wide Refactoring &amp; Architecture Review</div>
-      <span class="node-config-tag tag-works">✓ Works Well</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Why it works</div>
-        <div class="node-field-value">Dependencies span the whole codebase. Chunking misses cross-file references. RAG doesn't retrieve code you didn't know to ask for. Holistic view is structurally required to find circular dependencies, dead code, and cross-cutting concerns.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Ideal usage</div>
-        <div class="node-field-value">Load an entire mid-sized codebase (50–100K lines, ~200K–400K tokens). Ask GPT-5.4 to identify cross-cutting concerns, circular dependencies, dead code, inconsistent naming patterns, or propose an architectural refactor.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Context fill guidance</div>
-        <div class="node-field-value">Keep under 400K tokens for best results. Exclude test files, lock files, and generated code first to stay in the reliable attention zone.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--leaf-pale);">⚖️</div>
-      <div class="node-config-title">Multi-Party Contract &amp; Legal Document Analysis</div>
-      <span class="node-config-tag tag-works">✓ Works Well</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Why it works</div>
-        <div class="node-field-value">Legal risk is often in the interaction between documents, not any single document. A clause in the base agreement can be silently overridden by an amendment — only visible when holding both simultaneously.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Ideal usage</div>
-        <div class="node-field-value">Load a full contract bundle — master agreement, SOW, amendments, exhibits. Ask GPT-5.4 to find inconsistencies, missing standard clauses, cross-reference conflicts, or produce a risk matrix.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Critical caveat</div>
-        <div class="node-field-value">Verify findings against documents positioned past 400K tokens manually. Do not use as sole review for high-stakes contracts without independent verification.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--sky-pale);">📚</div>
-      <div class="node-config-title">Long-Form Research Synthesis (Academic / Market)</div>
-      <span class="node-config-tag tag-works">✓ Works Well</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Why it works</div>
-        <div class="node-field-value">RAG misses connections not in the top-k results. The full context enables genuine cross-paper reasoning — areas of consensus, methodological disagreements, and open questions that span multiple papers.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">Ideal context fill &amp; prompting</div>
-        <div class="node-field-value">300K–600K tokens. 20–40 papers typically lands in this range. Ask for synthesis by theme, not by paper — prevents the model defaulting to per-paper summaries.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--amber-pale);">📋</div>
-      <div class="node-config-title">Book / Manuscript Structural Editing</div>
-      <span class="node-config-tag tag-mixed">⚠ With Caveats</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">What works</div>
-        <div class="node-field-value">Structural feedback, character consistency analysis, and thematic coherence review across an 80,000-word manuscript (~110K tokens). Sits comfortably within GPT-5.4's reliable range for analysis tasks.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">What doesn't</div>
-        <div class="node-field-value">Full manuscript rewrites in a single call. Output coherence drift kills quality badly past ~4K generated tokens. Use large context for analysis; use small focused calls for actual rewriting.</div>
-      </div>
-    </div>
-  </div>
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--leaf-pale);">💻</div>
+<div class="node-config-title">Codebase-Wide Refactoring &amp; Architecture Review</div>
+<span class="node-config-tag tag-works">✓ Works Well</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Why it works</div>
+<div class="node-field-value">Dependencies span the whole codebase. Chunking misses cross-file references. RAG doesn't retrieve code you didn't know to ask for. Holistic view is structurally required to find circular dependencies, dead code, and cross-cutting concerns.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Ideal usage</div>
+<div class="node-field-value">Load an entire mid-sized codebase (50–100K lines, ~200K–400K tokens). Ask GPT-5.4 to identify cross-cutting concerns, circular dependencies, dead code, inconsistent naming patterns, or propose an architectural refactor.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Context fill guidance</div>
+<div class="node-field-value">Keep under 400K tokens for best results. Exclude test files, lock files, and generated code first to stay in the reliable attention zone.</div>
+</div>
+</div>
+</div>
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--leaf-pale);">⚖️</div>
+<div class="node-config-title">Multi-Party Contract &amp; Legal Document Analysis</div>
+<span class="node-config-tag tag-works">✓ Works Well</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Why it works</div>
+<div class="node-field-value">Legal risk is often in the interaction between documents, not any single document. A clause in the base agreement can be silently overridden by an amendment — only visible when holding both simultaneously.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Ideal usage</div>
+<div class="node-field-value">Load a full contract bundle — master agreement, SOW, amendments, exhibits. Ask GPT-5.4 to find inconsistencies, missing standard clauses, cross-reference conflicts, or produce a risk matrix.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Critical caveat</div>
+<div class="node-field-value">Verify findings against documents positioned past 400K tokens manually. Do not use as sole review for high-stakes contracts without independent verification.</div>
+</div>
+</div>
+</div>
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--sky-pale);">📚</div>
+<div class="node-config-title">Long-Form Research Synthesis (Academic / Market)</div>
+<span class="node-config-tag tag-works">✓ Works Well</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Why it works</div>
+<div class="node-field-value">RAG misses connections not in the top-k results. The full context enables genuine cross-paper reasoning — areas of consensus, methodological disagreements, and open questions that span multiple papers.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">Ideal context fill &amp; prompting</div>
+<div class="node-field-value">300K–600K tokens. 20–40 papers typically lands in this range. Ask for synthesis by theme, not by paper — prevents the model defaulting to per-paper summaries.</div>
+</div>
+</div>
+</div>
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--amber-pale);">📋</div>
+<div class="node-config-title">Book / Manuscript Structural Editing</div>
+<span class="node-config-tag tag-mixed">⚠ With Caveats</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">What works</div>
+<div class="node-field-value">Structural feedback, character consistency analysis, and thematic coherence review across an 80,000-word manuscript (~110K tokens). Sits comfortably within GPT-5.4's reliable range for analysis tasks.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">What doesn't</div>
+<div class="node-field-value">Full manuscript rewrites in a single call. Output coherence drift kills quality badly past ~4K generated tokens. Use large context for analysis; use small focused calls for actual rewriting.</div>
+</div>
+</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 04 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="use-cases-fail">
-  <div class="eyebrow eyebrow-rose">Section 04</div>
-  <h2 class="section-heading">Use Cases That <span class="rs">Fall Apart</span></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-rose">Section 04</div>
+<h2 class="section-heading">Use Cases That <span class="rs">Fall Apart</span></h2>
+<p class="guide-body">
     These are the use cases people try first because the context window seems tailor-made for them. In practice they don't work — not because the context is too small, but because of how attention degrades or how the task structure fights against a single large-context call.
   </p>
-
-  <div class="verdict-grid">
-    <div class="verdict-card">
-      <div class="verdict-header works">
-        <div class="verdict-icon">✓</div>
-        <div class="verdict-title works">Actually works</div>
-      </div>
-      <div class="verdict-body">
-        <ul class="verdict-list works-list">
-          <li><strong>Single codebase architecture review</strong> — holistic view changes the answer</li>
-          <li><strong>Contract bundle cross-referencing</strong> — inter-document conflicts require full context</li>
-          <li><strong>Multi-paper academic synthesis</strong> — cross-study reasoning, not per-paper summaries</li>
-          <li><strong>Single-account history analysis</strong> — 12-month timeline stays well under 200K tokens</li>
-          <li><strong>Long audit trail reconstruction</strong> — who changed what, when, in what sequence</li>
-        </ul>
-      </div>
-    </div>
-    <div class="verdict-card">
-      <div class="verdict-header fails">
-        <div class="verdict-icon">✕</div>
-        <div class="verdict-title fails">Falls apart</div>
-      </div>
-      <div class="verdict-body">
-        <ul class="verdict-list fails-list">
-          <li><strong>Summarise 500 emails at once</strong> — lost-in-the-middle at scale; use weekly batches</li>
-          <li><strong>Translate a corpus to a new format</strong> — output coherence drift destroys quality</li>
-          <li><strong>Extract every entity from 300 documents</strong> — miss rate climbs past 200K tokens</li>
-          <li><strong>Open Q&amp;As across 50+ mixed docs</strong> — confident hallucination at high fill</li>
-          <li><strong>Use as a cheaper RAG replacement</strong> — the cost per call makes this economically absurd</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <div class="node-config" style="margin-top:12px;">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--rose-pale);">📧</div>
-      <div class="node-config-title">Bulk Email / Inbox Triage at Scale</div>
-      <span class="node-config-tag tag-fails">✕ Falls Apart</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Why it fails</div>
-        <div class="node-field-value">6 months of inbox sits at 800K–1M tokens — squarely in the high-degradation zone. Emails from months 3–5 sit in the middle of the context and get disproportionately missed. The output looks comprehensive; the completeness is not.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">What to do instead</div>
-        <div class="node-field-value">Process in weekly batches (50–100 emails per call, ~40–80K tokens each). Aggregate summaries in a second pass. Completeness improves dramatically and total cost drops significantly.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="node-config">
-    <div class="node-config-header">
-      <div class="node-config-icon" style="background:var(--rose-pale);">🏷️</div>
-      <div class="node-config-title">Entity Extraction Across a Large Document Set</div>
-      <span class="node-config-tag tag-fails">✕ Falls Apart</span>
-    </div>
-    <div class="node-config-body">
-      <div class="node-field">
-        <div class="node-field-label">Why it fails</div>
-        <div class="node-field-value">Load 300 contracts past 600K tokens and ask for every party name, date, jurisdiction. Miss rates on entities mentioned only once in mid-context documents are 25–40%. The extraction looks complete; a significant fraction is simply absent.</div>
-      </div>
-      <div class="node-field">
-        <div class="node-field-label">The irony</div>
-        <div class="node-field-value">Per-document extraction calls are faster, cheaper, and more complete. Structured extraction at small context is a solved problem. 1M context adds cost and reduces completeness here — it's an unforced downgrade.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="callout callout-warn">
-    <div class="callout-icon">⚠️</div>
-    <div class="callout-text"><strong>The "it looks complete" problem:</strong> The most dangerous failure mode isn't wrong output — it's incomplete output that looks complete. GPT-5.4 doesn't flag missing documents. It produces a confident, well-formatted answer. For any task where completeness matters, treat high-fill 1M context outputs as a first draft requiring verification, not a final deliverable.</div>
-  </div>
+<div class="verdict-grid">
+<div class="verdict-card">
+<div class="verdict-header works">
+<div class="verdict-icon">✓</div>
+<div class="verdict-title works">Actually works</div>
+</div>
+<div class="verdict-body">
+<ul class="verdict-list works-list">
+<li><strong>Single codebase architecture review</strong> — holistic view changes the answer</li>
+<li><strong>Contract bundle cross-referencing</strong> — inter-document conflicts require full context</li>
+<li><strong>Multi-paper academic synthesis</strong> — cross-study reasoning, not per-paper summaries</li>
+<li><strong>Single-account history analysis</strong> — 12-month timeline stays well under 200K tokens</li>
+<li><strong>Long audit trail reconstruction</strong> — who changed what, when, in what sequence</li>
+</ul>
+</div>
+</div>
+<div class="verdict-card">
+<div class="verdict-header fails">
+<div class="verdict-icon">✕</div>
+<div class="verdict-title fails">Falls apart</div>
+</div>
+<div class="verdict-body">
+<ul class="verdict-list fails-list">
+<li><strong>Summarise 500 emails at once</strong> — lost-in-the-middle at scale; use weekly batches</li>
+<li><strong>Translate a corpus to a new format</strong> — output coherence drift destroys quality</li>
+<li><strong>Extract every entity from 300 documents</strong> — miss rate climbs past 200K tokens</li>
+<li><strong>Open Q&amp;As across 50+ mixed docs</strong> — confident hallucination at high fill</li>
+<li><strong>Use as a cheaper RAG replacement</strong> — the cost per call makes this economically absurd</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="node-config" style="margin-top:12px;">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--rose-pale);">📧</div>
+<div class="node-config-title">Bulk Email / Inbox Triage at Scale</div>
+<span class="node-config-tag tag-fails">✕ Falls Apart</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Why it fails</div>
+<div class="node-field-value">6 months of inbox sits at 800K–1M tokens — squarely in the high-degradation zone. Emails from months 3–5 sit in the middle of the context and get disproportionately missed. The output looks comprehensive; the completeness is not.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">What to do instead</div>
+<div class="node-field-value">Process in weekly batches (50–100 emails per call, ~40–80K tokens each). Aggregate summaries in a second pass. Completeness improves dramatically and total cost drops significantly.</div>
+</div>
+</div>
+</div>
+<div class="node-config">
+<div class="node-config-header">
+<div class="node-config-icon" style="background:var(--rose-pale);">🏷️</div>
+<div class="node-config-title">Entity Extraction Across a Large Document Set</div>
+<span class="node-config-tag tag-fails">✕ Falls Apart</span>
+</div>
+<div class="node-config-body">
+<div class="node-field">
+<div class="node-field-label">Why it fails</div>
+<div class="node-field-value">Load 300 contracts past 600K tokens and ask for every party name, date, jurisdiction. Miss rates on entities mentioned only once in mid-context documents are 25–40%. The extraction looks complete; a significant fraction is simply absent.</div>
+</div>
+<div class="node-field">
+<div class="node-field-label">The irony</div>
+<div class="node-field-value">Per-document extraction calls are faster, cheaper, and more complete. Structured extraction at small context is a solved problem. 1M context adds cost and reduces completeness here — it's an unforced downgrade.</div>
+</div>
+</div>
+</div>
+<div class="callout callout-warn">
+<div class="callout-icon">⚠️</div>
+<div class="callout-text"><strong>The "it looks complete" problem:</strong> The most dangerous failure mode isn't wrong output — it's incomplete output that looks complete. GPT-5.4 doesn't flag missing documents. It produces a confident, well-formatted answer. For any task where completeness matters, treat high-fill 1M context outputs as a first draft requiring verification, not a final deliverable.</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 05 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="cost-reality">
-  <div class="eyebrow eyebrow-amber">Section 05</div>
-  <h2 class="section-heading">The Cost <em>Reality Check</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-amber">Section 05</div>
+<h2 class="section-heading">The Cost <em>Reality Check</em></h2>
+<p class="guide-body">
     "1M context window" gets treated as a feature. It's also a billing event. At current OpenAI pricing for GPT-5.4, a single 1M-token input call costs significantly more than the casual API call most people mentally budget. If you're running this at scale — analysing 50 codebases a day, processing a legal discovery set daily — the economics shift fast.
   </p>
-
-  <table class="prereq-table">
-    <thead><tr><th>Scenario</th><th>Approx. tokens</th><th>Est. input cost</th><th>Calls/day to $100</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Single codebase review</strong></td><td>~300K</td><td>~$0.90</td><td>~111 calls</td></tr>
-      <tr><td><strong>Full legal bundle (10 contracts)</strong></td><td>~150K</td><td>~$0.45</td><td>~222 calls</td></tr>
-      <tr><td><strong>6-month inbox dump</strong></td><td>~800K</td><td>~$2.40</td><td>~42 calls</td></tr>
-      <tr><td><strong>40-paper research corpus</strong></td><td>~500K</td><td>~$1.50</td><td>~67 calls</td></tr>
-      <tr><td><strong>Full 1M context call</strong></td><td>1,000K</td><td>~$3.00</td><td>~33 calls</td></tr>
-    </tbody>
-  </table>
-  <p style="font-size:12px;color:var(--text-dim);margin-top:-16px;margin-bottom:28px;">↑ Estimates based on GPT-5.4 pricing at time of publication. Output tokens additional. Verify current pricing at platform.openai.com.</p>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>The RAG breakeven point:</strong> If your use case can be solved with a well-designed RAG pipeline — and most entity extraction, Q&amp;A over documents, and summarisation tasks can — the per-call cost of 1M-token context is rarely justified. RAG at 10K tokens per call costs roughly 100× less per query and produces better completeness on retrieval tasks. Run the numbers before defaulting to "just stuff everything in context."</div>
-  </div>
+<table class="prereq-table">
+<thead><tr><th>Scenario</th><th>Approx. tokens</th><th>Est. input cost</th><th>Calls/day to $100</th></tr></thead>
+<tbody>
+<tr><td><strong>Single codebase review</strong></td><td>~300K</td><td>~$0.90</td><td>~111 calls</td></tr>
+<tr><td><strong>Full legal bundle (10 contracts)</strong></td><td>~150K</td><td>~$0.45</td><td>~222 calls</td></tr>
+<tr><td><strong>6-month inbox dump</strong></td><td>~800K</td><td>~$2.40</td><td>~42 calls</td></tr>
+<tr><td><strong>40-paper research corpus</strong></td><td>~500K</td><td>~$1.50</td><td>~67 calls</td></tr>
+<tr><td><strong>Full 1M context call</strong></td><td>1,000K</td><td>~$3.00</td><td>~33 calls</td></tr>
+</tbody>
+</table>
+<p style="font-size:12px;color:var(--text-dim);margin-top:-16px;margin-bottom:28px;">↑ Estimates based on GPT-5.4 pricing at time of publication. Output tokens additional. Verify current pricing at platform.openai.com.</p>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>The RAG breakeven point:</strong> If your use case can be solved with a well-designed RAG pipeline — and most entity extraction, Q&amp;A over documents, and summarisation tasks can — the per-call cost of 1M-token context is rarely justified. RAG at 10K tokens per call costs roughly 100× less per query and produces better completeness on retrieval tasks. Run the numbers before defaulting to "just stuff everything in context."</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 06 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="prompting-patterns">
-  <div class="eyebrow">Section 06</div>
-  <h2 class="section-heading">Prompting Patterns for <em>Coherent Output at Scale</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 06</div>
+<h2 class="section-heading">Prompting Patterns for <em>Coherent Output at Scale</em></h2>
+<p class="guide-body">
     For the use cases that do justify 1M context, these four patterns measurably reduce lost-in-the-middle failures and coherence drift. Pattern 1 alone eliminates most attention failures on well-structured tasks — start there before adding the others.
   </p>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">Pattern 1 · Anchor + Explicit Recall</div>
-      <button class="copy-btn" onclick="copyCode('p1', this)">⎘ Copy</button>
-    </div>
-    <pre id="p1"><span class="c"># System prompt — add to any large-context call</span>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">Pattern 1 · Anchor + Explicit Recall</div>
+<button class="copy-btn" onclick="copyCode('p1', this)">⎘ Copy</button>
+</div>
+<pre id="p1"><span class="c"># System prompt — add to any large-context call</span>
 
 You are reviewing a large document set. When answering any question, you MUST:
 1. Explicitly state which document(s) your answer draws from (name + approximate position)
@@ -944,15 +972,14 @@ You are reviewing a large document set. When answering any question, you MUST:
 <span class="c"># Why this works: forcing explicit attribution makes attention failures</span>
 <span class="c"># visible rather than silent. The model can't produce a confident answer</span>
 <span class="c"># without naming a source — missing documents show as gaps, not omissions.</span></pre>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">Pattern 2 · Document Index at Context Start</div>
-      <button class="copy-btn" onclick="copyCode('p2', this)">⎘ Copy</button>
-    </div>
-    <pre id="p2"><span class="c"># Place this BEFORE all documents in the context</span>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">Pattern 2 · Document Index at Context Start</div>
+<button class="copy-btn" onclick="copyCode('p2', this)">⎘ Copy</button>
+</div>
+<pre id="p2"><span class="c"># Place this BEFORE all documents in the context</span>
 
 <span class="p">DOCUMENT INDEX</span>
 The following <span class="n">[N]</span> documents have been loaded. Refer to them by ID when citing:
@@ -967,15 +994,14 @@ Do not reference information from documents not listed in this index.
 
 <span class="p">---BEGIN DOCUMENTS---</span>
 <span class="c">[Documents follow in order]</span></pre>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">Pattern 3 · Layered Output Structure</div>
-      <button class="copy-btn" onclick="copyCode('p3', this)">⎘ Copy</button>
-    </div>
-    <pre id="p3"><span class="c"># Instead of: "Write a comprehensive analysis"</span>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">Pattern 3 · Layered Output Structure</div>
+<button class="copy-btn" onclick="copyCode('p3', this)">⎘ Copy</button>
+</div>
+<pre id="p3"><span class="c"># Instead of: "Write a comprehensive analysis"</span>
 <span class="c"># Use a staged output structure that caps each section:</span>
 
 Produce your analysis in the following structure.
@@ -985,15 +1011,14 @@ Produce your analysis in the following structure.
 <span class="k">Section 3 — Risk Factors</span>        (max 5 items, with severity and supporting document ID)
 <span class="k">Section 4 — Recommended Actions</span> (max 5 items, ranked by priority)
 <span class="k">Section 5 — Open Questions</span>      (items requiring further review or external input)</pre>
-  </div>
-
-  <div class="code-block">
-    <div class="code-block-header">
-      <div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
-      <div class="code-block-label">Pattern 4 · Middle-Anchoring</div>
-      <button class="copy-btn" onclick="copyCode('p4', this)">⎘ Copy</button>
-    </div>
-    <pre id="p4"><span class="c"># Add this when critical content sits in the middle of a large context</span>
+</div>
+<div class="code-block">
+<div class="code-block-header">
+<div class="code-block-dots"><div class="code-block-dot dot-red"></div><div class="code-block-dot dot-yellow"></div><div class="code-block-dot dot-green"></div></div>
+<div class="code-block-label">Pattern 4 · Middle-Anchoring</div>
+<button class="copy-btn" onclick="copyCode('p4', this)">⎘ Copy</button>
+</div>
+<pre id="p4"><span class="c"># Add this when critical content sits in the middle of a large context</span>
 
 <span class="p">COVERAGE REQUIREMENT</span>
 This analysis must account for content from ALL sections of the provided documents,
@@ -1009,106 +1034,133 @@ from the early documents, the middle-section content takes precedence.
 
 <span class="c"># Explicitly naming the "danger zone" improves recall from that zone</span>
 <span class="c"># by 15–25% in needle-in-a-haystack testing.</span></pre>
-  </div>
-
-  <div class="callout callout-danger">
-    <div class="callout-icon">🚫</div>
-    <div class="callout-text"><strong>Anti-pattern to avoid:</strong> "Here are all the documents. Please provide a comprehensive summary." No structure = coherence degrades past ~3K output tokens. No attribution = silent misses in middle documents. No length constraint = model pads output. No coverage check = confident-sounding output that misses 30% of content. Replace with Pattern 1 + Pattern 3 at minimum on every large-context call.</div>
-  </div>
+</div>
+<div class="callout callout-danger">
+<div class="callout-icon">🚫</div>
+<div class="callout-text"><strong>Anti-pattern to avoid:</strong> "Here are all the documents. Please provide a comprehensive summary." No structure = coherence degrades past ~3K output tokens. No attribution = silent misses in middle documents. No length constraint = model pads output. No coverage check = confident-sounding output that misses 30% of content. Replace with Pattern 1 + Pattern 3 at minimum on every large-context call.</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 07 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="vs-claude">
-  <div class="eyebrow eyebrow-flamingo">Section 07</div>
-  <h2 class="section-heading">GPT-5.4 vs Claude <em>for Long Context Work</em></h2>
-  <p class="guide-body">
+<div class="eyebrow eyebrow-flamingo">Section 07</div>
+<h2 class="section-heading">GPT-5.4 vs Claude <em>for Long Context Work</em></h2>
+<p class="guide-body">
     Both GPT-5.4 and Gemini 2.5 Pro offer 1M-token context. Claude Opus 4.6 caps at 200K. For teams already running Claude workflows, the honest question is: does the 1M context window justify switching models for long-context tasks, or does 200K cover the vast majority of real-world use cases?
   </p>
-
-  <table class="prereq-table">
-    <thead><tr><th>Task</th><th>GPT-5.4 (1M)</th><th>Claude Opus 4.6 (200K)</th><th>Verdict</th></tr></thead>
-    <tbody>
-      <tr><td><strong>Codebase review (&lt;150K tokens)</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Either. Claude's instruction-following may edge it.</td></tr>
-      <tr><td><strong>Codebase review (150K–800K tokens)</strong></td><td><span class="tick">✓</span> Works</td><td><span class="cross">✕</span> Doesn't fit</td><td>GPT-5.4 only option above 200K.</td></tr>
-      <tr><td><strong>Legal contract bundle (&lt;100K tokens)</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Either. Both handle under 100K well.</td></tr>
-      <tr><td><strong>Multi-paper synthesis (30+ papers)</strong></td><td><span class="tick">✓</span> Works</td><td><span class="mid">~</span> Tight fit</td><td>GPT-5.4 if papers total &gt;150K tokens.</td></tr>
-      <tr><td><strong>Instruction-following precision</strong></td><td><span class="mid">~</span> Good</td><td><span class="tick">✓</span> Excellent</td><td>Claude for complex multi-constraint tasks.</td></tr>
-      <tr><td><strong>JSON / structured output</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Comparable. Both require explicit format prompting.</td></tr>
-    </tbody>
-  </table>
-
-  <div class="callout callout-violet">
-    <div class="callout-icon">🔮</div>
-    <div class="callout-text"><strong>The honest take:</strong> For most teams, 80% of long-context use cases fit within Claude's 200K window or can be restructured to fit. The 1M context window is the right tool for codebases over 100K lines, large legal discovery sets, and research corpora that genuinely can't be reduced. For everything else, the additional cost and attention degradation are unforced problems. Keep your Claude workflows for tasks under 200K — reach for GPT-5.4 specifically when you hit the ceiling.</div>
-  </div>
+<table class="prereq-table">
+<thead><tr><th>Task</th><th>GPT-5.4 (1M)</th><th>Claude Opus 4.6 (200K)</th><th>Verdict</th></tr></thead>
+<tbody>
+<tr><td><strong>Codebase review (&lt;150K tokens)</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Either. Claude's instruction-following may edge it.</td></tr>
+<tr><td><strong>Codebase review (150K–800K tokens)</strong></td><td><span class="tick">✓</span> Works</td><td><span class="cross">✕</span> Doesn't fit</td><td>GPT-5.4 only option above 200K.</td></tr>
+<tr><td><strong>Legal contract bundle (&lt;100K tokens)</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Either. Both handle under 100K well.</td></tr>
+<tr><td><strong>Multi-paper synthesis (30+ papers)</strong></td><td><span class="tick">✓</span> Works</td><td><span class="mid">~</span> Tight fit</td><td>GPT-5.4 if papers total &gt;150K tokens.</td></tr>
+<tr><td><strong>Instruction-following precision</strong></td><td><span class="mid">~</span> Good</td><td><span class="tick">✓</span> Excellent</td><td>Claude for complex multi-constraint tasks.</td></tr>
+<tr><td><strong>JSON / structured output</strong></td><td><span class="tick">✓</span> Strong</td><td><span class="tick">✓</span> Strong</td><td>Comparable. Both require explicit format prompting.</td></tr>
+</tbody>
+</table>
+<div class="callout callout-violet">
+<div class="callout-icon">🔮</div>
+<div class="callout-text"><strong>The honest take:</strong> For most teams, 80% of long-context use cases fit within Claude's 200K window or can be restructured to fit. The 1M context window is the right tool for codebases over 100K lines, large legal discovery sets, and research corpora that genuinely can't be reduced. For everything else, the additional cost and attention degradation are unforced problems. Keep your Claude workflows for tasks under 200K — reach for GPT-5.4 specifically when you hit the ceiling.</div>
+</div>
 </section>
-
 <!-- ═══ SECTION 08 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="verdict">
-  <div class="eyebrow">Section 08</div>
-  <h2 class="section-heading">The Verdict — When to <em>Reach for 1M</em></h2>
-  <p class="guide-body">
+<div class="eyebrow">Section 08</div>
+<h2 class="section-heading">The Verdict — When to <em>Reach for 1M</em></h2>
+<p class="guide-body">
     Large context windows are real capability. GPT-5.4's 1M context genuinely unlocks a class of task that was architecturally impossible to do well before. The failure is treating it as a general-purpose upgrade — dumping everything in context because you can, not because the task demands it. Three questions before every large-context call:
   </p>
-
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num-wrap"><div class="step-num">01</div></div>
-      <div class="step-title-text">Does the whole document matter?</div>
-      <div class="step-desc-text">Does the answer require simultaneous access to the entire document? If yes → 1M context may be justified. If a well-designed RAG pipeline gets the right answer → use RAG.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
-      <div class="step-title-text">Does fill stay under 500K?</div>
-      <div class="step-desc-text">If yes → attention is in the reliable zone. If no → use Patterns 1–4 from Section 06, and independently verify completeness for anything consequential.</div>
-    </div>
-    <div class="step-card">
-      <div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">03</div></div>
-      <div class="step-title-text">Have you run the cost numbers?</div>
-      <div class="step-desc-text">A one-time codebase audit at $1.50 is trivial. 200 contracts/day at $0.90 each is $5,400/month. Know your volume before enabling any automated pipeline using 1M context calls.</div>
-    </div>
-  </div>
-
-  <div class="callout callout-tip">
-    <div class="callout-icon">💡</div>
-    <div class="callout-text"><strong>The OutClaw take:</strong> The 1M context window is a precision instrument, not a fire hose. The teams getting real value from it are using it for 3–5 specific workflows where whole-document awareness is structurally required. The teams frustrated by it are using it as a shortcut to avoid building proper retrieval pipelines. Know which camp you're in before your API bill tells you.</div>
-  </div>
+<div class="steps-grid">
+<div class="step-card">
+<div class="step-num-wrap"><div class="step-num">01</div></div>
+<div class="step-title-text">Does the whole document matter?</div>
+<div class="step-desc-text">Does the answer require simultaneous access to the entire document? If yes → 1M context may be justified. If a well-designed RAG pipeline gets the right answer → use RAG.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--flamingo-pale);"><div class="step-num" style="color:var(--flamingo);">02</div></div>
+<div class="step-title-text">Does fill stay under 500K?</div>
+<div class="step-desc-text">If yes → attention is in the reliable zone. If no → use Patterns 1–4 from Section 06, and independently verify completeness for anything consequential.</div>
+</div>
+<div class="step-card">
+<div class="step-num-wrap" style="background:var(--leaf-pale);"><div class="step-num" style="color:var(--leaf);">03</div></div>
+<div class="step-title-text">Have you run the cost numbers?</div>
+<div class="step-desc-text">A one-time codebase audit at $1.50 is trivial. 200 contracts/day at $0.90 each is $5,400/month. Know your volume before enabling any automated pipeline using 1M context calls.</div>
+</div>
+</div>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<div class="callout-text"><strong>The OutClaw take:</strong> The 1M context window is a precision instrument, not a fire hose. The teams getting real value from it are using it for 3–5 specific workflows where whole-document awareness is structurally required. The teams frustrated by it are using it as a shortcut to avoid building proper retrieval pipelines. Know which camp you're in before your API bill tells you.</div>
+</div>
 </section>
-
 </div><!-- /article-wrap -->
 </main>
-
 <!-- BOTTOM CTA -->
-<section class="bottom-cta">
-  <div class="bottom-cta-inner">
-    <h2 class="cta-title">Model breakdowns like<br>this, <em>every Tuesday.</em></h2>
-    <p class="cta-sub">GPT-5.4 teardowns, Claude workflow guides, and the practical AI takes your feed buries. 8 minutes. Free forever.</p>
-    <a href="https://outclaw.xyz" class="cta-btn">Subscribe to OutClaw AI →</a>
-  </div>
-</section>
-
-  <!-- FOOTER -->
-  <footer>
-    <a href="../" class="footer-logo">
-      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
-      <div class="footer-wordmark">Out<em>claw</em> AI</div>
-      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai"
-          target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
-    </a>
-    <div class="footer-links">
-      <a href="../about/">About</a>
-      <a href="./">Guides</a>
-      <a href="../videos/">Videos</a>
-      <a href="../tools/">Tools</a>
-      <a href="../newsletter/">Newsletter</a>
-      <a href="../privacy/">Privacy</a>
-      <a href="mailto:zbailey83@gmail.com">Contact</a>
+<!-- Related Resources -->
+    <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
+      <div class="section-label">Expand Your Knowledge</div>
+      <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
+      <div class="section-divider" style="margin-bottom: 28px;"></div>
+      
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-bottom: 32px;">
+        <!-- Guides Column -->
+        <div>
+          <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
+          <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
+            <li><a href="../guides/codex-gpt55-agentic-frameworks.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Elite Agentic Workflows: Prompting Codex + GPT-5.5</a></li>
+            <li><a href="../guides/litellm-portkey-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The LiteLLM + Portkey Playbook: Failovers, Routing, and Semantic Caching</a></li>
+            <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
+            <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenClaw VPS & Mac Mini Setup</a></li>
+          </ul>
+        </div>
+        
+        <!-- Tools & Channels Column -->
+        <div style="display: flex; flex-direction: column; gap: 28px;">
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+            <li><a href="../tools/api-cost-calculator.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ API Cost Calculator</a></li>
+            <li><a href="../tools/model-comparison.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ Model Comparison Matrix</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">OutClaw Channels</h4>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">📧 Weekly AI Newsletter &rarr;</a></li>
+              <li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">🎥 Video Walkthroughs &rarr;</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
-  </footer>
-
+<!-- /Related Resources -->
+    <section class="bottom-cta">
+<div class="bottom-cta-inner">
+<h2 class="cta-title">Model breakdowns like<br/>this, <em>every Tuesday.</em></h2>
+<p class="cta-sub">GPT-5.4 teardowns, Claude workflow guides, and the practical AI takes your feed buries. 8 minutes. Free forever.</p>
+<a class="cta-btn" href="https://outclaw.xyz">Subscribe to OutClaw AI →</a>
+</div>
+</section>
+<!-- FOOTER -->
+<footer>
+<a class="footer-logo" href="../">
+<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<div class="footer-wordmark">Out<em>claw</em> AI</div>
+<p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;">Built by <a href="https://x.com/outclawai" target="_blank">@outclawai</a> for the <a href="https://claude.ai" target="_blank">Claude</a> generation.</p>
+</a>
+<div class="footer-links">
+<a href="../about/">About</a>
+<a href="./">Guides</a>
+<a href="../videos/">Videos</a>
+<a href="../tools/">Tools</a>
+<a href="../newsletter/">Newsletter</a>
+<a href="../privacy/">Privacy</a>
+<a href="mailto:zbailey83@gmail.com">Contact</a>
+</div>
+<div class="footer-copy">© 2026 OutClaw AI. All rights reserved.</div>
+</footer>
 <script>
   function toggleDrawer() {
     document.getElementById('navDrawer').classList.toggle('open');
