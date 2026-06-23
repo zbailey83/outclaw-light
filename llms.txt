@@ -28,6 +28,7 @@
 - [Google Dorking for OSINT](https://outclaw.xyz/skills/google-dorking/) — Advanced search operators for data retrieval.
 - [pSEO Indexing Setup](https://outclaw.xyz/skills/pseo-indexing-setup/) — Technical stack for programmatic SEO indexing.
 - [Resume-Cover Letter & Role Map Claude Skill](https://outclaw.xyz/skills/resume-coverletter-skill/) — ATS-optimized resume and cover letter systems.
+- [HyperFrames Video Production](https://outclaw.xyz/skills/hyperframes/) — Programmatic video generation with HTML, CSS, and JS.
 
 ## Content Pillars
 - **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.
