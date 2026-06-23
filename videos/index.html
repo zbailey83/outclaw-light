@@ -582,6 +582,72 @@
         font-size: 42px;
       }
     }
+
+    .breadcrumb {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+    .breadcrumb a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .breadcrumb a:hover {
+      color: var(--sky);
+    }
+
+    .video-title a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .video-title a:hover {
+      color: var(--sky);
+    }
+
+    .video-thumb-link {
+      display: block;
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .video-relations {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border-soft);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .video-relations-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+    }
+    .video-relation-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--sky);
+      text-decoration: none;
+      background: var(--sky-pale);
+      padding: 3px 10px;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+    }
+    .video-relation-link:hover {
+      background: var(--sky);
+      color: var(--white);
+    }
   </style>
 </head>
 
@@ -621,6 +687,11 @@
 
   <section class="page-hero">
     <div class="page-hero-inner container">
+      <nav class="breadcrumb">
+        <a href="../">Home</a>
+        <span>/</span>
+        <a href="./">Videos</a>
+      </nav>
       <div class="eyebrow">Video Tutorials</div>
       <h1>AI Tutorials <em>for Builders.</em></h1>
       <p class="page-hero-sub">Step-by-step video deep-dives into AI models, agentic workflows, and the latest tooling.</p>
@@ -631,221 +702,303 @@
   <div class="page-body container">
     <div class="video-grid">
       <!-- Video 1 (New) -->
-      <div class="video-card" onclick="openVideo('kvF8Fhbt3Eg')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/kvF8Fhbt3Eg/hqdefault.jpg"
-            alt="Anthropic JUST Dropped Claude Fable (GPT-5 is Finished 💀) Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=kvF8Fhbt3Eg" class="video-thumb-link" onclick="openVideo('kvF8Fhbt3Eg', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/kvF8Fhbt3Eg/hqdefault.jpg"
+              alt="Anthropic JUST Dropped Claude Fable (GPT-5 is Finished 💀) Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Breaking</div>
-          <h3 class="video-title">Anthropic JUST Dropped Claude Fable (GPT-5 is Finished 💀)</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=kvF8Fhbt3Eg" onclick="openVideo('kvF8Fhbt3Eg', event)">Anthropic JUST Dropped Claude Fable (GPT-5 is Finished 💀)</a></h3>
           <p class="video-desc">A deep dive into Anthropic's surprise release of Claude Fable and what its next-generation reasoning capabilities mean for the AI landscape.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/claude-opus-48-vs-gpt-56-comparison.html" class="video-relation-link">Claude Opus 4.8 vs GPT 5.6</a>
+            <a href="../guides/claude-sonnet-prompting-playbook.html" class="video-relation-link">Sonnet Playbook</a>
+            <a href="../tools/model-comparison.html" class="video-relation-link">Comparison Tool</a>
+          </div>
         </div>
       </div>
 
       <!-- Video 2 (New) -->
-      <div class="video-card" onclick="openVideo('xt2RfFNYXOE')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/xt2RfFNYXOE/hqdefault.jpg"
-            alt="Why Claude Opus 4.8 Changes Everything (Goodbye Prompt Engineering) Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=xt2RfFNYXOE" class="video-thumb-link" onclick="openVideo('xt2RfFNYXOE', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/xt2RfFNYXOE/hqdefault.jpg"
+              alt="Why Claude Opus 4.8 Changes Everything (Goodbye Prompt Engineering) Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Analysis</div>
-          <h3 class="video-title">Why Claude Opus 4.8 Changes Everything (Goodbye Prompt Engineering)</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=xt2RfFNYXOE" onclick="openVideo('xt2RfFNYXOE', event)">Why Claude Opus 4.8 Changes Everything (Goodbye Prompt Engineering)</a></h3>
           <p class="video-desc">Analyzing the massive shifts in Claude Opus 4.8, including dynamic thinking budgets and the end of manual prompt engineering.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/claude-opus-48-vs-gpt-56-comparison.html" class="video-relation-link">Claude Opus 4.8 vs GPT 5.6</a>
+            <a href="../tools/prompt-sharpener.html" class="video-relation-link">Prompt Sharpener</a>
+          </div>
         </div>
       </div>
 
       <!-- Video 3 (New) -->
-      <div class="video-card" onclick="openVideo('L6EepVCJ3Ts')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/L6EepVCJ3Ts/hqdefault.jpg"
-            alt="Mastering Hermes Agent: Understanding Context Engines & Fleet Commanders Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=L6EepVCJ3Ts" class="video-thumb-link" onclick="openVideo('L6EepVCJ3Ts', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/L6EepVCJ3Ts/hqdefault.jpg"
+              alt="Mastering Hermes Agent: Understanding Context Engines & Fleet Commanders Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Tutorial</div>
-          <h3 class="video-title">Mastering Hermes Agent: Context Engines & Fleet Commanders</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=L6EepVCJ3Ts" onclick="openVideo('L6EepVCJ3Ts', event)">Mastering Hermes Agent: Context Engines & Fleet Commanders</a></h3>
           <p class="video-desc">Learn how to configure Hermes Agent's context engine and build multi-agent fleets for autonomous task execution.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/hermes-vps-telegram-setup-guide.html" class="video-relation-link">Hermes VPS Setup</a>
+            <a href="../guides/codex-gpt55-agentic-frameworks.html" class="video-relation-link">Agentic Frameworks</a>
+          </div>
         </div>
       </div>
 
       <!-- Video 4 (New) -->
-      <div class="video-card" onclick="openVideo('QpnclpgUWW8')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/QpnclpgUWW8/hqdefault.jpg"
-            alt="Cursor Composer 2.5: New KING Coding Daily Driver? Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=QpnclpgUWW8" class="video-thumb-link" onclick="openVideo('QpnclpgUWW8', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/QpnclpgUWW8/hqdefault.jpg"
+              alt="Cursor Composer 2.5: New KING Coding Daily Driver? Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Tutorial</div>
-          <h3 class="video-title">Cursor Composer 2.5: New KING Coding Daily Driver?</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=QpnclpgUWW8" onclick="openVideo('QpnclpgUWW8', event)">Cursor Composer 2.5: New KING Coding Daily Driver?</a></h3>
           <p class="video-desc">A comprehensive walkthrough of Cursor Composer 2.5 features and why it's becoming the default tool for developers.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/claude-sonnet-prompting-playbook.html" class="video-relation-link">Sonnet Playbook</a>
+            <a href="../tools/prompt-sharpener.html" class="video-relation-link">Prompt Sharpener</a>
+          </div>
         </div>
       </div>
 
       <!-- Video 5 (New) -->
-      <div class="video-card" onclick="openVideo('whSnJdhUlfk')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/whSnJdhUlfk/hqdefault.jpg"
-            alt="The Secret Google I/O Updates You Completely Missed Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=whSnJdhUlfk" class="video-thumb-link" onclick="openVideo('whSnJdhUlfk', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/whSnJdhUlfk/hqdefault.jpg"
+              alt="The Secret Google I/O Updates You Completely Missed Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Analysis</div>
-          <h3 class="video-title">The Secret Google I/O Updates You Completely Missed</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=whSnJdhUlfk" onclick="openVideo('whSnJdhUlfk', event)">The Secret Google I/O Updates You Completely Missed</a></h3>
           <p class="video-desc">Uncovering the hidden announcements from Google I/O, focusing on agentic updates and new Gemini API capabilities.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/gpt-54-1m-context-practical-guide.html" class="video-relation-link">GPT-5.4 1M Context</a>
+            <a href="../tools/model-comparison.html" class="video-relation-link">Comparison Tool</a>
+          </div>
         </div>
       </div>
 
       <!-- Latest Video -->
-      <div class="video-card" onclick="openVideo('E4TbBA4fc0U')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/E4TbBA4fc0U/maxresdefault.jpg"
-            alt="Cursor 3.0 Agent-First Interface & Composer 2 Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=E4TbBA4fc0U" class="video-thumb-link" onclick="openVideo('E4TbBA4fc0U', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/E4TbBA4fc0U/maxresdefault.jpg"
+              alt="Cursor 3.0 Agent-First Interface & Composer 2 Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Tutorial</div>
-          <h3 class="video-title">Cursor 3.0: Agent-First Interface & Composer 2</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=E4TbBA4fc0U" onclick="openVideo('E4TbBA4fc0U', event)">Cursor 3.0: Agent-First Interface & Composer 2</a></h3>
           <p class="video-desc">Explore the revolutionary Agent-First interface in Cursor 3.0, including Composer 2 model capabilities and how to build full AI workflows.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/codex-gpt55-agentic-frameworks.html" class="video-relation-link">Agentic Frameworks</a>
+            <a href="../guides/claude-sonnet-prompting-playbook.html" class="video-relation-link">Sonnet Playbook</a>
+          </div>
         </div>
       </div>
 
       <!-- New Video 2 -->
-      <div class="video-card" onclick="openVideo('Lm3qwR02h14')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/Lm3qwR02h14/maxresdefault.jpg"
-            alt="Claude Mythos Explained: Top 5 Technical Takeaways Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=Lm3qwR02h14" class="video-thumb-link" onclick="openVideo('Lm3qwR02h14', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/Lm3qwR02h14/maxresdefault.jpg"
+              alt="Claude Mythos Explained: Top 5 Technical Takeaways Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Analysis</div>
-          <h3 class="video-title">Claude Mythos Revealed! (5 Key Takeaways)</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=Lm3qwR02h14" onclick="openVideo('Lm3qwR02h14', event)">Claude Mythos Revealed! (5 Key Takeaways)</a></h3>
           <p class="video-desc">Claude Mythos is here. Discover the top 5 takeaways from the Mythos technical report, including its 90x improvement in software exploits over Claude Opus 4.6.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/claude-opus-48-vs-gpt-56-comparison.html" class="video-relation-link">Claude Opus 4.8 vs GPT 5.6</a>
+            <a href="../tools/model-comparison.html" class="video-relation-link">Comparison Tool</a>
+          </div>
         </div>
       </div>
 
       <!-- New Video 3 -->
-      <div class="video-card" onclick="openVideo('SXEJjZ-xU1A')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/SXEJjZ-xU1A/maxresdefault.jpg"
-            alt="Google Gemma 4 Full-Stack Ecosystem Updates Analysis Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=SXEJjZ-xU1A" class="video-thumb-link" onclick="openVideo('SXEJjZ-xU1A', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/SXEJjZ-xU1A/maxresdefault.jpg"
+              alt="Google Gemma 4 Full-Stack Ecosystem Updates Analysis Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Ecosystem</div>
-          <h3 class="video-title">Gemma 4: Google's Full-Stack Ecosystem</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=SXEJjZ-xU1A" onclick="openVideo('SXEJjZ-xU1A', event)">Gemma 4: Google's Full-Stack Ecosystem</a></h3>
           <p class="video-desc">Breaking down the Google Gemma 4 full-stack ecosystem updates, API changes, and what it means for enterprise integration.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/gpt-54-1m-context-practical-guide.html" class="video-relation-link">GPT-5.4 1M Context</a>
+            <a href="../tools/model-comparison.html" class="video-relation-link">Comparison Tool</a>
+          </div>
         </div>
       </div>
 
       <!-- Video 4 -->
-      <div class="video-card" onclick="openVideo('0B2_D2qIDnE')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/0B2_D2qIDnE/maxresdefault.jpg"
-            alt="QWEN 3.6 Pro Free Tutorial and System Architecture Breakdown Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=0B2_D2qIDnE" class="video-thumb-link" onclick="openVideo('0B2_D2qIDnE', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/0B2_D2qIDnE/maxresdefault.jpg"
+              alt="QWEN 3.6 Pro Free Tutorial and System Architecture Breakdown Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Tutorial</div>
-          <h3 class="video-title">Use New QWEN 3.6 Pro (FREE)!</h3>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=0B2_D2qIDnE" onclick="openVideo('0B2_D2qIDnE', event)">Use New QWEN 3.6 Pro (FREE)!</a></h3>
           <p class="video-desc">A complete visual breakdown of the Qwen 3.6 Plus preview, diving deep into its system architecture, agentic loops, and advanced reasoning traces.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/litellm-portkey-playbook.html" class="video-relation-link">LiteLLM Playbook</a>
+            <a href="../tools/api-cost-calculator.html" class="video-relation-link">Cost Calculator</a>
+          </div>
         </div>
       </div>
 
       <!-- First Video -->
-      <div class="video-card" onclick="openVideo('AqYx4Q0D2Ss')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/AqYx4Q0D2Ss/sddefault.jpg"
-            alt="The Story Behind Claw Code Hitting 100K GitHub Stars Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=AqYx4Q0D2Ss" class="video-thumb-link" onclick="openVideo('AqYx4Q0D2Ss', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/AqYx4Q0D2Ss/sddefault.jpg"
+              alt="The Story Behind Claw Code Hitting 100K GitHub Stars Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Backstory</div>
-          <h3 class="video-title">Why Claw Code Hit 100K GitHub Stars in Days (Insane Backstory)</h3>
-          <p class="video-desc">The untold story of how a small coding utility became a global GitHub sensation in under
-            a week. Strategy, timing, and a bit of luck.</p>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=AqYx4Q0D2Ss" onclick="openVideo('AqYx4Q0D2Ss', event)">Why Claw Code Hit 100K GitHub Stars in Days (Insane Backstory)</a></h3>
+          <p class="video-desc">The untold story of how a small coding utility became a global GitHub sensation in under a week. Strategy, timing, and a bit of luck.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/automate-content-workflow-n8n-claude.html" class="video-relation-link">n8n & Claude</a>
+            <a href="../skills/organic-marketing-blitz/" class="video-relation-link">Marketing Skill</a>
+          </div>
         </div>
       </div>
 
       <!-- Second Video -->
-      <div class="video-card" onclick="openVideo('gXDJkTBb2Yc')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/gXDJkTBb2Yc/maxresdefault.jpg"
-            alt="Deep Dive Into the Claude Code Leak and Fake AI Tools Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=gXDJkTBb2Yc" class="video-thumb-link" onclick="openVideo('gXDJkTBb2Yc', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/gXDJkTBb2Yc/maxresdefault.jpg"
+              alt="Deep Dive Into the Claude Code Leak and Fake AI Tools Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Analysis</div>
-          <h3 class="video-title">Inside the 500k Line Claude Code Leak: Fake Tools & Undercover AI</h3>
-          <p class="video-desc">Deep diving into the massive source code leak that revealed how Claude really works
-            under the hood. The hidden tools, the prompts, and more.</p>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=gXDJkTBb2Yc" onclick="openVideo('gXDJkTBb2Yc', event)">Inside the 500k Line Claude Code Leak: Fake Tools & Undercover AI</a></h3>
+          <p class="video-desc">Deep diving into the massive source code leak that revealed how Claude really works under the hood. The hidden tools, the prompts, and more.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/openclaw-vps-mac-mini-setup-guide.html" class="video-relation-link">OpenClaw VPS</a>
+            <a href="../guides/claude-sonnet-prompting-playbook.html" class="video-relation-link">Sonnet Playbook</a>
+          </div>
         </div>
       </div>
 
       <!-- Third Video -->
-      <div class="video-card" onclick="openVideo('Ri70G0Atq3g')">
-        <div class="video-thumb-wrap">
-          <img src="https://img.youtube.com/vi/Ri70G0Atq3g/sddefault.jpg"
-            alt="Anthropic Architecture Exposed by Claude Code Leak Video Thumbnail" class="video-thumb">
-          <div class="video-play-btn">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M8 5v14l11-7z" />
-            </svg>
+      <div class="video-card">
+        <a href="https://www.youtube.com/watch?v=Ri70G0Atq3g" class="video-thumb-link" onclick="openVideo('Ri70G0Atq3g', event)">
+          <div class="video-thumb-wrap">
+            <img src="https://img.youtube.com/vi/Ri70G0Atq3g/sddefault.jpg"
+              alt="Anthropic Architecture Exposed by Claude Code Leak Video Thumbnail" class="video-thumb">
+            <div class="video-play-btn">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
           </div>
-        </div>
+        </a>
         <div class="video-info">
           <div class="video-badge">Breaking</div>
-          <h3 class="video-title">Claude Code Leak Exposes Anthropic's Real Architecture</h3>
-          <p class="video-desc">Analyzing the massive source code leak that revealed Anthropic's internal architecture,
-            the 'Capiara' model, and hidden agent features.</p>
+          <h3 class="video-title"><a href="https://www.youtube.com/watch?v=Ri70G0Atq3g" onclick="openVideo('Ri70G0Atq3g', event)">Claude Code Leak Exposes Anthropic's Real Architecture</a></h3>
+          <p class="video-desc">Analyzing the massive source code leak that revealed Anthropic's internal architecture, the 'Capiara' model, and hidden agent features.</p>
+          <div class="video-relations">
+            <span class="video-relations-label">Related:</span>
+            <a href="../guides/claude-sonnet-prompting-playbook.html" class="video-relation-link">Sonnet Playbook</a>
+            <a href="../guides/openclaw-vps-mac-mini-setup-guide.html" class="video-relation-link">OpenClaw VPS</a>
+          </div>
         </div>
       </div>
     </div>
@@ -898,6 +1051,77 @@
   {
     "@context": "https://schema.org",
     "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+        "name": "Zach Bailey",
+        "url": "https://outclaw.xyz/author/zach-bailey/",
+        "image": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+        },
+        "jobTitle": "Founder & Principal Architect",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "OutClaw AI",
+          "url": "https://outclaw.xyz/"
+        },
+        "sameAs": [
+          "https://github.com/zbailey83",
+          "https://www.linkedin.com/in/zachba",
+          "https://x.com/zbailey83"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://outclaw.xyz/#organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://outclaw.xyz/#website",
+        "url": "https://outclaw.xyz/",
+        "name": "OutClaw AI",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://outclaw.xyz/videos/#webpage",
+        "url": "https://outclaw.xyz/videos/",
+        "name": "AI Video Tutorials | OutClaw AI",
+        "isPartOf": {
+          "@id": "https://outclaw.xyz/#website"
+        },
+        "description": "Watch technical AI video tutorials, workflow walkthroughs, and deep-dives from OutClaw AI. Master model implementations and automation through visual guides.",
+        "breadcrumb": {
+          "@id": "https://outclaw.xyz/videos/#breadcrumb"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://outclaw.xyz/videos/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://outclaw.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Videos",
+            "item": "https://outclaw.xyz/videos/"
+          }
+        ]
+      },
       {
         "@type": "ItemList",
         "itemListElement": [
@@ -1019,6 +1243,174 @@
             }
           }
         ]
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Anthropic JUST Dropped Claude Fable (GPT-5 is Finished 💀)",
+        "description": "A deep dive into Anthropic's surprise release of Claude Fable and what its next-generation reasoning capabilities mean for the AI landscape.",
+        "thumbnailUrl": "https://img.youtube.com/vi/kvF8Fhbt3Eg/hqdefault.jpg",
+        "uploadDate": "2026-06-15T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/kvF8Fhbt3Eg",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Why Claude Opus 4.8 Changes Everything (Goodbye Prompt Engineering)",
+        "description": "Analyzing the massive shifts in Claude Opus 4.8, including dynamic thinking budgets and the end of manual prompt engineering.",
+        "thumbnailUrl": "https://img.youtube.com/vi/xt2RfFNYXOE/hqdefault.jpg",
+        "uploadDate": "2026-06-01T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/xt2RfFNYXOE",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Mastering Hermes Agent: Understanding Context Engines & Fleet Commanders",
+        "description": "Learn how to configure Hermes Agent's context engine and build multi-agent fleets for autonomous task execution.",
+        "thumbnailUrl": "https://img.youtube.com/vi/L6EepVCJ3Ts/hqdefault.jpg",
+        "uploadDate": "2026-05-20T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/L6EepVCJ3Ts",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Cursor Composer 2.5: New KING Coding Daily Driver?",
+        "description": "A comprehensive walkthrough of Cursor Composer 2.5 features and why it's becoming the default tool for developers.",
+        "thumbnailUrl": "https://img.youtube.com/vi/QpnclpgUWW8/hqdefault.jpg",
+        "uploadDate": "2026-05-10T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/QpnclpgUWW8",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "The Secret Google I/O Updates You Completely Missed",
+        "description": "Uncovering the hidden announcements from Google I/O, focusing on agentic updates and new Gemini API capabilities.",
+        "thumbnailUrl": "https://img.youtube.com/vi/whSnJdhUlfk/hqdefault.jpg",
+        "uploadDate": "2026-05-15T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/whSnJdhUlfk",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Cursor 3.0: Agent-First Interface & Composer 2",
+        "description": "Explore the revolutionary Agent-First interface in Cursor 3.0, including Composer 2 model capabilities and how to build full AI workflows.",
+        "thumbnailUrl": "https://img.youtube.com/vi/E4TbBA4fc0U/maxresdefault.jpg",
+        "uploadDate": "2026-04-20T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/E4TbBA4fc0U",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Claude Mythos Revealed! (5 Key Takeaways)",
+        "description": "Claude Mythos is here. Discover the top 5 takeaways from the Mythos technical report, including its 90x improvement in software exploits over Claude Opus 4.6.",
+        "thumbnailUrl": "https://img.youtube.com/vi/Lm3qwR02h14/maxresdefault.jpg",
+        "uploadDate": "2026-04-10T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/Lm3qwR02h14",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Gemma 4: Google's Full-Stack Ecosystem",
+        "description": "Breaking down the Google Gemma 4 full-stack ecosystem updates, API changes, and what it means for enterprise integration.",
+        "thumbnailUrl": "https://img.youtube.com/vi/SXEJjZ-xU1A/maxresdefault.jpg",
+        "uploadDate": "2026-04-05T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/SXEJjZ-xU1A",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Use New QWEN 3.6 Pro (FREE)!",
+        "description": "A complete visual breakdown of the Qwen 3.6 Plus preview, diving deep into its system architecture, agentic loops, and advanced reasoning traces.",
+        "thumbnailUrl": "https://img.youtube.com/vi/0B2_D2qIDnE/maxresdefault.jpg",
+        "uploadDate": "2026-03-25T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/0B2_D2qIDnE",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Why Claw Code Hit 100K GitHub Stars in Days (Insane Backstory)",
+        "description": "The untold story of how a small coding utility became a global GitHub sensation in under a week. Strategy, timing, and a bit of luck.",
+        "thumbnailUrl": "https://img.youtube.com/vi/AqYx4Q0D2Ss/sddefault.jpg",
+        "uploadDate": "2026-03-10T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/AqYx4Q0D2Ss",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Inside the 500k Line Claude Code Leak: Fake Tools & Undercover AI",
+        "description": "Deep diving into the massive source code leak that revealed how Claude really works under the hood. The hidden tools, the prompts, and more.",
+        "thumbnailUrl": "https://img.youtube.com/vi/gXDJkTBb2Yc/maxresdefault.jpg",
+        "uploadDate": "2026-02-28T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/gXDJkTBb2Yc",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Claude Code Leak Exposes Anthropic's Real Architecture",
+        "description": "Analyzing the massive source code leak that revealed Anthropic's internal architecture, the 'Capiara' model, and hidden agent features.",
+        "thumbnailUrl": "https://img.youtube.com/vi/Ri70G0Atq3g/sddefault.jpg",
+        "uploadDate": "2026-02-15T12:00:00Z",
+        "embedUrl": "https://www.youtube.com/embed/Ri70G0Atq3g",
+        "publisher": {
+          "@id": "https://outclaw.xyz/#organization"
+        },
+        "author": {
+          "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+        }
       }
     ]
   }
@@ -1062,7 +1454,10 @@
   <script>
     function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
 
-    function openVideo(id) {
+    function openVideo(id, event) {
+      if (event) {
+        event.preventDefault();
+      }
       const modal = document.getElementById('videoModal');
       const placeholder = document.getElementById('videoPlaceholder');
       placeholder.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?autoplay=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
