@@ -8,7 +8,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-JHMN90H7MC');
   </script>
 <!-- Google Tag Manager -->
@@ -22,22 +21,22 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<title>Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown | OutClaw AI</title>
-<meta content="A comprehensive side-by-side comparison of Claude Opus 4.8 and GPT 5.5 for agentic coding, context recall, latency, and pricing." name="description"/>
-<link href="https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison" rel="canonical"/>
+<title>OpenMontage: The CHAD of AI Video Editing | OutClaw AI</title>
+<meta content="A complete builder guide to OpenMontage, the world's first open-source agentic video production system. Setup, Remotion vs. HyperFrames, and quality gates." name="description"/>
+<link href="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" rel="canonical"/>
 <meta content="index, follow" name="robots"/>
 <meta content="#5AADDB" name="theme-color"/>
 <!-- Open Graph -->
 <meta content="article" property="og:type"/>
-<meta content="https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison" property="og:url"/>
-<meta content="Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown | OutClaw AI" property="og:title"/>
-<meta content="Which reasoning model should you power your agentic loops with? We break down Claude Opus 4.8 vs GPT 5.6 on cost, logic limits, and real coding speed." property="og:description"/>
+<meta content="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" property="og:url"/>
+<meta content="OpenMontage: The CHAD of AI Video Editing | OutClaw AI" property="og:title"/>
+<meta content="Ditch the slideshows. Build real-footage edits from public archives and open-source stock, driven by an agentic timeline orchestra." property="og:description"/>
 <meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison" property="twitter:url"/>
-<meta content="Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown | OutClaw AI" property="twitter:title"/>
-<meta content="Which reasoning model should you power your agentic loops with? We break down Claude Opus 4.8 vs GPT 5.6 on cost, logic limits, and real coding speed." property="twitter:description"/>
+<meta content="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" property="twitter:url"/>
+<meta content="OpenMontage: The CHAD of AI Video Editing | OutClaw AI" property="twitter:title"/>
+<meta content="Ditch the slideshows. Build real-footage edits from public archives and open-source stock, driven by an agentic timeline orchestra." property="twitter:description"/>
 <meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
 <style>
     :root{
@@ -82,7 +81,7 @@
     @media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
 
     /* ---- Footer (brand-consistent) ---- */
-    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-top:64px;}
     .footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
     .footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
     .footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
@@ -103,13 +102,13 @@
     .eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
     .page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--text);max-width:820px;}
     .page-hero h1 em{font-style:italic;color:var(--sky);}
-    .page-hero-sub{font-size:17px;color:var(--text-soft);max-width:620px;margin-top:16px;line-height:1.75;}
+    .page-hero-sub{font-size:17px;color:var(--text-mid);max-width:720px;margin-top:16px;line-height:1.75;}
     .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-size:13px;color:var(--text-soft);}
     .meta-row span{display:inline-flex;align-items:center;gap:6px;}
     .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
     .tag-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);background:var(--white);}
     .page-body{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
-    .lede{font-size:16px;color:var(--text-mid);max-width:700px;line-height:1.8;margin-bottom:8px;}
+    .lede{font-size:17px;color:var(--text-mid);max-width:750px;line-height:1.8;margin-bottom:8px;}
     @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:40px 24px 72px;}}
 
     /* ---- Stat row (reused for hero metrics) ---- */
@@ -249,9 +248,9 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison#webpage",
-      "url": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison",
-      "name": "Claude Opus 4.8 vs GPT 5.6: The Deep Reasoning Teardown",
+      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#webpage",
+      "url": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing",
+      "name": "OpenMontage: The CHAD of AI Video Editing",
       "isPartOf": {
         "@id": "https://outclaw.xyz/#website"
       }
@@ -262,28 +261,28 @@
         "BlogPosting",
         "TechArticle"
       ],
-      "@id": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison#article",
+      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#article",
       "isPartOf": {
-        "@id": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison#webpage"
+        "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#webpage"
       },
-      "headline": "Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown",
-      "description": "A comprehensive side-by-side comparison of Claude Opus 4.8 and GPT 5.5 for agentic coding, context recall, latency, and pricing.",
+      "headline": "OpenMontage: The CHAD of AI Video Editing",
+      "description": "A complete builder guide to OpenMontage, the world's first open-source agentic video production system. Setup, Remotion vs. HyperFrames, and quality gates.",
       "inLanguage": "en-US",
-      "mainEntityOfPage": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing",
       "image": "https://outclaw.xyz/hero-alt.webp",
-      "datePublished": "2026-06-22",
-      "dateModified": "2026-06-22",
+      "datePublished": "2026-06-24",
+      "dateModified": "2026-06-24",
       "author": {
         "@id": "https://outclaw.xyz/author/zach-bailey/#person"
       },
       "publisher": {
         "@id": "https://outclaw.xyz/#organization"
       },
-      "wordCount": 951
+      "wordCount": 1242
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison#breadcrumb",
+      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -300,8 +299,8 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown",
-          "item": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-56-comparison"
+          "name": "OpenMontage: The CHAD of AI Video Editing",
+          "item": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing"
         }
       ]
     }
@@ -338,157 +337,256 @@
 </div>
 <section class="page-hero">
 <div class="page-hero-inner">
-<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › Opus 4.8 vs GPT 5.5</div>
-<div class="eyebrow">Model Teardown · Reasoning Era</div>
-<h1><em>Claude Opus 4.8</em> vs <em>GPT 5.5</em>: The Deep Reasoning Teardown</h1>
-<p class="page-hero-sub">We put the leading deep-reasoning models head-to-head. Compare real agent loop stability, context recall, latency curves, and pricing metrics to see where each model excels.</p>
+<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › OpenMontage</div>
+<div class="eyebrow">Agentic Video · Open Source</div>
+<h1><em>OpenMontage</em>: The CHAD of AI Video Editing</h1>
+<p class="page-hero-sub">Ditch the slideshows. Learn how to configure and run OpenMontage—the world's first open-source agentic video production system—to orchestrate Remotion and HyperFrames, build clip-indexed B-roll corpora, and auto-review renders.</p>
 <div class="meta-row">
 <span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
-<span>⏱️ 14 min read</span>
-<span>⚡ Production Benchmark Teardown</span>
+<span>⏱️ 12 min read</span>
+<span>⚡ Open-Source Production Guide</span>
 </div>
 <div class="tag-row">
-<div class="tag-chip">Claude Opus 4.8</div>
-<div class="tag-chip">GPT 5.5</div>
-<div class="tag-chip">Model Benchmarks</div>
+<div class="tag-chip">OpenMontage</div>
+<div class="tag-chip">AI Video Editing</div>
+<div class="tag-chip">Remotion</div>
+<div class="tag-chip">HyperFrames</div>
 <div class="tag-chip">Agentic Loops</div>
-<div class="tag-chip">Reasoning Tokens</div>
 </div>
 <div class="stat-row">
-<div class="stat-item"><div class="stat-num"><em>~3.1s</em></div><div class="stat-label">Avg TTFT</div></div>
-<div class="stat-item"><div class="stat-num"><em>91%</em></div><div class="stat-label">Coding Loops</div></div>
-<div class="stat-item"><div class="stat-num"><em>128k+</em></div><div class="stat-label">Perfect Recall</div></div>
-<div class="stat-item"><div class="stat-num"><em>20%+</em></div><div class="stat-label">Cost Variation</div></div>
+<div class="stat-item"><div class="stat-num"><em>12</em></div><div class="stat-label">Pipelines</div></div>
+<div class="stat-item"><div class="stat-num"><em>52</em></div><div class="stat-label">Production Tools</div></div>
+<div class="stat-item"><div class="stat-num"><em>500+</em></div><div class="stat-label">Agent Skills</div></div>
+<div class="stat-item"><div class="stat-num"><em>$0.00</em></div><div class="stat-label">Zero-Key Cost</div></div>
 </div>
 </div>
 </section>
 <div class="page-body">
-<p class="lede">When building autonomous agent loops, selecting the right model is no longer just about looking at a general coding benchmark. With the introduction of deep reasoning models—which use internal chain-of-thought tokens before returning a final answer—the evaluation changes. We tested <strong>Claude Opus 4.8</strong> and <strong>GPT 5.6</strong> in real developer loops to see how they handle tool execution, deep debugging, and long-context processing.</p>
+<p class="lede">Most AI video platforms require a single text prompt and return a simple, hallucinated, 4-second clip. If you want a complete, narrated video, you are usually stuck stitching clips manually or enduring generic "animated PowerPoint slideshows." <strong>OpenMontage</strong> breaks this paradigm. It is an agentic, multi-stage production orchestra that behaves like a professional editing team. It conducts research, writes narratives, sources authentic B-roll, styles dynamic typography, and reviews its own work.</p>
 <div class="tldr-box">
 <div class="eyebrow">TL;DR</div>
-<p><strong>Use Claude Opus 4.8 for complex agentic loops, strict XML-structured tool outputs, and deep refactoring.</strong> It demonstrates superior logical consistency in recursive loops, explaining code modifications with high accuracy. <strong>Use GPT 5.5 for latency-sensitive reasoning tasks, high-throughput pipelines, and cost-constrained applications.</strong> GPT 5.6 runs roughly 20% faster and costs 20% less than Opus 4.8, making it highly efficient for structured data extractions and linear processing chains.</p>
+<p><strong>OpenMontage is the first open-source, pipeline-driven video editor designed for AI agents.</strong> By default, it builds a semantic, CLIP-searchable corpus of real motion clips from open-license archives (Archive.org, NASA, Wikimedia, and Pexels) rather than animating still images. It supports both <strong>Remotion</strong> (React) and <strong>HyperFrames</strong> (HTML/CSS/GSAP) composition runtimes. You can run it entirely free with offline voice synthesis (Piper TTS) and public archives, or wire up cloud APIs for next-generation cinematic generation.</p>
 </div>
 <div class="toc-wrap">
 <div class="toc-heading"><em>Jump to any section</em></div>
 <div class="toc-grid">
-<a class="toc-link" href="#core-architectures"><span class="toc-num">01</span><span>Core Architectures Compared</span></a>
-<a class="toc-link" href="#pricing-performance"><span class="toc-num">02</span><span>Specs and Billed Rates</span></a>
-<a class="toc-link" href="#agent-loops"><span class="toc-num">03</span><span>Agent Loop &amp; Tool Stability</span></a>
-<a class="toc-link" href="#context-recall"><span class="toc-num">04</span><span>Long Context &amp; Recall Tests</span></a>
+<a class="toc-link" href="#what-is-openmontage"><span class="toc-num">01</span><span>Understanding the Agentic Workflow</span></a>
+<a class="toc-link" href="#remotion-vs-hyperframes"><span class="toc-num">02</span><span>Remotion vs. HyperFrames Composition</span></a>
+<a class="toc-link" href="#setup-guide"><span class="toc-num">03</span><span>Step-by-Step Local Installation</span></a>
+<a class="toc-link" href="#governance-scoring"><span class="toc-num">04</span><span>Budget Controls &amp; Scored Selection</span></a>
 </div>
 </div>
 <!-- Section 1 -->
-<div class="section" id="core-architectures">
-<div class="section-label">01 / Logic Engine</div>
-<h2 class="section-heading">Core <em>architectures</em> compared</h2>
+<div class="section" id="what-is-openmontage">
+<div class="section-label">01 / Engine Philosophy</div>
+<h2 class="section-heading">Understanding the <em>agentic workflow</em></h2>
 <div class="section-divider"></div>
-<p class="body-text">Both Claude Opus 4.8 and GPT 5.5 belong to the new class of <strong>native reasoning models</strong>. Unlike traditional chat models, they do not spit out answers instantly. When you pass a query, they generate a hidden (or visible) chain-of-thought timeline that analyzes instructions, tests hypotheses, and fixes syntax errors before returning the final response.</p>
+<p class="body-text">Traditional code-based video tools utilize rigid programmatic timelines where a script compiles assets at fixed timestamps. OpenMontage is different: it treats video editing as an **agent-in-the-loop choreography**. There is no complex python orchestration code. Instead, your AI coding assistant (Claude Code, Cursor, Codex) reads structured system prompts, interacts with Python tools, and makes creative design decisions guided by Markdown playbooks.</p>
+<p class="body-text">Every production task goes through a standardized seven-stage pipeline:</p>
+<div class="code-block">
+<div class="code-block-header">
+<span class="code-tag">Architecture Flow</span>
+<span class="code-caption">The Seven Production Stages</span>
+</div>
+<pre>Research ──&gt; Proposal ──&gt; Scripting ──&gt; Scene Plan ──&gt; Asset Gen ──&gt; Timeline Edit ──&gt; Compile Render</pre>
+</div>
+<p class="body-text">Each stage is governed by a **Director Skill** (Markdown files in <code>skills/pipelines/</code>). The agent reads the skill, executes the appropriate tools, saves checkpoints to a JSON file, and pauses for human approval at crucial creative intersections. This prevents typical AI drift and ensures the project is aligned with your expectations before burning expensive GPU render hours.</p>
 <div class="callout callout-tip">
 <div class="callout-icon">💡</div>
-<p><strong>Reasoning tokens are billed as output tokens.</strong> Even though you might not see the entire chain-of-thought displayed on screen, the tokens consumed during the model's "thinking phase" count towards your total output token limit and are billed accordingly. Keep this in mind when budgeting long loops.</p>
+<p><strong>A Real B-Roll Corpus:</strong> Unlike standard video tools that animate still images using Ken Burns zoom effects, OpenMontage can build a local CLIP-indexed video index. It fetches public domain footage from Archive.org, NASA repositories, and Wikimedia Commons, runs WhisperX and CLIP classification, and cuts authentic historical and documentary footage directly into your timeline.</p>
 </div>
-<p class="body-text">Anthropic's Opus 4.8 displays a semi-structured thinking timeline, which allows you to inspect the reasoning path directly in the API logs. This is incredibly helpful for developers debugging why an agent made a specific tool choice. Conversely, GPT 5.5 uses a fully hidden reasoning layer that returns only the final completion, though the reasoning token count is returned in the API usage metadata.</p>
 </div>
 <!-- Section 2 -->
-<div class="section" id="pricing-performance">
-<div class="section-label">02 / Budget &amp; Specs</div>
-<h2 class="section-heading">Specs and <em>billed rates</em></h2>
+<div class="section" id="remotion-vs-hyperframes">
+<div class="section-label">02 / Rendering Runtimes</div>
+<h2 class="section-heading">Remotion vs. <em>HyperFrames</em></h2>
 <div class="section-divider"></div>
-<p class="body-text">For production systems, the pricing difference between these models dictates which one to select for scale. GPT 5.5 maintains a cost advantage across both input and output paths.</p>
+<p class="body-text">At proposal time, OpenMontage locks in the <code>render_runtime</code>. It dynamically chooses between two programmatic engines depending on the aesthetic requirements of the brief:</p>
 <div class="table-wrap">
 <table class="data-table">
 <thead>
 <tr>
-<th>Metric</th>
-<th>Claude Opus 4.8</th>
-<th>GPT 5.5</th>
+<th>Feature / Metric</th>
+<th>Remotion (React)</th>
+<th>HyperFrames (HTML/GSAP)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Context Window</strong></td>
-<td>200,000 tokens</td>
-<td>128,000 tokens</td>
+<td><strong>Primary Focus</strong></td>
+<td>Data-driven explainers, speech sync, avatar presentations</td>
+<td>Kinetic typography, SVG animation, product teasers, UI captures</td>
 </tr>
 <tr>
-<td><strong>Max Output Tokens</strong></td>
-<td>8,192 tokens</td>
-<td>16,384 tokens</td>
+<td><strong>Key Animation Model</strong></td>
+<td>React spring animations, linear component transitions</td>
+<td>Deterministic GSAP timelines, SVG character rigs, shaders</td>
 </tr>
 <tr>
-<td><strong>Input Price (per 1M)</strong></td>
-<td>$15.00</td>
-<td>$12.00</td>
+<td><strong>Captions Style</strong></td>
+<td>Word-by-word active highlighters, TikTok-style pop text</td>
+<td>Fluid editorial typography, matte-occlusion composites</td>
 </tr>
 <tr>
-<td><strong>Output Price (per 1M)</strong></td>
-<td>$75.00</td>
-<td>$60.00</td>
+<td><strong>Scaffold Command</strong></td>
+<td><code>npx create-video-app</code> (Heavy project checkout)</td>
+<td><code>npx hyperframes init</code> (Lightweight, registry-driven)</td>
 </tr>
 <tr>
-<td><strong>Thinking Visibility</strong></td>
-<td>Visible via API logs</td>
-<td>Hidden (Metadata only)</td>
+<td><strong>Best Fit Case</strong></td>
+<td>Narrated tutorials with charts and talking-head overlays</td>
+<td>Cinematic title loops, website highlight captures, logo stings</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p class="body-text">While GPT 5.5 is 20% cheaper on both input and output paths, Claude Opus 4.8 offers a larger context window (200k tokens vs 128k) and more granular debugging capabilities. This trade-off is critical when designing systems with large codebase ingestion paths.</p>
+<p class="body-text">OpenMontage enforces strict runtime isolation. Swapping runtimes mid-pipeline is classified as a governance violation. If your brief calls for rigged character animation, the agent routes the stage to HyperFrames; if it calls for heavy spreadsheet-to-chart visualization with human narration, it targets Remotion.</p>
 </div>
 <!-- Section 3 -->
-<div class="section" id="agent-loops">
-<div class="section-label">03 / Code Execution</div>
-<h2 class="section-heading">Agent loop &amp; <em>tool stability</em></h2>
+<div class="section" id="setup-guide">
+<div class="section-label">03 / Installation</div>
+<h2 class="section-heading">Step-by-step <em>local installation</em></h2>
 <div class="section-divider"></div>
-<p class="body-text">We ran both models through 1,000 iterations of a standard developer coding loop (reading directories, editing files, running tests, and correcting lint errors). The benchmarks revealed distinct behaviors:</p>
-<div class="card-grid-2">
-<div class="info-card">
-<div class="card-icon">🦩</div>
-<h4>Claude Opus 4.8 Performance</h4>
-<p>Scored <strong>91% success rate</strong> on multi-step refactoring loops. Demonstrates perfect XML structuring, follows strict format blocks (like <code>&lt;replace&gt;</code> blocks) without drift, and explains logic modifications clearly. Latency averages ~3.5 seconds TTFT.</p>
+<p class="body-text">You can run OpenMontage completely offline without paid API credentials. Below is the quick setup guide for your environment.</p>
+<h3 class="sub-heading">Prerequisites</h3>
+<p class="body-text">Ensure you have the following packages installed on your system:</p>
+<ul>
+<li><strong>Python 3.10+</strong></li>
+<li><strong>Node.js 18+</strong> (Node.js 22+ recommended for HyperFrames)</li>
+<li><strong>FFmpeg</strong> (System-wide library path configured)</li>
+<li>An AI coding environment (Claude Code, Cursor, or Windsurf)</li>
+</ul>
+<h3 class="sub-heading">Standard Setup Commands</h3>
+<div class="code-block">
+<div class="code-block-header">
+<span class="code-tag">CLI Commands</span>
+<span class="code-caption">Cloning &amp; Building Environment</span>
+<button class="code-copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/calesthio/OpenMontage.git\ncd OpenMontage\nmake setup')">Copy</button>
 </div>
-<div class="info-card">
-<div class="card-icon">🤖</div>
-<h4>GPT 5.6 Performance</h4>
-<p>Scored <strong>89% success rate</strong>. Latency averages ~2.8 seconds TTFT (significantly faster). However, it occasionally slips out of strict tool-calling structures during deep loops and tends to generate verbose explanation wrappers around code blocks.</p>
+<pre>git clone https://github.com/calesthio/OpenMontage.git
+cd OpenMontage
+make setup</pre>
 </div>
-</div>
-<h3 class="sub-heading">Tool Calling &amp; Schema Strictness</h3>
-<p class="body-text">Anthropic's models are natively optimized for parsing XML tags. In agentic frameworks where the agent reads and writes code blocks wrapped in custom tags (e.g. <code>[TargetContent]</code> or <code>[ReplacementContent]</code>), Opus 4.8 maintains formatting consistency over dozens of turns. GPT 5.6 is highly performant with JSON schema validation but can occasionally drop structural constraints when executing complex text edits.</p>
-</div>
-<!-- Section 4 -->
-<div class="section" id="context-recall">
-<div class="section-label">04 / Scalability</div>
-<h2 class="section-heading">Long context &amp; <em>recall tests</em></h2>
-<div class="section-divider"></div>
-<p class="body-text">We performed needle-in-a-haystack (NIAH) tests to measure retrieval accuracy across both model contexts. The needle (a specific configuration value) was placed at various depths throughout the context length.</p>
 <div class="callout callout-warning">
 <div class="callout-icon">⚠️</div>
-<p><strong>GPT 5.6 performance degrades slightly past 96k tokens.</strong> While it supports a 128k context window, accuracy dropped to ~94% when the needle was placed in the middle of a context window larger than 96k tokens. Claude Opus 4.8 maintained &gt;99% recall up to its full 200k token context window.</p>
+<p><strong>Windows Path Fallback:</strong> If you are on Windows and the <code>make setup</code> command fails, or if <code>npm install</code> returns an <code>ERR_INVALID_ARG_TYPE</code>, run the command manually: <br/>
+<code>pip install -r requirements.txt &amp;&amp; cd remotion-composer &amp;&amp; npx --yes npm install &amp;&amp; cd .. &amp;&amp; pip install piper-tts &amp;&amp; cp .env.example .env</code></p>
 </div>
-<p class="body-text">For large-scale codebases, Claude's 200k token window is not just larger; it is more reliable. However, for smaller repositories under 90k tokens, GPT 5.6's faster response times and lower rates make it the ideal engine for developer pipelines.</p>
+<h3 class="sub-heading">Configuring API Keys</h3>
+<p class="body-text">Copy the default environment template and add credentials for the providers you wish to activate. The system falls back cleanly to free local alternatives if fields are left blank.</p>
+<div class="code-block">
+<div class="code-block-header">
+<span class="code-tag">Bash / Windows Env</span>
+<span class="code-caption">Configuring the .env file</span>
 </div>
-<!-- FAQ -->
+<pre># --- Media Stocks (Free API Keys) ---
+PEXELS_API_KEY=your_pexels_key
+UNSPLASH_ACCESS_KEY=your_unsplash_key
+
+# --- AI Media Engines (Optional) ---
+FAL_KEY=your_fal_ai_key              # FLUX images, Kling &amp; Veo video
+SUNO_API_KEY=your_suno_key            # Suno AI musical backing
+ELEVENLABS_API_KEY=your_elevenlabs_key # Premium TTS synthesis
+OPENAI_API_KEY=your_openai_key        # DALL-E 3 &amp; OpenAI TTS</pre>
+</div>
+<h3 class="sub-heading">Unlocking Local GPU Models</h3>
+<p class="body-text">If you have a dedicated NVIDIA GPU with sufficient VRAM, you can run localized video generation models like Wan 2.1 or Hunyuan entirely locally:</p>
+<div class="code-block">
+<div class="code-block-header">
+<span class="code-tag">Local GPU Config</span>
+<span class="code-caption">Activating Local Generators</span>
+</div>
+<pre>make install-gpu
+
+# Add to your .env:
+VIDEO_GEN_LOCAL_ENABLED=true
+VIDEO_GEN_LOCAL_MODEL=wan2.1-1.3b # Options: wan2.1-1.3b, cogvideo-5b, ltx2-local</pre>
+</div>
+</div>
+<!-- Section 4 -->
+<div class="section" id="governance-scoring">
+<div class="section-label">04 / Platform Management</div>
+<h2 class="section-heading">Budget controls &amp; <em>scored selection</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">OpenMontage is designed for autonomous agent execution. To prevent agents from running wild and generating huge API bills, it implements strict budget governance:</p>
+<ul>
+<li><strong>Reserve &amp; Reconcile:</strong> Funds are pre-allocated and locked in the budget registry before making cloud provider API requests, then reconciled based on actual usage metadata.</li>
+<li><strong>Spend Caps:</strong> A hard total cap is configured (default is $10.00). The agent cannot execute any generation if it exceeds this cap.</li>
+<li><strong>Observation Modes:</strong> Configure <code>OBSERVE</code> (track costs only), <code>WARN</code> (log alerts), or <code>CAP</code> (terminate execution on overrun) in your <code>config.json</code>.</li>
+</ul>
+<h3 class="sub-heading">Scored Provider Selection</h3>
+<p class="body-text">OpenMontage uses a multi-dimensional selection matrix to automatically choose the best model for each task (e.g. image generation, TTS, or B-roll stock). The selector normalizes task parameters and scores each provider across seven key dimensions:</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Scoring Dimension</th>
+<th>Weight</th>
+<th>Evaluation Criteria</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Task Fit</strong></td>
+<td>30%</td>
+<td>Does the model's output match the target visual style and aspect ratio?</td>
+</tr>
+<tr>
+<td><strong>Output Quality</strong></td>
+<td>20%</td>
+<td>Visual fidelity, resolution, text readability, and absence of distortion.</td>
+</tr>
+<tr>
+<td><strong>Control Features</strong></td>
+<td>15%</td>
+<td>Support for camera motion, negative prompting, and seed controls.</td>
+</tr>
+<tr>
+<td><strong>Reliability</strong></td>
+<td>15%</td>
+<td>API response success rates, request timeout thresholds, and speed stability.</td>
+</tr>
+<tr>
+<td><strong>Cost Efficiency</strong></td>
+<td>10%</td>
+<td>Per-action token or compute pricing rates relative to value.</td>
+</tr>
+<tr>
+<td><strong>Latency</strong></td>
+<td>5%</td>
+<td>Time-to-first-frame (TTFF) or transcription output speeds.</td>
+</tr>
+<tr>
+<td><strong>Continuity</strong></td>
+<td>5%</td>
+<td>Consistency of styles across sequential multi-shot generations.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p class="body-text">Every winning decision and its reasoning logic is recorded inside a cumulative <code>decision_log.json</code> audit trail for review, ensuring complete transparency.</p>
+</div>
+<!-- FAQ Section -->
 <div class="section">
 <div class="section-label">FAQ</div>
 <h2 class="section-heading">Common <em>questions</em></h2>
 <div class="section-divider"></div>
 <div class="faq-grid">
 <div class="faq-card">
-<h4>Is GPT 5.6 better for web applications?</h4>
-<p>Yes. The lower latency of GPT 5.5 (~20% faster TTFT) is critical for web applications where user interaction requires fast feedback loops.</p>
+<h4>Can I create custom video pipelines?</h4>
+<p>Yes. You can write a custom YAML pipeline manifest inside the <code>pipeline_defs/</code> folder, define stage boundaries, and link them to custom Markdown instructions in the <code>skills/pipelines/</code> directory.</p>
 </div>
 <div class="faq-card">
-<h4>Can I reuse prompt playbooks between these models?</h4>
-<p>Mostly, but not perfectly. Claude Opus 4.8 responds best to XML structuring and clear role tags, while GPT 5.6 prefers system prompts with explicit list boundaries and JSON output schemas.</p>
+<h4>What happens if I run out of API credits?</h4>
+<p>The scored selection engine catches credit limits in its reliability checks and automatically falls back to offline providers (like local Piper TTS for audio and B-roll stock video clips from public archives).</p>
 </div>
 <div class="faq-card">
-<h4>Which model handles error tracebacks better?</h4>
-<p>Claude Opus 4.8 is superior at parsing complex traceback chains. Its reasoning path is highly optimized for analyzing compile-time issues and dependencies across multiple files.</p>
+<h4>How are renders audited for quality?</h4>
+<p>OpenMontage runs post-render validation: checks video frames via ffprobe to prevent blank sections, checks audio levels for clipping or prolonged silence, and verifies subtitle synchronizations before displaying the final clip.</p>
 </div>
 <div class="faq-card">
-<h4>How do reasoning tokens affect rate limits?</h4>
-<p>Rate limits are calculated on total tokens (including reasoning tokens). Since reasoning models consume large blocks of tokens during the thinking phase, you can hit rate limits much faster than with standard models.</p>
+<h4>Does it support local LLMs for research?</h4>
+<p>Yes. You can route research, scripting, and scene-planning stages to local instances using Ollama or LM Studio by editing the LLM host configuration settings in your system file.</p>
 </div>
 </div>
 </div>
@@ -503,11 +601,11 @@
         <div>
           <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
-            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
-            <li><a href="../guides/gpt-54-1m-context-practical-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 GPT-5.4 with 1M Context: What Actually Works and What Falls Apart</a></li>
+            <li><a href="../guides/agentic-video-editing-hyperframes-remotion.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Agentic Video Editing With HyperFrames and Remotion Skills</a></li>
+            <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenClaw VPS & Mac Mini Setup</a></li>
             <li><a href="../guides/codex-gpt55-agentic-frameworks.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Elite Agentic Workflows: Prompting Codex + GPT-5.5</a></li>
-            <li><a href="../guides/openmontage-chad-ai-video-editing.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenMontage: The CHAD of AI Video Editing</a></li>
             <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
+            <li><a href="../guides/claude-opus-48-vs-gpt-56-comparison.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Claude Opus 4.8 vs GPT 5.6: The Deep Reasoning Teardown</a></li>
           </ul>
         </div>
         
