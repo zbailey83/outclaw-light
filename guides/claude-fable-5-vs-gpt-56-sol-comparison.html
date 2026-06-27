@@ -35,23 +35,24 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
-<title>OpenMontage: The CHAD of AI Video Editing | OutClaw AI</title>
-<meta content="A complete builder guide to OpenMontage, the world's first open-source agentic video production system. Setup, Remotion vs. HyperFrames, and quality gates." name="description"/>
-<link href="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" rel="canonical"/>
+<title>Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access | OutClaw AI</title>
+<meta content="A side-by-side comparison of Claude Fable 5, Mythos 5, and GPT-5.6 Sol, Terra &amp; Luna access lists, rollout timelines, spec sheets, and production fallbacks." name="description"/>
+<link href="https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison" rel="canonical"/>
 <meta content="index, follow" name="robots"/>
 <meta content="#5AADDB" name="theme-color"/>
 <!-- Open Graph -->
 <meta content="article" property="og:type"/>
-<meta content="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" property="og:url"/>
-<meta content="OpenMontage: The CHAD of AI Video Editing | OutClaw AI" property="og:title"/>
-<meta content="Ditch the slideshows. Build real-footage edits from public archives and open-source stock, driven by an agentic timeline orchestra." property="og:description"/>
+<meta content="https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison" property="og:url"/>
+<meta content="Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access | OutClaw AI" property="og:title"/>
+<meta content="Two labs just shipped their best models ever. You're not on either list. We break down the access restrictions, spec sheets, and developer fallbacks." property="og:description"/>
 <meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
 <!-- Twitter -->
 <meta content="summary_large_image" property="twitter:card"/>
-<meta content="https://outclaw.xyz/guides/openmontage-chad-ai-video-editing" property="twitter:url"/>
-<meta content="OpenMontage: The CHAD of AI Video Editing | OutClaw AI" property="twitter:title"/>
-<meta content="Ditch the slideshows. Build real-footage edits from public archives and open-source stock, driven by an agentic timeline orchestra." property="twitter:description"/>
+<meta content="https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison" property="twitter:url"/>
+<meta content="Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access | OutClaw AI" property="twitter:title"/>
+<meta content="Two labs just shipped their best models ever. You're not on either list. We break down the access restrictions, spec sheets, and developer fallbacks." property="twitter:description"/>
 <meta content="https://outclaw.xyz/hero-alt.webp" property="twitter:image"/>
 <style>
     :root{
@@ -96,7 +97,7 @@
     @media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
 
     /* ---- Footer (brand-consistent) ---- */
-    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-top:64px;}
+    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
     .footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
     .footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
     .footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
@@ -117,13 +118,13 @@
     .eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
     .page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--text);max-width:820px;}
     .page-hero h1 em{font-style:italic;color:var(--sky);}
-    .page-hero-sub{font-size:17px;color:var(--text-mid);max-width:720px;margin-top:16px;line-height:1.75;}
+    .page-hero-sub{font-size:17px;color:var(--text-soft);max-width:620px;margin-top:16px;line-height:1.75;}
     .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-size:13px;color:var(--text-soft);}
     .meta-row span{display:inline-flex;align-items:center;gap:6px;}
     .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
     .tag-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);background:var(--white);}
     .page-body{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
-    .lede{font-size:17px;color:var(--text-mid);max-width:750px;line-height:1.8;margin-bottom:8px;}
+    .lede{font-size:16px;color:var(--text-mid);max-width:700px;line-height:1.8;margin-bottom:8px;}
     @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:40px 24px 72px;}}
 
     /* ---- Stat row (reused for hero metrics) ---- */
@@ -263,9 +264,9 @@
     },
     {
       "@type": "WebPage",
-      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#webpage",
-      "url": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing",
-      "name": "OpenMontage: The CHAD of AI Video Editing",
+      "@id": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison#webpage",
+      "url": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison",
+      "name": "Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access",
       "isPartOf": {
         "@id": "https://outclaw.xyz/#website"
       }
@@ -276,28 +277,28 @@
         "BlogPosting",
         "TechArticle"
       ],
-      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#article",
+      "@id": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison#article",
       "isPartOf": {
-        "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#webpage"
+        "@id": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison#webpage"
       },
-      "headline": "OpenMontage: The CHAD of AI Video Editing",
-      "description": "A complete builder guide to OpenMontage, the world's first open-source agentic video production system. Setup, Remotion vs. HyperFrames, and quality gates.",
+      "headline": "Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access",
+      "description": "A side-by-side comparison of Claude Fable 5, Mythos 5, and GPT-5.6 Sol, Terra & Luna access lists, rollout timelines, spec sheets, and production fallbacks.",
       "inLanguage": "en-US",
-      "mainEntityOfPage": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison",
       "image": "https://outclaw.xyz/hero-alt.webp",
-      "datePublished": "2026-06-24",
-      "dateModified": "2026-06-24",
+      "datePublished": "2026-06-27",
+      "dateModified": "2026-06-27",
       "author": {
         "@id": "https://outclaw.xyz/author/zach-bailey/#person"
       },
       "publisher": {
         "@id": "https://outclaw.xyz/#organization"
       },
-      "wordCount": 1242
+      "wordCount": 2063
     },
     {
       "@type": "BreadcrumbList",
-      "@id": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing#breadcrumb",
+      "@id": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison#breadcrumb",
       "itemListElement": [
         {
           "@type": "ListItem",
@@ -314,297 +315,360 @@
         {
           "@type": "ListItem",
           "position": 3,
-          "name": "OpenMontage: The CHAD of AI Video Editing",
-          "item": "https://outclaw.xyz/guides/openmontage-chad-ai-video-editing"
+          "name": "Claude Fable 5 vs GPT-5.6 Sol: The Battle for Access",
+          "item": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison"
         }
       ]
     }
   ]
 }</script></head>
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe height="0" src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" style="display:none;visibility:hidden" width="0"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+<!-- Navbar -->
 <nav class="navbar" id="mainNav">
 <a class="navbar-logo" href="../">
 <img alt="OutClaw AI Logo" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
 <div class="navbar-wordmark">Out<em>claw</em> AI</div>
 </a>
 <div class="navbar-links">
-<a href="../about/">About</a>
-<a class="active" href="./">Guides</a>
 <a href="../videos/">Videos</a>
+<a class="active" href="./">Guides</a>
 <a href="../tools/">Tools</a>
-<a href="../newsletter/">Newsletter</a>
+<a href="../about/">About</a>
 </div>
 <div class="navbar-right">
-<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
-<button aria-label="Menu" class="nav-hamburger" onclick="toggleDrawer()"><span></span><span></span><span></span></button>
+<a class="nav-cta" href="../newsletter/">Subscribe 🦞</a>
+<button aria-label="Menu" class="nav-hamburger" id="navHam" onclick="toggleDrawer()">
+<span></span><span></span><span></span>
+</button>
 </div>
 </nav>
+<!-- Mobile Drawer -->
 <div class="nav-drawer" id="navDrawer">
-<a href="../about/">About</a>
-<a class="active" href="./">Guides</a>
 <a href="../videos/">Videos</a>
+<a class="active" href="./">Guides</a>
 <a href="../tools/">Tools</a>
-<a href="../newsletter/">Newsletter</a>
-<a class="nav-cta" href="../newsletter/">Subscribe Free →</a>
+<a href="../about/">About</a>
+<a class="nav-cta" href="../newsletter/">Subscribe 🦞</a>
 </div>
-<section class="page-hero">
+<!-- Hero -->
+<header class="page-hero">
 <div class="page-hero-inner">
-<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › OpenMontage</div>
-<div class="eyebrow">Agentic Video · Open Source</div>
-<h1><em>OpenMontage</em>: The CHAD of AI Video Editing</h1>
-<p class="page-hero-sub">Ditch the slideshows. Learn how to configure and run OpenMontage—the world's first open-source agentic video production system—to orchestrate Remotion and HyperFrames, build clip-indexed B-roll corpora, and auto-review renders.</p>
-<div class="meta-row">
-<span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
-<span>⏱️ 12 min read</span>
-<span>⚡ Open-Source Production Guide</span>
+<div class="breadcrumb">
+<a href="../">Home</a> &gt; <a href="./">Guides</a> &gt; Claude Fable 5 vs GPT-5.6 Sol Access
+      </div>
+<div class="eyebrow">vs. comparison guide</div>
+<h1>Two labs just shipped their best models ever. <em>You're not on either list.</em></h1>
+<p class="page-hero-sub">Claude Mythos 5 / Fable 5 and GPT‑5.6 Sol, Terra &amp; Luna, compared on paper, on price, and on the thing that actually matters right now: who's allowed to use them.</p>
+<!-- Stat row -->
+<div class="stat-row">
+<div class="stat-item">
+<div class="stat-num">~20 <em>Orgs</em></div>
+<div class="stat-label">GPT-5.6 Sol Partners</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">100+ <em>US</em></div>
+<div class="stat-label">Mythos 5 Gated Sectors</div>
+</div>
+<div class="stat-item">
+<div class="stat-num">0% <em>Traffic</em></div>
+<div class="stat-label">Claude Fable 5 Status</div>
+</div>
+</div>
+<div class="meta-row"><span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
+<span>📅 Published: June 27, 2026</span>
+<span>🏷️ Category: Model Releases</span>
 </div>
 <div class="tag-row">
-<div class="tag-chip">OpenMontage</div>
-<div class="tag-chip">AI Video Editing</div>
-<div class="tag-chip">Remotion</div>
-<div class="tag-chip">HyperFrames</div>
-<div class="tag-chip">Agentic Loops</div>
-</div>
-<div class="stat-row">
-<div class="stat-item"><div class="stat-num"><em>12</em></div><div class="stat-label">Pipelines</div></div>
-<div class="stat-item"><div class="stat-num"><em>52</em></div><div class="stat-label">Production Tools</div></div>
-<div class="stat-item"><div class="stat-num"><em>500+</em></div><div class="stat-label">Agent Skills</div></div>
-<div class="stat-item"><div class="stat-num"><em>$0.00</em></div><div class="stat-label">Zero-Key Cost</div></div>
+<span class="tag-chip">Anthropic</span>
+<span class="tag-chip">OpenAI</span>
+<span class="tag-chip">Frontier Access</span>
+<span class="tag-chip">Model Gating</span>
 </div>
 </div>
-</section>
-<div class="page-body">
-<p class="lede">Most AI video platforms require a single text prompt and return a simple, hallucinated, 4-second clip. If you want a complete, narrated video, you are usually stuck stitching clips manually or enduring generic "animated PowerPoint slideshows." <strong>OpenMontage</strong> breaks this paradigm. It is an agentic, multi-stage production orchestra that behaves like a professional editing team. It conducts research, writes narratives, sources authentic B-roll, styles dynamic typography, and reviews its own work.</p>
+</header>
+<!-- Page Body -->
+<main class="page-body">
+<!-- TLDR -->
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
-<p><strong>OpenMontage is the first open-source, pipeline-driven video editor designed for AI agents.</strong> By default, it builds a semantic, CLIP-searchable corpus of real motion clips from open-license archives (Archive.org, NASA, Wikimedia, and Pexels) rather than animating still images. It supports both <strong>Remotion</strong> (React) and <strong>HyperFrames</strong> (HTML/CSS/GSAP) composition runtimes. You can run it entirely free with offline voice synthesis (Piper TTS) and public archives, or wire up cloud APIs for next-generation cinematic generation.</p>
+<div class="eyebrow" style="color: var(--flamingo);">TLDR</div>
+<p>Anthropic and OpenAI both built their most capable models to date, and both ended up routing them through a government-cleared shortlist before anyone else got in. Right now <strong>GPT‑5.6 Sol is API and Codex only</strong>, capped at roughly twenty pre-approved organizations. <strong>Claude Fable 5 is fully dark</strong>, zero traffic served to anyone. <strong>Claude Mythos 5</strong> just got handed back, but only to a set of US critical-infrastructure operators. If you're deciding which one to build on, the spec sheet is the wrong place to start. <strong>The access list is the product.</strong></p>
 </div>
+<!-- TOC -->
 <div class="toc-wrap">
-<div class="toc-heading"><em>Jump to any section</em></div>
+<div class="toc-heading">On This Page</div>
 <div class="toc-grid">
-<a class="toc-link" href="#what-is-openmontage"><span class="toc-num">01</span><span>Understanding the Agentic Workflow</span></a>
-<a class="toc-link" href="#remotion-vs-hyperframes"><span class="toc-num">02</span><span>Remotion vs. HyperFrames Composition</span></a>
-<a class="toc-link" href="#setup-guide"><span class="toc-num">03</span><span>Step-by-Step Local Installation</span></a>
-<a class="toc-link" href="#governance-scoring"><span class="toc-num">04</span><span>Budget Controls &amp; Scored Selection</span></a>
+<a class="toc-link" href="#gated-reality">
+<span class="toc-num">01</span>
+<span>The Comparison Everyone's Getting Wrong</span>
+</a>
+<a class="toc-link" href="#rollout-timelines">
+<span class="toc-num">02</span>
+<span>How We Got Here (Timeline)</span>
+</a>
+<a class="toc-link" href="#openai-tiers">
+<span class="toc-num">03</span>
+<span>Spec Sheet: GPT‑5.6 Sol, Terra &amp; Luna</span>
+</a>
+<a class="toc-link" href="#claude-tiers">
+<span class="toc-num">04</span>
+<span>Spec Sheet: Claude Fable 5 &amp; Mythos 5</span>
+</a>
+<a class="toc-link" href="#access-map">
+<span class="toc-num">05</span>
+<span>Who Can Actually Get In Right Now</span>
+</a>
+<a class="toc-link" href="#developer-fallbacks">
+<span class="toc-num">06</span>
+<span>What to Build On While You Wait</span>
+</a>
 </div>
 </div>
 <!-- Section 1 -->
-<div class="section" id="what-is-openmontage">
-<div class="section-label">01 / Engine Philosophy</div>
-<h2 class="section-heading">Understanding the <em>agentic workflow</em></h2>
+<section class="section" id="gated-reality">
+<div class="section-label">01 / The Gated Reality</div>
+<h2 class="section-heading">The comparison everyone's <em>getting wrong</em></h2>
 <div class="section-divider"></div>
-<p class="body-text">Traditional code-based video tools utilize rigid programmatic timelines where a script compiles assets at fixed timestamps. OpenMontage is different: it treats video editing as an **agent-in-the-loop choreography**. There is no complex python orchestration code. Instead, your AI coding assistant (Claude Code, Cursor, Codex) reads structured system prompts, interacts with Python tools, and makes creative design decisions guided by Markdown playbooks.</p>
-<p class="body-text">Every production task goes through a standardized seven-stage pipeline:</p>
-<div class="code-block">
-<div class="code-block-header">
-<span class="code-tag">Architecture Flow</span>
-<span class="code-caption">The Seven Production Stages</span>
-</div>
-<pre>Research ──&gt; Proposal ──&gt; Scripting ──&gt; Scene Plan ──&gt; Asset Gen ──&gt; Timeline Edit ──&gt; Compile Render</pre>
-</div>
-<p class="body-text">Each stage is governed by a **Director Skill** (Markdown files in <code>skills/pipelines/</code>). The agent reads the skill, executes the appropriate tools, saves checkpoints to a JSON file, and pauses for human approval at crucial creative intersections. This prevents typical AI drift and ensures the project is aligned with your expectations before burning expensive GPU render hours.</p>
-<div class="callout callout-tip">
-<div class="callout-icon">💡</div>
-<p><strong>A Real B-Roll Corpus:</strong> Unlike standard video tools that animate still images using Ken Burns zoom effects, OpenMontage can build a local CLIP-indexed video index. It fetches public domain footage from Archive.org, NASA repositories, and Wikimedia Commons, runs WhisperX and CLIP classification, and cuts authentic historical and documentary footage directly into your timeline.</p>
-</div>
-</div>
-<!-- Section 2 -->
-<div class="section" id="remotion-vs-hyperframes">
-<div class="section-label">02 / Rendering Runtimes</div>
-<h2 class="section-heading">Remotion vs. <em>HyperFrames</em></h2>
-<div class="section-divider"></div>
-<p class="body-text">At proposal time, OpenMontage locks in the <code>render_runtime</code>. It dynamically chooses between two programmatic engines depending on the aesthetic requirements of the brief:</p>
-<div class="table-wrap">
-<table class="data-table">
-<thead>
-<tr>
-<th>Feature / Metric</th>
-<th>Remotion (React)</th>
-<th>HyperFrames (HTML/GSAP)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Primary Focus</strong></td>
-<td>Data-driven explainers, speech sync, avatar presentations</td>
-<td>Kinetic typography, SVG animation, product teasers, UI captures</td>
-</tr>
-<tr>
-<td><strong>Key Animation Model</strong></td>
-<td>React spring animations, linear component transitions</td>
-<td>Deterministic GSAP timelines, SVG character rigs, shaders</td>
-</tr>
-<tr>
-<td><strong>Captions Style</strong></td>
-<td>Word-by-word active highlighters, TikTok-style pop text</td>
-<td>Fluid editorial typography, matte-occlusion composites</td>
-</tr>
-<tr>
-<td><strong>Scaffold Command</strong></td>
-<td><code>npx create-video-app</code> (Heavy project checkout)</td>
-<td><code>npx hyperframes init</code> (Lightweight, registry-driven)</td>
-</tr>
-<tr>
-<td><strong>Best Fit Case</strong></td>
-<td>Narrated tutorials with charts and talking-head overlays</td>
-<td>Cinematic title loops, website highlight captures, logo stings</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p class="body-text">OpenMontage enforces strict runtime isolation. Swapping runtimes mid-pipeline is classified as a governance violation. If your brief calls for rigged character animation, the agent routes the stage to HyperFrames; if it calls for heavy spreadsheet-to-chart visualization with human narration, it targets Remotion.</p>
-</div>
-<!-- Section 3 -->
-<div class="section" id="setup-guide">
-<div class="section-label">03 / Installation</div>
-<h2 class="section-heading">Step-by-step <em>local installation</em></h2>
-<div class="section-divider"></div>
-<p class="body-text">You can run OpenMontage completely offline without paid API credentials. Below is the quick setup guide for your environment.</p>
-<h3 class="sub-heading">Prerequisites</h3>
-<p class="body-text">Ensure you have the following packages installed on your system:</p>
-<ul>
-<li><strong>Python 3.10+</strong></li>
-<li><strong>Node.js 18+</strong> (Node.js 22+ recommended for HyperFrames)</li>
-<li><strong>FFmpeg</strong> (System-wide library path configured)</li>
-<li>An AI coding environment (Claude Code, Cursor, or Windsurf)</li>
-</ul>
-<h3 class="sub-heading">Standard Setup Commands</h3>
-<div class="code-block">
-<div class="code-block-header">
-<span class="code-tag">CLI Commands</span>
-<span class="code-caption">Cloning &amp; Building Environment</span>
-<button class="code-copy-btn" onclick="navigator.clipboard.writeText('git clone https://github.com/calesthio/OpenMontage.git\ncd OpenMontage\nmake setup')">Copy</button>
-</div>
-<pre>git clone https://github.com/calesthio/OpenMontage.git
-cd OpenMontage
-make setup</pre>
-</div>
+<p class="body-text">Most coverage of this is benchmarking two products that, practically speaking, don't exist for the reader yet.</p>
+<p class="body-text">You'll see "Sol vs Fable" breakdowns built entirely from preview documentation and system cards, written as if the next step is opening an account and running a prompt. It isn't. Sol has shipped to about twenty organizations. Fable has shipped to nobody. Mythos just shipped to a sector-specific list that almost certainly excludes you. Comparing reasoning benchmarks between two models you can't currently call is a fine intellectual exercise, but it's not the decision your team actually needs to make this week.</p>
 <div class="callout callout-warning">
 <div class="callout-icon">⚠️</div>
-<p><strong>Windows Path Fallback:</strong> If you are on Windows and the <code>make setup</code> command fails, or if <code>npm install</code> returns an <code>ERR_INVALID_ARG_TYPE</code>, run the command manually: <br/>
-<code>pip install -r requirements.txt &amp;&amp; cd remotion-composer &amp;&amp; npx --yes npm install &amp;&amp; cd .. &amp;&amp; pip install piper-tts &amp;&amp; cp .env.example .env</code></p>
+<p><strong>The failure mode to avoid:</strong> treating "which model is more capable" as the question, when "which model can I actually call in production right now" is the one with a real answer, and that answer is currently neither.</p>
 </div>
-<h3 class="sub-heading">Configuring API Keys</h3>
-<p class="body-text">Copy the default environment template and add credentials for the providers you wish to activate. The system falls back cleanly to free local alternatives if fields are left blank.</p>
-<div class="code-block">
-<div class="code-block-header">
-<span class="code-tag">Bash / Windows Env</span>
-<span class="code-caption">Configuring the .env file</span>
-</div>
-<pre># --- Media Stocks (Free API Keys) ---
-PEXELS_API_KEY=your_pexels_key
-UNSPLASH_ACCESS_KEY=your_unsplash_key
-
-# --- AI Media Engines (Optional) ---
-FAL_KEY=your_fal_ai_key              # FLUX images, Kling &amp; Veo video
-SUNO_API_KEY=your_suno_key            # Suno AI musical backing
-ELEVENLABS_API_KEY=your_elevenlabs_key # Premium TTS synthesis
-OPENAI_API_KEY=your_openai_key        # DALL-E 3 &amp; OpenAI TTS</pre>
-</div>
-<h3 class="sub-heading">Unlocking Local GPU Models</h3>
-<p class="body-text">If you have a dedicated NVIDIA GPU with sufficient VRAM, you can run localized video generation models like Wan 2.1 or Hunyuan entirely locally:</p>
-<div class="code-block">
-<div class="code-block-header">
-<span class="code-tag">Local GPU Config</span>
-<span class="code-caption">Activating Local Generators</span>
-</div>
-<pre>make install-gpu
-
-# Add to your .env:
-VIDEO_GEN_LOCAL_ENABLED=true
-VIDEO_GEN_LOCAL_MODEL=wan2.1-1.3b # Options: wan2.1-1.3b, cogvideo-5b, ltx2-local</pre>
-</div>
-</div>
-<!-- Section 4 -->
-<div class="section" id="governance-scoring">
-<div class="section-label">04 / Platform Management</div>
-<h2 class="section-heading">Budget controls &amp; <em>scored selection</em></h2>
+</section>
+<!-- Section 2 -->
+<section class="section" id="rollout-timelines">
+<div class="section-label">02 / Gating History</div>
+<h2 class="section-heading">How we <em>got here</em></h2>
 <div class="section-divider"></div>
-<p class="body-text">OpenMontage is designed for autonomous agent execution. To prevent agents from running wild and generating huge API bills, it implements strict budget governance:</p>
-<ul>
-<li><strong>Reserve &amp; Reconcile:</strong> Funds are pre-allocated and locked in the budget registry before making cloud provider API requests, then reconciled based on actual usage metadata.</li>
-<li><strong>Spend Caps:</strong> A hard total cap is configured (default is $10.00). The agent cannot execute any generation if it exceeds this cap.</li>
-<li><strong>Observation Modes:</strong> Configure <code>OBSERVE</code> (track costs only), <code>WARN</code> (log alerts), or <code>CAP</code> (terminate execution on overrun) in your <code>config.json</code>.</li>
+<p class="body-text">Two separate companies arrived at the same shape of outcome inside about three weeks, on two different tracks. Read down both columns and the pattern gets obvious fast.</p>
+<div class="card-grid-2">
+<div class="info-card" style="border-left: 4px solid var(--sky);">
+<div class="card-icon">🦩</div>
+<h4>Anthropic Track</h4>
+<ul style="list-style: none; padding: 0; font-size: 13.5px; color: var(--text-mid); display: flex; flex-direction: column; gap: 12px;">
+<li><strong>April 2026</strong><br/>Claude Mythos Preview launches through Project Glasswing, limited to a handful of government-coordinated partners.</li>
+<li><strong>Early June</strong><br/>Mythos Preview access expands to hundreds of organizations across 15 countries, still focused on critical-infrastructure defense.</li>
+<li><strong>June 9</strong><br/>Claude Fable 5 launches generally available (Claude API, AWS Bedrock, Google Cloud, Microsoft Foundry). Claude Mythos 5 launches the same day, Project Glasswing only. Both priced at $10 / $50 per million tokens, 1M context window.</li>
+<li><strong>June 12, 5:21pm ET</strong><br/>Commerce Department export control directive orders Anthropic to cut off Fable 5 and Mythos 5 for any foreign national, anywhere, including Anthropic's own non-citizen staff. Anthropic can't verify nationality in real time at the API layer, so it disables both models for everyone.</li>
+<li><strong>June 27 (Today)</strong><br/>The government authorizes Mythos 5's redeployment to more than 100 US organizations that operate or defend critical infrastructure. First partial restoration since the 12th. Fable 5 stays fully offline for subscribers, Claude Code, and general API access.</li>
 </ul>
-<h3 class="sub-heading">Scored Provider Selection</h3>
-<p class="body-text">OpenMontage uses a multi-dimensional selection matrix to automatically choose the best model for each task (e.g. image generation, TTS, or B-roll stock). The selector normalizes task parameters and scores each provider across seven key dimensions:</p>
+</div>
+<div class="info-card" style="border-left: 4px solid var(--flamingo);">
+<div class="card-icon">🤖</div>
+<h4>OpenAI Track</h4>
+<ul style="list-style: none; padding: 0; font-size: 13.5px; color: var(--text-mid); display: flex; flex-direction: column; gap: 12px;">
+<li><strong>June 2</strong><br/>An executive order directs federal agencies to build a process for benchmarking frontier models' cyber capabilities, with a classified "covered frontier model" designation due by August 1.</li>
+<li><strong>Through mid-June</strong><br/>OpenAI previews its plans and the new models' capabilities to the US government ahead of launch, as part of that same coordination effort.</li>
+<li><strong>June 26</strong><br/>OpenAI previews GPT‑5.6 Sol, Terra, and Luna. API and Codex only, no ChatGPT. Access limited to roughly twenty trusted-partner organizations whose participation was shared with the government in advance. New tiered naming scheme, max-reasoning mode, and an "ultra" sub-agent mode all ship with it.</li>
+<li><strong>June 27 (Today)</strong><br/>Reports indicate OpenAI plans to expand the trusted-partner list within the week, with general availability still described only as "coming weeks." Sol is also slated to run on Cerebras hardware in July at up to 750 tokens per second.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Section 3 -->
+<section class="section" id="openai-tiers">
+<div class="section-label">03 / OpenAI Specs</div>
+<h2 class="section-heading">Spec sheet: <em>GPT‑5.6 Sol, Terra &amp; Luna</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">OpenAI's new naming convention splits the version number from the capability tier. 5.6 is the generation. Sol, Terra, and Luna are tiers that can each update on their own schedule going forward, which is a real change to how you should expect OpenAI to ship updates from here on.</p>
 <div class="table-wrap">
 <table class="data-table">
 <thead>
 <tr>
-<th>Scoring Dimension</th>
-<th>Weight</th>
-<th>Evaluation Criteria</th>
+<th>Specification</th>
+<th>Sol</th>
+<th>Terra</th>
+<th>Luna</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><strong>Task Fit</strong></td>
-<td>30%</td>
-<td>Does the model's output match the target visual style and aspect ratio?</td>
+<td><strong>Positioning</strong></td>
+<td>Flagship, hardest problems</td>
+<td>High-volume production work</td>
+<td>Fast, cheap, routine tasks</td>
 </tr>
 <tr>
-<td><strong>Output Quality</strong></td>
-<td>20%</td>
-<td>Visual fidelity, resolution, text readability, and absence of distortion.</td>
+<td><strong>Price (per 1M input/output)</strong></td>
+<td>$5.00 / $30.00</td>
+<td>$2.50 / $15.00</td>
+<td>$1.00 / $6.00</td>
 </tr>
 <tr>
-<td><strong>Control Features</strong></td>
-<td>15%</td>
-<td>Support for camera motion, negative prompting, and seed controls.</td>
+<td><strong>Context Window</strong></td>
+<td colspan="3" style="text-align: center; background: var(--bg); font-style: italic;">Not disclosed in preview materials</td>
 </tr>
 <tr>
-<td><strong>Reliability</strong></td>
-<td>15%</td>
-<td>API response success rates, request timeout thresholds, and speed stability.</td>
+<td><strong>Channels</strong></td>
+<td colspan="3" style="text-align: center; background: var(--bg);">API and Codex only. Not available in ChatGPT during preview.</td>
 </tr>
 <tr>
-<td><strong>Cost Efficiency</strong></td>
-<td>10%</td>
-<td>Per-action token or compute pricing rates relative to value.</td>
+<td><strong>Access Right Now</strong></td>
+<td colspan="3" style="text-align: center; background: var(--bg);">~20 organizations, each individually approved and shared with the US government in advance</td>
 </tr>
 <tr>
-<td><strong>Latency</strong></td>
-<td>5%</td>
-<td>Time-to-first-frame (TTFF) or transcription output speeds.</td>
+<td><strong>Risk Classification</strong></td>
+<td colspan="3" style="text-align: center; background: var(--bg);">All three tiers rated "High" for both cyber and biological/chemical capability under OpenAI's preparedness framework</td>
 </tr>
 <tr>
-<td><strong>Continuity</strong></td>
-<td>5%</td>
-<td>Consistency of styles across sequential multi-shot generations.</td>
+<td><strong>New Capability</strong></td>
+<td>Max reasoning mode for extended deliberation</td>
+<td>Balanced agency and reasoning</td>
+<td>"ultra" mode splits complex work across sub-agents</td>
+</tr>
+<tr>
+<td><strong>Headline Claim</strong></td>
+<td colspan="3" style="text-align: center; background: var(--bg);">Strong gains on ExploitGym, a UC Berkeley cyber benchmark built with OpenAI and other labs, scaling with reasoning effort</td>
 </tr>
 </tbody>
 </table>
 </div>
-<p class="body-text">Every winning decision and its reasoning logic is recorded inside a cumulative <code>decision_log.json</code> audit trail for review, ensuring complete transparency.</p>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<p><strong>One number worth sitting with:</strong> Sol's pricing, $5 in and $30 out per million tokens, is identical to GPT-5.5's. You're not paying more for the jump in capability. You're just not getting to use it yet.</p>
 </div>
-<!-- FAQ Section -->
-<div class="section">
+</section>
+<!-- Section 4 -->
+<section class="section" id="claude-tiers">
+<div class="section-label">04 / Anthropic Specs</div>
+<h2 class="section-heading">Spec sheet: <em>Claude Fable 5 &amp; Mythos 5</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">Anthropic's split works differently. Fable and Mythos aren't separate capability tiers, they're the same underlying model with a different amount of safety rail installed.</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>Specification</th>
+<th>Claude Fable 5</th>
+<th>Claude Mythos 5</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Relationship</strong></td>
+<td>Same model. Runs with safety classifiers attached.</td>
+<td>Same model. Runs with those classifiers lifted.</td>
+</tr>
+<tr>
+<td><strong>Price (per 1M input/output)</strong></td>
+<td colspan="2" style="text-align: center; background: var(--bg); font-weight: 600;">$10.00 / $50.00 for both</td>
+</tr>
+<tr>
+<td><strong>Context Window</strong></td>
+<td colspan="2" style="text-align: center; background: var(--bg);">1M tokens, up to 128K output tokens per request</td>
+</tr>
+<tr>
+<td><strong>Channels at Launch</strong></td>
+<td>Claude API, AWS Bedrock, Google Cloud, Microsoft Foundry</td>
+<td>Project Glasswing partners only</td>
+</tr>
+<tr>
+<td><strong>Access Right Now</strong></td>
+<td>Zero. Anthropic staff stated it serves no traffic.</td>
+<td>100+ US critical-infrastructure operators, as of today</td>
+</tr>
+<tr>
+<td><strong>Safety Design</strong></td>
+<td>Declines flagged cyber/bio/chem queries, falls back to Claude Opus 4.8</td>
+<td>No decline classifiers, same model with the rails removed</td>
+</tr>
+<tr>
+<td><strong>Headline Claim</strong></td>
+<td>Stripe reported a 50-million-line Ruby codebase migration done in a day (2-month job otherwise)</td>
+<td>Anthropic calls it the strongest cybersecurity model it has built</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- Section 5 -->
+<section class="section" id="access-map">
+<div class="section-label">05 / The Access Map</div>
+<h2 class="section-heading">Who can actually <em>get in right now</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">Strip away the capability talk and here's the access map as it stands today.</p>
+<div class="card-grid-3">
+<div class="info-card">
+<div class="card-icon">🤖</div>
+<h4>GPT‑5.6 Sol / Terra / Luna</h4>
+<p style="font-weight: 700; color: var(--flamingo); margin-bottom: 6px;">~20 ORGS</p>
+<p>Pre-cleared partners only, through the API and Codex. No self-serve waitlist, no ChatGPT, no committed date.</p>
+<p style="font-size: 12px; margin-top: 10px; color: var(--text-soft);"><strong>Weakness:</strong> "Coming weeks" is the only timeline OpenAI has offered, and it isn't a date. If you're not already one of the twenty, there's no application to fill out.</p>
+</div>
+<div class="info-card">
+<div class="card-icon">🦩</div>
+<h4>Claude Mythos 5</h4>
+<p style="font-weight: 700; color: var(--sky); margin-bottom: 6px;">100+ SECTOR-GATED</p>
+<p>Reopened today, but specifically to US organizations that operate or defend critical infrastructure. Citizenship alone doesn't get you in, your org's sector does.</p>
+<p style="font-size: 12px; margin-top: 10px; color: var(--text-soft);"><strong>Weakness:</strong> This was never built as a general access tier and still isn't one. If you're not running power grids, banks, or pipelines, this restoration doesn't reach you.</p>
+</div>
+<div class="info-card">
+<div class="card-icon">🌑</div>
+<h4>Claude Fable 5</h4>
+<p style="font-weight: 700; color: var(--text-soft); margin-bottom: 6px;">ZERO TRAFFIC</p>
+<p>The one that was actually supposed to be the public, developer-facing tier. Still fully dark, no restoration date attached.</p>
+<p style="font-size: 12px; margin-top: 10px; color: var(--text-soft);"><strong>Weakness:</strong> It's the most accessible model on paper (just sign up for the API) and the least accessible one in practice. Don't plan a launch around it returning on a specific date.</p>
+</div>
+</div>
+</section>
+<!-- Section 6 -->
+<section class="section" id="developer-fallbacks">
+<div class="section-label">06 / developer Guide</div>
+<h2 class="section-heading">What to build on <em>while you wait</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">None of this means your roadmap stalls. It means your roadmap's ceiling, for now, sits one rung down from where both labs are pointing their press releases.</p>
+<p class="body-text">On the Anthropic side, <strong>Claude Opus 4.8</strong> is unaffected by any of this and remains available across every channel Fable was supposed to use. It's also the exact model Fable already falls back to whenever its own classifiers decline a request, so in practice you're not losing much by building against Opus directly rather than waiting on Fable to reopen.</p>
+<p class="body-text">On the OpenAI side, <strong>GPT-5.5</strong> is the standing model until Sol, Terra, or Luna clear preview for your org. Worth knowing: Anthropic has publicly argued that the jailbreak behind its own suspension produces comparable results on GPT-5.5 too, which undercuts any assumption that stepping back a model generation makes the underlying capability conversation go away. The capability is reportedly already out there. What changed is who's allowed to charge you for an interface to it.</p>
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<p><strong>Build your fallback paths now</strong>, not after one of these access lists changes again. Model routing that degrades gracefully from "flagship I don't have yet" to "current production model" is cheap to write and expensive to be missing when an API call starts returning refusals you didn't expect.</p>
+</div>
+<h3 class="sub-heading">The Actual Pattern Here</h3>
+<p class="body-text">This isn't two unrelated rollout hiccups. It's the same new step, run twice, by two competitors, inside one month.</p>
+<p class="body-text">The old release order was announce, benchmark, ship, then let the internet spend a few weeks finding the edge cases. Both labs have now inserted a step before any of that: brief the government, get a list of approved organizations, and only then start the "coming weeks" clock everyone keeps quoting. Mythos was gated from the moment it existed. Sol was gated before its first public demo finished loading. Fable, the one model in this story that was actually built for the open market, lasted three days before the same mechanism caught up with it.</p>
+<p class="body-text">Whether you think that's overdue caution or regulatory overreach probably depends on how much you trust either company's own claims about jailbreak severity, and reasonable people land on different sides of that. What's harder to argue with is the shape of the thing: if you're building a product roadmap around "the best available model," that phrase now has an asterisk attached to it, and the asterisk points at a government approval list neither lab fully controls the timeline of anymore.</p>
+<h3 class="sub-heading">How You'll Know This Changed</h3>
+<p class="body-text">This story has already generated one viral false restoration claim and at least one "48 hours" prediction that didn't hold up, so a quick filter is worth keeping handy.</p>
+<p class="body-text">Trust a lab's own status page, official blog post, or verified company account before you trust anything else, including prediction markets, anonymous X accounts claiming inside knowledge, or screenshots of a model picker that might just be a stale UI cache. Anthropic staff have already had to publicly debunk a "Fable 5 is back" rumor that turned out to be a front-end bug. If you see a restoration claim anywhere else first, treat it as a tip to verify, not a fact to act on.</p>
+<div class="code-block">
+<div class="code-block-header">
+<span class="code-tag">Program Output</span>
+<span class="code-caption">access_status.py</span>
+<button class="code-copy-btn" onclick="navigator.clipboard.writeText('Neither model family is available to you in any self-serve way today, June 27, 2026. Plan against Opus 4.8 and GPT-5.5 as your real ceiling for at least the next few weeks. Watch both access lists, not the benchmark scores, since the list is the thing that\'s actually moving. And when one of these does open further, confirm it from the lab itself before you change anything in production.')">Copy Output</button>
+</div>
+<pre>Neither model family is available to you in any self-serve way today, June 27, 2026. 
+Plan against Opus 4.8 and GPT-5.5 as your real ceiling for at least the next few weeks. 
+Watch both access lists, not the benchmark scores, since the list is the thing that's actually moving. 
+And when one of these does open further, confirm it from the lab itself before you change anything in production.</pre>
+</div>
+</section>
+<!-- FAQ -->
+<section class="section">
 <div class="section-label">FAQ</div>
-<h2 class="section-heading">Common <em>questions</em></h2>
+<h2 class="section-heading">Access Gating <em>FAQ</em></h2>
 <div class="section-divider"></div>
 <div class="faq-grid">
 <div class="faq-card">
-<h4>Can I create custom video pipelines?</h4>
-<p>Yes. You can write a custom YAML pipeline manifest inside the <code>pipeline_defs/</code> folder, define stage boundaries, and link them to custom Markdown instructions in the <code>skills/pipelines/</code> directory.</p>
+<h4>Why did the Commerce Department order the Anthropic suspension?</h4>
+<p>Due to export control directives regarding foreign nationals. Because Anthropic cannot verify the citizenship/nationality of users in real time at the API layer, they had to disable Fable 5 and Mythos 5 entirely to comply.</p>
 </div>
 <div class="faq-card">
-<h4>What happens if I run out of API credits?</h4>
-<p>The scored selection engine catches credit limits in its reliability checks and automatically falls back to offline providers (like local Piper TTS for audio and B-roll stock video clips from public archives).</p>
+<h4>Is GPT-5.6 Sol coming to ChatGPT?</h4>
+<p>No, not during the preview phase. It is strictly limited to Codex and select enterprise API accounts at this time.</p>
 </div>
 <div class="faq-card">
-<h4>How are renders audited for quality?</h4>
-<p>OpenMontage runs post-render validation: checks video frames via ffprobe to prevent blank sections, checks audio levels for clipping or prolonged silence, and verifies subtitle synchronizations before displaying the final clip.</p>
+<h4>What are the US critical-infrastructure sectors?</h4>
+<p>There are 16 sectors, including energy (power grids), financial services (banks), water and wastewater systems, and emergency services. Only operators in these specific sectors are on the Mythos 5 restoration list.</p>
 </div>
 <div class="faq-card">
-<h4>Does it support local LLMs for research?</h4>
-<p>Yes. You can route research, scripting, and scene-planning stages to local instances using Ollama or LM Studio by editing the LLM host configuration settings in your system file.</p>
+<h4>Can I request to join the OpenAI pre-approved list?</h4>
+<p>There is no public form or waitlist. The ~20 organizations were shared with the US government in advance, and extensions to the list are coordinated directly by OpenAI.</p>
 </div>
 </div>
-</div>
+</section>
+<!-- Related Resources -->
+<!-- Content injected dynamically via inject_schemas_and_links.py -->
+<!-- bottom CTA -->
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
       <div class="section-label">Expand Your Knowledge</div>
@@ -616,11 +680,11 @@ VIDEO_GEN_LOCAL_MODEL=wan2.1-1.3b # Options: wan2.1-1.3b, cogvideo-5b, ltx2-loca
         <div>
           <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
           <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
-            <li><a href="../guides/agentic-video-editing-hyperframes-remotion.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Agentic Video Editing With HyperFrames and Remotion Skills</a></li>
-            <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 OpenClaw VPS & Mac Mini Setup</a></li>
-            <li><a href="../guides/codex-gpt55-agentic-frameworks.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Elite Agentic Workflows: Prompting Codex + GPT-5.5</a></li>
-            <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
             <li><a href="../guides/claude-opus-48-vs-gpt-55-comparison.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown</a></li>
+            <li><a href="../guides/codex-gpt55-agentic-frameworks.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Elite Agentic Workflows: Prompting Codex + GPT-5.5</a></li>
+            <li><a href="../guides/gpt-54-1m-context-practical-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 GPT-5.4 with 1M Context: What Actually Works and What Falls Apart</a></li>
+            <li><a href="../guides/claude-sonnet-prompting-playbook.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 The Complete Claude Sonnet 4.6 Prompting Playbook</a></li>
+            <li><a href="../guides/automate-content-workflow-n8n-claude.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 n8n + Claude Content Automation</a></li>
           </ul>
         </div>
         
@@ -645,10 +709,17 @@ VIDEO_GEN_LOCAL_MODEL=wan2.1-1.3b # Options: wan2.1-1.3b, cogvideo-5b, ltx2-loca
     </div>
 <!-- /Related Resources -->
     <div class="cta-banner">
-<div class="cta-banner-text"><h3>Production AI workflows, <em>every Tuesday.</em></h3><p>Model benchmarks, gateway playbooks, and the exact architectures we test in production. Free forever.</p></div>
-<div class="cta-banner-form"><input id="hg-email" placeholder="your@email.com" type="email"/><button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook →</button></div>
+<div class="cta-banner-text">
+<h3>Production AI workflows, <em>every Tuesday.</em></h3>
+<p>Model benchmarks, gateway playbooks, and the exact architectures we test in production. Free forever.</p>
+</div>
+<div class="cta-banner-form">
+<input id="hg-email" placeholder="your@email.com" type="email"/>
+<button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook →</button>
 </div>
 </div>
+</main>
+<!-- Footer -->
 <footer class="site-footer">
 <div class="footer-brand">
 <a class="footer-logo" href="../" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 10px;">
