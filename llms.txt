@@ -11,10 +11,16 @@
 - [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
 
 ## Technical Guides (Documentation)
+- [Claude Fable 5 vs GPT-5.6 Sol Access](https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison.html) — Compare access restrictions, safety suspensions, and specs.
 - [Automate Content Workflow with n8n + Claude](https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html) — Build a full pipeline for ideation, drafting, and SEO.
 - [Claude Sonnet 4.6 Prompting Playbook](https://outclaw.xyz/guides/claude-sonnet-prompting-playbook.html) — 30+ templates for XML structuring and CoT.
+- [Claude Opus 4.8 vs GPT 5.5 Teardown](https://outclaw.xyz/guides/claude-opus-48-vs-gpt-55-comparison.html) — Benchmark comparison for coding, context window, and pricing.
+- [OpenMontage: The CHAD of AI Video Editing](https://outclaw.xyz/guides/openmontage-chad-ai-video-editing.html) — Master local CLIP B-roll libraries, Remotion, and HyperFrames.
 - [OpenClaw Setup Guide (VPS & MacMini)](https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide.html) — Self-hosting instructions for agentic systems.
 - [GPT-5.4 1M Context Practical Guide](https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html) — Use cases for massive context windows.
+- [The LiteLLM + Portkey Playbook](https://outclaw.xyz/guides/litellm-portkey-playbook.html) — Failovers, routing, and semantic caching.
+- [Hermes Agent VPS + Telegram Setup Guide](https://outclaw.xyz/guides/hermes-vps-telegram-setup-guide.html) — Ubuntu provisioning and Telegram gateway configuration.
+- [Elite Agentic Workflows: Codex + GPT-5.5](https://outclaw.xyz/guides/codex-gpt55-agentic-frameworks.html) — Autonomous loops and self-repair systems.
 
 ## Free Practitioner Tools
 - [AI Brand Identity Builder](https://outclaw.xyz/tools/brand-identity.html) — Generate voice, tone, and strategy documents.
