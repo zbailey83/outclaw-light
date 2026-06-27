@@ -293,7 +293,7 @@
       "publisher": {
         "@id": "https://outclaw.xyz/#organization"
       },
-      "wordCount": 951
+      "wordCount": 1000
     },
     {
       "@type": "BreadcrumbList",
@@ -318,6 +318,43 @@
           "item": "https://outclaw.xyz/guides/claude-opus-48-vs-gpt-55-comparison"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is GPT 5.5 better for web applications?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The lower latency of GPT 5.5 (~20% faster TTFT) is critical for web applications where user interaction requires fast feedback loops."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I reuse prompt playbooks between these models?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Mostly, but not perfectly. Claude Opus 4.8 responds best to XML structuring and clear role tags, while GPT 5.5 prefers system prompts with explicit list boundaries and JSON output schemas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which model handles error tracebacks better?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Opus 4.8 is superior at parsing complex traceback chains. Its reasoning path is highly optimized for analyzing compile-time issues and dependencies across multiple files."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do reasoning tokens affect rate limits?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rate limits are calculated on total tokens (including reasoning tokens). Since reasoning models consume large blocks of tokens during the thinking phase, you can hit rate limits much faster than with standard models."
+          }
+        }
+      ]
     }
   ]
 }</script></head>
@@ -327,7 +364,7 @@
 <!-- End Google Tag Manager (noscript) -->
 <nav class="navbar" id="mainNav">
 <a class="navbar-logo" href="../">
-<img alt="OutClaw AI Logo" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<img alt="OutClaw AI Logo" class="navbar-logo-img" height="32" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" width="32"/>
 <div class="navbar-wordmark">Out<em>claw</em> AI</div>
 </a>
 <div class="navbar-links">
@@ -482,28 +519,53 @@
 </div>
 <p class="body-text">For large-scale codebases, Claude's 200k token window is not just larger; it is more reliable. However, for smaller repositories under 90k tokens, GPT 5.5's faster response times and lower rates make it the ideal engine for developer pipelines.</p>
 </div>
+<!-- GEO Sources -->
+<section class="section" id="verified-sources">
+<div class="section-label">05 / GEO References</div>
+<h2 class="section-heading">Verified Sources &amp; <em>Primary References</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">To maintain data integrity for AI agent synthesis and engineering references, we cite our primary sources below:</p>
+<ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-mid); display: flex; flex-direction: column; gap: 8px; margin-top: 16px;">
+<li>🔗 <a href="https://docs.anthropic.com/en/docs/about-claude/models" style="color: var(--sky); text-decoration: underline;" target="_blank">Anthropic Claude Models Technical Documentation</a></li>
+<li>🔗 <a href="https://platform.openai.com/docs/models/gpt-5-5" style="color: var(--sky); text-decoration: underline;" target="_blank">OpenAI Models &amp; Pricing Directory</a></li>
+<li>🔗 <a href="https://github.com/princeton-nlp/SWE-bench" style="color: var(--sky); text-decoration: underline;" target="_blank">Princeton NLP SWE-bench: Codebase Ingestion benchmarks</a></li>
+<li>🔗 <a href="https://github.com/gkamradt/LLMTest_NeedleInAHaystack" style="color: var(--sky); text-decoration: underline;" target="_blank">Needle In A Haystack (NIAH) Context Retrieval Analysis Repo</a></li>
+</ul>
+</section>
 <!-- FAQ -->
 <div class="section">
 <div class="section-label">FAQ</div>
 <h2 class="section-heading">Common <em>questions</em></h2>
 <div class="section-divider"></div>
-<div class="faq-grid">
-<div class="faq-card">
-<h4>Is GPT 5.5 better for web applications?</h4>
-<p>Yes. The lower latency of GPT 5.5 (~20% faster TTFT) is critical for web applications where user interaction requires fast feedback loops.</p>
-</div>
-<div class="faq-card">
-<h4>Can I reuse prompt playbooks between these models?</h4>
-<p>Mostly, but not perfectly. Claude Opus 4.8 responds best to XML structuring and clear role tags, while GPT 5.5 prefers system prompts with explicit list boundaries and JSON output schemas.</p>
-</div>
-<div class="faq-card">
-<h4>Which model handles error tracebacks better?</h4>
-<p>Claude Opus 4.8 is superior at parsing complex traceback chains. Its reasoning path is highly optimized for analyzing compile-time issues and dependencies across multiple files.</p>
-</div>
-<div class="faq-card">
-<h4>How do reasoning tokens affect rate limits?</h4>
-<p>Rate limits are calculated on total tokens (including reasoning tokens). Since reasoning models consume large blocks of tokens during the thinking phase, you can hit rate limits much faster than with standard models.</p>
-</div>
+<div class="faq-grid" style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
+<details class="faq-card" open="" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Is GPT 5.5 better for web applications?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">Yes. The lower latency of GPT 5.5 (~20% faster TTFT) is critical for web applications where user interaction requires fast feedback loops.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Can I reuse prompt playbooks between these models?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">Mostly, but not perfectly. Claude Opus 4.8 responds best to XML structuring and clear role tags, while GPT 5.5 prefers system prompts with explicit list boundaries and JSON output schemas.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Which model handles error tracebacks better?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">Claude Opus 4.8 is superior at parsing complex traceback chains. Its reasoning path is highly optimized for analyzing compile-time issues and dependencies across multiple files.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>How do reasoning tokens affect rate limits?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">Rate limits are calculated on total tokens (including reasoning tokens). Since reasoning models consume large blocks of tokens during the thinking phase, you can hit rate limits much faster than with standard models.</p>
+</details>
 </div>
 </div>
 <!-- Related Resources -->
@@ -553,7 +615,7 @@
 <footer class="site-footer">
 <div class="footer-brand">
 <a class="footer-logo" href="../" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 10px;">
-<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<img alt="OutClaw AI Footer Logo" height="22" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));" width="22"/>
 <div class="footer-wordmark" style="color: rgba(255,255,255,.4);">Out<em>claw</em> AI</div>
 </a>
 <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>

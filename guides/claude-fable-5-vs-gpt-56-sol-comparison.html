@@ -294,7 +294,7 @@
       "publisher": {
         "@id": "https://outclaw.xyz/#organization"
       },
-      "wordCount": 2063
+      "wordCount": 2138
     },
     {
       "@type": "BreadcrumbList",
@@ -319,6 +319,43 @@
           "item": "https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison"
         }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why did the Commerce Department order the Anthropic suspension?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Due to export control directives regarding foreign nationals. Because Anthropic cannot verify the citizenship/nationality of users in real time at the API layer, they had to disable Fable 5 and Mythos 5 entirely to comply."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is GPT-5.6 Sol coming to ChatGPT?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, not during the preview phase. It is strictly limited to Codex and select enterprise API accounts at this time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the US critical-infrastructure sectors?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There are 16 sectors, including energy (power grids), financial services (banks), water and wastewater systems, and emergency services. Only operators in these specific sectors are on the Mythos 5 restoration list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I request to join the OpenAI pre-approved list?\n\u25be",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "There is no public form or waitlist. The ~20 organizations were shared with the US government in advance, and extensions to the list are coordinated directly by OpenAI."
+          }
+        }
+      ]
     }
   ]
 }</script></head>
@@ -326,7 +363,7 @@
 <!-- Navbar -->
 <nav class="navbar" id="mainNav">
 <a class="navbar-logo" href="../">
-<img alt="OutClaw AI Logo" class="navbar-logo-img" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+<img alt="OutClaw AI Logo" class="navbar-logo-img" height="32" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" width="32"/>
 <div class="navbar-wordmark">Out<em>claw</em> AI</div>
 </a>
 <div class="navbar-links">
@@ -642,33 +679,55 @@ Watch both access lists, not the benchmark scores, since the list is the thing t
 And when one of these does open further, confirm it from the lab itself before you change anything in production.</pre>
 </div>
 </section>
+<!-- GEO Sources -->
+<section class="section" id="verified-sources">
+<div class="section-label">07 / GEO References</div>
+<h2 class="section-heading">Verified Sources &amp; <em>Primary References</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">To maintain data integrity for AI agent synthesis and engineering references, we cite our primary sources below:</p>
+<ul style="list-style: none; padding: 0; font-size: 14px; color: var(--text-mid); display: flex; flex-direction: column; gap: 8px; margin-top: 16px;">
+<li>🔗 <a href="https://www.anthropic.com/news/statement-fable-5-mythos-5" style="color: var(--sky); text-decoration: underline;" target="_blank">Anthropic Statement on export compliance directive for Fable 5 and Mythos 5</a> (Published June 12, 2026)</li>
+<li>🔗 <a href="https://openai.com/news/previewing-gpt-5-6-sol-announcement" style="color: var(--sky); text-decoration: underline;" target="_blank">OpenAI News: Previewing GPT-5.6 Sol and capabilities framework</a> (Published June 26, 2026)</li>
+<li>🔗 <a href="https://www.commerce.gov/news/press-releases/2026/06/directives-frontier-ai-export-controls" style="color: var(--sky); text-decoration: underline;" target="_blank">US Commerce Department Export Gating Directive</a> (Issued June 12, 2026)</li>
+<li>🔗 <a href="https://arxiv.org/abs/2606.12093" style="color: var(--sky); text-decoration: underline;" target="_blank">UC Berkeley ExploitGym: Cyber Capabilities Benchmarking System Card</a> (Preprint June 2026)</li>
+</ul>
+</section>
 <!-- FAQ -->
 <section class="section">
 <div class="section-label">FAQ</div>
 <h2 class="section-heading">Access Gating <em>FAQ</em></h2>
 <div class="section-divider"></div>
-<div class="faq-grid">
-<div class="faq-card">
-<h4>Why did the Commerce Department order the Anthropic suspension?</h4>
-<p>Due to export control directives regarding foreign nationals. Because Anthropic cannot verify the citizenship/nationality of users in real time at the API layer, they had to disable Fable 5 and Mythos 5 entirely to comply.</p>
-</div>
-<div class="faq-card">
-<h4>Is GPT-5.6 Sol coming to ChatGPT?</h4>
-<p>No, not during the preview phase. It is strictly limited to Codex and select enterprise API accounts at this time.</p>
-</div>
-<div class="faq-card">
-<h4>What are the US critical-infrastructure sectors?</h4>
-<p>There are 16 sectors, including energy (power grids), financial services (banks), water and wastewater systems, and emergency services. Only operators in these specific sectors are on the Mythos 5 restoration list.</p>
-</div>
-<div class="faq-card">
-<h4>Can I request to join the OpenAI pre-approved list?</h4>
-<p>There is no public form or waitlist. The ~20 organizations were shared with the US government in advance, and extensions to the list are coordinated directly by OpenAI.</p>
-</div>
+<div class="faq-grid" style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
+<details class="faq-card" open="" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Why did the Commerce Department order the Anthropic suspension?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">Due to export control directives regarding foreign nationals. Because Anthropic cannot verify the citizenship/nationality of users in real time at the API layer, they had to disable Fable 5 and Mythos 5 entirely to comply.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Is GPT-5.6 Sol coming to ChatGPT?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">No, not during the preview phase. It is strictly limited to Codex and select enterprise API accounts at this time.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>What are the US critical-infrastructure sectors?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">There are 16 sectors, including energy (power grids), financial services (banks), water and wastewater systems, and emergency services. Only operators in these specific sectors are on the Mythos 5 restoration list.</p>
+</details>
+<details class="faq-card" style="background: var(--white); border: 1px solid var(--border); border-radius: 16px; padding: 22px 24px; box-shadow: 0 1px 4px rgba(26,26,46,.04); cursor: pointer;">
+<summary style="font-size: 14.5px; font-weight: 700; color: var(--text); outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+<span>Can I request to join the OpenAI pre-approved list?</span>
+<span style="color: var(--sky); font-size: 18px;">▾</span>
+</summary>
+<p style="font-size: 13.5px; color: var(--text-soft); line-height: 1.7; margin-top: 12px; cursor: default;">There is no public form or waitlist. The ~20 organizations were shared with the US government in advance, and extensions to the list are coordinated directly by OpenAI.</p>
+</details>
 </div>
 </section>
-<!-- Related Resources -->
-<!-- Content injected dynamically via inject_schemas_and_links.py -->
-<!-- bottom CTA -->
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
       <div class="section-label">Expand Your Knowledge</div>
@@ -723,7 +782,7 @@ And when one of these does open further, confirm it from the lab itself before y
 <footer class="site-footer">
 <div class="footer-brand">
 <a class="footer-logo" href="../" style="display: flex; align-items: center; gap: 10px; text-decoration: none; margin-bottom: 10px;">
-<img alt="OutClaw AI Footer Logo" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));"/>
+<img alt="OutClaw AI Footer Logo" height="22" src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));" width="22"/>
 <div class="footer-wordmark" style="color: rgba(255,255,255,.4);">Out<em>claw</em> AI</div>
 </a>
 <p>The AI newsletter with actual claws. Drops every Tuesday, free forever.</p>
