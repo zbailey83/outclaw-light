@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Security & Safety &mdash; AI Agent Reference | Answers | openclaw.xyz</title>
+  <meta name="description" content="Prompt injection defense, secure tool execution sandboxing, credential masking, and API safety guardrails for autonomous systems.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/agentic-security/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Agentic Security & Safety \u2014 AI Agent Reference",
+      "description": "Prompt injection defense, secure tool execution sandboxing, credential masking, and API safety guardrails for autonomous systems.",
+      "url": "https://outclaw.xyz/answers/agentic-security/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agentic Security & Safety"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you prevent prompt injection in tool-use agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Prevent prompt injection in tool-use agents by validating and sanitizing all untrusted user and tool outputs, enforcing strict schema validation, isolating tool execution from core agent instructions, and using system prompt instructions that warn the model to treat tool data strictly as untrusted content."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you safely sandbox code execution tools for AI agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sandbox code execution tools by running all interpreter processes inside isolated containers (like Docker or gVisor), restricting network access, setting CPU/memory resource limits, enforcing a read-only root filesystem where possible, and using short process timeout thresholds."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you securely store credentials for custom MCP servers?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Store credentials for custom MCP servers in system environment variables or secure credential managers (e.g. AWS Secrets Manager, Vault, or local Keychain) and retrieve them dynamically at runtime instead of hardcoding tokens inside the Claude Desktop config.json file."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the best practices for implementing human-in-the-loop (HITL) gatekeeping for agentic writes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Implement human-in-the-loop gatekeeping for agentic writes by defining a whitelist of read-only tools and requiring explicit user authorization (via CLI prompts, Slack approval buttons, or web dashboards) before executing state-modifying actions like write files, run terminal commands, or make payments."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you protect agentic scrapers from honey pots and recursive scraping loops?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Protect agentic scrapers from recursive loops and honeypots by enforcing strict URL domain whitelists, setting max crawling depth limits (e.g., 3 levels), tracking and deduplicating visited URLs using a hash set, and capping total execution execution time per run."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / Agentic Security & Safety
+    </nav>
+
+    <h1>Agentic Security & Safety &mdash; Agent Reference</h1>
+    <p>Prompt injection defense, secure tool execution sandboxing, credential masking, and API safety guardrails for autonomous systems.</p>
+
+    <div class="answer-grid">
+      
+    <div class="answer-card">
+      <h3><a href="/answers/agentic-security/prevent-prompt-injection-tool-use.html">How do you prevent prompt injection in tool-use agents?</a></h3>
+      <p>Prevent prompt injection in tool-use agents by validating and sanitizing all untrusted user and tool outputs, enforcing strict ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agentic-security/sandbox-code-execution-agents.html">How do you safely sandbox code execution tools for AI agents?</a></h3>
+      <p>Sandbox code execution tools by running all interpreter processes inside isolated containers (like Docker or gVisor), restricti...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agentic-security/secure-mcp-credentials-storage.html">How do you securely store credentials for custom MCP servers?</a></h3>
+      <p>Store credentials for custom MCP servers in system environment variables or secure credential managers (e.g. AWS Secrets Manage...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agentic-security/human-in-the-loop-agentic-writes.html">What are the best practices for implementing human-in-the-loop (HITL) gatekeeping for agentic writes?</a></h3>
+      <p>Implement human-in-the-loop gatekeeping for agentic writes by defining a whitelist of read-only tools and requiring explicit us...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agentic-security/protect-agentic-scrapers-infinite-loops.html">How do you protect agentic scrapers from honey pots and recursive scraping loops?</a></h3>
+      <p>Protect agentic scrapers from recursive loops and honeypots by enforcing strict URL domain whitelists, setting max crawling dep...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    </div>
+
+    <section class="faq-cluster"><h2>Common questions</h2>
+  <details>
+    <summary>How do you prevent prompt injection in tool-use agents?</summary>
+    <p>Prevent prompt injection in tool-use agents by validating and sanitizing all untrusted user and tool outputs, enforcing strict schema validation, isolating tool execution from core agent instructions, and using system prompt instructions that warn the model to treat tool data strictly as untrusted content.</p>
+  </details>
+  <details>
+    <summary>How do you safely sandbox code execution tools for AI agents?</summary>
+    <p>Sandbox code execution tools by running all interpreter processes inside isolated containers (like Docker or gVisor), restricting network access, setting CPU/memory resource limits, enforcing a read-only root filesystem where possible, and using short process timeout thresholds.</p>
+  </details>
+  <details>
+    <summary>How do you securely store credentials for custom MCP servers?</summary>
+    <p>Store credentials for custom MCP servers in system environment variables or secure credential managers (e.g. AWS Secrets Manager, Vault, or local Keychain) and retrieve them dynamically at runtime instead of hardcoding tokens inside the Claude Desktop config.json file.</p>
+  </details>
+  <details>
+    <summary>What are the best practices for implementing human-in-the-loop (HITL) gatekeeping for agentic writes?</summary>
+    <p>Implement human-in-the-loop gatekeeping for agentic writes by defining a whitelist of read-only tools and requiring explicit user authorization (via CLI prompts, Slack approval buttons, or web dashboards) before executing state-modifying actions like write files, run terminal commands, or make payments.</p>
+  </details>
+  <details>
+    <summary>How do you protect agentic scrapers from honey pots and recursive scraping loops?</summary>
+    <p>Protect agentic scrapers from recursive loops and honeypots by enforcing strict URL domain whitelists, setting max crawling depth limits (e.g., 3 levels), tracking and deduplicating visited URLs using a hash set, and capping total execution execution time per run.</p>
+  </details></section>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

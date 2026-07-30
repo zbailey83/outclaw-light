@@ -722,3 +722,48 @@ Full URL: https://outclaw.xyz/answers/claude-code/claude-code-troubleshoot-auth-
 
 ---
 
+## How do you prevent prompt injection in tool-use agents?
+Category: Agentic Security & Safety | Slug: prevent-prompt-injection-tool-use
+
+> Prevent prompt injection in tool-use agents by validating and sanitizing all untrusted user and tool outputs, enforcing strict schema validation, isolating tool execution from core agent instructions, and using system prompt instructions that warn the model to treat tool data strictly as untrusted content.
+
+Full URL: https://outclaw.xyz/answers/agentic-security/prevent-prompt-injection-tool-use.html
+
+---
+
+## How do you safely sandbox code execution tools for AI agents?
+Category: Agentic Security & Safety | Slug: sandbox-code-execution-agents
+
+> Sandbox code execution tools by running all interpreter processes inside isolated containers (like Docker or gVisor), restricting network access, setting CPU/memory resource limits, enforcing a read-only root filesystem where possible, and using short process timeout thresholds.
+
+Full URL: https://outclaw.xyz/answers/agentic-security/sandbox-code-execution-agents.html
+
+---
+
+## How do you securely store credentials for custom MCP servers?
+Category: Agentic Security & Safety | Slug: secure-mcp-credentials-storage
+
+> Store credentials for custom MCP servers in system environment variables or secure credential managers (e.g. AWS Secrets Manager, Vault, or local Keychain) and retrieve them dynamically at runtime instead of hardcoding tokens inside the Claude Desktop config.json file.
+
+Full URL: https://outclaw.xyz/answers/agentic-security/secure-mcp-credentials-storage.html
+
+---
+
+## What are the best practices for implementing human-in-the-loop (HITL) gatekeeping for agentic writes?
+Category: Agentic Security & Safety | Slug: human-in-the-loop-agentic-writes
+
+> Implement human-in-the-loop gatekeeping for agentic writes by defining a whitelist of read-only tools and requiring explicit user authorization (via CLI prompts, Slack approval buttons, or web dashboards) before executing state-modifying actions like write files, run terminal commands, or make payments.
+
+Full URL: https://outclaw.xyz/answers/agentic-security/human-in-the-loop-agentic-writes.html
+
+---
+
+## How do you protect agentic scrapers from honey pots and recursive scraping loops?
+Category: Agentic Security & Safety | Slug: protect-agentic-scrapers-infinite-loops
+
+> Protect agentic scrapers from recursive loops and honeypots by enforcing strict URL domain whitelists, setting max crawling depth limits (e.g., 3 levels), tracking and deduplicating visited URLs using a hash set, and capping total execution execution time per run.
+
+Full URL: https://outclaw.xyz/answers/agentic-security/protect-agentic-scrapers-infinite-loops.html
+
+---
+

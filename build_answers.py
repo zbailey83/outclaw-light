@@ -12,7 +12,8 @@ CATEGORIES = {
     "claude-api": "Claude API",
     "tool-use": "Tool Use & Function Calling",
     "agent-frameworks": "Agent Frameworks",
-    "claude-code": "Claude Code"
+    "claude-code": "Claude Code",
+    "agentic-security": "Agentic Security & Safety"
 }
 
 CATEGORY_DESCS = {
@@ -20,7 +21,8 @@ CATEGORY_DESCS = {
     "claude-api": "Rate limits, model strings, authentication, streaming, errors — the technical reference developers use at runtime.",
     "tool-use": "Schemas, parallel execution, result handling, and parameters for Claude function calling.",
     "agent-frameworks": "LangGraph, CrewAI, AutoGen, LlamaIndex, and the Vercel AI SDK — how Claude plugs into agentic systems.",
-    "claude-code": "CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows."
+    "claude-code": "CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows.",
+    "agentic-security": "Prompt injection defense, secure tool execution sandboxing, credential masking, and API safety guardrails for autonomous systems."
 }
 
 GA4_SNIPPET = """<!-- GA4 User Journey Tag -->
@@ -704,6 +706,7 @@ when building with Claude and integrating AI tools. Updated as tools change.
 - [Tool Use & Function Calling](https://outclaw.xyz/answers/tool-use/) — Schemas, parallel calls, result handling
 - [Agent Frameworks](https://outclaw.xyz/answers/agent-frameworks/) — LangGraph, CrewAI, AutoGen, Claude SDK
 - [Claude Code](https://outclaw.xyz/answers/claude-code/) — CLI setup, MCP config, slash commands, CI mode
+- [Agentic Security & Safety](https://outclaw.xyz/answers/agentic-security/) — Prompt injection defense, secure sandboxing, credential masking, and human-in-the-loop patterns
 """
             # Inject before Content Pillars or at the end
             if "## Content Pillars" in llms_content:

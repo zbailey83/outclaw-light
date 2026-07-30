@@ -52,6 +52,7 @@ when building with Claude and integrating AI tools. Updated as tools change.
 - [Tool Use & Function Calling](https://outclaw.xyz/answers/tool-use/) — Schemas, parallel calls, result handling
 - [Agent Frameworks](https://outclaw.xyz/answers/agent-frameworks/) — LangGraph, CrewAI, AutoGen, Claude SDK
 - [Claude Code](https://outclaw.xyz/answers/claude-code/) — CLI setup, MCP config, slash commands, CI mode
+- [Agentic Security & Safety](https://outclaw.xyz/answers/agentic-security/) — Prompt injection defense, secure sandboxing, credential masking, and human-in-the-loop patterns
 
 ## Content Pillars
 - **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.

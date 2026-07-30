@@ -2247,5 +2247,149 @@ claude "Run audit on src/utils.ts and list security flaws." --non-interactive</c
         "verified_against": "Claude Code CLI v0.2.5",
         "verified_date": "July 2026",
         "related_slugs": ["install-claude-code-cli", "claude-code-config-file-location", "api-key-vs-oauth-authentication"]
+      },
+      # =========================================================================
+      # CATEGORY: Agentic Security & Safety (5 entries)
+      # =========================================================================
+      {
+        "slug": "prevent-prompt-injection-tool-use",
+        "question": "How do you prevent prompt injection in tool-use agents?",
+        "category": "agentic-security",
+        "category_name": "Agentic Security & Safety",
+        "quick_answer": "Prevent prompt injection in tool-use agents by validating and sanitizing all untrusted user and tool outputs, enforcing strict schema validation, isolating tool execution from core agent instructions, and using system prompt instructions that warn the model to treat tool data strictly as untrusted content.",
+        "answer_type": "steps",
+        "body": """
+        <h2>Prompt Injection Mitigation Playbook</h2>
+        <ol>
+          <li><strong>Context Segregation:</strong> Demarcate untrusted data using clear structural boundaries (e.g. XML tags like <code>&lt;untrusted_tool_output&gt;</code>) in messages sent to the model.</li>
+          <li><strong>Defensive Instruction Design:</strong> Provide instructions in the system prompt explicitly telling the agent to ignore any model command directives embedded inside tool results or third-party content.</li>
+          <li><strong>Input/Output Schema Enforcement:</strong> Validate arguments passed by the model against a strict JSON schema before execution, rejecting any code-injection patterns.</li>
+          <li><strong>Privilege Minimization:</strong> Grant execution tools the minimum necessary system access (e.g. read-only permissions for public files).</li>
+        </ol>
+        """,
+        "verified_against": "Anthropic Safety & Guardrails Specification",
+        "verified_date": "July 2026",
+        "related_slugs": ["sandbox-code-execution-agents", "handle-tool-call-errors-gracefully", "pass-system-prompt-claude-api"]
+      },
+      {
+        "slug": "sandbox-code-execution-agents",
+        "question": "How do you safely sandbox code execution tools for AI agents?",
+        "category": "agentic-security",
+        "category_name": "Agentic Security & Safety",
+        "quick_answer": "Sandbox code execution tools by running all interpreter processes inside isolated containers (like Docker or gVisor), restricting network access, setting CPU/memory resource limits, enforcing a read-only root filesystem where possible, and using short process timeout thresholds.",
+        "answer_type": "table",
+        "body": """
+        <h2>Sandbox Security Standards</h2>
+        <p>Running code generated dynamically by LLMs requires securing host systems from damage or data leakage.</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Vector</th>
+              <th>Mitigation Action</th>
+              <th>Implementation Technique</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Resource Exhaustion</td>
+              <td>Set resource limits</td>
+              <td>Limit runtime to 5s, memory to 256MB, CPU share to 0.5</td>
+            </tr>
+            <tr>
+              <td>System Compromise</td>
+              <td>Containerization Isolation</td>
+              <td>Run inside a lightweight ephemeral Docker container or MicroVM (Firecracker)</td>
+            </tr>
+            <tr>
+              <td>Network Abuse</td>
+              <td>Network Restriction</td>
+              <td>Disable outbound traffic or restrict via firewall/iptables rules to trusted APIs</td>
+            </tr>
+            <tr>
+              <td>Persistent Mutex</td>
+              <td>Root Ephemerality</td>
+              <td>Mount the container root filesystem as read-only, allowing writes only to a temporary directory</td>
+            </tr>
+          </tbody>
+        </table>
+        """,
+        "verified_against": "Docker Sandbox Container Guidelines",
+        "verified_date": "July 2026",
+        "related_slugs": ["prevent-prompt-injection-tool-use", "claude-code-permission-levels", "run-claude-code-headless-ci"]
+      },
+      {
+        "slug": "secure-mcp-credentials-storage",
+        "question": "How do you securely store credentials for custom MCP servers?",
+        "category": "agentic-security",
+        "category_name": "Agentic Security & Safety",
+        "quick_answer": "Store credentials for custom MCP servers in system environment variables or secure credential managers (e.g. AWS Secrets Manager, Vault, or local Keychain) and retrieve them dynamically at runtime instead of hardcoding tokens inside the Claude Desktop config.json file.",
+        "answer_type": "code",
+        "body": """
+        <h2>Secure Configuration Example</h2>
+        <p>Avoid placing plaintext passwords or API keys in your shared <code>claude_desktop_config.json</code>. Instead, reference environment variables:</p>
+<pre><code class="language-json">{
+  "mcpServers": {
+    "secure-database": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-postgres"],
+      "env": {
+        "PGPASSWORD": "$DB_PASSWORD_ENV"
+      }
+    }
+  }
+}</code></pre>
+        <h2>Runtime Secret Resolution</h2>
+        <p>If building a custom server in TypeScript/Python, retrieve secrets dynamically at startup rather than saving them in server-level files:</p>
+<pre><code class="language-typescript">import { Client } from 'pg';
+// Resolve credentials from environment or vault
+const client = new Client({
+  connectionString: process.env.DATABASE_URL
+});
+await client.connect();</code></pre>
+        """,
+        "verified_against": "MCP Spec v1.0.4 - Security & Transport",
+        "verified_date": "July 2026",
+        "related_slugs": ["mcp-auth-patterns", "build-custom-mcp-server-claude", "configure-mcp-in-claude-desktop"]
+      },
+      {
+        "slug": "human-in-the-loop-agentic-writes",
+        "question": "What are the best practices for implementing human-in-the-loop (HITL) gatekeeping for agentic writes?",
+        "category": "agentic-security",
+        "category_name": "Agentic Security & Safety",
+        "quick_answer": "Implement human-in-the-loop gatekeeping for agentic writes by defining a whitelist of read-only tools and requiring explicit user authorization (via CLI prompts, Slack approval buttons, or web dashboards) before executing state-modifying actions like write files, run terminal commands, or make payments.",
+        "answer_type": "steps",
+        "body": """
+        <h2>Implementing State-modifying Gatekeepers</h2>
+        <ol>
+          <li><strong>Identify Dangerous Actions:</strong> Classify tools into 'safe' (e.g., read, search, calculate) and 'critical' (e.g., write, delete, execute, transaction).</li>
+          <li><strong>Interrupt Execution Flow:</strong> In your agent runtime (e.g., LangGraph or custom loop), pause execution when the model requests a critical tool.</li>
+          <li><strong>Render Proposed Payload:</strong> Present the exact proposed parameters (e.g., code diff, CLI command, payment amount) to the user for review.</li>
+          <li><strong>Resume/Reject Callback:</strong> Feed the user's decision (Approve/Deny) back to the agent. If denied, return a system response to the model explaining that the action was rejected by the operator.</li>
+        </ol>
+        """,
+        "verified_against": "LangGraph human-in-the-loop pattern",
+        "verified_date": "July 2026",
+        "related_slugs": ["use-claude-with-langgraph", "claude-code-permission-levels", "prevent-prompt-injection-tool-use"]
+      },
+      {
+        "slug": "protect-agentic-scrapers-infinite-loops",
+        "question": "How do you protect agentic scrapers from honey pots and recursive scraping loops?",
+        "category": "agentic-security",
+        "category_name": "Agentic Security & Safety",
+        "quick_answer": "Protect agentic scrapers from recursive loops and honeypots by enforcing strict URL domain whitelists, setting max crawling depth limits (e.g., 3 levels), tracking and deduplicating visited URLs using a hash set, and capping total execution execution time per run.",
+        "answer_type": "steps",
+        "body": """
+        <h2>Scraper Defense Best Practices</h2>
+        <ol>
+          <li><strong>URL Deduplication:</strong> Maintain a <code>Set</code> of visited URLs in memory and reject requests to pages already scraped.</li>
+          <li><strong>Max Depth Enforcement:</strong> Track page depth relative to seed URLs and reject links deeper than the specified threshold.</li>
+          <li><strong>Domain Whitelisting:</strong> Block outbound requests to dynamic subdomains or unknown endpoints to bypass honeypot traps.</li>
+          <li><strong>Strict Timouts:</strong> Set maximum timeouts for HTTP requests and total task execution time to avoid infinite loops on slow pages.</li>
+        </ol>
+        """,
+        "verified_against": "Agentic Crawling Rules",
+        "verified_date": "July 2026",
+        "related_slugs": ["prevent-prompt-injection-tool-use", "sandbox-code-execution-agents", "human-in-the-loop-agentic-writes"]
       }
 ]
+

@@ -25,6 +25,10 @@
       <lastmod>2026-07-30</lastmod>
    </url>
    <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
       <loc>https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-gmail-mcp.html</loc>
       <lastmod>2026-07-30</lastmod>
    </url>
@@ -342,6 +346,26 @@
    </url>
    <url>
       <loc>https://outclaw.xyz/answers/claude-code/claude-code-troubleshoot-auth-issues.html</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/prevent-prompt-injection-tool-use.html</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/sandbox-code-execution-agents.html</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/secure-mcp-credentials-storage.html</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/human-in-the-loop-agentic-writes.html</loc>
+      <lastmod>2026-07-30</lastmod>
+   </url>
+   <url>
+      <loc>https://outclaw.xyz/answers/agentic-security/protect-agentic-scrapers-infinite-loops.html</loc>
       <lastmod>2026-07-30</lastmod>
    </url>
 </urlset>
