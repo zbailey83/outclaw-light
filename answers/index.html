@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Answers for Agents &mdash; Claude &amp; AI Tool Reference | openclaw.xyz</title>
+  <meta name="description" content="Short, specific answers to questions AI agents and developers encounter when building with Claude and integrating AI tools.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "name": "Answers for Agents \u2014 Claude & AI Tool Reference | openclaw.xyz",
+      "description": "Short, specific answers to questions AI agents and developers encounter when building with Claude and integrating AI tools.",
+      "url": "https://outclaw.xyz/answers/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "openclaw.xyz",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Answers"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="../answers/" class="active">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../about/">About</a>
+    <a href="../guides/">Guides</a>
+    <a href="../answers/" class="active">Answers</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <h1>Answers for Agents</h1>
+    <p>Short, specific answers to questions AI agents and developers hit when building with Claude — updated as tools change.</p>
+
+    <div class="search-wrapper">
+      <input type="text" id="search-input" class="search-input" placeholder="Search categories, tools, or questions...">
+    </div>
+
+    <div class="category-grid">
+      
+    <div class="category-card">
+      <h3><a href="/answers/mcp-connectors/">MCP & Connectors &rarr;</a></h3>
+      <div class="count">25 reference entries</div>
+      <p>How to connect Claude and AI agents to third-party apps via MCP servers — Gmail, Notion, GitHub, Slack, and more.</p>
+      <ul class="featured-links">
+        <li><a href="/answers/mcp-connectors/connect-claude-to-gmail-mcp.html">How do you connect Claude to Gmail via MCP?</a></li><li><a href="/answers/mcp-connectors/mcp-server-url-format.html">What is the MCP server URL format for Claude connectors?</a></li>
+      </ul>
+    </div>
+    <div class="category-card">
+      <h3><a href="/answers/claude-api/">Claude API &rarr;</a></h3>
+      <div class="count">20 reference entries</div>
+      <p>Rate limits, model strings, authentication, streaming, errors — the technical reference developers use at runtime.</p>
+      <ul class="featured-links">
+        <li><a href="/answers/claude-api/claude-api-rate-limits-by-tier.html">What are the Claude API rate limits by tier?</a></li><li><a href="/answers/claude-api/current-claude-model-string-identifiers.html">What are the current Claude model string identifiers?</a></li>
+      </ul>
+    </div>
+    <div class="category-card">
+      <h3><a href="/answers/tool-use/">Tool Use & Function Calling &rarr;</a></h3>
+      <div class="count">15 reference entries</div>
+      <p>Schemas, parallel execution, result handling, and parameters for Claude function calling.</p>
+      <ul class="featured-links">
+        <li><a href="/answers/tool-use/json-schema-format-claude-tool-definitions.html">What is the correct JSON schema format for Claude tool definitions?</a></li><li><a href="/answers/tool-use/handle-parallel-tool-calls-claude.html">How do you handle parallel tool calls in Claude?</a></li>
+      </ul>
+    </div>
+    <div class="category-card">
+      <h3><a href="/answers/agent-frameworks/">Agent Frameworks &rarr;</a></h3>
+      <div class="count">10 reference entries</div>
+      <p>LangGraph, CrewAI, AutoGen, LlamaIndex, and the Vercel AI SDK — how Claude plugs into agentic systems.</p>
+      <ul class="featured-links">
+        <li><a href="/answers/agent-frameworks/use-claude-with-langgraph.html">How do you use Claude with LangGraph?</a></li><li><a href="/answers/agent-frameworks/set-claude-as-llm-crewai.html">How do you set Claude as the LLM in CrewAI?</a></li>
+      </ul>
+    </div>
+    <div class="category-card">
+      <h3><a href="/answers/claude-code/">Claude Code &rarr;</a></h3>
+      <div class="count">10 reference entries</div>
+      <p>CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows.</p>
+      <ul class="featured-links">
+        <li><a href="/answers/claude-code/install-claude-code-cli.html">How do you install Claude Code?</a></li><li><a href="/answers/claude-code/slash-commands-supported-claude-code.html">What slash commands does Claude Code support?</a></li>
+      </ul>
+    </div>
+    </div>
+
+    <div class="recently-updated">
+      <h2>Recently updated</h2>
+      <div class="recently-updated-list">
+        
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/connect-claude-to-gmail-mcp.html">How do you connect Claude to Gmail via MCP?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/mcp-server-url-format.html">What is the MCP server URL format for Claude connectors?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/mcp-auth-patterns.html">How do you authenticate MCP connectors in Claude.ai?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/connect-claude-to-notion-mcp.html">How do you connect Claude to Notion via MCP?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/connect-claude-to-github-mcp.html">How do you connect Claude to GitHub via MCP?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/connect-claude-to-slack-mcp.html">How do you connect Claude to Slack via MCP?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/connect-claude-to-google-drive-mcp.html">How do you connect Claude to Google Drive via MCP?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/native-mcp-servers-claude.html">What MCP servers does Claude.ai support natively?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/multiple-mcp-servers-single-session.html">Can you use multiple MCP servers in one Claude session?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      <div class="recently-updated-item">
+        <div class="left">
+          <span class="cat">MCP & Connectors</span>
+          <a href="/answers/mcp-connectors/build-custom-mcp-server-claude.html">How do you build a custom MCP server for Claude?</a>
+        </div>
+        <div class="date">July 2026</div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <a href="../" class="footer-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="../answers/" class="active">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.getElementById('search-input');
+      const cards = document.querySelectorAll('.category-card');
+      const recentItems = document.querySelectorAll('.recently-updated-item');
+      
+      searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
+        
+        cards.forEach(c => {
+          const text = c.textContent.toLowerCase();
+          c.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+        
+        recentItems.forEach(r => {
+          const text = r.textContent.toLowerCase();
+          r.style.display = text.includes(query) ? 'flex' : 'none';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

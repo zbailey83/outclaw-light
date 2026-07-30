@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agent Frameworks &mdash; AI Agent Reference | Answers | openclaw.xyz</title>
+  <meta name="description" content="LangGraph, CrewAI, AutoGen, LlamaIndex, and the Vercel AI SDK — how Claude plugs into agentic systems.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/agent-frameworks/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Agent Frameworks \u2014 AI Agent Reference",
+      "description": "LangGraph, CrewAI, AutoGen, LlamaIndex, and the Vercel AI SDK \u2014 how Claude plugs into agentic systems.",
+      "url": "https://outclaw.xyz/answers/agent-frameworks/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agent Frameworks"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you use Claude with LangGraph?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To use Claude with LangGraph, install the '@langchain/anthropic' integration package, initialize ChatAnthropic with your target model string, and bind it to your graph nodes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you set Claude as the LLM in CrewAI?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To configure CrewAI to use Claude, initialize an LLM class instance using CrewAI's library, passing the model identifier 'anthropic/claude-3-5-sonnet-20241022', and assign it to your agents."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you integrate Claude with AutoGen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To use Claude in AutoGen, configure the LLM configuration dictionary with API key credentials and set 'api_type' to 'anthropic'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Anthropic SDK for Python and how do you install it?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Anthropic Python SDK is the official package for interacting with Claude. Install it using pip: 'pip install anthropic'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you use Claude with LangChain?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To use Claude in LangChain, install the '@langchain/anthropic' package (JS/TS) or 'langchain-anthropic' (Python), and initialize the ChatAnthropic model class."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / Agent Frameworks
+    </nav>
+
+    <h1>Agent Frameworks &mdash; Agent Reference</h1>
+    <p>LangGraph, CrewAI, AutoGen, LlamaIndex, and the Vercel AI SDK — how Claude plugs into agentic systems.</p>
+
+    <div class="answer-grid">
+      
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/use-claude-with-langgraph.html">How do you use Claude with LangGraph?</a></h3>
+      <p>To use Claude with LangGraph, install the '@langchain/anthropic' integration package, initialize ChatAnthropic with your target...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/set-claude-as-llm-crewai.html">How do you set Claude as the LLM in CrewAI?</a></h3>
+      <p>To configure CrewAI to use Claude, initialize an LLM class instance using CrewAI's library, passing the model identifier 'anthr...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/integrate-claude-with-autogen.html">How do you integrate Claude with AutoGen?</a></h3>
+      <p>To use Claude in AutoGen, configure the LLM configuration dictionary with API key credentials and set 'api_type' to 'anthropic'.</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/anthropic-python-sdk-installation.html">What is the Anthropic SDK for Python and how do you install it?</a></h3>
+      <p>The Anthropic Python SDK is the official package for interacting with Claude. Install it using pip: 'pip install anthropic'.</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/use-claude-with-langchain.html">How do you use Claude with LangChain?</a></h3>
+      <p>To use Claude in LangChain, install the '@langchain/anthropic' package (JS/TS) or 'langchain-anthropic' (Python), and initializ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/agent-loop-patterns-with-claude.html">What agent loop patterns work well with Claude?</a></h3>
+      <p>Claude excels in ReAct (Reasoning and Acting) loops, Plan-and-Solve patterns, and multi-agent reflection loops due to its stron...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/use-claude-with-llamaindex.html">How do you use Claude with LlamaIndex?</a></h3>
+      <p>To use Claude with LlamaIndex, install 'llama-index-llms-anthropic', initialize the Anthropic class model, and configure it as ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/use-claude-with-vercel-ai-sdk.html">How do you use Claude with the Vercel AI SDK?</a></h3>
+      <p>To integrate Claude in the Vercel AI SDK, install '@ai-sdk/anthropic', import 'anthropic', and invoke target models via 'genera...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/implement-recommender-agent-claude.html">How do you build a ReAct agent loop manually with Claude?</a></h3>
+      <p>Build a manual ReAct loop by creating a while-loop that passes tools, reads Claude's tool_use calls, executes the matching code...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/agent-frameworks/claude-agent-memory-persistence.html">How do you handle session state and memory persistence for agents?</a></h3>
+      <p>Store conversation history in a database keyed by session ID, load recent turns during requests, and summarize old messages to ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    </div>
+
+    <section class="faq-cluster"><h2>Common questions</h2>
+  <details>
+    <summary>How do you use Claude with LangGraph?</summary>
+    <p>To use Claude with LangGraph, install the '@langchain/anthropic' integration package, initialize ChatAnthropic with your target model string, and bind it to your graph nodes.</p>
+  </details>
+  <details>
+    <summary>How do you set Claude as the LLM in CrewAI?</summary>
+    <p>To configure CrewAI to use Claude, initialize an LLM class instance using CrewAI's library, passing the model identifier 'anthropic/claude-3-5-sonnet-20241022', and assign it to your agents.</p>
+  </details>
+  <details>
+    <summary>How do you integrate Claude with AutoGen?</summary>
+    <p>To use Claude in AutoGen, configure the LLM configuration dictionary with API key credentials and set 'api_type' to 'anthropic'.</p>
+  </details>
+  <details>
+    <summary>What is the Anthropic SDK for Python and how do you install it?</summary>
+    <p>The Anthropic Python SDK is the official package for interacting with Claude. Install it using pip: 'pip install anthropic'.</p>
+  </details>
+  <details>
+    <summary>How do you use Claude with LangChain?</summary>
+    <p>To use Claude in LangChain, install the '@langchain/anthropic' package (JS/TS) or 'langchain-anthropic' (Python), and initialize the ChatAnthropic model class.</p>
+  </details></section>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

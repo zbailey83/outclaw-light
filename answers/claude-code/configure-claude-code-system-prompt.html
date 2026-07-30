@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How do you configure Claude Code with a custom system prompt? | Answers for Agents | openclaw.xyz</title>
+  <meta name="description" content="Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPromp...">
+  <link rel="canonical" href="https://outclaw.xyz/answers/claude-code/configure-claude-code-system-prompt.html">
+  
+  <meta property="og:title" content="How do you configure Claude Code with a custom system prompt?">
+  <meta property="og:description" content="Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPromp...">
+  <meta property="og:type" content="article">
+  <meta property="article:modified_time" content="2026-07-05T00:00:00Z">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Claude Code",
+          "item": "https://outclaw.xyz/answers/claude-code/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How do you configure Claude Code with a custom system prompt?",
+          "item": "https://outclaw.xyz/answers/claude-code/configure-claude-code-system-prompt.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you configure Claude Code with a custom system prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt \"&lt;your-prompt&gt;\"'."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "How do you configure Claude Code with a custom system prompt?",
+      "description": "Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt \"&lt;your-prompt&gt;\"'.",
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-07-05",
+      "author": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / <a href="/answers/claude-code/">Claude Code</a> / How do you configure Claude Code with a custom system prompt?
+    </nav>
+
+    <article>
+      <div class="category-chip">Claude Code</div>
+      <h1>How do you configure Claude Code with a custom system prompt?</h1>
+      
+      <div class="entry-meta">
+        Last verified: July 2026 &middot; 2 min read
+      </div>
+
+      <div class="quick-answer">
+        <span class="qa-label">QUICK ANSWER</span>
+        <p>Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt "&lt;your-prompt&gt;"'.</p>
+      </div>
+
+      <div class="answer-body">
+        
+        <h2>Terminal Command Example</h2>
+        <p>Run the configuration command directly in the terminal interface:</p>
+<pre><code class="language-bash">/config set systemPrompt "Write code output strictly matching ECMAScript 2022 standards."</code></pre>
+        <p>This setting updates the active user configuration profile and will persist across future restarts.</p>
+        
+      </div>
+
+      <div class="verified-against">
+        Verified against: Claude Code CLI v0.2.5
+      </div>
+
+      <div class="related-answers"><h3>Related answers</h3><ul><li><a href="/answers/claude-api/pass-system-prompt-claude-api.html">How do you pass a system prompt in the Claude API?</a></li><li><a href="/answers/claude-code/slash-commands-supported-claude-code.html">What slash commands does Claude Code support?</a></li><li><a href="/answers/claude-code/claude-code-config-file-location.html">What is the Claude Code config file location and format?</a></li><li><a href="/answers/claude-code/">See all Claude Code answers</a></li></ul></div>
+    </article>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

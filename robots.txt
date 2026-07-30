@@ -1,4 +1,30 @@
+# General
 User-agent: *
 Allow: /
+Allow: /answers/
+
+# Google
+User-agent: Googlebot
+Allow: /
+Allow: /answers/
+
+# AI answer engines
+User-agent: GPTBot
+Allow: /answers/
+
+User-agent: PerplexityBot
+Allow: /answers/
+
+User-agent: ClaudeBot
+Allow: /answers/
+
+User-agent: anthropic-ai
+Allow: /answers/
+
+User-agent: Bytespider
+Allow: /answers/
+
+User-agent: cohere-ai
+Allow: /answers/
 
 Sitemap: https://outclaw.xyz/sitemap.xml

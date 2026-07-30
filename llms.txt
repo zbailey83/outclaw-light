@@ -16,11 +16,13 @@
 - [Claude Sonnet 4.6 Prompting Playbook](https://outclaw.xyz/guides/claude-sonnet-prompting-playbook.html) — 30+ templates for XML structuring and CoT.
 - [Claude Opus 4.8 vs GPT 5.5 Teardown](https://outclaw.xyz/guides/claude-opus-48-vs-gpt-55-comparison.html) — Benchmark comparison for coding, context window, and pricing.
 - [OpenMontage: The CHAD of AI Video Editing](https://outclaw.xyz/guides/openmontage-chad-ai-video-editing.html) — Master local CLIP B-roll libraries, Remotion, and HyperFrames.
+- [Agentic Video Editing: HyperFrames & Remotion](https://outclaw.xyz/guides/agentic-video-editing-hyperframes-remotion.html) — A practical guide to installing HyperFrames and Remotion Skills as Claude Code agent skills.
 - [OpenClaw Setup Guide (VPS & MacMini)](https://outclaw.xyz/guides/openclaw-vps-mac-mini-setup-guide.html) — Self-hosting instructions for agentic systems.
 - [GPT-5.4 1M Context Practical Guide](https://outclaw.xyz/guides/gpt-54-1m-context-practical-guide.html) — Use cases for massive context windows.
 - [The LiteLLM + Portkey Playbook](https://outclaw.xyz/guides/litellm-portkey-playbook.html) — Failovers, routing, and semantic caching.
 - [Hermes Agent VPS + Telegram Setup Guide](https://outclaw.xyz/guides/hermes-vps-telegram-setup-guide.html) — Ubuntu provisioning and Telegram gateway configuration.
 - [Elite Agentic Workflows: Codex + GPT-5.5](https://outclaw.xyz/guides/codex-gpt55-agentic-frameworks.html) — Autonomous loops and self-repair systems.
+- [MCP Practical Setup Guide](https://outclaw.xyz/guides/mcp-practical-guide.html) — Configuration playbooks, security checklists, and common failure modes for Model Context Protocol.
 
 ## Free Practitioner Tools
 - [AI Brand Identity Builder](https://outclaw.xyz/tools/brand-identity.html) — Generate voice, tone, and strategy documents.
@@ -28,6 +30,9 @@
 - [Model Comparison Cheatsheet](https://outclaw.xyz/tools/model-comparison.html) — Real-time stats on the latest LLMs.
 - [API Cost Calculator](https://outclaw.xyz/tools/api-cost-calculator.html) — Estimate model usage costs across Claude, OpenAI, and Gemini.
 - [MCP Server Directory](https://outclaw.xyz/tools/mcp-server-directory.html) — A curated list of Model Context Protocol servers.
+- [AI Tools Encyclopedia](https://outclaw.xyz/tools/ai-tools-encyclopedia.html) — Database of artificial intelligence tools, platforms, and models.
+- [Model Battle Cards](https://outclaw.xyz/tools/model-battle-cards.html) — Side-by-side head-to-head comparisons of leading language models.
+- [Tech Stack Encyclopedia](https://outclaw.xyz/tools/tech-stack-encyclopedia.html) — Exhaustive directory of development technologies, database engines, and frameworks.
 
 ## Professional Skills (Quick Guides)
 - [Organic Marketing Blitz](https://outclaw.xyz/skills/organic-marketing-blitz/) — 12-channel organic growth system.
@@ -35,6 +40,18 @@
 - [pSEO Indexing Setup](https://outclaw.xyz/skills/pseo-indexing-setup/) — Technical stack for programmatic SEO indexing.
 - [Resume-Cover Letter & Role Map Claude Skill](https://outclaw.xyz/skills/resume-coverletter-skill/) — ATS-optimized resume and cover letter systems.
 - [HyperFrames Video Production](https://outclaw.xyz/skills/hyperframes/) — Programmatic video generation with HTML, CSS, and JS.
+
+
+## Answers for Agents
+Short, specific answers to questions AI agents and developers encounter 
+when building with Claude and integrating AI tools. Updated as tools change.
+
+## Categories
+- [MCP & Connectors](https://outclaw.xyz/answers/mcp-connectors/) — Connecting Claude to Gmail, Notion, GitHub, Slack via MCP
+- [Claude API](https://outclaw.xyz/answers/claude-api/) — Rate limits, models, auth, streaming, error codes
+- [Tool Use & Function Calling](https://outclaw.xyz/answers/tool-use/) — Schemas, parallel calls, result handling
+- [Agent Frameworks](https://outclaw.xyz/answers/agent-frameworks/) — LangGraph, CrewAI, AutoGen, Claude SDK
+- [Claude Code](https://outclaw.xyz/answers/claude-code/) — CLI setup, MCP config, slash commands, CI mode
 
 ## Content Pillars
 - **Agentic Workflows**: MCP (Model Context Protocol) and autonomous systems.

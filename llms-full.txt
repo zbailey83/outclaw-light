@@ -1,0 +1,724 @@
+# Answers for Agents — Quick Answers Full Catalog
+
+This catalog contains the self-contained Quick Answer snippets for all agent references on openclaw.xyz.
+
+## How do you connect Claude to Gmail via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-gmail-mcp
+
+> To connect Claude to Gmail via the Model Context Protocol (MCP), add the official Google Gmail MCP server configuration to your Claude Desktop configuration file. Authenticate by creating a client credential via the Google Cloud Console and running the initial OAuth consent flow.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-gmail-mcp.html
+
+---
+
+## What is the MCP server URL format for Claude connectors?
+Category: MCP & Connectors | Slug: mcp-server-url-format
+
+> The Model Context Protocol (MCP) uses Server-Sent Events (SSE) for HTTP transport, where the client establishes a SSE connection to a GET endpoint (e.g. http://localhost:3000/sse) and sends JSON-RPC client-to-server messages via POST requests to a separate endpoint declared by the server.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-server-url-format.html
+
+---
+
+## How do you authenticate MCP connectors in Claude.ai?
+Category: MCP & Connectors | Slug: mcp-auth-patterns
+
+> In local environments, MCP servers authenticate via environment variables passed directly in the server config file. For remote, network-based MCP servers using Server-Sent Events (SSE), authentication is handled via Bearer tokens in the HTTP Authorization headers or customized query parameters.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-auth-patterns.html
+
+---
+
+## How do you connect Claude to Notion via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-notion-mcp
+
+> Connect Claude to your Notion workspace by registering a new internal integration inside the Notion Developer Portal to obtain an integration token, granting workspace access permissions, and configuring the official Notion MCP server in your Claude Desktop configuration.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-notion-mcp.html
+
+---
+
+## How do you connect Claude to GitHub via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-github-mcp
+
+> To connect Claude to GitHub, generate a Personal Access Token (Classic or Fine-Grained) on GitHub with access to your target repositories, and add the official GitHub MCP server configuration to your local Claude Desktop config file.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-github-mcp.html
+
+---
+
+## How do you connect Claude to Slack via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-slack-mcp
+
+> To connect Claude to Slack via MCP, create a Slack App in your workspace API settings, configure Bot User OAuth Tokens with read/write permissions, install the app in your workspace, and set up the Slack MCP server in your Claude Desktop configuration.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-slack-mcp.html
+
+---
+
+## How do you connect Claude to Google Drive via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-google-drive-mcp
+
+> To connect Claude to Google Drive, enable the Google Drive API in the Google Cloud Console, create OAuth 2.0 credentials, and pass these credentials to the Google Drive MCP server inside your Claude Desktop configuration.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-google-drive-mcp.html
+
+---
+
+## What MCP servers does Claude.ai support natively?
+Category: MCP & Connectors | Slug: native-mcp-servers-claude
+
+> Claude.ai (web interface) supports a selected set of official remote connectors natively, including Google Drive, Gmail, Notion, GitHub, and Slack, which authenticate directly via OAuth in the user profile settings, bypassing the need for local desktop configurations.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/native-mcp-servers-claude.html
+
+---
+
+## Can you use multiple MCP servers in one Claude session?
+Category: MCP & Connectors | Slug: multiple-mcp-servers-single-session
+
+> Yes, Claude can connect to and query multiple MCP servers concurrently in a single chat session. The client merges all tools, prompts, and resources from all configured servers and presents them to Claude's model context.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/multiple-mcp-servers-single-session.html
+
+---
+
+## How do you build a custom MCP server for Claude?
+Category: MCP & Connectors | Slug: build-custom-mcp-server-claude
+
+> To build a custom MCP server for Claude, use the official TypeScript or Python SDK, define the schemas for the tools, resources, and prompt formats, and write standard stdio or SSE transport handlers to process requests.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/build-custom-mcp-server-claude.html
+
+---
+
+## How do you connect Claude to PostgreSQL via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-postgres-mcp
+
+> To connect Claude to a PostgreSQL database, configure the postgres MCP server in your Claude Desktop configuration file and pass your database connection URI as an argument.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-postgres-mcp.html
+
+---
+
+## How do you connect Claude to SQLite via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-sqlite-mcp
+
+> To connect Claude to SQLite, add the sqlite MCP server definition in the configuration file, specifying the absolute filepath to your SQLite database file.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-sqlite-mcp.html
+
+---
+
+## How do you connect Claude to Brave Search via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-brave-search-mcp
+
+> To connect Claude to Brave Search, retrieve a Brave Search API key from the developer portal, and configure the brave-search MCP server using that API key in your Claude configuration.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-brave-search-mcp.html
+
+---
+
+## How do you connect Claude to Linear via MCP?
+Category: MCP & Connectors | Slug: connect-claude-to-linear-mcp
+
+> To connect Claude to Linear, generate an API access token in your Linear account developer settings and configure the official Linear MCP server in your Claude Desktop configuration.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/connect-claude-to-linear-mcp.html
+
+---
+
+## How do you inspect and debug MCP servers using MCP Inspector?
+Category: MCP & Connectors | Slug: mcp-inspector-setup-guide
+
+> Use the official @modelcontextprotocol/inspector command-line interface tool to inspect capabilities, send test requests, and view the JSON-RPC traffic on stdio-based MCP servers.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-inspector-setup-guide.html
+
+---
+
+## What transport protocols are supported by MCP?
+Category: MCP & Connectors | Slug: mcp-transport-protocols-compared
+
+> MCP supports two standard transport protocols: stdio (Standard Input/Output) for local sub-processes, and Server-Sent Events (SSE) for remote clients and web-based server setups using HTTP endpoints.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-transport-protocols-compared.html
+
+---
+
+## How do you configure Server-Sent Events (SSE) transport for MCP?
+Category: MCP & Connectors | Slug: mcp-sse-transport-setup
+
+> To configure SSE transport on an MCP server, instantiate an SSEServerTransport on your HTTP server routing layer to dispatch events, and implement a POST endpoint that accepts the client JSON-RPC payloads.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-sse-transport-setup.html
+
+---
+
+## How do you configure standard input/output (stdio) transport for MCP?
+Category: MCP & Connectors | Slug: mcp-stdio-transport-setup
+
+> To run an MCP server on stdio transport, connect it using StdioServerTransport from the SDK. The host process will spawn the server as a background process and communicate by reading and writing to its stdin/stdout streams.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-stdio-transport-setup.html
+
+---
+
+## How do you configure MCP servers in Claude Desktop?
+Category: MCP & Connectors | Slug: configure-mcp-in-claude-desktop
+
+> Open your local OS-specific configuration path and edit the JSON-formatted configuration file to define your stdio or remote MCP servers under the mcpServers parent key.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/configure-mcp-in-claude-desktop.html
+
+---
+
+## How do you sandbox MCP server execution for security?
+Category: MCP & Connectors | Slug: mcp-security-sandboxing-guide
+
+> To sandbox local MCP servers, run the processes in docker container environments, isolate the network using minimal networking settings, and restrict file access to specific, non-root directory paths.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-security-sandboxing-guide.html
+
+---
+
+## How do you handle timeout errors in MCP server calls?
+Category: MCP & Connectors | Slug: handle-mcp-timeout-errors
+
+> In your client connector code, wrap requests in timeout wrappers that reject after a threshold (e.g., 60 seconds) and ensure your server yields status updates for long-running processes.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/handle-mcp-timeout-errors.html
+
+---
+
+## Can multiple agent instances share a single MCP server connection?
+Category: MCP & Connectors | Slug: share-mcp-servers-across-agents
+
+> While stdio sub-processes are strictly single-client, a remote MCP server using Server-Sent Events (SSE) transport can handle multiple client agent sessions concurrently.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/share-mcp-servers-across-agents.html
+
+---
+
+## Does MCP support dynamic server discovery and registration?
+Category: MCP & Connectors | Slug: mcp-dynamic-server-registration
+
+> Yes, MCP supports discovery via client polling of capabilities, but active runtime server insertion depends on the agent framework implementation parsing client settings.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-dynamic-server-registration.html
+
+---
+
+## How do you add an MCP server to Cursor?
+Category: MCP & Connectors | Slug: mcp-cursor-integration-steps
+
+> To add an MCP server to Cursor, navigate to Cursor Settings > Features > MCP, click + Add New MCP Server, choose the transport type (stdio or SSE), and insert your command or connection URL.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-cursor-integration-steps.html
+
+---
+
+## How do you view and debug logs for MCP servers?
+Category: MCP & Connectors | Slug: mcp-server-logging-and-debugging
+
+> In stdio MCP servers, route logs to stderr using console.error() instead of console.log(). In Claude Desktop, inspect logs at ~/Library/Logs/Claude/mcp.log to review JSON-RPC errors.
+
+Full URL: https://outclaw.xyz/answers/mcp-connectors/mcp-server-logging-and-debugging.html
+
+---
+
+## What are the Claude API rate limits by tier?
+Category: Claude API | Slug: claude-api-rate-limits-by-tier
+
+> Claude API rate limits are governed by Tier structures based on your deposit history. Tier 1 has limits of 20,000 Tokens Per Minute (TPM) and 50 Requests Per Minute (RPM), scaling up to Tier 5 which provides up to 2,500,000 TPM and 4,000 RPM.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-rate-limits-by-tier.html
+
+---
+
+## What are the current Claude model string identifiers?
+Category: Claude API | Slug: current-claude-model-string-identifiers
+
+> To call Claude models in API requests, use model strings: 'claude-3-5-sonnet-20241022' for Claude 3.5 Sonnet, 'claude-3-5-haiku-20241022' for Claude 3.5 Haiku, and 'claude-3-opus-20240229' for Claude 3 Opus.
+
+Full URL: https://outclaw.xyz/answers/claude-api/current-claude-model-string-identifiers.html
+
+---
+
+## How do you authenticate with the Claude API?
+Category: Claude API | Slug: authenticate-with-claude-api
+
+> Authenticate with the Claude API by passing your API key in the 'x-api-key' request header. Specify the SDK version header 'anthropic-version' to ensure compatibility.
+
+Full URL: https://outclaw.xyz/answers/claude-api/authenticate-with-claude-api.html
+
+---
+
+## What does a 529 overloaded error mean and how do you handle it?
+Category: Claude API | Slug: handle-529-overloaded-error
+
+> An HTTP 529 error indicates that Anthropic's servers are overloaded and unable to handle the request. Handle this error by implementing retry loops using exponential backoff with random jitter.
+
+Full URL: https://outclaw.xyz/answers/claude-api/handle-529-overloaded-error.html
+
+---
+
+## How do you stream a Claude API response?
+Category: Claude API | Slug: stream-claude-api-responses
+
+> To stream Claude API responses, set the request parameter 'stream' to true. The server will emit Server-Sent Events containing JSON-RPC event chunks for message start, content delta updates, and completion.
+
+Full URL: https://outclaw.xyz/answers/claude-api/stream-claude-api-responses.html
+
+---
+
+## What is the maximum context window for each Claude model?
+Category: Claude API | Slug: maximum-context-window-by-model
+
+> All current Claude 3 and Claude 3.5 models support a maximum context window of 200,000 tokens (approximately 150,000 words or 500 pages of text) per single API request.
+
+Full URL: https://outclaw.xyz/answers/claude-api/maximum-context-window-by-model.html
+
+---
+
+## How do you pass a system prompt in the Claude API?
+Category: Claude API | Slug: pass-system-prompt-claude-api
+
+> Pass a system prompt by declaring the top-level 'system' string parameter in your API body request payload. Do not mix system instructions into the 'messages' array role declarations.
+
+Full URL: https://outclaw.xyz/answers/claude-api/pass-system-prompt-claude-api.html
+
+---
+
+## What is the difference between input tokens and output tokens for billing?
+Category: Claude API | Slug: input-vs-output-tokens-billing
+
+> Input tokens represent all prompt text, system instructions, and tool definitions sent to Claude, billed at a lower rate (e.g., $3/M tokens for Sonnet). Output tokens represent the generated completion text, billed at a higher rate (e.g., $15/M tokens for Sonnet).
+
+Full URL: https://outclaw.xyz/answers/claude-api/input-vs-output-tokens-billing.html
+
+---
+
+## How do you set up API key authentication vs. OAuth in Claude?
+Category: Claude API | Slug: api-key-vs-oauth-authentication
+
+> API keys are best for back-end applications using secret environment keys. OAuth 2.0 is required for client-facing integrations on the Anthropic Console, allowing individual users to sign in and run requests on their own accounts.
+
+Full URL: https://outclaw.xyz/answers/claude-api/api-key-vs-oauth-authentication.html
+
+---
+
+## How do you implement prompt caching in the Claude API?
+Category: Claude API | Slug: claude-api-response-caching-setup
+
+> Implement prompt caching by attaching the cache_control metadata block '{"type": "ephemeral"}' to blocks in your prompt (system prompts, tools, or messages) that are longer than 1024 tokens.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-response-caching-setup.html
+
+---
+
+## How do you force Claude to return valid JSON in API responses?
+Category: Claude API | Slug: claude-api-json-mode-setup
+
+> To force JSON output, declare your required JSON schema in a tool definition and set the tool_choice block to force a call to that tool, forcing Claude to structure the response as valid JSON arguments.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-json-mode-setup.html
+
+---
+
+## What is the maximum output token limit for Claude models?
+Category: Claude API | Slug: claude-api-max-tokens-output
+
+> Claude 3.5 Sonnet and Claude 3.5 Haiku support a maximum completion output of 8,192 tokens per single API request. Claude 3 Opus yields up to 4,096 output tokens.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-max-tokens-output.html
+
+---
+
+## How does the temperature parameter affect Claude's API responses?
+Category: Claude API | Slug: claude-api-temperature-parameter
+
+> The temperature parameter ranges from 0.0 to 1.0. Lower settings (e.g. 0.0) yield deterministic, highly factual answers, while values closer to 1.0 result in diverse, creative generation.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-temperature-parameter.html
+
+---
+
+## What are the top_p and top_k parameters in the Claude API?
+Category: Claude API | Slug: claude-api-top-p-top-k
+
+> top_k limits selection to the K highest probability next tokens, while top_p (nucleus sampling) selects from the smallest set of tokens whose cumulative probability exceeds P.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-top-p-top-k.html
+
+---
+
+## What are the formatting best practices for Claude system prompts?
+Category: Claude API | Slug: claude-api-system-prompt-best-practices
+
+> Structure your system prompts using XML tags (e.g., &lt;instructions&gt;, &lt;context&gt;, &lt;rules&gt;) to separate guidelines and instruction blocks, which matches Claude's pre-training.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-system-prompt-best-practices.html
+
+---
+
+## How do you send images to the Claude API?
+Category: Claude API | Slug: claude-api-image-input-format
+
+> To send an image to the Claude API, include an image content block in your messages array, passing the base64-encoded file string and declaring the correct media type.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-image-input-format.html
+
+---
+
+## How do you pass PDF files to the Claude API?
+Category: Claude API | Slug: claude-api-pdf-document-handling
+
+> To send a PDF, pass it as a document content block in the messages array, base64-encoded, using the media type application/pdf.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-pdf-document-handling.html
+
+---
+
+## How do you handle CORS issues when calling the Claude API?
+Category: Claude API | Slug: claude-api-cors-issues-solution
+
+> Do not call the Claude API directly from client-side browser scripts, as it will trigger CORS policy blocks and expose your API keys. Instead, implement a secure proxy backend endpoint to handle the requests.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-cors-issues-solution.html
+
+---
+
+## How do you set up billing alerts and usage limits in the Anthropic console?
+Category: Claude API | Slug: claude-api-billing-and-usage-alerts
+
+> Log in to the Anthropic Console, go to Settings > Billing, and configure your Monthly Spending Limit to block API requests once a threshold is reached.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-billing-and-usage-alerts.html
+
+---
+
+## What official Anthropic SDKs are available?
+Category: Claude API | Slug: claude-api-sdk-comparison-python-js
+
+> Anthropic officially maintains two developer libraries: the Python SDK (package: 'anthropic') and the TypeScript/JavaScript SDK (package: '@anthropic-ai/sdk').
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-api-sdk-comparison-python-js.html
+
+---
+
+## What is the correct JSON schema format for Claude tool definitions?
+Category: Tool Use & Function Calling | Slug: json-schema-format-claude-tool-definitions
+
+> Claude tool schemas follow the JSON Schema Draft 4 specification. Place descriptions on all properties to help Claude select the correct tool and generate matching parameters.
+
+Full URL: https://outclaw.xyz/answers/tool-use/json-schema-format-claude-tool-definitions.html
+
+---
+
+## How do you handle parallel tool calls in Claude?
+Category: Tool Use & Function Calling | Slug: handle-parallel-tool-calls-claude
+
+> When Claude decides to call multiple tools in a single turn, the API returns a message block containing multiple content blocks of type 'tool_use'. Iterate through the list, execute them in parallel, and return corresponding tool result blocks.
+
+Full URL: https://outclaw.xyz/answers/tool-use/handle-parallel-tool-calls-claude.html
+
+---
+
+## How do you return a tool result to Claude?
+Category: Tool Use & Function Calling | Slug: return-tool-result-to-claude
+
+> Return tool results in a user message block containing a list of content blocks of type 'tool_result'. Each block must specify the matching 'tool_use_id' to bind the result to the initial request.
+
+Full URL: https://outclaw.xyz/answers/tool-use/return-tool-result-to-claude.html
+
+---
+
+## Can Claude call the same tool multiple times in one turn?
+Category: Tool Use & Function Calling | Slug: multiple-calls-same-tool-single-turn
+
+> Yes. If Claude needs to fetch multiple independent data points, it will return multiple tool_use blocks referencing the same tool name but with distinct arguments and unique tool_use_ids.
+
+Full URL: https://outclaw.xyz/answers/tool-use/multiple-calls-same-tool-single-turn.html
+
+---
+
+## How do you force Claude to use a specific tool?
+Category: Tool Use & Function Calling | Slug: force-claude-to-use-specific-tool
+
+> Force Claude to use a specific tool by setting the request parameter 'tool_choice' to type 'tool' and providing the name of the target tool.
+
+Full URL: https://outclaw.xyz/answers/tool-use/force-claude-to-use-specific-tool.html
+
+---
+
+## What is tool_choice and how do you use it?
+Category: Tool Use & Function Calling | Slug: use-tool-choice-parameter
+
+> tool_choice governs how Claude selects tools. Use 'auto' to let Claude decide whether to use tools, 'any' to force Claude to select at least one tool, or type 'tool' with a name to force a specific tool.
+
+Full URL: https://outclaw.xyz/answers/tool-use/use-tool-choice-parameter.html
+
+---
+
+## How do you handle tool call errors gracefully?
+Category: Tool Use & Function Calling | Slug: handle-tool-call-errors-gracefully
+
+> To report a tool execution failure to Claude, return a user message block with the parameter 'is_error' set to true. This tells Claude the tool failed, prompting the model to fix its input arguments.
+
+Full URL: https://outclaw.xyz/answers/tool-use/handle-tool-call-errors-gracefully.html
+
+---
+
+## What is the maximum number of tools Claude supports per request?
+Category: Tool Use & Function Calling | Slug: maximum-tools-supported-per-request
+
+> Claude officially supports up to 100 tools per single API request. However, including many tools increases system prompt token counts and can impact tool selection accuracy.
+
+Full URL: https://outclaw.xyz/answers/tool-use/maximum-tools-supported-per-request.html
+
+---
+
+## How do you define nested objects in Claude's tool schema?
+Category: Tool Use & Function Calling | Slug: nested-objects-in-tool-schema
+
+> Define nested structures by nesting object properties inside properties in your tool definition, matching the JSON Schema Draft 4 specification.
+
+Full URL: https://outclaw.xyz/answers/tool-use/nested-objects-in-tool-schema.html
+
+---
+
+## How do tool definitions affect input token billing?
+Category: Tool Use & Function Calling | Slug: claude-tool-use-tokens-cost
+
+> Tool schemas are serialized into XML instructions and prepended to the system prompt, counting towards your input token billing. Enable prompt caching for static tool definitions to minimize costs.
+
+Full URL: https://outclaw.xyz/answers/tool-use/claude-tool-use-tokens-cost.html
+
+---
+
+## How do you handle streaming responses when tools are called?
+Category: Tool Use & Function Calling | Slug: claude-streaming-with-tool-calls
+
+> In stream responses, listen for events of type 'content_block_start' with content type 'tool_use'. Collect arguments from 'content_block_delta' events, and execute the tool once the block completes.
+
+Full URL: https://outclaw.xyz/answers/tool-use/claude-streaming-with-tool-calls.html
+
+---
+
+## How do you prevent Claude from hallucinating tool arguments?
+Category: Tool Use & Function Calling | Slug: prevent-hallucinated-tool-calls
+
+> Provide detailed descriptions for tool parameters, use enum lists for allowed values, and instruct the model in your system prompt to ask for clarification if required values are missing.
+
+Full URL: https://outclaw.xyz/answers/tool-use/prevent-hallucinated-tool-calls.html
+
+---
+
+## Does tool use override the custom system prompt in Claude?
+Category: Tool Use & Function Calling | Slug: claude-tool-use-system-prompt-override
+
+> No. The system prompt guidelines and rules remain active and guide Claude's behavior even when the model decides to use tools.
+
+Full URL: https://outclaw.xyz/answers/tool-use/claude-tool-use-system-prompt-override.html
+
+---
+
+## What temperature is recommended when using Claude for tool calling?
+Category: Tool Use & Function Calling | Slug: claude-tool-use-temperature-setting
+
+> Set the temperature to 0.0 when using tools. This ensures arguments are generated reliably and matches the target schemas without creative variance.
+
+Full URL: https://outclaw.xyz/answers/tool-use/claude-tool-use-temperature-setting.html
+
+---
+
+## What is the difference between tool_choice auto and any?
+Category: Tool Use & Function Calling | Slug: claude-tool-use-any-vs-auto
+
+> tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least one tool before responding.
+
+Full URL: https://outclaw.xyz/answers/tool-use/claude-tool-use-any-vs-auto.html
+
+---
+
+## How do you use Claude with LangGraph?
+Category: Agent Frameworks | Slug: use-claude-with-langgraph
+
+> To use Claude with LangGraph, install the '@langchain/anthropic' integration package, initialize ChatAnthropic with your target model string, and bind it to your graph nodes.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/use-claude-with-langgraph.html
+
+---
+
+## How do you set Claude as the LLM in CrewAI?
+Category: Agent Frameworks | Slug: set-claude-as-llm-crewai
+
+> To configure CrewAI to use Claude, initialize an LLM class instance using CrewAI's library, passing the model identifier 'anthropic/claude-3-5-sonnet-20241022', and assign it to your agents.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/set-claude-as-llm-crewai.html
+
+---
+
+## How do you integrate Claude with AutoGen?
+Category: Agent Frameworks | Slug: integrate-claude-with-autogen
+
+> To use Claude in AutoGen, configure the LLM configuration dictionary with API key credentials and set 'api_type' to 'anthropic'.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/integrate-claude-with-autogen.html
+
+---
+
+## What is the Anthropic SDK for Python and how do you install it?
+Category: Agent Frameworks | Slug: anthropic-python-sdk-installation
+
+> The Anthropic Python SDK is the official package for interacting with Claude. Install it using pip: 'pip install anthropic'.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/anthropic-python-sdk-installation.html
+
+---
+
+## How do you use Claude with LangChain?
+Category: Agent Frameworks | Slug: use-claude-with-langchain
+
+> To use Claude in LangChain, install the '@langchain/anthropic' package (JS/TS) or 'langchain-anthropic' (Python), and initialize the ChatAnthropic model class.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/use-claude-with-langchain.html
+
+---
+
+## What agent loop patterns work well with Claude?
+Category: Agent Frameworks | Slug: agent-loop-patterns-with-claude
+
+> Claude excels in ReAct (Reasoning and Acting) loops, Plan-and-Solve patterns, and multi-agent reflection loops due to its strong contextual compliance and structural tool execution.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/agent-loop-patterns-with-claude.html
+
+---
+
+## How do you use Claude with LlamaIndex?
+Category: Agent Frameworks | Slug: use-claude-with-llamaindex
+
+> To use Claude with LlamaIndex, install 'llama-index-llms-anthropic', initialize the Anthropic class model, and configure it as your global LLM setting.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/use-claude-with-llamaindex.html
+
+---
+
+## How do you use Claude with the Vercel AI SDK?
+Category: Agent Frameworks | Slug: use-claude-with-vercel-ai-sdk
+
+> To integrate Claude in the Vercel AI SDK, install '@ai-sdk/anthropic', import 'anthropic', and invoke target models via 'generateText' or 'streamText'.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/use-claude-with-vercel-ai-sdk.html
+
+---
+
+## How do you build a ReAct agent loop manually with Claude?
+Category: Agent Frameworks | Slug: implement-recommender-agent-claude
+
+> Build a manual ReAct loop by creating a while-loop that passes tools, reads Claude's tool_use calls, executes the matching code locally, and posts the results back until Claude returns a text completion.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/implement-recommender-agent-claude.html
+
+---
+
+## How do you handle session state and memory persistence for agents?
+Category: Agent Frameworks | Slug: claude-agent-memory-persistence
+
+> Store conversation history in a database keyed by session ID, load recent turns during requests, and summarize old messages to fit the context window.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/claude-agent-memory-persistence.html
+
+---
+
+## How do you install Claude Code?
+Category: Claude Code | Slug: install-claude-code-cli
+
+> Install Claude Code globally via npm by running the command: 'npm install -g @anthropic-ai/claude-code'. Authorize the command-line interface tool with your Anthropic Account to begin.
+
+Full URL: https://outclaw.xyz/answers/claude-code/install-claude-code-cli.html
+
+---
+
+## What slash commands does Claude Code support?
+Category: Claude Code | Slug: slash-commands-supported-claude-code
+
+> Claude Code supports command-line interface utility slash commands: '/init' to bootstrap directories, '/config' to set settings, '/mcp' to manage server connectors, '/clear' to purge console history, and '/exit' to terminate.
+
+Full URL: https://outclaw.xyz/answers/claude-code/slash-commands-supported-claude-code.html
+
+---
+
+## How do you add an MCP server to Claude Code?
+Category: Claude Code | Slug: add-mcp-server-to-claude-code
+
+> Add an MCP server to Claude Code by editing the local config file or using the slash command: '/mcp add &lt;server-name&gt; &lt;command&gt; [args...]'.
+
+Full URL: https://outclaw.xyz/answers/claude-code/add-mcp-server-to-claude-code.html
+
+---
+
+## How do you configure Claude Code with a custom system prompt?
+Category: Claude Code | Slug: configure-claude-code-system-prompt
+
+> Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt "&lt;your-prompt&gt;"'.
+
+Full URL: https://outclaw.xyz/answers/claude-code/configure-claude-code-system-prompt.html
+
+---
+
+## What is the Claude Code config file location and format?
+Category: Claude Code | Slug: claude-code-config-file-location
+
+> The config file is located at '~/.config/claude-code/config.json'. It is a standard JSON file containing keys for your active model, custom system prompt, and registered MCP servers.
+
+Full URL: https://outclaw.xyz/answers/claude-code/claude-code-config-file-location.html
+
+---
+
+## How do you run Claude Code in headless/CI mode?
+Category: Claude Code | Slug: run-claude-code-headless-ci
+
+> Run Claude Code in headless/CI pipelines by passing the prompt argument directly using: 'claude "&lt;your prompt&gt;" --non-interactive'. Export the token key as an environment variable.
+
+Full URL: https://outclaw.xyz/answers/claude-code/run-claude-code-headless-ci.html
+
+---
+
+## What are Claude Code's permission levels?
+Category: Claude Code | Slug: claude-code-permission-levels
+
+> Claude Code executes local system tools. You can run it in safe mode to block terminal write commands, or authorize specific write/execute actions when prompted.
+
+Full URL: https://outclaw.xyz/answers/claude-code/claude-code-permission-levels.html
+
+---
+
+## How do you minimize token costs when using Claude Code?
+Category: Claude Code | Slug: claude-code-cost-saving-tips
+
+> To save token costs, run '/clear' periodically to reset the context history and avoid sending large, outdated git diffs or file contents in subsequent prompts.
+
+Full URL: https://outclaw.xyz/answers/claude-code/claude-code-cost-saving-tips.html
+
+---
+
+## What keyboard shortcuts are available in Claude Code?
+Category: Claude Code | Slug: claude-code-keyboard-shortcuts
+
+> Claude Code supports command line shortcuts: use 'Ctrl+C' to cancel a running generation or exit the application, and 'Ctrl+L' to clear the current terminal screen.
+
+Full URL: https://outclaw.xyz/answers/claude-code/claude-code-keyboard-shortcuts.html
+
+---
+
+## How do you troubleshoot authentication issues in Claude Code?
+Category: Claude Code | Slug: claude-code-troubleshoot-auth-issues
+
+> Resolve CLI authentication issues by running '/config set logout', clearing your ~/.config/claude-code credentials directory, and restarting the CLI to run the OAuth flow again.
+
+Full URL: https://outclaw.xyz/answers/claude-code/claude-code-troubleshoot-auth-issues.html
+
+---
+

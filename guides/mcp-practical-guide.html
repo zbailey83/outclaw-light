@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="../analytics-journey.js" defer></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MCP Implementation Playbooks: Practical Setup Guide | OutClaw AI</title>
+<meta content="Step-by-step implementation playbooks for Model Context Protocol (MCP). Config guide, security checklists, and common failure modes." name="description"/>
+<link href="https://outclaw.xyz/guides/mcp-practical-guide" rel="canonical"/>
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/mcp-practical-guide" property="og:url"/>
+<meta content="MCP Implementation Playbooks: Practical Setup Guide | OutClaw AI" property="og:title"/>
+<meta content="Which of the four real MCP paths fits your situation? This guide skips the theory and gives you playbooks for Desktop, Coding Agents, Remote, and Custom Servers." property="og:description"/>
+<meta content="https://outclaw.xyz/hero-alt.webp" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+
+<style>
+    :root{
+      --sky:#5AADDB;--sky-light:#B8DFF0;--sky-pale:#EDF7FC;
+      --flamingo:#F4678A;--flamingo-light:#FBB8CB;--flamingo-pale:#FEF0F4;
+      --coral:#FF7E5A;--coral-pale:#FFF0EB;--sand:#F5EDD8;
+      --leaf:#4A9E7A;--leaf-pale:#E8F5EF;
+      --deep-navy:#1A1A2E;--text:#1A1A2E;--text-mid:#4A4A6E;
+      --text-soft:#7A7A9E;--text-dim:#B0B0C8;
+      --white:#FFFFFF;--bg:#FAFAF8;--border:#E8E8F2;--border-soft:#F0F0F8;
+      --font-display:"DM Serif Display",serif;--font-body:"DM Sans",sans-serif;--font-mono:"JetBrains Mono",monospace;
+      --grad-sky:linear-gradient(135deg,#5AADDB 0%,#7EC5E8 100%);
+      --grad-flamingo:linear-gradient(135deg,#F4678A 0%,#FF9BB5 100%);
+      --grad-coral:linear-gradient(135deg,#FF7E5A 0%,#FFAB8C 100%);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65;overflow-x:hidden;}
+    ::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:var(--sky-light);border-radius:10px;}
+
+    /* Navbar */
+    .navbar{position:sticky;top:0;z-index:200;height:68px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 48px;}
+    .navbar-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+    .navbar-logo-img{width:32px;height:32px;object-fit:contain;transition:transform .3s cubic-bezier(.34,1.56,.64,1),filter .3s ease;filter:drop-shadow(0 2px 6px rgba(244,103,138,.2));}
+    .navbar-logo:hover .navbar-logo-img{transform:scale(1.15) rotate(-5deg);filter:drop-shadow(0 4px 16px rgba(244,103,138,.5));}
+    .navbar-wordmark{font-family:var(--font-display);font-size:21px;color:var(--text);}
+    .navbar-wordmark em{font-style:normal;color:var(--sky);}
+    .navbar-links{display:flex;align-items:center;gap:2px;}
+    .navbar-links a{font-size:14px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap;}
+    .navbar-links a:hover{color:var(--text);background:var(--sky-pale);}
+    .navbar-links a.active{color:var(--sky);background:var(--sky-pale);font-weight:600;}
+    .navbar-right{display:flex;align-items:center;gap:12px;}
+    .nav-cta{display:inline-flex;align-items:center;gap:6px;padding:9px 20px;background:var(--grad-sky);color:#fff!important;font-size:13px;font-weight:600;border-radius:100px;text-decoration:none;box-shadow:0 2px 12px rgba(90,173,219,.3);transition:all .2s;white-space:nowrap;}
+    .nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(90,173,219,.45);}
+    .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;border:none;background:transparent;}
+    .nav-hamburger span{display:block;width:20px;height:2px;background:var(--text-soft);border-radius:2px;}
+    .nav-drawer{display:none;position:fixed;top:68px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:16px 24px 24px;z-index:199;flex-direction:column;gap:4px;}
+    .nav-drawer.open{display:flex;}
+    .nav-drawer a{font-size:15px;font-weight:500;color:var(--text-soft);text-decoration:none;padding:12px 16px;border-radius:12px;transition:all .15s;}
+    .nav-drawer a:hover{color:var(--sky);background:var(--sky-pale);}
+    .nav-drawer .nav-cta{margin-top:8px;justify-content:center;}
+    @media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+    /* Hero */
+    .page-hero{padding:56px 48px 40px;border-bottom:1px solid var(--border);background:linear-gradient(160deg,var(--sky-pale) 0%,var(--bg) 70%);}
+    .page-hero-inner{max-width:1120px;margin:0 auto;}
+    .breadcrumb{font-size:12px;color:var(--text-dim);margin-bottom:18px;}
+    .breadcrumb a{color:var(--text-dim);text-decoration:none;}
+    .breadcrumb a:hover{color:var(--sky);}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:14px;}
+    .eyebrow::before{content:"";display:block;width:24px;height:2px;background:var(--sky);border-radius:2px;}
+    .page-hero h1{font-family:var(--font-display);font-size:clamp(32px,5vw,52px);font-weight:400;line-height:1.12;letter-spacing:-0.02em;color:var(--text);max-width:820px;}
+    .page-hero h1 em{font-style:italic;color:var(--sky);}
+    .page-hero-sub{font-size:17px;color:var(--text-soft);max-width:620px;margin-top:16px;line-height:1.75;}
+    .meta-row{display:flex;flex-wrap:wrap;gap:18px;margin-top:22px;font-size:13px;color:var(--text-soft);}
+    .meta-row span{display:inline-flex;align-items:center;gap:6px;}
+    .tag-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px;}
+    .tag-chip{padding:6px 14px;border:1.5px solid var(--border);border-radius:100px;font-size:12px;font-weight:500;color:var(--text-soft);background:var(--white);}
+    
+    .page-body{max-width:1120px;margin:0 auto;padding:56px 48px 96px;}
+    .lede{font-size:16px;color:var(--text-mid);max-width:700px;line-height:1.8;margin-bottom:8px;}
+    @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:40px 24px 72px;}}
+
+    /* TLDR & Callouts */
+    .tldr-box{background:linear-gradient(135deg,var(--sky-pale),var(--flamingo-pale));border:1px solid rgba(90,173,219,.2);border-radius:20px;padding:30px 34px;margin:0 0 48px;}
+    .tldr-box .eyebrow{margin-bottom:10px;}
+    .tldr-box p{font-size:15.5px;color:var(--text-mid);line-height:1.8;}
+    .tldr-box strong{color:var(--text);}
+    
+    .callout{display:flex;gap:14px;padding:18px 22px;border-radius:14px;margin:22px 0;border:1px solid;max-width:720px;}
+    .callout-icon{font-size:19px;flex-shrink:0;line-height:1.6;}
+    .callout p{font-size:13.5px;color:var(--text-mid);line-height:1.75;}
+    .callout strong{color:var(--text);}
+    .callout-tip{background:var(--sky-pale);border-color:var(--sky-light);}
+    .callout-warning{background:var(--coral-pale);border-color:rgba(255,126,90,.25);}
+
+    /* TOC */
+    .toc-wrap{margin:0 0 56px;}
+    .toc-heading{font-family:var(--font-display);font-size:15px;font-style:italic;color:var(--text-soft);margin-bottom:14px;}
+    .toc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+    .toc-link{display:flex;gap:12px;align-items:baseline;padding:13px 16px;border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text-mid);font-size:13.5px;transition:all .15s;background:var(--white);}
+    .toc-link:hover{border-color:var(--sky);background:var(--sky-pale);color:var(--text);}
+    .toc-num{font-family:var(--font-display);font-style:italic;color:var(--sky);font-size:15px;flex-shrink:0;}
+    @media(max-width:640px){.toc-grid{grid-template-columns:1fr;}}
+
+    /* Section Styles */
+    .section{margin-bottom:64px;}
+    .section-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:8px;}
+    .section-heading{font-family:var(--font-display);font-size:30px;font-weight:400;color:var(--text);margin-bottom:6px;}
+    .section-heading em{font-style:italic;color:var(--sky);}
+    .section-divider{width:40px;height:3px;background:var(--grad-sky);border-radius:2px;margin-bottom:28px;}
+    .section p.body-text{font-size:15px;color:var(--text-mid);line-height:1.8;max-width:720px;margin:16px 0;}
+    .section h3.sub-heading{font-family:var(--font-display);font-size:19px;font-weight:400;color:var(--text);margin:28px 0 12px;}
+
+    /* Code Blocks */
+    .code-block{background:var(--deep-navy);border-radius:16px;overflow:hidden;margin:20px 0;box-shadow:0 4px 24px rgba(26,26,46,.1);}
+    .code-block-header{display:flex;align-items:center;justify-content:space-between;padding:11px 18px;border-bottom:1px solid rgba(255,255,255,.08);}
+    .code-tag{font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 11px;border-radius:100px;background:rgba(90,173,219,.18);color:var(--sky-light);}
+    .code-copy-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:rgba(255,255,255,.65);font-size:11.5px;font-weight:500;padding:5px 12px;border-radius:8px;cursor:pointer;font-family:var(--font-body);transition:all .15s;}
+    .code-copy-btn:hover{background:rgba(255,255,255,.14);color:#fff;}
+    .code-block pre{margin:0;padding:18px 20px;overflow-x:auto;font-family:var(--font-mono);font-size:13px;line-height:1.75;color:#E8EDF4;}
+
+    /* Tables */
+    .table-wrap{overflow-x:auto;margin:24px 0;}
+    .data-table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid var(--border);border-radius:14px;overflow:hidden;font-size:13.5px;min-width:480px;}
+    .data-table th{background:var(--sky-pale);color:var(--text);font-weight:700;text-align:left;padding:12px 16px;font-size:11px;text-transform:uppercase;letter-spacing:.05em;}
+    .data-table td{padding:13px 16px;border-top:1px solid var(--border-soft);color:var(--text-mid);}
+
+    /* FAQ */
+    .faq-grid{display:flex;flex-direction:column;gap:16px;max-width:720px;}
+    .faq-card{background:var(--white);border:1px solid var(--border);border-radius:16px;padding:22px 24px;box-shadow:0 1px 4px rgba(26,26,46,.04);cursor:pointer;}
+    .faq-card h4{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .faq-card p{font-size:13.5px;color:var(--text-soft);line-height:1.7;}
+
+    /* CTA banner */
+    .cta-banner{background:var(--deep-navy);border-radius:24px;padding:44px;display:flex;align-items:center;justify-content:space-between;gap:32px;margin-top:24px;}
+    .cta-banner-text h3{font-family:var(--font-display);font-size:26px;font-weight:400;color:#fff;margin-bottom:8px;}
+    .cta-banner-text h3 em{font-style:italic;color:var(--sky);}
+    .cta-banner-text p{font-size:14px;color:rgba(255,255,255,.5);max-width:360px;line-height:1.65;}
+    .cta-banner-form{display:flex;gap:0;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.15);border-radius:14px;padding:5px;min-width:360px;}
+    .cta-banner-form input{flex:1;height:42px;padding:0 16px;background:transparent;border:none;font-family:var(--font-body);font-size:14px;color:#fff;outline:none;}
+    .cta-banner-form input::placeholder{color:rgba(255,255,255,.35);}
+    .cta-banner-btn{height:42px;padding:0 20px;background:var(--grad-sky);color:#fff;border:none;border-radius:10px;font-family:var(--font-body);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:all .2s;}
+    .cta-banner-btn:hover{opacity:.9;}
+    @media(max-width:760px){.cta-banner{flex-direction:column;}.cta-banner-form{min-width:auto;width:100%;}}
+
+    /* Footer */
+    .site-footer{background:var(--deep-navy);padding:56px 48px 40px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-top:56px;}
+    .footer-brand .footer-wordmark{font-family:var(--font-display);font-size:20px;color:rgba(255,255,255,.45);}
+    .footer-brand .footer-wordmark em{font-style:normal;color:var(--sky);}
+    .footer-brand p{font-size:13px;color:rgba(255,255,255,.28);margin-top:10px;line-height:1.65;max-width:210px;}
+    .footer-col h4{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:14px;}
+    .footer-col a{display:block;font-size:13px;color:rgba(255,255,255,.38);text-decoration:none;margin-bottom:9px;transition:color .15s;}
+    .footer-col a:hover{color:rgba(255,255,255,.75);}
+    .footer-bottom{background:var(--deep-navy);border-top:1px solid rgba(255,255,255,.06);padding:18px 48px;display:flex;justify-content:space-between;align-items:center;}
+    .footer-bottom p{font-size:12px;color:rgba(255,255,255,.18);}
+    @media(max-width:760px){.site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+</style>
+</head>
+<body>
+
+<nav class="navbar" id="mainNav">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../guides/" class="active">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../about/">About</a>
+    <a href="../guides/" class="active">Guides</a>
+    <a href="../answers/">Answers</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+<section class="page-hero">
+<div class="page-hero-inner">
+<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › MCP Playbooks</div>
+<div class="eyebrow">Practical Setup · No Theory</div>
+<h1>MCP Implementation Playbooks: <em>The Setup Guide.</em></h1>
+<p class="page-hero-sub">Most content explains what the protocol is. Almost none tells you which of the four real implementation paths fits your situation, or what breaks when you try.</p>
+<div class="meta-row">
+<span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
+<span>⏱️ 12 min read</span>
+<span>⚡ System Integration Playbook</span>
+</div>
+</div>
+</section>
+
+<div class="page-body">
+<p class="lede">Model Context Protocol (MCP) standardizes how AI models interact with databases, local code environments, and third-party APIs. But setting up MCP isn't one task. It's four distinct tasks depending on your project scope, team, and security requirements.</p>
+
+<div class="tldr-box">
+<div class="eyebrow">TL;DR</div>
+<p><strong>Want to connect Slack, Drive, or a DB locally in Claude Desktop or Claude Code?</strong> Go to Playbook 1 or 2. <strong>Need a shared server for your team without sharing API keys?</strong> Use Playbook 3 (OAuth routing). <strong>Have a custom internal API to expose?</strong> Run Playbook 4. Always read "The Failure Modes Nobody Mentions" before editing config files.</p>
+</div>
+
+<div class="toc-wrap">
+<div class="toc-heading"><em>Jump to any playbook</em></div>
+<div class="toc-grid">
+<a class="toc-link" href="#playbook-1"><span class="toc-num">01</span><span>Playbook 1: Local MCP on Desktop</span></a>
+<a class="toc-link" href="#playbook-2"><span class="toc-num">02</span><span>Playbook 2: MCP for Coding Agents</span></a>
+<a class="toc-link" href="#playbook-3"><span class="toc-num">03</span><span>Playbook 3: Remote Hosted Team Servers</span></a>
+<a class="toc-link" href="#playbook-4"><span class="toc-num">04</span><span>Playbook 4: Building Your Own Server</span></a>
+<a class="toc-link" href="#failure-modes"><span class="toc-num">05</span><span>Common Failure Modes &amp; Security</span></a>
+</div>
+</div>
+
+<!-- Section 1 -->
+<div class="section" id="playbook-1">
+<div class="section-label">01 / Desktop Setup</div>
+<h2 class="section-heading">Playbook 1: Local MCP on <em>Claude Desktop</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">This is the right starting point if you've never run an MCP server and want to confirm the whole thing works before writing code.</p>
+
+<h3 class="sub-heading">Step 1 — Find your config file</h3>
+<p class="body-text">Claude Desktop only reads MCP configuration from one file, which is read once on application launch. Locations depend on your OS:</p>
+<div class="table-wrap">
+<table class="data-table">
+<thead>
+<tr>
+<th>OS</th>
+<th>Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>macOS</strong></td>
+<td><code>~/Library/Application Support/Claude/claude_desktop_config.json</code></td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td><code>%APPDATA%\Claude\claude_desktop_config.json</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<h3 class="sub-heading">Step 2 — Add a server block</h3>
+<p class="body-text">Expose your local filesystem to Claude by adding a server block to the JSON config file. Here is a minimal entry:</p>
+
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">json</span></div>
+<pre><code>{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-filesystem", "/Users/you/Documents"]
+    }
+  }
+}</code></pre>
+</div>
+
+<h3 class="sub-heading">Step 3 — Fully quit and relaunch</h3>
+<p class="body-text">Minimize is not enough. You must fully quit the app. On Windows, check the system tray because Claude Desktop keeps running in the background. On macOS, use <code>Cmd+Q</code>.</p>
+
+<h3 class="sub-heading">Step 4 — Verify with a direct ask</h3>
+<p class="body-text">Don't ask "is MCP working." Ask Claude to list the specific tools the server exposes, e.g., <em>"What filesystem tools do you have access to right now?"</em> If the tools don't show up, check for JSON formatting errors.</p>
+</div>
+
+<!-- Section 2 -->
+<div class="section" id="playbook-2">
+<div class="section-label">02 / CLI Agents</div>
+<h2 class="section-heading">Playbook 2: MCP for <em>Coding Agents</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">If your actual goal is to let your CLI agent query databases or index local docs while it works, you want MCP wired into your terminal environment.</p>
+<p class="body-text">The mechanics are identical to Playbook 1 (same <code>mcpServers</code> JSON block), but the configuration is local to the project repo rather than global. A project-level agent config should only expose the tools needed for that repository. Giving standing access to your entire filesystem in a coding agent is a major security risk.</p>
+
+<div class="callout callout-tip">
+<div class="callout-icon">💡</div>
+<p><strong>Verification step:</strong> Run the official MCP Inspector before trusting any third-party server. Install it with <code>npx @modelcontextprotocol/inspector</code> to call tools directly and see raw request/response payloads.</p>
+</div>
+</div>
+
+<!-- Section 3 -->
+<div class="section" id="playbook-3">
+<div class="section-label">03 / Team Integration</div>
+<h2 class="section-heading">Playbook 3: Remote, <em>Hosted MCP Servers</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">Use this playbook when you want your entire team using a shared SaaS server (Slack, Notion, Jira) without each developer managing individual API keys.</p>
+<p class="body-text">Remote MCP servers run over HTTP rather than stdio process pipes. Authentication relies on OAuth 2.1 — developers authenticate through a browser login, and the host platform holds a scoped token. This allows you to revoke access for one user without rotating shared keys, and scope permissions to match the user's role.</p>
+
+<div class="callout callout-warning">
+<div class="callout-icon">⚠️</div>
+<p><strong>Security Gap:</strong> Hosted servers can expose more database tables or workspace directories than your organizational policy intends. Read the specific server's documentation and configure the resource allow-list before turning it on for the team.</p>
+</div>
+</div>
+
+<!-- Section 4 -->
+<div class="section" id="playbook-4">
+<div class="section-label">04 / Development</div>
+<h2 class="section-heading">Playbook 4: Building <em>Your Own Server</em></h2>
+<div class="section-divider"></div>
+<p class="body-text">Build a custom server only when you've verified that nothing in the community registry (which has passed 200+ implementations) covers your proprietary data source.</p>
+
+<div class="code-block">
+<div class="code-block-header"><span class="code-tag">typescript</span></div>
+<pre><code>import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/shared/protocol.js";
+
+const server = new Server(
+  { name: "my-internal-server", version: "1.0.0" },
+  { capabilities: { tools: {} } }
+);
+
+server.setRequestHandler(ListToolsRequestSchema, async () => ({
+  tools: [{
+    name: "get_account_status",
+    description: "Look up account status by customer ID",
+    inputSchema: {
+      type: "object",
+      properties: { customerId: { type: "string" } },
+      required: ["customerId"]
+    }
+  }]
+}));
+
+// Run transport loop...</code></pre>
+</div>
+
+<h3 class="sub-heading">Three Rules for Production-Ready Servers</h3>
+<ol style="margin-left: 20px; font-size: 15px; color: var(--text-mid); line-height: 1.8;">
+  <li><strong>Validate every input server-side:</strong> Never assume LLMs send well-formed arguments. Schema validation (Zod in TypeScript, Pydantic in Python) is mandatory to catch hallucinated parameters.</li>
+  <li><strong>Return structured errors, not exceptions:</strong> A thrown exception gives the model nothing to reason about. Returning a typed error block (like <code>{ error: "RATE_LIMIT_EXCEEDED", retryAfter: 60 }</code>) lets it retry or inform the user.</li>
+  <li><strong>One server, one clear purpose:</strong> Avoid creating a single mega-server. Smaller, single-purpose servers are easier to audit and keep within the context window limits.</li>
+</ol>
+</div>
+
+<!-- Section 5 -->
+<div class="section" id="failure-modes">
+<div class="section-label">05 / Security &amp; QA</div>
+<h2 class="section-heading">Failure Modes &amp; <em>Security Checklist</em></h2>
+<div class="section-divider"></div>
+
+<h3 class="sub-heading">The Failure Modes Nobody Mentions</h3>
+<p class="body-text">Keep these in mind when configuring your environment:</p>
+<ul style="margin-left: 20px; font-size: 14.5px; color: var(--text-mid); line-height: 1.8; margin-bottom: 24px;">
+  <li><strong>Config edited, app not restarted:</strong> The single most common support ticket. Claude reads the file once on boot.</li>
+  <li><strong>Invalid JSON, silently:</strong> A trailing comma or unescaped path separator (<code>\</code>) on Windows will cause Claude to fail loading <em>all</em> configured servers. Run your file through a JSON validator.</li>
+  <li><strong>Credentials in the wrong place:</strong> Keep API keys out of config JSONs or schemas. The model can leak these in outputs. Use environment variables.</li>
+  <li><strong>The rug pull:</strong> Compromised third-party servers can alter their tool schemas dynamically after you approve them. Treat schemas as untrusted inputs.</li>
+  <li><strong>Over-broad scope:</strong> Connecting a server with write access when you only need to read one table is a major security vulnerability. Scope down at connection time.</li>
+</ul>
+
+<h3 class="sub-heading">Security Checklist</h3>
+<p class="body-text">Verify these answers before connecting any third-party server:</p>
+<ul style="list-style: none; padding: 0; font-size: 14.5px; color: var(--text-mid); display: flex; flex-direction: column; gap: 8px; margin-top: 12px;">
+  <li>🔐 Is authentication handled via OAuth or scoped tokens (not raw API keys)?</li>
+  <li>🔍 Does the server documentation clearly outline what resources are exposed?</li>
+  <li>🛡️ Is the server source verified (official vendor or ref repository)?</li>
+  <li>📦 If local, is the server running in a restricted sandbox or local user context?</li>
+  <li>📝 Are invocations logged with timestamps and arguments for audits?</li>
+</ul>
+</div>
+
+<!-- Related Resources -->
+<div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
+  <div class="section-label">Expand Your Knowledge</div>
+  <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
+  <div class="section-divider" style="margin-bottom: 28px;"></div>
+  
+  <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; margin-bottom: 32px;">
+    <div>
+      <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
+      <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+        <li><a href="../guides/openclaw-vps-mac-mini-setup-guide.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Complete Install Guide for OpenClaw on VPS &amp; MacMini</a></li>
+        <li><a href="../guides/claude-opus-48-vs-gpt-55-comparison.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Claude Opus 4.8 vs GPT 5.5: The Deep Reasoning Teardown</a></li>
+        <li><a href="../guides/codex-gpt55-agentic-frameworks.html" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft); transition: color 0.15s;">📖 Elite Agentic Workflows: Prompting Codex + GPT-5.5</a></li>
+      </ul>
+    </div>
+    
+    <div style="display: flex; flex-direction: column; gap: 28px;">
+      <div>
+        <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
+          <li><a href="../tools/mcp-server-directory.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ MCP Server Directory</a></li>
+          <li><a href="../tools/model-battle-cards.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ Model Battle Cards</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-banner">
+  <div class="cta-banner-text"><h3>Production AI workflows, <em>every Tuesday.</em></h3><p>Model benchmarks, gateway playbooks, and the exact architectures we test in production. Free forever.</p></div>
+  <div class="cta-banner-form"><input id="hg-email" placeholder="your@email.com" type="email"/><button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook →</button></div>
+</div>
+
+</div> <!-- /page-body -->
+
+<footer>
+    <a href="../" class="footer-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="../guides/" class="active">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+
+<script>
+    function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
+    document.addEventListener("click",function(e){
+      var n=document.getElementById("mainNav"),d=document.getElementById("navDrawer");
+      if(!n.contains(e.target)&&!d.contains(e.target))d.classList.remove("open");
+    });
+    function handleSubscribe(inputId,btnId){
+      var input=document.getElementById(inputId),btn=document.getElementById(btnId);
+      var email=input.value.trim();
+      if(!email||!email.includes("@")){input.style.outline="2px solid #F4678A";input.focus();setTimeout(function(){input.style.outline="";},2000);return;}
+      btn.textContent="You are in!";btn.style.background="linear-gradient(135deg,#4A9E7A,#6BBF9A)";btn.disabled=true;input.disabled=true;
+    }
+</script>
+</body>
+</html>

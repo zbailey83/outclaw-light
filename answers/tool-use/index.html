@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Use & Function Calling &mdash; AI Agent Reference | Answers | openclaw.xyz</title>
+  <meta name="description" content="Schemas, parallel execution, result handling, and parameters for Claude function calling.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/tool-use/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Tool Use & Function Calling \u2014 AI Agent Reference",
+      "description": "Schemas, parallel execution, result handling, and parameters for Claude function calling.",
+      "url": "https://outclaw.xyz/answers/tool-use/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tool Use & Function Calling"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the correct JSON schema format for Claude tool definitions?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude tool schemas follow the JSON Schema Draft 4 specification. Place descriptions on all properties to help Claude select the correct tool and generate matching parameters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you handle parallel tool calls in Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "When Claude decides to call multiple tools in a single turn, the API returns a message block containing multiple content blocks of type 'tool_use'. Iterate through the list, execute them in parallel, and return corresponding tool result blocks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you return a tool result to Claude?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Return tool results in a user message block containing a list of content blocks of type 'tool_result'. Each block must specify the matching 'tool_use_id' to bind the result to the initial request."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Claude call the same tool multiple times in one turn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. If Claude needs to fetch multiple independent data points, it will return multiple tool_use blocks referencing the same tool name but with distinct arguments and unique tool_use_ids."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you force Claude to use a specific tool?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Force Claude to use a specific tool by setting the request parameter 'tool_choice' to type 'tool' and providing the name of the target tool."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / Tool Use & Function Calling
+    </nav>
+
+    <h1>Tool Use & Function Calling &mdash; Agent Reference</h1>
+    <p>Schemas, parallel execution, result handling, and parameters for Claude function calling.</p>
+
+    <div class="answer-grid">
+      
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/json-schema-format-claude-tool-definitions.html">What is the correct JSON schema format for Claude tool definitions?</a></h3>
+      <p>Claude tool schemas follow the JSON Schema Draft 4 specification. Place descriptions on all properties to help Claude select th...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/handle-parallel-tool-calls-claude.html">How do you handle parallel tool calls in Claude?</a></h3>
+      <p>When Claude decides to call multiple tools in a single turn, the API returns a message block containing multiple content blocks...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/return-tool-result-to-claude.html">How do you return a tool result to Claude?</a></h3>
+      <p>Return tool results in a user message block containing a list of content blocks of type 'tool_result'. Each block must specify ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/multiple-calls-same-tool-single-turn.html">Can Claude call the same tool multiple times in one turn?</a></h3>
+      <p>Yes. If Claude needs to fetch multiple independent data points, it will return multiple tool_use blocks referencing the same to...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/force-claude-to-use-specific-tool.html">How do you force Claude to use a specific tool?</a></h3>
+      <p>Force Claude to use a specific tool by setting the request parameter 'tool_choice' to type 'tool' and providing the name of the...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/use-tool-choice-parameter.html">What is tool_choice and how do you use it?</a></h3>
+      <p>tool_choice governs how Claude selects tools. Use 'auto' to let Claude decide whether to use tools, 'any' to force Claude to se...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/handle-tool-call-errors-gracefully.html">How do you handle tool call errors gracefully?</a></h3>
+      <p>To report a tool execution failure to Claude, return a user message block with the parameter 'is_error' set to true. This tells...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/maximum-tools-supported-per-request.html">What is the maximum number of tools Claude supports per request?</a></h3>
+      <p>Claude officially supports up to 100 tools per single API request. However, including many tools increases system prompt token ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/nested-objects-in-tool-schema.html">How do you define nested objects in Claude's tool schema?</a></h3>
+      <p>Define nested structures by nesting object properties inside properties in your tool definition, matching the JSON Schema Draft...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/claude-tool-use-tokens-cost.html">How do tool definitions affect input token billing?</a></h3>
+      <p>Tool schemas are serialized into XML instructions and prepended to the system prompt, counting towards your input token billing...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/claude-streaming-with-tool-calls.html">How do you handle streaming responses when tools are called?</a></h3>
+      <p>In stream responses, listen for events of type 'content_block_start' with content type 'tool_use'. Collect arguments from 'cont...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/prevent-hallucinated-tool-calls.html">How do you prevent Claude from hallucinating tool arguments?</a></h3>
+      <p>Provide detailed descriptions for tool parameters, use enum lists for allowed values, and instruct the model in your system pro...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/claude-tool-use-system-prompt-override.html">Does tool use override the custom system prompt in Claude?</a></h3>
+      <p>No. The system prompt guidelines and rules remain active and guide Claude's behavior even when the model decides to use tools.</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/claude-tool-use-temperature-setting.html">What temperature is recommended when using Claude for tool calling?</a></h3>
+      <p>Set the temperature to 0.0 when using tools. This ensures arguments are generated reliably and matches the target schemas witho...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/tool-use/claude-tool-use-any-vs-auto.html">What is the difference between tool_choice auto and any?</a></h3>
+      <p>tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to c...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    </div>
+
+    <section class="faq-cluster"><h2>Common questions</h2>
+  <details>
+    <summary>What is the correct JSON schema format for Claude tool definitions?</summary>
+    <p>Claude tool schemas follow the JSON Schema Draft 4 specification. Place descriptions on all properties to help Claude select the correct tool and generate matching parameters.</p>
+  </details>
+  <details>
+    <summary>How do you handle parallel tool calls in Claude?</summary>
+    <p>When Claude decides to call multiple tools in a single turn, the API returns a message block containing multiple content blocks of type 'tool_use'. Iterate through the list, execute them in parallel, and return corresponding tool result blocks.</p>
+  </details>
+  <details>
+    <summary>How do you return a tool result to Claude?</summary>
+    <p>Return tool results in a user message block containing a list of content blocks of type 'tool_result'. Each block must specify the matching 'tool_use_id' to bind the result to the initial request.</p>
+  </details>
+  <details>
+    <summary>Can Claude call the same tool multiple times in one turn?</summary>
+    <p>Yes. If Claude needs to fetch multiple independent data points, it will return multiple tool_use blocks referencing the same tool name but with distinct arguments and unique tool_use_ids.</p>
+  </details>
+  <details>
+    <summary>How do you force Claude to use a specific tool?</summary>
+    <p>Force Claude to use a specific tool by setting the request parameter 'tool_choice' to type 'tool' and providing the name of the target tool.</p>
+  </details></section>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code &mdash; AI Agent Reference | Answers | openclaw.xyz</title>
+  <meta name="description" content="CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/claude-code/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "Claude Code \u2014 AI Agent Reference",
+      "description": "CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows.",
+      "url": "https://outclaw.xyz/answers/claude-code/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Claude Code"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you install Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Install Claude Code globally via npm by running the command: 'npm install -g @anthropic-ai/claude-code'. Authorize the command-line interface tool with your Anthropic Account to begin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What slash commands does Claude Code support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Code supports command-line interface utility slash commands: '/init' to bootstrap directories, '/config' to set settings, '/mcp' to manage server connectors, '/clear' to purge console history, and '/exit' to terminate."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you add an MCP server to Claude Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Add an MCP server to Claude Code by editing the local config file or using the slash command: '/mcp add &lt;server-name&gt; &lt;command&gt; [args...]'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you configure Claude Code with a custom system prompt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt \"&lt;your-prompt&gt;\"'."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the Claude Code config file location and format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The config file is located at '~/.config/claude-code/config.json'. It is a standard JSON file containing keys for your active model, custom system prompt, and registered MCP servers."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / Claude Code
+    </nav>
+
+    <h1>Claude Code &mdash; Agent Reference</h1>
+    <p>CLI setup, config files, slash commands, headless CI execution, and agentic workspace workflows.</p>
+
+    <div class="answer-grid">
+      
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/install-claude-code-cli.html">How do you install Claude Code?</a></h3>
+      <p>Install Claude Code globally via npm by running the command: 'npm install -g @anthropic-ai/claude-code'. Authorize the command-...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/slash-commands-supported-claude-code.html">What slash commands does Claude Code support?</a></h3>
+      <p>Claude Code supports command-line interface utility slash commands: '/init' to bootstrap directories, '/config' to set settings...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/add-mcp-server-to-claude-code.html">How do you add an MCP server to Claude Code?</a></h3>
+      <p>Add an MCP server to Claude Code by editing the local config file or using the slash command: '/mcp add &lt;server-name&gt; &lt...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/configure-claude-code-system-prompt.html">How do you configure Claude Code with a custom system prompt?</a></h3>
+      <p>Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/claude-code-config-file-location.html">What is the Claude Code config file location and format?</a></h3>
+      <p>The config file is located at '~/.config/claude-code/config.json'. It is a standard JSON file containing keys for your active m...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/run-claude-code-headless-ci.html">How do you run Claude Code in headless/CI mode?</a></h3>
+      <p>Run Claude Code in headless/CI pipelines by passing the prompt argument directly using: 'claude "&lt;your prompt&gt;" --non-int...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/claude-code-permission-levels.html">What are Claude Code's permission levels?</a></h3>
+      <p>Claude Code executes local system tools. You can run it in safe mode to block terminal write commands, or authorize specific wr...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/claude-code-cost-saving-tips.html">How do you minimize token costs when using Claude Code?</a></h3>
+      <p>To save token costs, run '/clear' periodically to reset the context history and avoid sending large, outdated git diffs or file...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/claude-code-keyboard-shortcuts.html">What keyboard shortcuts are available in Claude Code?</a></h3>
+      <p>Claude Code supports command line shortcuts: use 'Ctrl+C' to cancel a running generation or exit the application, and 'Ctrl+L' ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/claude-code/claude-code-troubleshoot-auth-issues.html">How do you troubleshoot authentication issues in Claude Code?</a></h3>
+      <p>Resolve CLI authentication issues by running '/config set logout', clearing your ~/.config/claude-code credentials directory, a...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    </div>
+
+    <section class="faq-cluster"><h2>Common questions</h2>
+  <details>
+    <summary>How do you install Claude Code?</summary>
+    <p>Install Claude Code globally via npm by running the command: 'npm install -g @anthropic-ai/claude-code'. Authorize the command-line interface tool with your Anthropic Account to begin.</p>
+  </details>
+  <details>
+    <summary>What slash commands does Claude Code support?</summary>
+    <p>Claude Code supports command-line interface utility slash commands: '/init' to bootstrap directories, '/config' to set settings, '/mcp' to manage server connectors, '/clear' to purge console history, and '/exit' to terminate.</p>
+  </details>
+  <details>
+    <summary>How do you add an MCP server to Claude Code?</summary>
+    <p>Add an MCP server to Claude Code by editing the local config file or using the slash command: '/mcp add &lt;server-name&gt; &lt;command&gt; [args...]'.</p>
+  </details>
+  <details>
+    <summary>How do you configure Claude Code with a custom system prompt?</summary>
+    <p>Set a custom system prompt in Claude Code by editing the configuration file or using the configuration slash command: '/config set systemPrompt "&lt;your-prompt&gt;"'.</p>
+  </details>
+  <details>
+    <summary>What is the Claude Code config file location and format?</summary>
+    <p>The config file is located at '~/.config/claude-code/config.json'. It is a standard JSON file containing keys for your active model, custom system prompt, and registered MCP servers.</p>
+  </details></section>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

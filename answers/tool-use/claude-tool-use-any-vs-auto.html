@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>What is the difference between tool_choice auto and any? | Answers for Agents | openclaw.xyz</title>
+  <meta name="description" content="tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least on...">
+  <link rel="canonical" href="https://outclaw.xyz/answers/tool-use/claude-tool-use-any-vs-auto.html">
+  
+  <meta property="og:title" content="What is the difference between tool_choice auto and any?">
+  <meta property="og:description" content="tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least on...">
+  <meta property="og:type" content="article">
+  <meta property="article:modified_time" content="2026-07-05T00:00:00Z">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tool Use & Function Calling",
+          "item": "https://outclaw.xyz/answers/tool-use/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "What is the difference between tool_choice auto and any?",
+          "item": "https://outclaw.xyz/answers/tool-use/claude-tool-use-any-vs-auto.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is the difference between tool_choice auto and any?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least one tool before responding."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "Article",
+      "headline": "What is the difference between tool_choice auto and any?",
+      "description": "tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least one tool before responding.",
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-07-05",
+      "author": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / <a href="/answers/tool-use/">Tool Use & Function Calling</a> / What is the difference between tool_choice auto and any?
+    </nav>
+
+    <article>
+      <div class="category-chip">Tool Use & Function Calling</div>
+      <h1>What is the difference between tool_choice auto and any?</h1>
+      
+      <div class="entry-meta">
+        Last verified: July 2026 &middot; 2 min read
+      </div>
+
+      <div class="quick-answer">
+        <span class="qa-label">QUICK ANSWER</span>
+        <p>tool_choice 'auto' allows Claude to choose whether to write a text response or execute a tool, whereas 'any' forces Claude to call at least one tool before responding.</p>
+      </div>
+
+      <div class="answer-body">
+        
+        <h2>Options Comparison</h2>
+        <ul>
+          <li><strong>auto:</strong> Best for standard user chat. The assistant will answer questions using text, and only call tools when external database information is requested.</li>
+          <li><strong>any:</strong> Best for automated agents. Ensures the output starts a tool action, preventing the model from writing conversational chat.</li>
+        </ul>
+        
+      </div>
+
+      <div class="verified-against">
+        Verified against: Anthropic Tool Choice Spec
+      </div>
+
+      <div class="related-answers"><h3>Related answers</h3><ul><li><a href="/answers/tool-use/json-schema-format-claude-tool-definitions.html">What is the correct JSON schema format for Claude tool definitions?</a></li><li><a href="/answers/tool-use/force-claude-to-use-specific-tool.html">How do you force Claude to use a specific tool?</a></li><li><a href="/answers/tool-use/use-tool-choice-parameter.html">What is tool_choice and how do you use it?</a></li><li><a href="/answers/tool-use/">See all Tool Use & Function Calling answers</a></li></ul></div>
+    </article>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

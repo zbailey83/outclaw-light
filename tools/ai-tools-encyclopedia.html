@@ -1,0 +1,1163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+  <script>
+    window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    if (window.location.hostname !== 'outclaw.xyz') {
+      console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+      gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+    } else {
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+        document.head.appendChild(script);
+      })();
+      gtag('config', window.GA4_MEASUREMENT_ID);
+    }
+  </script>
+  <script src="../analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive AI Tools Encyclopedia | OutClaw AI</title>
+  <meta name="description" content="An interactive dictionary of 42 AI coding tools, foundation models, agents, creative AI, and infrastructure. Filter, search, and discover instantly.">
+  <link rel="canonical" href="https://outclaw.xyz/tools/ai-tools-encyclopedia">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://outclaw.xyz/tools/ai-tools-encyclopedia">
+  <meta property="og:title" content="Interactive AI Tools Encyclopedia | OutClaw AI">
+  <meta property="og:description" content="An interactive dictionary of 42 AI coding tools, foundation models, agents, creative AI, and infrastructure. Filter, search, and discover instantly.">
+  <meta property="og:image" content="https://outclaw.xyz/hero-alt.webp">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://outclaw.xyz/tools/ai-tools-encyclopedia">
+  <meta property="twitter:title" content="Interactive AI Tools Encyclopedia | OutClaw AI">
+  <meta property="twitter:description" content="An interactive dictionary of 42 AI coding tools, foundation models, agents, creative AI, and infrastructure. Filter, search, and discover instantly.">
+  <meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --sky: #5AADDB;
+      --sky-light: #B8DFF0;
+      --sky-pale: #EDF7FC;
+      --flamingo: #F4678A;
+      --flamingo-light: #FBB8CB;
+      --flamingo-pale: #FEF0F4;
+      --coral: #FF7E5A;
+      --coral-pale: #FFF0EB;
+      --sand: #F5EDD8;
+      --leaf: #4A9E7A;
+      --leaf-pale: #E8F5EF;
+      --deep-navy: #1A1A2E;
+      --text: #1A1A2E;
+      --text-mid: #4A4A6E;
+      --text-soft: #7A7A9E;
+      --text-dim: #B0B0C8;
+      --white: #FFFFFF;
+      --bg: #FAFAF8;
+      --border: #E8E8F2;
+      --border-soft: #F0F0F8;
+      --font-display: "DM Serif Display", serif;
+      --font-body: "DM Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+      --grad-sky: linear-gradient(135deg, #5AADDB 0%, #7EC5E8 100%);
+      --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #FF9BB5 100%);
+      --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+
+    ::-webkit-scrollbar {
+      width: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--sky-light);
+      border-radius: 10px;
+    }
+
+    a {
+      color: var(--sky);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-color: rgba(90, 173, 219, 0.3);
+      transition: all 0.2s;
+    }
+    a:hover {
+      color: var(--text);
+      text-decoration-color: var(--text);
+    }
+
+    /* Navbar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: 68px;
+      background: rgba(255, 255, 255, .92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none !important;
+    }
+    .navbar-logo-img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      transition: transform .3s cubic-bezier(.34, 1.56, .64, 1), filter .3s ease;
+      filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));
+    }
+    .navbar-logo:hover .navbar-logo-img {
+      transform: scale(1.15) rotate(-5deg);
+      filter: drop-shadow(0 4px 16px rgba(244, 103, 138, .5));
+    }
+    .navbar-wordmark {
+      font-family: var(--font-display);
+      font-size: 21px;
+      color: var(--text);
+    }
+    .navbar-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .navbar-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none !important;
+      padding: 7px 14px;
+      border-radius: 8px;
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .navbar-links a:hover {
+      color: var(--text);
+      background: var(--sky-pale);
+    }
+    .navbar-links a.active {
+      color: var(--sky);
+      background: var(--sky-pale);
+      font-weight: 600;
+    }
+    .navbar-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 20px;
+      background: var(--grad-sky);
+      color: #fff !important;
+      font-size: 13px;
+      font-weight: 600;
+      border-radius: 100px;
+      text-decoration: none !important;
+      box-shadow: 0 2px 12px rgba(90, 173, 219, .3);
+      transition: all .2s;
+      white-space: nowrap;
+    }
+    .nav-cta:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 20px rgba(90, 173, 219, .45);
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: transparent;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: var(--text-soft);
+      border-radius: 2px;
+    }
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 68px;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, .97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px 24px;
+      z-index: 199;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-drawer.open {
+      display: flex;
+    }
+    .nav-drawer a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-soft);
+      text-decoration: none !important;
+      padding: 12px 16px;
+      border-radius: 12px;
+      transition: all .15s;
+    }
+    .nav-drawer a:hover {
+      color: var(--sky);
+      background: var(--sky-pale);
+    }
+    .nav-drawer .nav-cta {
+      margin-top: 8px;
+      justify-content: center;
+    }
+    @media(max-width: 860px) {
+      .navbar { padding: 0 24px; }
+      .navbar-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .navbar-right .nav-cta { display: none; }
+    }
+
+    /* Tool Hero */
+    .tool-hero {
+      background: linear-gradient(160deg, var(--sky-pale) 0%, #FAFAF8 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 64px 48px 56px;
+    }
+    .tool-hero-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 64px;
+      align-items: center;
+    }
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+    .breadcrumb a {
+      color: var(--text-soft);
+      text-decoration: none;
+      transition: color .15s;
+    }
+    .breadcrumb a:hover {
+      color: var(--sky);
+    }
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--sky);
+      border-radius: 2px;
+    }
+    .tool-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(36px, 5.5vw, 54px);
+      font-weight: 400;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .tool-hero h1 em {
+      font-style: italic;
+      color: var(--sky);
+    }
+    .page-hero-sub {
+      font-size: 16px;
+      color: var(--text-mid);
+      max-width: 560px;
+      margin-top: 14px;
+      line-height: 1.75;
+    }
+    
+    .hero-card-widget {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 4px 20px rgba(26,26,46,0.02);
+      text-align: center;
+    }
+    .stack-counter-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .stack-counter-badge .num {
+      font-family: var(--font-display);
+      font-size: 64px;
+      color: var(--sky);
+      line-height: 1;
+      font-weight: 700;
+    }
+    .stack-counter-badge .label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    @media(max-width: 860px) {
+      .tool-hero { padding: 48px 24px 40px; }
+      .tool-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .hero-card-widget { padding: 24px; }
+    }
+
+    /* Layout Wrapper */
+    .layout-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 56px 48px 96px;
+    }
+    @media (max-width: 640px) {
+      .layout-container { padding: 40px 24px 72px; }
+    }
+
+    /* Search bar */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    .search-input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    .search-prefix {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      color: var(--sky);
+      pointer-events: none;
+      user-select: none;
+      font-weight: 600;
+    }
+    .search-input {
+      width: 100%;
+      background: var(--white);
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      padding: 16px 120px 16px 145px;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 10px rgba(26,26,46,0.02);
+    }
+    .search-input:focus {
+      border-color: var(--sky);
+      box-shadow: 0 4px 20px rgba(90, 173, 219, 0.1);
+    }
+    .search-count {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    @media (max-width: 480px) {
+      .search-input { padding-left: 24px; padding-right: 24px; padding-top: 52px; }
+      .search-prefix { top: 26px; left: 24px; }
+      .search-count { top: 26px; right: 24px; }
+    }
+
+    /* Category pills */
+    .filter-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .filter-pill {
+      padding: 7px 18px;
+      border: 1.5px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-soft);
+      cursor: pointer;
+      transition: all .15s;
+      background: var(--white);
+      font-family: var(--font-mono);
+    }
+    .filter-pill:hover, .filter-pill.active {
+      border-color: var(--sky);
+      color: var(--sky);
+      background: var(--sky-pale);
+    }
+
+    /* Section header */
+    .section {
+      margin-bottom: 48px;
+      transition: opacity 0.2s;
+    }
+    .section.hidden {
+      display: none;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2.5px solid var(--border-soft);
+    }
+    .section-eyebrow {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: flex;
+      align-items: center;
+    }
+    .section-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    .section-name {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--text);
+    }
+    .section-count {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-left: auto;
+      font-weight: 500;
+    }
+
+    /* Icon Grid and Cards */
+    .icon-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 16px;
+    }
+    .icon-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px 12px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+      text-decoration: none !important;
+    }
+    .icon-card:hover {
+      border-color: var(--sky);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(90, 173, 219, 0.08);
+    }
+    .icon-card.no-match {
+      opacity: 0.15;
+      pointer-events: none;
+      transform: scale(0.95);
+    }
+    .icon-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+    .icon-card:hover .icon-img {
+      transform: scale(1.08);
+    }
+    .icon-name {
+      font-size: 13px;
+      color: var(--text-mid);
+      font-weight: 600;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .icon-maker {
+      font-size: 11px;
+      color: var(--text-soft);
+      margin-top: -8px;
+      text-align: center;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .icon-card:hover .icon-name {
+      color: var(--sky);
+    }
+
+    /* Sleek Custom Tooltip Styles */
+    .tooltip-box {
+      position: absolute;
+      bottom: 125%;
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: var(--deep-navy);
+      color: #fff;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-family: var(--font-body);
+      font-weight: 500;
+      line-height: 1.45;
+      white-space: normal;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 8px 24px rgba(26,26,46,0.22);
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 100;
+      cursor: default;
+    }
+    .tooltip-arrow {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      border-width: 6px;
+      border-style: solid;
+      border-color: var(--deep-navy) transparent transparent transparent;
+    }
+    .tooltip-box.active {
+      opacity: 1;
+      pointer-events: auto;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .tooltip-desc {
+      margin-bottom: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      font-weight: 400;
+      font-size: 11.5px;
+      text-align: center;
+    }
+    .tooltip-action {
+      display: inline-block;
+      color: var(--sky);
+      font-weight: 700;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-bottom: 1.5px dashed rgba(90, 173, 219, 0.4);
+      padding-bottom: 2px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+      text-decoration: none !important;
+    }
+    .tooltip-action:hover {
+      color: var(--sky-light);
+      border-bottom-color: var(--sky-light);
+    }
+
+    /* Empty state */
+    .empty-state {
+      display: none;
+      text-align: center;
+      padding: 96px 24px;
+      font-family: var(--font-mono);
+      color: var(--text-soft);
+      font-size: 15px;
+    }
+    .empty-state .blink {
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* Footer */
+    footer {
+      background: var(--deep-navy);
+      border-top: 1px solid rgba(255, 255, 255, .06);
+      padding: 56px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+      text-align: center;
+    }
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-decoration: none !important;
+    }
+    .footer-wordmark {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: rgba(255, 255, 255, .85);
+      margin-top: 8px;
+    }
+    .footer-wordmark em {
+      font-style: normal;
+      color: var(--sky);
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+    .footer-links a {
+      font-size: 13.5px;
+      color: rgba(255, 255, 255, .45);
+      text-decoration: none !important;
+      transition: color .2s;
+    }
+    .footer-links a:hover {
+      color: #fff;
+    }
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .25);
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar" id="mainNav">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/" class="active">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../about/">About</a>
+    <a href="../guides/">Guides</a>
+    <a href="../answers/">Answers</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/" class="active">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <!-- HERO -->
+  <div class="tool-hero">
+    <div class="tool-hero-inner">
+      <div>
+        <nav class="breadcrumb" aria-label="breadcrumb">
+          <a href="../">OutClaw AI</a> / <a href="./">Tools</a> / AI Tools Encyclopedia
+        </nav>
+        <span class="eyebrow">AI Tools Encyclopedia</span>
+        <h1>Interactive <em>AI Tools</em> Encyclopedia</h1>
+        <p class="page-hero-sub">An interactive index of 42 AI coding agents, foundation models, assistants, creative generators, and the infrastructure running underneath them. Search, filter, and discover instantly. Click/tap a card to see details, click tooltip to visit.</p>
+      </div>
+      <div class="hero-card-widget">
+        <div class="stack-counter-badge">
+          <span class="num" id="counter">42</span>
+          <span class="label">Tools Indexed</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <main class="layout-container" id="main">
+    <div class="search-wrapper">
+      <div class="search-input-wrapper">
+        <span class="search-prefix">$ grep --tools</span>
+        <input class="search-input" id="search" type="text" placeholder="claude, video, vercel..." autocomplete="off" spellcheck="false">
+        <span class="search-count" id="search-count"></span>
+      </div>
+    </div>
+
+    <div class="filter-row" id="pills">
+      <button class="filter-pill active" data-slug="all">--all</button>
+      <button class="filter-pill" data-slug="coding">--coding</button>
+      <button class="filter-pill" data-slug="models">--models</button>
+      <button class="filter-pill" data-slug="agents">--agents</button>
+      <button class="filter-pill" data-slug="creative">--creative</button>
+      <button class="filter-pill" data-slug="infra">--infra</button>
+      <button class="filter-pill" data-slug="devplatforms">--devplatforms</button>
+    </div>
+
+    <div class="empty-state" id="empty-state">
+      $ grep: no results found<span class="blink">_</span>
+    </div>
+  </main>
+
+  <footer>
+    <a href="../" class="footer-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../about/">About</a>
+      <a href="../guides/">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/" class="active">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+
+  <script>
+  function toggleDrawer() {
+    document.getElementById("navDrawer").classList.toggle("open");
+  }
+  document.addEventListener("click", function (e) {
+    var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+    if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+  });
+
+  const CATS = [
+    {
+      "slug": "coding",
+      "name": "AI Coding & Software Development",
+      "color": "var(--sky)",
+      "items": [
+        { "key": "antigravity", "label": "Antigravity", "maker": "Google", "url": "https://antigravity.google", "desc": "Google's powerful agentic AI coding assistant designed for advanced software engineering." },
+        { "key": "claude-code", "label": "Claude Code", "maker": "Anthropic", "url": "https://docs.anthropic.com/en/docs/agents-and-tools/claude-code", "desc": "Anthropic's command-line interface and agentic tool for terminal-based coding tasks." },
+        { "key": "codex", "label": "Codex", "maker": "OpenAI", "url": "https://openai.com/index/openai-codex", "desc": "OpenAI's foundational AI model that translates natural language instructions into code." },
+        { "key": "cursor", "label": "Cursor", "maker": "", "url": "https://cursor.com", "desc": "A popular AI-first code editor built on VS Code, designed for pair-programming." },
+        { "key": "lm-studio", "label": "LM Studio", "maker": "", "url": "https://lmstudio.ai", "desc": "A desktop application that lets you run and test large language models locally." },
+        { "key": "lovable", "label": "Lovable", "maker": "", "url": "https://lovable.dev", "desc": "An AI-powered full-stack app builder that translates prompts into production-ready web apps." },
+        { "key": "opencode", "label": "OpenCode", "maker": "", "url": "https://opencode.ai", "desc": "An open-source AI coding assistant designed for privacy-focused software development." },
+        { "key": "replit", "label": "Replit", "maker": "", "url": "https://replit.com", "desc": "A collaborative cloud development platform with integrated AI coding assistants." },
+        { "key": "v0", "label": "v0", "maker": "Vercel", "url": "https://v0.dev", "desc": "Vercel's generative UI system that builds modern frontend components from prompts." }
+      ]
+    },
+    {
+      "slug": "models",
+      "name": "Foundation Models & AI Labs",
+      "color": "var(--flamingo)",
+      "items": [
+        { "key": "claude", "label": "Claude", "maker": "Anthropic", "url": "https://claude.ai", "desc": "Anthropic's state-of-the-art foundation model family, known for reasoning and coding." },
+        { "key": "deepseek", "label": "DeepSeek", "maker": "", "url": "https://deepseek.com", "desc": "An advanced, high-performance open-weight LLM family developed by DeepSeek." },
+        { "key": "gemini", "label": "Google Gemini", "maker": "", "url": "https://gemini.google.com", "desc": "Google's multimodal AI model family, integrated across developer tools." },
+        { "key": "grok", "label": "Grok", "maker": "xAI", "url": "https://x.ai", "desc": "xAI's conversational AI assistant, powered by real-time data access." },
+        { "key": "minimax", "label": "MiniMax", "maker": "", "url": "https://minimax.io", "desc": "An advanced model provider specializing in high-quality text, voice, and video generation." },
+        { "key": "openai", "label": "OpenAI", "maker": "", "url": "https://openai.com", "desc": "A leading AI research organization behind GPT models and DALL-E." },
+        { "key": "qwen", "label": "Qwen", "maker": "Alibaba Cloud", "url": "https://qwen.ai", "desc": "Alibaba Cloud's powerful open-weight LLM family designed for diverse tasks." },
+        { "key": "zai", "label": "Z.ai", "maker": "Zhipu AI", "url": "https://z.ai", "desc": "Zhipu AI's flagship chat assistant and model ecosystem for enterprise needs." }
+      ]
+    },
+    {
+      "slug": "agents",
+      "name": "AI Assistants, Search & Agents",
+      "color": "var(--coral)",
+      "items": [
+        { "key": "chatgpt", "label": "ChatGPT", "maker": "OpenAI", "url": "https://chatgpt.com", "desc": "OpenAI's widely popular conversational assistant powered by GPT-4o." },
+        { "key": "hermes-agent", "label": "Hermes Agent", "maker": "Nous Research", "url": "https://hermes-agent.org", "desc": "Nous Research's open-source agent framework optimized for reasoning and agency." },
+        { "key": "jasper", "label": "Jasper AI", "maker": "", "url": "https://jasper.ai", "desc": "An AI copilot for marketing teams, specialized in copy and content creation." },
+        { "key": "langgraph", "label": "LangGraph", "maker": "LangChain", "url": "https://langchain.com/langgraph", "desc": "LangChain's library for building stateful, multi-agent AI workflows." },
+        { "key": "openclaw", "label": "OpenClaw", "maker": "", "url": "https://openclaw.ai", "desc": "An open-source AI agent platform designed to run autonomous developer tasks." },
+        { "key": "perplexity", "label": "Perplexity AI", "maker": "", "url": "https://perplexity.ai", "desc": "An AI-powered search engine that answers queries with real-time web citations." },
+        { "key": "tavily", "label": "Tavily", "maker": "", "url": "https://tavily.com", "desc": "A search API optimized for LLMs and autonomous agents to retrieve clean web data." }
+      ]
+    },
+    {
+      "slug": "creative",
+      "name": "Creative AI",
+      "color": "var(--leaf)",
+      "items": [
+        { "key": "adobe-firefly", "label": "Adobe Firefly", "maker": "", "url": "https://firefly.adobe.com", "desc": "Adobe's family of creative generative AI models, integrated into Creative Cloud." },
+        { "key": "elevenlabs", "label": "ElevenLabs", "maker": "Voice / Audio", "url": "https://elevenlabs.io", "desc": "An industry-leading AI platform for realistic voice generation and text-to-speech." },
+        { "key": "kling-ai", "label": "Kling AI", "maker": "Video", "url": "https://klingai.com", "desc": "An advanced AI video generation platform capable of creating cinematic clips." },
+        { "key": "midjourney", "label": "Midjourney", "maker": "Image", "url": "https://midjourney.com", "desc": "A state-of-the-art text-to-image generator known for artistic quality." },
+        { "key": "nano-banana", "label": "Nano Banana", "maker": "Image", "url": "https://aistudio.google.com/models/nano-banana", "desc": "Google's ultra-lightweight Gemini model optimized for on-device operations." },
+        { "key": "suno", "label": "Suno AI", "maker": "Music", "url": "https://suno.com", "desc": "An AI music creation platform that generates full songs with vocals and instrumentation." }
+      ]
+    },
+    {
+      "slug": "infra",
+      "name": "Cloud, Hardware & Infrastructure",
+      "color": "#8A67F4",
+      "items": [
+        { "key": "aws", "label": "AWS", "maker": "", "url": "https://aws.amazon.com", "desc": "Amazon Web Services, the world's most comprehensive and broadly adopted cloud platform." },
+        { "key": "cloudflare", "label": "Cloudflare", "maker": "", "url": "https://cloudflare.com", "desc": "A global network provider offering DNS, security, and edge computing services." },
+        { "key": "gcp", "label": "Google Cloud", "maker": "Platform", "url": "https://cloud.google.com", "desc": "A suite of cloud computing services and infrastructure provided by Google." },
+        { "key": "nvidia", "label": "NVIDIA", "maker": "", "url": "https://www.nvidia.com", "desc": "The leading manufacturer of GPU hardware and software libraries for AI acceleration." },
+        { "key": "openrouter", "label": "OpenRouter", "maker": "", "url": "https://openrouter.ai", "desc": "A unified API gateway providing access to dozens of open-source and proprietary models." },
+        { "key": "railway", "label": "Railway", "maker": "", "url": "https://railway.com", "desc": "A modern deployment platform that simplifies infrastructure setup and hosting." },
+        { "key": "vercel", "label": "Vercel", "maker": "", "url": "https://vercel.com", "desc": "A frontend cloud platform optimized for framework deployment and hosting." }
+      ]
+    },
+    {
+      "slug": "devplatforms",
+      "name": "Dev Platforms, Design & Automation",
+      "color": "#F4B267",
+      "items": [
+        { "key": "figma", "label": "Figma", "maker": "", "url": "https://figma.com", "desc": "A collaborative web-based design tool for prototyping and UI/UX layouts." },
+        { "key": "github", "label": "GitHub", "maker": "", "url": "https://github.com", "desc": "A developer platform for hosting, versioning, and collaborating on code repositories." },
+        { "key": "hugging-face", "label": "Hugging Face", "maker": "", "url": "https://huggingface.co", "desc": "The central hub and community platform for open-source AI models and datasets." },
+        { "key": "n8n", "label": "n8n", "maker": "", "url": "https://n8n.io", "desc": "A node-based workflow automation tool that integrates with AI and external APIs." },
+        { "key": "zapier", "label": "Zapier", "maker": "", "url": "https://zapier.com", "desc": "A popular automation platform connecting thousands of web apps with custom triggers." }
+      ]
+    }
+  ];
+
+  // Build the DOM programmatically
+  function buildSections() {
+    const main = document.getElementById('main');
+
+    CATS.forEach((cat, ci) => {
+      const sec = document.createElement('section');
+      sec.className = 'section';
+      sec.dataset.slug = cat.slug;
+
+      const header = document.createElement('div');
+      header.className = 'section-header';
+      header.innerHTML = `
+        <span class="section-eyebrow">
+          <span class="section-dot" style="background:${cat.color}"></span>
+          Category
+        </span>
+        <span class="section-name" style="color:${cat.color}">${cat.name}</span>
+        <span class="section-count" id="count-${ci}">${cat.items.length} tools</span>
+      `;
+      sec.appendChild(header);
+
+      const grid = document.createElement('div');
+      grid.className = 'icon-grid';
+      grid.id = 'grid-' + ci;
+
+      cat.items.forEach(item => {
+        const card = document.createElement('div');
+        card.className = 'icon-card';
+        card.dataset.key = item.key;
+        card.dataset.label = item.label.toLowerCase();
+        card.dataset.maker = item.maker ? item.maker.toLowerCase() : '';
+        card.dataset.cat = cat.slug;
+
+        const imgWrap = document.createElement('div');
+        imgWrap.style.cssText = 'width:48px;height:48px;display:flex;align-items:center;justify-content:center;';
+        
+        const img = document.createElement('img');
+        img.src = 'icons/' + item.key + '.webp';
+        img.alt = item.label;
+        img.className = 'icon-img';
+        img.loading = 'lazy';
+        imgWrap.appendChild(img);
+
+        const name = document.createElement('span');
+        name.className = 'icon-name';
+        name.textContent = item.label;
+
+        card.appendChild(imgWrap);
+        card.appendChild(name);
+
+        if (item.maker) {
+          const maker = document.createElement('span');
+          maker.className = 'icon-maker';
+          maker.textContent = item.maker;
+          card.appendChild(maker);
+        }
+
+        // Click/tap tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'tooltip-box';
+        
+        const desc = document.createElement('div');
+        desc.className = 'tooltip-desc';
+        desc.textContent = item.desc;
+
+        const action = document.createElement('a');
+        action.className = 'tooltip-action';
+        action.href = item.url;
+        action.target = '_blank';
+        action.rel = 'noopener';
+        action.textContent = 'Visit Website →';
+
+        const arrow = document.createElement('div');
+        arrow.className = 'tooltip-arrow';
+
+        tooltip.appendChild(desc);
+        tooltip.appendChild(action);
+        tooltip.appendChild(arrow);
+        card.appendChild(tooltip);
+
+        // Click handler to toggle tooltip
+        card.addEventListener('click', function(e) {
+          // If the click is on the action/link inside the tooltip, let it pass
+          if (e.target.classList.contains('tooltip-action')) {
+            return;
+          }
+
+          // Otherwise, toggle the tooltip
+          e.stopPropagation();
+          const isActive = tooltip.classList.contains('active');
+          
+          // Hide all other tooltips
+          closeAllTooltips();
+
+          if (!isActive) {
+            tooltip.classList.add('active');
+          }
+        });
+
+        grid.appendChild(card);
+      });
+
+      sec.appendChild(grid);
+      main.appendChild(sec);
+    });
+  }
+
+  function closeAllTooltips() {
+    document.querySelectorAll('.tooltip-box').forEach(box => {
+      box.classList.remove('active');
+    });
+  }
+
+  // Close tooltips when clicking outside cards
+  document.addEventListener('click', function() {
+    closeAllTooltips();
+  });
+
+  // Filter logic
+  let activeSlug = 'all';
+  let searchVal = '';
+
+  function applyFilters() {
+    const sections = document.querySelectorAll('.section');
+    let totalVisible = 0;
+
+    sections.forEach(sec => {
+      const slug = sec.dataset.slug;
+      const slugMatch = activeSlug === 'all' || slug === activeSlug;
+
+      if (!slugMatch) {
+        sec.classList.add('hidden');
+        return;
+      } else {
+        sec.classList.remove('hidden');
+      }
+
+      const cards = sec.querySelectorAll('.icon-card');
+      let secVisible = 0;
+
+      cards.forEach(card => {
+        const textToMatch = card.dataset.label + ' ' + card.dataset.key + ' ' + card.dataset.maker;
+        const labelMatch = !searchVal || textToMatch.includes(searchVal);
+        if (labelMatch) {
+          card.classList.remove('no-match');
+          secVisible++;
+          totalVisible++;
+        } else {
+          card.classList.add('no-match');
+        }
+      });
+
+      // Find count span
+      const countSpan = sec.querySelector('.section-count');
+      if (countSpan) {
+        countSpan.textContent = secVisible + (secVisible === 1 ? ' tool' : ' tools');
+      }
+
+      // Hide section if no visible cards
+      if (secVisible === 0 && searchVal) {
+        sec.classList.add('hidden');
+      }
+    });
+
+    // Counter
+    document.getElementById('counter').textContent = totalVisible;
+
+    // Search count
+    const sc = document.getElementById('search-count');
+    if (searchVal) {
+      sc.textContent = totalVisible + ' result' + (totalVisible !== 1 ? 's' : '');
+    } else {
+      sc.textContent = '';
+    }
+
+    // Empty state
+    const empty = document.getElementById('empty-state');
+    if (empty) {
+      empty.style.display = totalVisible === 0 ? 'block' : 'none';
+    }
+  }
+
+  // Init
+  buildSections();
+  applyFilters();
+
+  // Pills
+  document.getElementById('pills').addEventListener('click', e => {
+    const pill = e.target.closest('.filter-pill');
+    if (!pill) return;
+    document.querySelectorAll('.filter-pill').forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    activeSlug = pill.dataset.slug;
+    closeAllTooltips();
+    applyFilters();
+  });
+
+  // Search
+  document.getElementById('search').addEventListener('input', e => {
+    searchVal = e.target.value.toLowerCase().trim();
+    closeAllTooltips();
+    applyFilters();
+  });
+
+  // Keyboard shortcut: / to focus search
+  document.addEventListener('keydown', e => {
+    if (e.key === '/' && document.activeElement !== document.getElementById('search')) {
+      e.preventDefault();
+      document.getElementById('search').focus();
+    }
+  });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "SoftwareApplication",
+        "@id": "https://outclaw.xyz/tools/ai-tools-encyclopedia#application",
+        "name": "AI Tools Encyclopedia",
+        "description": "An interactive index of 42 AI coding tools, foundation models, agents, creative generators, and cloud infrastructure. Bi-weekly updated for modern developers and AI agents.",
+        "operatingSystem": "All",
+        "applicationCategory": "DeveloperApplication",
+        "url": "https://outclaw.xyz/tools/ai-tools-encyclopedia",
+        "offers": {
+          "@type": "Offer",
+          "price": "0.00",
+          "priceCurrency": "USD"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "OutClaw AI",
+          "url": "https://outclaw.xyz/"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://outclaw.xyz/tools/ai-tools-encyclopedia#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://outclaw.xyz/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Tools",
+            "item": "https://outclaw.xyz/tools/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "AI Tools Encyclopedia",
+            "item": "https://outclaw.xyz/tools/ai-tools-encyclopedia"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</body>
+</html>

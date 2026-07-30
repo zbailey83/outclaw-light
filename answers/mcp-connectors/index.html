@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MCP & Connectors &mdash; AI Agent Reference | Answers | openclaw.xyz</title>
+  <meta name="description" content="How to connect Claude and AI agents to third-party apps via MCP servers — Gmail, Notion, GitHub, Slack, and more.">
+  <link rel="canonical" href="https://outclaw.xyz/answers/mcp-connectors/">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "name": "MCP & Connectors \u2014 AI Agent Reference",
+      "description": "How to connect Claude and AI agents to third-party apps via MCP servers \u2014 Gmail, Notion, GitHub, Slack, and more.",
+      "url": "https://outclaw.xyz/answers/mcp-connectors/",
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      }
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "MCP & Connectors"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you connect Claude to Gmail via MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To connect Claude to Gmail via the Model Context Protocol (MCP), add the official Google Gmail MCP server configuration to your Claude Desktop configuration file. Authenticate by creating a client credential via the Google Cloud Console and running the initial OAuth consent flow."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the MCP server URL format for Claude connectors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The Model Context Protocol (MCP) uses Server-Sent Events (SSE) for HTTP transport, where the client establishes a SSE connection to a GET endpoint (e.g. http://localhost:3000/sse) and sends JSON-RPC client-to-server messages via POST requests to a separate endpoint declared by the server."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you authenticate MCP connectors in Claude.ai?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "In local environments, MCP servers authenticate via environment variables passed directly in the server config file. For remote, network-based MCP servers using Server-Sent Events (SSE), authentication is handled via Bearer tokens in the HTTP Authorization headers or customized query parameters."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you connect Claude to Notion via MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Connect Claude to your Notion workspace by registering a new internal integration inside the Notion Developer Portal to obtain an integration token, granting workspace access permissions, and configuring the official Notion MCP server in your Claude Desktop configuration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you connect Claude to GitHub via MCP?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To connect Claude to GitHub, generate a Personal Access Token (Classic or Fine-Grained) on GitHub with access to your target repositories, and add the official GitHub MCP server configuration to your local Claude Desktop config file."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / MCP & Connectors
+    </nav>
+
+    <h1>MCP & Connectors &mdash; Agent Reference</h1>
+    <p>How to connect Claude and AI agents to third-party apps via MCP servers — Gmail, Notion, GitHub, Slack, and more.</p>
+
+    <div class="answer-grid">
+      
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-gmail-mcp.html">How do you connect Claude to Gmail via MCP?</a></h3>
+      <p>To connect Claude to Gmail via the Model Context Protocol (MCP), add the official Google Gmail MCP server configuration to your...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-server-url-format.html">What is the MCP server URL format for Claude connectors?</a></h3>
+      <p>The Model Context Protocol (MCP) uses Server-Sent Events (SSE) for HTTP transport, where the client establishes a SSE connectio...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-auth-patterns.html">How do you authenticate MCP connectors in Claude.ai?</a></h3>
+      <p>In local environments, MCP servers authenticate via environment variables passed directly in the server config file. For remote...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-notion-mcp.html">How do you connect Claude to Notion via MCP?</a></h3>
+      <p>Connect Claude to your Notion workspace by registering a new internal integration inside the Notion Developer Portal to obtain ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-github-mcp.html">How do you connect Claude to GitHub via MCP?</a></h3>
+      <p>To connect Claude to GitHub, generate a Personal Access Token (Classic or Fine-Grained) on GitHub with access to your target re...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-slack-mcp.html">How do you connect Claude to Slack via MCP?</a></h3>
+      <p>To connect Claude to Slack via MCP, create a Slack App in your workspace API settings, configure Bot User OAuth Tokens with rea...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-google-drive-mcp.html">How do you connect Claude to Google Drive via MCP?</a></h3>
+      <p>To connect Claude to Google Drive, enable the Google Drive API in the Google Cloud Console, create OAuth 2.0 credentials, and p...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/native-mcp-servers-claude.html">What MCP servers does Claude.ai support natively?</a></h3>
+      <p>Claude.ai (web interface) supports a selected set of official remote connectors natively, including Google Drive, Gmail, Notion...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/multiple-mcp-servers-single-session.html">Can you use multiple MCP servers in one Claude session?</a></h3>
+      <p>Yes, Claude can connect to and query multiple MCP servers concurrently in a single chat session. The client merges all tools, p...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/build-custom-mcp-server-claude.html">How do you build a custom MCP server for Claude?</a></h3>
+      <p>To build a custom MCP server for Claude, use the official TypeScript or Python SDK, define the schemas for the tools, resources...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-postgres-mcp.html">How do you connect Claude to PostgreSQL via MCP?</a></h3>
+      <p>To connect Claude to a PostgreSQL database, configure the postgres MCP server in your Claude Desktop configuration file and pas...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-sqlite-mcp.html">How do you connect Claude to SQLite via MCP?</a></h3>
+      <p>To connect Claude to SQLite, add the sqlite MCP server definition in the configuration file, specifying the absolute filepath t...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-brave-search-mcp.html">How do you connect Claude to Brave Search via MCP?</a></h3>
+      <p>To connect Claude to Brave Search, retrieve a Brave Search API key from the developer portal, and configure the brave-search MC...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/connect-claude-to-linear-mcp.html">How do you connect Claude to Linear via MCP?</a></h3>
+      <p>To connect Claude to Linear, generate an API access token in your Linear account developer settings and configure the official ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-inspector-setup-guide.html">How do you inspect and debug MCP servers using MCP Inspector?</a></h3>
+      <p>Use the official @modelcontextprotocol/inspector command-line interface tool to inspect capabilities, send test requests, and v...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-transport-protocols-compared.html">What transport protocols are supported by MCP?</a></h3>
+      <p>MCP supports two standard transport protocols: stdio (Standard Input/Output) for local sub-processes, and Server-Sent Events (S...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-sse-transport-setup.html">How do you configure Server-Sent Events (SSE) transport for MCP?</a></h3>
+      <p>To configure SSE transport on an MCP server, instantiate an SSEServerTransport on your HTTP server routing layer to dispatch ev...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-stdio-transport-setup.html">How do you configure standard input/output (stdio) transport for MCP?</a></h3>
+      <p>To run an MCP server on stdio transport, connect it using StdioServerTransport from the SDK. The host process will spawn the se...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/configure-mcp-in-claude-desktop.html">How do you configure MCP servers in Claude Desktop?</a></h3>
+      <p>Open your local OS-specific configuration path and edit the JSON-formatted configuration file to define your stdio or remote MC...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-security-sandboxing-guide.html">How do you sandbox MCP server execution for security?</a></h3>
+      <p>To sandbox local MCP servers, run the processes in docker container environments, isolate the network using minimal networking ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/handle-mcp-timeout-errors.html">How do you handle timeout errors in MCP server calls?</a></h3>
+      <p>In your client connector code, wrap requests in timeout wrappers that reject after a threshold (e.g., 60 seconds) and ensure yo...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/share-mcp-servers-across-agents.html">Can multiple agent instances share a single MCP server connection?</a></h3>
+      <p>While stdio sub-processes are strictly single-client, a remote MCP server using Server-Sent Events (SSE) transport can handle m...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-dynamic-server-registration.html">Does MCP support dynamic server discovery and registration?</a></h3>
+      <p>Yes, MCP supports discovery via client polling of capabilities, but active runtime server insertion depends on the agent framew...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-cursor-integration-steps.html">How do you add an MCP server to Cursor?</a></h3>
+      <p>To add an MCP server to Cursor, navigate to Cursor Settings > Features > MCP, click + Add New MCP Server, choose the transport ...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    <div class="answer-card">
+      <h3><a href="/answers/mcp-connectors/mcp-server-logging-and-debugging.html">How do you view and debug logs for MCP servers?</a></h3>
+      <p>In stdio MCP servers, route logs to stderr using console.error() instead of console.log(). In Claude Desktop, inspect logs at ~...</p>
+      <div class="meta">Last verified: July 2026</div>
+    </div>
+    </div>
+
+    <section class="faq-cluster"><h2>Common questions</h2>
+  <details>
+    <summary>How do you connect Claude to Gmail via MCP?</summary>
+    <p>To connect Claude to Gmail via the Model Context Protocol (MCP), add the official Google Gmail MCP server configuration to your Claude Desktop configuration file. Authenticate by creating a client credential via the Google Cloud Console and running the initial OAuth consent flow.</p>
+  </details>
+  <details>
+    <summary>What is the MCP server URL format for Claude connectors?</summary>
+    <p>The Model Context Protocol (MCP) uses Server-Sent Events (SSE) for HTTP transport, where the client establishes a SSE connection to a GET endpoint (e.g. http://localhost:3000/sse) and sends JSON-RPC client-to-server messages via POST requests to a separate endpoint declared by the server.</p>
+  </details>
+  <details>
+    <summary>How do you authenticate MCP connectors in Claude.ai?</summary>
+    <p>In local environments, MCP servers authenticate via environment variables passed directly in the server config file. For remote, network-based MCP servers using Server-Sent Events (SSE), authentication is handled via Bearer tokens in the HTTP Authorization headers or customized query parameters.</p>
+  </details>
+  <details>
+    <summary>How do you connect Claude to Notion via MCP?</summary>
+    <p>Connect Claude to your Notion workspace by registering a new internal integration inside the Notion Developer Portal to obtain an integration token, granting workspace access permissions, and configuring the official Notion MCP server in your Claude Desktop configuration.</p>
+  </details>
+  <details>
+    <summary>How do you connect Claude to GitHub via MCP?</summary>
+    <p>To connect Claude to GitHub, generate a Personal Access Token (Classic or Fine-Grained) on GitHub with access to your target repositories, and add the official GitHub MCP server configuration to your local Claude Desktop config file.</p>
+  </details></section>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>
