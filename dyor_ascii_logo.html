@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>D Y O R // Interactive ASCII Logo Animation</title>
+  <title>D Y O R // High-Resolution ASCII Particle Engine</title>
   <style>
     /* ==========================================================================
        Reset & Midnight Dark Canvas Theme
@@ -33,10 +33,10 @@
       width: 100%;
       height: 100%;
       background: 
-        radial-gradient(circle at 50% 40%, rgba(255, 42, 95, 0.08) 0%, rgba(0, 243, 255, 0.06) 40%, transparent 75%),
+        radial-gradient(circle at 50% 40%, rgba(255, 42, 95, 0.1) 0%, rgba(0, 243, 255, 0.08) 40%, transparent 75%),
         linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-      background-size: 100% 100%, 40px 40px, 40px 40px;
+      background-size: 100% 100%, 30px 30px, 30px 30px;
       pointer-events: none;
       z-index: 1;
     }
@@ -121,11 +121,11 @@
     }
 
     .brand-title {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 700;
       letter-spacing: 4px;
       color: #00f3ff;
-      text-shadow: 0 0 10px rgba(0, 243, 255, 0.5);
+      text-shadow: 0 0 12px rgba(0, 243, 255, 0.6);
       display: flex;
       align-items: center;
       gap: 8px;
@@ -138,7 +138,7 @@
       height: 8px;
       background: #ff2a5f;
       border-radius: 50%;
-      box-shadow: 0 0 8px #ff2a5f;
+      box-shadow: 0 0 10px #ff2a5f;
     }
 
     .state-badge {
@@ -146,7 +146,7 @@
       align-items: center;
       padding: 6px 14px;
       background: rgba(10, 14, 26, 0.85);
-      border: 1px solid rgba(0, 243, 255, 0.3);
+      border: 1px solid rgba(0, 243, 255, 0.35);
       border-radius: 20px;
       font-size: 12px;
       letter-spacing: 2px;
@@ -168,10 +168,10 @@
       transform: translateX(-50%);
       z-index: 10;
       background: rgba(10, 14, 26, 0.85);
-      border: 1px solid rgba(0, 243, 255, 0.3);
+      border: 1px solid rgba(0, 243, 255, 0.35);
       padding: 10px 24px;
       border-radius: 30px;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 2px;
       color: #8899ac;
       backdrop-filter: blur(10px);
@@ -187,7 +187,7 @@
     .instruction-bar:hover {
       border-color: #ff2a5f;
       color: #00f3ff;
-      box-shadow: 0 0 25px rgba(255, 42, 95, 0.4);
+      box-shadow: 0 0 25px rgba(255, 42, 95, 0.5);
     }
 
     .btn-group {
@@ -240,7 +240,7 @@
 
   <!-- UI Overlay Status & Controls -->
   <div class="ui-overlay">
-    <div class="brand-title">D Y O R // ASCII ENGINE</div>
+    <div class="brand-title">D Y O R // HIGH-RES ASCII ENGINE</div>
     <div class="state-badge">STATE: <span id="stateLabel">0: LOGO (HOVER ACTIVE)</span></div>
     <div class="btn-group">
       <button class="btn active" onclick="setPhysicsState(0)">0: LOGO</button>
@@ -261,28 +261,29 @@
        ========================================================================== -->
   <script>
     /**
-     * Interactive ASCII Logo Animation Engine
+     * High-Resolution ASCII Logo Particle Engine
      * ----------------------------------------------------
      * Features:
-     * 1. High-DPI Retina Canvas Scaling (devicePixelRatio)
-     * 2. Offscreen Microscopic Pixel Sampler (ImageData grid extraction)
-     * 3. Color-Preserving ASCII Rendering (White Top "DY", Red Bottom "OR")
-     * 4. 4-State Physics Machine (Logo Hover, Scatter, Gravity Bounce, Return)
+     * 1. Ultra High-Density 72x72 Pixel Sampler (~2,000 High-Volume ASCII Particles)
+     * 2. Micro-Font Typography (8px Monospace)
+     * 3. High-DPI Retina Canvas Scaling (devicePixelRatio)
+     * 4. Dual-Color Palette (Top White DY / Bottom Crimson OR)
+     * 5. 4-State Physics Machine (Logo Hover, Scatter, Gravity Bounce, Return)
      */
 
-    // --- Physics & Grid Constants ---
-    const HOVER_RADIUS = 95;          // Cursor interaction distance threshold
-    const PUSH_STRENGTH = 6.5;        // Mouse hover repulsion force
-    const GRAVITY = 0.44;             // Gravitational acceleration constant
+    // --- High-Resolution Physics & Grid Constants ---
+    const HOVER_RADIUS = 115;         // Expanded mouse interaction distance
+    const PUSH_STRENGTH = 7.0;        // Repulsion force for high volume particles
+    const GRAVITY = 0.45;             // Gravitational acceleration
     const DEFAULT_BOUNCE = 0.23;      // Elastic floor bounce factor (0.2 - 0.25)
-    const SPRING_EASE = 0.085;        // Easing constant for returning home
+    const SPRING_EASE = 0.088;        // Easing constant for returning home
 
-    // ASCII Density Character String
+    // ASCII Density Characters
     const ASCII_CHARS = "DYOR#*+=-:. ";
 
-    // Color Palettes matching actual logo (White DY / Red OR)
-    const WHITE_PALETTE = ["#ffffff", "#00f3ff", "#e2e8f0", "#38bdf8", "#ffffff"];
-    const RED_PALETTE   = ["#ff2a5f", "#ff3b30", "#ff5e00", "#ff0055", "#e11d48"];
+    // High Density Color Palettes matching actual logo (White DY / Red OR)
+    const WHITE_PALETTE = ["#ffffff", "#00f3ff", "#e0f2fe", "#38bdf8", "#ffffff", "#7dd3fc"];
+    const RED_PALETTE   = ["#ff2a5f", "#ff3b30", "#ff5e00", "#ff0055", "#e11d48", "#f43f5e"];
 
     // Physics State Constants
     const STATES = {
@@ -315,8 +316,8 @@
       constructor(homeX, homeY, char, isRed) {
         this.homeX = homeX;
         this.homeY = homeY;
-        this.x = homeX + (Math.random() - 0.5) * 30;
-        this.y = homeY + (Math.random() - 0.5) * 30;
+        this.x = homeX + (Math.random() - 0.5) * 20;
+        this.y = homeY + (Math.random() - 0.5) * 20;
         this.vx = 0;
         this.vy = 0;
         
@@ -336,7 +337,7 @@
       }
 
       assignScatterTarget(w, h) {
-        const margin = 100;
+        const margin = 120;
         this.scatterX = -margin + Math.random() * (w + margin * 2);
         this.scatterY = -margin + Math.random() * (h + margin * 2);
       }
@@ -361,15 +362,15 @@
               }
             }
 
-            // Spring force back to home coordinate
+            // Spring force back home
             const homeDx = this.homeX - this.x;
             const homeDy = this.homeY - this.y;
             this.vx += homeDx * SPRING_EASE;
             this.vy += homeDy * SPRING_EASE;
 
-            // Damping
-            this.vx *= 0.82;
-            this.vy *= 0.82;
+            // Velocity Damping
+            this.vx *= 0.81;
+            this.vy *= 0.81;
 
             this.x += this.vx;
             this.y += this.vy;
@@ -383,11 +384,11 @@
             const dx = this.scatterX - this.x;
             const dy = this.scatterY - this.y;
 
-            this.vx += dx * 0.04 * (0.5 + this.staggerDelay * 0.5);
-            this.vy += dy * 0.04 * (0.5 + this.staggerDelay * 0.5);
+            this.vx += dx * 0.045 * (0.5 + this.staggerDelay * 0.5);
+            this.vy += dy * 0.045 * (0.5 + this.staggerDelay * 0.5);
 
-            this.vx *= 0.86;
-            this.vy *= 0.86;
+            this.vx *= 0.85;
+            this.vy *= 0.85;
 
             this.x += this.vx;
             this.y += this.vy;
@@ -399,13 +400,13 @@
           // ==========================================
           case STATES.FALLEN: {
             this.vy += GRAVITY;
-            this.vx *= 0.98; // Air resistance
+            this.vx *= 0.98; // Air friction
 
             this.x += this.vx;
             this.y += this.vy;
 
             // Bouncing Floor Threshold
-            const floorY = canvasHeight - 24;
+            const floorY = canvasHeight - 20;
             if (this.y >= floorY) {
               this.y = floorY;
               this.vy = -this.vy * this.bounceFactor;
@@ -425,11 +426,11 @@
             const dx = this.homeX - this.x;
             const dy = this.homeY - this.y;
 
-            this.vx += dx * (0.07 + this.staggerDelay * 0.04);
-            this.vy += dy * (0.07 + this.staggerDelay * 0.04);
+            this.vx += dx * (0.075 + this.staggerDelay * 0.04);
+            this.vy += dy * (0.075 + this.staggerDelay * 0.04);
 
-            this.vx *= 0.82;
-            this.vy *= 0.82;
+            this.vx *= 0.81;
+            this.vy *= 0.81;
 
             this.x += this.vx;
             this.y += this.vy;
@@ -445,7 +446,7 @@
     }
 
     // ==========================================================================
-    // Initialization & Pixel Sampler Engine
+    // Initialization & High-Density Pixel Sampler
     // ==========================================================================
     function initCanvas() {
       canvas = document.getElementById('asciiCanvas');
@@ -498,9 +499,9 @@
       const vW = window.innerWidth;
       const vH = window.innerHeight;
 
-      // Downsample grid dimensions
-      const sampleCols = 38;
-      const sampleRows = 38;
+      // High-resolution downsample grid (72x72 = ~2,000 particles)
+      const sampleCols = 72;
+      const sampleRows = 72;
 
       samplerCanvas.width = sampleCols;
       samplerCanvas.height = sampleRows;
@@ -513,9 +514,9 @@
 
       particles = [];
 
-      // ASCII Character cell spacing
-      const charSpacingX = 14;
-      const charSpacingY = 15;
+      // Micro ASCII Character Cell Spacing for High-Res density
+      const charSpacingX = 7.5;
+      const charSpacingY = 8.5;
       
       const totalLogoW = sampleCols * charSpacingX;
       const totalLogoH = sampleRows * charSpacingY;
@@ -530,15 +531,15 @@
           const g = pixels[idx + 1];
           const b = pixels[idx + 2];
 
-          // Threshold check: non-black pixel
-          if (r > 50 || g > 50 || b > 50) {
+          // Threshold check for non-black pixels
+          if (r > 45 || g > 45 || b > 45) {
             const homeX = originX + x * charSpacingX;
             const homeY = originY + y * charSpacingY;
 
             // Distinguish red bottom letters vs white top letters
-            const isRed = (r > 140 && g < 100 && b < 100);
+            const isRed = (r > 130 && g < 100 && b < 100);
 
-            // Pick character based on density or random theme
+            // Select character based on brightness density
             const brightness = (r + g + b) / 3;
             const charIdx = Math.floor((brightness / 255) * (ASCII_CHARS.length - 1));
             const char = ASCII_CHARS[charIdx] || (isRed ? 'R' : 'D');
@@ -546,17 +547,6 @@
             const particle = new ASCIIParticle(homeX, homeY, char, isRed);
             particle.assignScatterTarget(vW, vH);
             particles.push(particle);
-
-            // Horizontal neighbor fill for solid letter shape blocks
-            if (x < sampleCols - 1) {
-              const nextIdx = (y * sampleCols + (x + 1)) * 4;
-              if (pixels[nextIdx] > 50 || pixels[nextIdx + 1] > 50 || pixels[nextIdx + 2] > 50) {
-                const neighborHomeX = homeX + charSpacingX * 0.5;
-                const neighborParticle = new ASCIIParticle(neighborHomeX, homeY, '-', isRed);
-                neighborParticle.assignScatterTarget(vW, vH);
-                particles.push(neighborParticle);
-              }
-            }
           }
         }
       }
@@ -625,12 +615,12 @@
       const vW = window.innerWidth;
       const vH = window.innerHeight;
 
-      // Dark Midnight Canvas Background
+      // Dark Midnight Background
       ctx.fillStyle = '#04050a';
       ctx.fillRect(0, 0, vW, vH);
 
-      // ASCII Typography Settings
-      ctx.font = 'bold 13px "Courier New", monospace';
+      // Micro High-Res Monospace Font Settings
+      ctx.font = 'bold 8.5px "Courier New", monospace';
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
 
