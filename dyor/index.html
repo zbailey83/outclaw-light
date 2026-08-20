@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+  <script>
+    window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    if (window.location.hostname !== 'outclaw.xyz') {
+      console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+      gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+    } else {
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+        document.head.appendChild(script);
+      })();
+      gtag('config', window.GA4_MEASUREMENT_ID);
+    }
+  </script>
+  <script src="../analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5VC26C47');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D Y O R apparel | Interactive Video Scrubbing</title>
+  <meta name="description" content="Autonomous utility clothing forged for the modern navigator. Experience scroll-scrubbed mountain drift performance apparel. Do Your Own Research." />
+  
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png">
+
+  <!-- GSAP Core & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="loading">
+  <!-- Loader Screen -->
+  <div id="loader-overlay">
+    <div id="loader-text">SYSTEM_LOAD // 0%</div>
+    <div class="loader-bar-container">
+      <div id="loader-bar"></div>
+    </div>
+    <div id="loader-log">initializing pipeline...</div>
+  </div>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Top Sticky Navigation -->
+  <header class="navbar">
+    <a href="https://getgiftsgive.etsy.com" target="_blank" class="nav-logo">
+      D Y O R<span>.</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="https://getgiftsgive.etsy.com" target="_blank" class="active">Store</a></li>
+        <li><a href="https://outclaw.xyz" target="_blank">OutClaw AI</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://getgiftsgive.etsy.com" target="_blank" class="btn-nav" style="text-decoration: none;">Shop Store</a>
+    </div>
+  </header>
+
+  <!-- Pinned Scroll Video Hero Section -->
+  <div class="hero-container">
+    <!-- WebP frame scroll scrubber canvas with HTML5 video fallback -->
+    <canvas id="scrub-canvas"></canvas>
+    <video id="hero-video" src="lupin_scrub.mp4" playsinline muted preload="auto" style="display: none;"></video>
+    
+    <!-- Dark Vignette and Scanline overlay -->
+    <div class="vignette"></div>
+
+    <!-- Pinned Side Progress Indicator -->
+    <div class="progress-container">
+      <div class="progress-bar" id="indicator-bar"></div>
+    </div>
+
+    <!-- Interactive Auto-Scroll Floating Buttons -->
+    <div class="autoscroll-controls">
+      <button id="btn-autoscroll-forward" class="autoscroll-btn">
+        AUTO SCRUB &rarr;
+      </button>
+      <button id="btn-autoscroll-backward" class="autoscroll-btn">
+        REWIND &larr;
+      </button>
+    </div>
+
+    <!-- Animated narrative text elements -->
+    <div class="narrative-layer">
+      <!-- Card 1 (Intro entry: frames 1 – 60) -->
+      <div class="card card-1">
+        <span class="brand-label">LAB STAGE // 01</span>
+        <h2>D Y O R apparel</h2>
+        <p>FORGED IN AUTONOMY</p>
+      </div>
+
+      <!-- Card 2 (Tech Spec Callouts & Badges: frames 60 – 130) -->
+      <div class="card card-2">
+        <div class="tech-spec-container">
+          <div class="tech-spec-badge spec-1">
+            <span class="spec-num">SPEC 01</span>
+            <span class="spec-title">AERODYNAMIC TITANIUM WEAVE</span>
+          </div>
+          <div class="tech-spec-badge spec-2">
+            <span class="spec-num">SPEC 02</span>
+            <span class="spec-title">THERMAL DRIVER PROTECTION</span>
+          </div>
+          <div class="tech-spec-badge spec-3">
+            <span class="spec-num">SPEC 03</span>
+            <span class="spec-title">SCULPTED CHASSIS FIT</span>
+          </div>
+        </div>
+        <div class="huge-letters">
+          <span class="letter-stroke">DY</span>
+          <span class="letter-solid">OR</span>
+        </div>
+        <p class="card-desc">ESTABLISHED FOR SECURE NAVIGATIONS</p>
+      </div>
+
+      <!-- Card 3 (Head-on Charge / Statement: frames 130 – 195) -->
+      <div class="card card-3">
+        <div class="phrase-container">
+          <span class="phrase-sub">TACTICAL PERFORMANCE APPAREL</span>
+          <div class="words-wrapper">
+            <span class="word">Do</span>
+            <span class="word">Your</span>
+            <span class="word">Own</span>
+            <span class="word highlight">Research.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 (Ending Climax & DYOR Button: frames 195 – 240) -->
+      <div class="card card-4">
+        <div class="climax-header">
+          <span class="climax-badge">DESTINATION REACHED</span>
+          <h3 class="climax-title">DYOR UTILITY COLLECTION</h3>
+        </div>
+
+        <!-- Prominent DYOR CTA Button -->
+        <a href="https://getgiftsgive.etsy.com" target="_blank" class="dyor-main-btn" id="dyor-btn">
+          <span class="dyor-text">DYOR</span>
+          <span class="dyor-arrow">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </span>
+        </a>
+
+        <div class="climax-footer">
+          <a href="https://getgiftsgive.etsy.com" target="_blank" class="sub-link">
+            VISIT GETGIFTSGIVE.ETSY.COM
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical UI HUD details at bottom of Viewport -->
+    <div class="hero-ui-bottom">
+      <div class="tech-stats">
+        <span>LOC // HAIRPIN_PASS_A</span>
+        <span>SYS // FEED_CONNECTED</span>
+        <span id="frame-counter">FRAME // 001 / 240</span>
+      </div>
+      
+      <div class="scroll-indicator">
+        <span>SCROLL TO SCRUB</span>
+        <div class="scroll-arrow"></div>
+      </div>
+
+      <div class="active-cut">
+        <span id="cut-label">DRIFT.01</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Wiring -->
+  <script src="script.js"></script>
+</body>
+</html>

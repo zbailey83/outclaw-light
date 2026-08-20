@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+  <script>
+    window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    if (window.location.hostname !== 'outclaw.xyz') {
+      console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+      gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+    } else {
+      (function() {
+        var script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+        document.head.appendChild(script);
+      })();
+      gtag('config', window.GA4_MEASUREMENT_ID);
+    }
+  </script>
+  <script src="../analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-5VC26C47');</script>
+  <!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>D Y O R apparel | Variation 04 (Interactive Auto-Scrub)</title>
+  <meta name="description" content="Autonomous utility clothing forged for the modern navigator. Experience interactive auto-scrubbed performance apparel. Do Your Own Research." />
+  
+  <link rel="stylesheet" href="dyor4_style.css" />
+  <link rel="shortcut icon" href="/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png">
+
+  <!-- GSAP Core & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+</head>
+<body class="loading">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Minimal Loader Screen -->
+  <div id="loader-overlay">
+    <div id="loader-text">LOADING // 0%</div>
+    <div class="loader-bar-container">
+      <div id="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="navbar">
+    <a href="https://www.etsy.com/shop/giftsgetgive" target="_blank" class="nav-logo">
+      D Y O R<span>.</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="https://www.etsy.com/shop/giftsgetgive" target="_blank" class="active">Store</a></li>
+        <li><a href="https://outclaw.xyz" target="_blank">OutClaw AI</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <a href="https://www.etsy.com/shop/giftsgetgive" target="_blank" class="btn-nav" style="text-decoration: none;">Shop Store</a>
+    </div>
+  </header>
+
+  <!-- Pinned Scroll Video Hero Section -->
+  <div class="hero-container">
+    <!-- WebP frame scroll scrubber canvas -->
+    <canvas id="scrub-canvas"></canvas>
+    
+    <!-- Minimal Vignette Overlay -->
+    <div class="vignette"></div>
+
+    <!-- Interactive Auto-Scroll Floating Buttons -->
+    <!-- First 5 Frames Trigger Button -->
+    <button id="btn-autoscroll-forward" class="autoscroll-btn">
+      AUTO SCRUB: START TO FINISH &rarr;
+    </button>
+
+    <!-- Final 5 Frames Trigger Button -->
+    <button id="btn-autoscroll-backward" class="autoscroll-btn">
+      AUTO REWIND: FINISH TO START &larr;
+    </button>
+
+    <!-- Animated Narrative Layer -->
+    <div class="narrative-layer">
+      <!-- Card 1 (Intro entry: frames 1 – 72) -->
+      <div class="card card-1">
+        <span class="brand-label">COLLECTION // 04</span>
+        <h2>D Y O R apparel</h2>
+        <p>FORGED IN AUTONOMY</p>
+      </div>
+
+      <!-- Card 2 (Three Billboards scene: frames 72 – 120) -->
+      <div class="card card-2">
+        <div class="huge-letters">
+          <span class="letter-stroke">DY</span>
+          <span class="letter-solid">OR</span>
+        </div>
+        <a href="https://www.etsy.com/shop/giftsgetgive" target="_blank" class="cta-btn">
+          FULL VIDEO — $4
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Card 3 (Final frame climax: frames 120 – 192) -->
+      <div class="card card-3">
+        <div class="phrase-container">
+          <span style="font-size: 0.75rem; color: var(--accent); letter-spacing: 0.4em; text-transform: uppercase; margin-bottom: 1rem; font-weight: 700;">FULL VIDEO DOWNLOAD // $4</span>
+          <span class="word">Do</span>
+          <span class="word">Your</span>
+          <span class="word">Own</span>
+          <span class="word highlight">Research.</span>
+        </div>
+        <a href="https://www.etsy.com/shop/giftsgetgive" target="_blank" class="cta-btn">
+          GET FULL VIDEO FOR $4
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Wiring -->
+  <script src="dyor4_script.js"></script>
+</body>
+</html>
