@@ -5,10 +5,17 @@
 ## Core Navigation
 - [Home](https://outclaw.xyz/) — Newsletter landing page and weekly ticker.
 - [About](https://outclaw.xyz/about/) — Mission and story of OutClaw AI.
+- [Author (Zach Bailey)](https://outclaw.xyz/author/zach-bailey/) — Profile of systems architect & author Zach Bailey.
 - [Guides](https://outclaw.xyz/guides/) — Technical step-by-step playbooks.
 - [Videos](https://outclaw.xyz/videos/) — Embedded YouTube video tutorials and deep-dives.
 - [Tools](https://outclaw.xyz/tools/) — Free AI utilities for practitioners.
 - [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
+
+## Author & Projects
+- **Author**: Zach Bailey — Founder & Principal Architect of OutClaw AI.
+- **Published Book**: [The Prompt Engineer’s Playbook: Strategies for AI-Driven Business Solutions](https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB) (Amazon Kindle, ASIN: B0DL9ZBRQB, Oct 28, 2024).
+- **Latest Project**: [Ads Agent Meta](https://adsagentmeta.com/) — Autonomous AI advertising platform.
+- **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
 
 ## Technical Guides (Documentation)
 - [Claude Fable 5 vs GPT-5.6 Sol Access](https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison.html) — Compare access restrictions, safety suspensions, and specs.
