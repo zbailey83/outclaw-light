@@ -29,12 +29,13 @@ def get_active_category(filepath):
     parts = relpath.replace('\\', '/').split('/')
     if len(parts) > 1:
         first_dir = parts[0]
-        if first_dir in ['about', 'guides', 'answers', 'videos', 'tools', 'newsletter']:
+        if first_dir in ['about', 'news', 'guides', 'answers', 'videos', 'tools', 'newsletter']:
             return first_dir
     return None
 
 def build_navbar(prefix, active_cat):
     about_active = ' class="active"' if active_cat == 'about' else ''
+    news_active = ' class="active"' if active_cat == 'news' else ''
     guides_active = ' class="active"' if active_cat == 'guides' else ''
     answers_active = ' class="active"' if active_cat == 'answers' else ''
     videos_active = ' class="active"' if active_cat == 'videos' else ''
@@ -50,6 +51,7 @@ def build_navbar(prefix, active_cat):
     </a>
     <div class="navbar-links">
       <a href="{prefix}about/"{about_active}>About</a>
+      <a href="{prefix}news/"{news_active}>News</a>
       <a href="{prefix}guides/"{guides_active}>Guides</a>
       <a href="{prefix}answers/"{answers_active}>Answers</a>
       <a href="{prefix}videos/"{videos_active}>Videos</a>
@@ -65,6 +67,7 @@ def build_navbar(prefix, active_cat):
   </nav>
   <div class="nav-drawer" id="navDrawer">
     <a href="{prefix}about/"{about_active}>About</a>
+    <a href="{prefix}news/"{news_active}>News</a>
     <a href="{prefix}guides/"{guides_active}>Guides</a>
     <a href="{prefix}answers/"{answers_active}>Answers</a>
     <a href="{prefix}videos/"{videos_active}>Videos</a>
@@ -76,6 +79,7 @@ def build_navbar(prefix, active_cat):
 
 def build_footer(prefix, active_cat):
     about_active = ' class="active"' if active_cat == 'about' else ''
+    news_active = ' class="active"' if active_cat == 'news' else ''
     guides_active = ' class="active"' if active_cat == 'guides' else ''
     answers_active = ' class="active"' if active_cat == 'answers' else ''
     videos_active = ' class="active"' if active_cat == 'videos' else ''
@@ -92,6 +96,7 @@ def build_footer(prefix, active_cat):
     </a>
     <div class="footer-links">
       <a href="{prefix}about/"{about_active}>About</a>
+      <a href="{prefix}news/"{news_active}>News</a>
       <a href="{prefix}guides/"{guides_active}>Guides</a>
       <a href="{prefix}answers/"{answers_active}>Answers</a>
       <a href="{prefix}videos/"{videos_active}>Videos</a>

@@ -5,11 +5,15 @@
 ## Core Navigation
 - [Home](https://outclaw.xyz/) — Newsletter landing page and weekly ticker.
 - [About](https://outclaw.xyz/about/) — Mission and story of OutClaw AI.
+- [News](https://outclaw.xyz/news/) — Real-time AI releases, model teardowns, and breaking technical news.
 - [Author (Zach Bailey)](https://outclaw.xyz/author/zach-bailey/) — Profile of systems architect & author Zach Bailey.
 - [Guides](https://outclaw.xyz/guides/) — Technical step-by-step playbooks.
 - [Videos](https://outclaw.xyz/videos/) — Embedded YouTube video tutorials and deep-dives.
 - [Tools](https://outclaw.xyz/tools/) — Free AI utilities for practitioners.
 - [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
+
+## Featured News & Model Releases
+- [xAI GrokBot Released: Next-Gen Autonomous AI Agent Features & Setup](https://outclaw.xyz/news/grokbot-release-features/) — Grok 3 engine, real-time X & web retrieval, vision-code synthesis, and MCP integration guide. By Zach Bailey.
 
 ## Author & Projects
 - **Author**: Zach Bailey — Founder & Principal Architect of OutClaw AI.
