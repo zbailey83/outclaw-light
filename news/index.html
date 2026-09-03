@@ -555,6 +555,28 @@
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
     }
 
+    .news-card-img {
+      width: 100%;
+      height: 190px;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 18px;
+      background: var(--deep-navy);
+      border: 1px solid var(--border);
+    }
+
+    .news-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.35s ease;
+    }
+
+    .news-card:hover .news-card-img img {
+      transform: scale(1.04);
+    }
+
     .news-card-tag {
       font-size: 11px;
       font-weight: 700;
@@ -757,20 +779,20 @@
     <!-- FEATURED ARTICLE HERO CARD -->
     <div class="featured-news-card">
       <div class="featured-news-content">
-        <div class="featured-badge">⚡ Breaking News &middot; Featured Release</div>
-        <h2><a href="./grokbot-release-features/">xAI GrokBot Released: Next-Gen Autonomous AI Agent Features, Architecture &amp; Integration Guide</a></h2>
-        <p class="featured-news-desc">xAI launches GrokBot—an autonomous agent platform built on Grok 3 with native tool-use, real-time X &amp; web retrieval, vision-code reasoning, and local-gateway support. Explore full features, benchmark teardowns, and CLI setup instructions.</p>
+        <div class="featured-badge">⚡ Breaking News &middot; Featured Story</div>
+        <h2><a href="./claude-fable-mythos-gemini-flash-seo-geo-aeo/">Claude Fable 5.1, Mythos 5.1 &amp; Gemini 3.8 Flash Released: The New Frontier of SEO, GEO, and AEO</a></h2>
+        <p class="featured-news-desc">Anthropic and Google unveil major model updates with profound implications for traditional Search (SEO), Generative Engines (GEO), and Answer Engines (AEO). Explore technical specs, benchmarks, and tactical optimization playbooks.</p>
         <div class="featured-meta">
           <span>✍️ By <a href="../author/zach-bailey/">Zach Bailey</a></span>
           <span>&middot;</span>
-          <span>📅 Aug 26, 2026</span>
+          <span>📅 Sep 2, 2026</span>
           <span>&middot;</span>
-          <span>⏱️ 8 Min Read</span>
+          <span>⏱️ 10 Min Read</span>
         </div>
-        <a href="./grokbot-release-features/" class="nav-cta">Read Full Article &#x2192;</a>
+        <a href="./claude-fable-mythos-gemini-flash-seo-geo-aeo/" class="nav-cta">Read Full Article &#x2192;</a>
       </div>
-      <a href="./grokbot-release-features/" class="featured-news-image" style="display:block; border-radius:16px; overflow:hidden; border:1px solid var(--border);">
-        <img src="../outclaw-icons/grokbot-banner.png" alt="xAI GrokBot Release &amp; Features" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s ease;">
+      <a href="./claude-fable-mythos-gemini-flash-seo-geo-aeo/" class="featured-news-image" style="display:block; border-radius:16px; overflow:hidden; border:1px solid var(--border);">
+        <img src="../outclaw-icons/claude-gemini-seo-banner.jpg" alt="Claude Fable 5.1, Mythos 5.1 &amp; Gemini 3.8 Flash Released" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s ease;">
       </a>
     </div>
 
@@ -784,6 +806,9 @@
       <!-- Article Card 1: SEO / GEO / AEO Releases -->
       <article class="news-card">
         <div>
+          <a href="./claude-fable-mythos-gemini-flash-seo-geo-aeo/" class="news-card-img" style="display:block;">
+            <img src="../outclaw-icons/claude-gemini-seo-banner.jpg" alt="Claude Fable 5.1, Mythos 5.1 &amp; Gemini 3.8 Flash">
+          </a>
           <div class="news-card-tag">Model Releases &middot; SEO / GEO / AEO</div>
           <h4><a href="./claude-fable-mythos-gemini-flash-seo-geo-aeo/" style="color:inherit;text-decoration:none;">Claude Fable 5.1, Mythos 5.1 &amp; Gemini 3.8 Flash: SEO, GEO, and AEO Teardown</a></h4>
           <p>Anthropic and Google release Claude Fable 5.1, Mythos 5.1, and Gemini 3.8 Flash. Explore model specs, benchmarks, and tactical optimization strategies for Search, Generative Engines (GEO), and Answer Engines (AEO).</p>
@@ -794,10 +819,13 @@
         </div>
       </article>
 
-      <!-- Article Card 2 -->
+      <!-- Article Card 2: GrokBot Release -->
       <article class="news-card">
         <div>
-          <div class="news-card-tag">Model Release &middot; Featured</div>
+          <a href="./grokbot-release-features/" class="news-card-img" style="display:block;">
+            <img src="../outclaw-icons/grokbot-banner.png" alt="xAI GrokBot Release &amp; Features">
+          </a>
+          <div class="news-card-tag">Model Release &middot; Agentic Workflows</div>
           <h4><a href="./grokbot-release-features/" style="color:inherit;text-decoration:none;">xAI GrokBot Release: Features &amp; Setup</a></h4>
           <p>Complete breakdown of xAI's new GrokBot release. Explore key features, Grok 3 engine, agentic tool-use, real-time search, benchmark comparisons, and CLI setup.</p>
         </div>
