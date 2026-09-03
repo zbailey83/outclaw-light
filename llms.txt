@@ -13,7 +13,7 @@
 - [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
 
 ## Featured News & Model Releases
-- [Claude Fable 5.1, Mythos 5.1 & Gemini 3.8 Flash Released: SEO, GEO & AEO Teardown](https://outclaw.xyz/news/claude-fable-mythos-gemini-flash-seo-geo-aeo/) — Model specs, search engine grounding, and tactical optimization strategies for Search (SEO), Generative Engines (GEO), and Answer Engines (AEO). By Zach Bailey.
+- [Claude Fable 5.1, Mythos 5.1 & Gemini 3.8 Flash Released: Specs & Benchmarks](https://outclaw.xyz/news/claude-fable-mythos-gemini-flash-seo-geo-aeo/) — Model architecture, context window expansions, benchmark comparisons, coding evaluations, and API deployment guides. By Zach Bailey.
 - [xAI GrokBot Released: Next-Gen Autonomous AI Agent Features & Setup](https://outclaw.xyz/news/grokbot-release-features/) — Grok 3 engine, real-time X & web retrieval, vision-code synthesis, and MCP integration guide. By Zach Bailey.
 
 ## Author & Projects
