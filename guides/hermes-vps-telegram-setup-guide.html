@@ -401,7 +401,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › Hermes Setup (VPS + Telegram)</div>
-<div class="eyebrow">Self-Hosted AI · VPS Setup</div>
 <h1>The complete <em>Hermes Agent</em> setup guide — VPS + Telegram</h1>
 <p class="page-hero-sub">Provision a cheap Ubuntu box, install Hermes Agent, wire it into a Telegram bot, and put a restart policy in front of the gateway so it survives reboots — not just your next coffee run.</p>
 <div class="meta-row">
@@ -428,7 +427,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 <div class="page-body">
 <p class="lede">Hermes Agent is Nous Research's open-source, self-improving AI agent — and on paper it sounds like something that should just run itself. In practice, it only behaves like an agent if it's running somewhere that never sleeps, never closes its lid, and never drops wifi when you walk into the next room. That somewhere is a $5/month VPS, not the laptop you're reading this on.</p>
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>Hermes Agent needs an always-on host to actually act like an agent</strong> — a laptop isn't one. Provision a small Ubuntu VPS, run Hermes's one-line installer, create a bot through Telegram's @BotFather, wire the token into <code>hermes gateway setup</code>, then wrap the gateway in a systemd service or Docker restart policy so a reboot doesn't quietly kill it. Budget 30 minutes and about $5/month. If you already pay for ChatGPT, you can skip API billing entirely via OAuth.</p>
 </div>
 <div class="toc-wrap">
@@ -445,7 +443,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 </div>
 <!-- SECTION 01 -->
 <div class="section" id="why-vps">
-<div class="section-label">Section 01</div>
 <h2 class="section-heading">Why your laptop <em>isn't</em> a server</h2>
 <div class="section-divider"></div>
 <p class="section-intro">Every Hermes Agent tutorial starts the same way — install it, get it talking, feel like a wizard. The part that goes unsaid is what happens the moment you close the lid to grab coffee. Here's the failure mode nobody mentions upfront, and why a VPS sidesteps all three versions of it.</p>
@@ -469,7 +466,6 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-si
 </div>
 <!-- SECTION 02 -->
 <div class="section" id="provisioning">
-<div class="section-label">Section 02</div>
 <h2 class="section-heading">Picking and <em>provisioning</em> a VPS</h2>
 <div class="section-divider"></div>
 <p class="section-intro">Hermes itself is light. What it actually needs depends almost entirely on whether the model runs on your provider's API or on the box itself.</p>
@@ -497,7 +493,6 @@ apt install -y git</pre>
 </div>
 <!-- SECTION 03 -->
 <div class="section" id="installing">
-<div class="section-label">Section 03</div>
 <h2 class="section-heading">Installing Hermes <em>on the box</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">One command bootstraps the entire runtime — no manually wrangling Python versions or Node installs first.</p>
@@ -523,7 +518,6 @@ hermes chat -q "Hello! What tools do you have available?"</pre>
 </div>
 <!-- SECTION 04 -->
 <div class="section" id="telegram-bot">
-<div class="section-label">Section 04</div>
 <h2 class="section-heading">Creating the <em>Telegram</em> bot</h2>
 <div class="section-divider"></div>
 <p class="section-intro">Telegram bots authenticate with a token from BotFather, Telegram's own bot-management bot. Five messages and you're done.</p>
@@ -543,7 +537,6 @@ hermes chat -q "Hello! What tools do you have available?"</pre>
 </div>
 <!-- SECTION 05 -->
 <div class="section" id="gateway">
-<div class="section-label">Section 05</div>
 <h2 class="section-heading">Wiring the <em>gateway</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">The gateway is the service layer that points Hermes at Telegram. Configuration takes about thirty seconds once you have the token and user ID in hand.</p>
@@ -566,7 +559,6 @@ TELEGRAM_ALLOWED_USER_IDS=123456789</pre>
 </div>
 <!-- SECTION 06 -->
 <div class="section" id="always-on">
-<div class="section-label">Section 06</div>
 <h2 class="section-heading">Keeping it alive <em>24/7</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro"><code>hermes gateway start</code> works perfectly — right up until you close the SSH session running it. The moment that terminal disconnects, the process dies with it, and the bot goes quiet the exact same way it would on a laptop. A VPS only solves the always-on problem if something restarts the gateway for you.</p>
@@ -623,7 +615,6 @@ sudo systemctl status hermes-gateway</pre>
 </div>
 <!-- SECTION 07 -->
 <div class="section" id="locking-down">
-<div class="section-label">Section 07</div>
 <h2 class="section-heading">Locking it <em>down</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">Five things worth knowing before you forget the bot is running and stop thinking about it.</p>
@@ -652,7 +643,6 @@ sudo systemctl status hermes-gateway</pre>
 </div>
 <!-- QUICK REFERENCE -->
 <div class="section">
-<div class="section-label">Quick Reference</div>
 <h2 class="section-heading">The <em>cheat sheet</em></h2>
 <div class="section-divider"></div>
 <div class="table-wrap">
@@ -674,7 +664,6 @@ sudo systemctl status hermes-gateway</pre>
 </div>
 <!-- TROUBLESHOOTING -->
 <div class="section">
-<div class="section-label">Troubleshooting</div>
 <h2 class="section-heading">When it <em>doesn't</em> work</h2>
 <div class="section-divider"></div>
 <div class="table-wrap">
@@ -692,7 +681,6 @@ sudo systemctl status hermes-gateway</pre>
 </div>
 <!-- FAQ -->
 <div class="section">
-<div class="section-label">FAQ</div>
 <h2 class="section-heading">Common <em>questions</em></h2>
 <div class="section-divider"></div>
 <div class="faq-grid">
@@ -716,7 +704,6 @@ sudo systemctl status hermes-gateway</pre>
 </div>
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

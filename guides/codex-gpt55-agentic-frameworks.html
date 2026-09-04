@@ -384,7 +384,6 @@
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › Codex + GPT-5.5 Agentic Workflows</div>
-<div class="eyebrow">Agent Workflows · Updated June 2026</div>
 <h1>Elite Agentic Workflows: Prompting <em>Codex</em> + <em>GPT-5.5</em></h1>
 <p class="page-hero-sub">Codex running against GPT-5.5 is the most robust terminal-agent pairing available for raw reasoning—but raw reasoning isn't enough when you're giving an agent full write access to your directory. Here is how to configure Codex, optimize GPT-5.5's reasoning tokens for recursive loops, and establish elite guardrails.</p>
 <div class="meta-row"><span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
@@ -404,12 +403,10 @@
 <main class="page-body wide">
 <p class="lede">When you give a terminal agent full write access to your local files, you are handing it the keys to the kingdom. If you run it on top of a standard LLM, it will quickly get stuck in loops, generate syntactically broken code, or break your directory structure. Wiring Codex to GPT-5.5 unlocks elite reasoning, but only if you explicitly control the runtime, the token allocation, and the tool environment.</p>
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>GPT-5.5's reasoning architecture makes Codex a lethal coding agent</strong>, but it requires runtime configuration to avoid running away with API bills. Authenticate via <code>codex login</code> using OpenAI OAuth, then restrict context using a local <code>.codexignore</code>. Constrain GPT-5.5 reasoning tokens to 2,048 per call with <code>reasoning_effort: "medium"</code> to keep latency manageable, and set up a recursive self-repair loop where Codex is forced to verify its output against your testing framework before declaring a task done. Finally, restrict Codex's terminal command executions via <code>CODEX_RESTRICT_SHELL=true</code> to keep your operating system safe.</p>
 </div>
 <!-- SECTION: runtime-contract -->
 <section data-track="ab" id="runtime-contract">
-<div class="sec-eyebrow">Both Tracks</div>
 <h2>The Codex + GPT-5.5 runtime contract</h2>
 <p>Codex works by scanning your directory structure, translating your prompts into a list of filesystem operations, and calling the LLM to write the files. GPT-5.5 introduces native thinking trees—meaning the model thinks before it outputs code. However, without configuring Codex's workspace boundaries, the model will waste reasoning tokens reading massive log directories, <code>node_modules</code>, and build folders.</p>
 <p>Before launching Codex with GPT-5.5, initialize your project configuration and authenticate using OAuth to link your subscription directly to the CLI.</p>
@@ -437,7 +434,6 @@ tmp/</code></pre>
 </section>
 <!-- SECTION: token-math -->
 <section data-track="a" id="token-math">
-<div class="sec-eyebrow">Codex Config</div>
 <h2>Reasoning token math: Balancing cost and depth</h2>
 <p>GPT-5.5 is a reasoning-centric model. Unlike previous models where output tokens were generated immediately, GPT-5.5 uses internal "thinking" blocks before writing any code. These thinking blocks count toward your total output token billing and add latency. For elite agentic loops, you must balance reasoning depth against API performance.</p>
 <div class="table-wrap">
@@ -467,7 +463,6 @@ tmp/</code></pre>
 </section>
 <!-- SECTION: self-repair -->
 <section data-track="b" id="self-repair">
-<div class="sec-eyebrow">Agentic Loops</div>
 <h2>Designing autonomous self-repair loops</h2>
 <p>The hallmark of an elite agentic framework is self-repair. Traditional agents write code and immediately ask the user, "Does this look good?" An elite setup demands that the agent runs your test suite, parses compile/test logs, and corrects its own errors before prompting you.</p>
 <p>You can enforce this behavior by injecting verification steps into the prompting template Codex reads. Configure the verification script in your configuration so Codex knows exactly how to validate your project's state:</p>
@@ -490,7 +485,6 @@ Follow this lifecycle:
 </section>
 <!-- SECTION: mcp-servers -->
 <section data-track="b" id="mcp-servers">
-<div class="sec-eyebrow">Agentic Loops</div>
 <h2>Elite tooling: MCP server integrations</h2>
 <p>Model Context Protocol (MCP) servers act as a gateway that extends Codex's capabilities beyond simple local file edits. By hooking up MCP servers, Codex can query database schemas, perform Google searches for updated documentation, or index your code repository semantically.</p>
 <div class="grid-2">
@@ -526,7 +520,6 @@ Follow this lifecycle:
 </section>
 <!-- SECTION: guardrails -->
 <section data-track="a" id="guardrails">
-<div class="sec-eyebrow">Codex Config</div>
 <h2>Guardrails &amp; blast radius mitigation</h2>
 <p>Codex executes terminal commands to run test frameworks and process assets. However, if GPT-5.5 writes a command that modifies root files or executes an infinite shell loop, it can destroy your operating system. Elite setups restrict Codex's execution boundaries using environmental limits.</p>
 <p>Enforce shell execution guardrails by setting environment variables in your terminal profile. This forces Codex to ask for human approval before executing any command that isn't on a strict allowlist:</p>
@@ -543,7 +536,6 @@ export CODEX_ALLOWED_COMMANDS="npm test,pytest,git status,git diff"</code></pre>
 </section>
 <!-- SECTION: start-here -->
 <section data-track="ab" id="start-here">
-<div class="sec-eyebrow">Both Tracks</div>
 <h2>Start here</h2>
 <div class="cta-box">
 <p>To implement this setup today: run <code>codex init</code>, write your <code>.codexignore</code> file, configure <code>reasoning_effort: "medium"</code> in your settings, and export <code>CODEX_RESTRICT_SHELL=true</code> in your shell profile. This configures the ultimate balance of reasoning depth and system security.</p>
@@ -562,7 +554,6 @@ export CODEX_ALLOWED_COMMANDS="npm test,pytest,git status,git diff"</code></pre>
 </section>
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

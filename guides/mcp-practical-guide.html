@@ -219,7 +219,6 @@
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › MCP Playbooks</div>
-<div class="eyebrow">Practical Setup · No Theory</div>
 <h1>MCP Implementation Playbooks: <em>The Setup Guide.</em></h1>
 <p class="page-hero-sub">Most content explains what the protocol is. Almost none tells you which of the four real implementation paths fits your situation, or what breaks when you try.</p>
 <div class="meta-row">
@@ -234,7 +233,6 @@
 <p class="lede">Model Context Protocol (MCP) standardizes how AI models interact with databases, local code environments, and third-party APIs. But setting up MCP isn't one task. It's four distinct tasks depending on your project scope, team, and security requirements.</p>
 
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>Want to connect Slack, Drive, or a DB locally in Claude Desktop or Claude Code?</strong> Go to Playbook 1 or 2. <strong>Need a shared server for your team without sharing API keys?</strong> Use Playbook 3 (OAuth routing). <strong>Have a custom internal API to expose?</strong> Run Playbook 4. Always read "The Failure Modes Nobody Mentions" before editing config files.</p>
 </div>
 
@@ -251,7 +249,6 @@
 
 <!-- Section 1 -->
 <div class="section" id="playbook-1">
-<div class="section-label">01 / Desktop Setup</div>
 <h2 class="section-heading">Playbook 1: Local MCP on <em>Claude Desktop</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">This is the right starting point if you've never run an MCP server and want to confirm the whole thing works before writing code.</p>
@@ -303,7 +300,6 @@
 
 <!-- Section 2 -->
 <div class="section" id="playbook-2">
-<div class="section-label">02 / CLI Agents</div>
 <h2 class="section-heading">Playbook 2: MCP for <em>Coding Agents</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">If your actual goal is to let your CLI agent query databases or index local docs while it works, you want MCP wired into your terminal environment.</p>
@@ -317,7 +313,6 @@
 
 <!-- Section 3 -->
 <div class="section" id="playbook-3">
-<div class="section-label">03 / Team Integration</div>
 <h2 class="section-heading">Playbook 3: Remote, <em>Hosted MCP Servers</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">Use this playbook when you want your entire team using a shared SaaS server (Slack, Notion, Jira) without each developer managing individual API keys.</p>
@@ -331,7 +326,6 @@
 
 <!-- Section 4 -->
 <div class="section" id="playbook-4">
-<div class="section-label">04 / Development</div>
 <h2 class="section-heading">Playbook 4: Building <em>Your Own Server</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">Build a custom server only when you've verified that nothing in the community registry (which has passed 200+ implementations) covers your proprietary data source.</p>
@@ -372,7 +366,6 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 
 <!-- Section 5 -->
 <div class="section" id="failure-modes">
-<div class="section-label">05 / Security &amp; QA</div>
 <h2 class="section-heading">Failure Modes &amp; <em>Security Checklist</em></h2>
 <div class="section-divider"></div>
 
@@ -399,7 +392,6 @@ server.setRequestHandler(ListToolsRequestSchema, async () => ({
 
 <!-- Related Resources -->
 <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-  <div class="section-label">Expand Your Knowledge</div>
   <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
   <div class="section-divider" style="margin-bottom: 28px;"></div>
   

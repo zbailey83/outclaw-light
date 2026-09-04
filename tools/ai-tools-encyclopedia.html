@@ -746,7 +746,6 @@
         <nav class="breadcrumb" aria-label="breadcrumb">
           <a href="../">OutClaw AI</a> / <a href="./">Tools</a> / AI Tools Encyclopedia
         </nav>
-        <span class="eyebrow">AI Tools Encyclopedia</span>
         <h1>Interactive <em>AI Tools</em> Encyclopedia</h1>
         <p class="page-hero-sub">An interactive index of 42 AI coding agents, foundation models, assistants, creative generators, and the infrastructure running underneath them. Search, filter, and discover instantly. Click/tap a card to see details, click tooltip to visit.</p>
       </div>
@@ -913,10 +912,7 @@
       const header = document.createElement('div');
       header.className = 'section-header';
       header.innerHTML = `
-        <span class="section-eyebrow">
-          <span class="section-dot" style="background:${cat.color}"></span>
-          Category
-        </span>
+        <span class="section-dot" style="background:${cat.color}"></span>
         <span class="section-name" style="color:${cat.color}">${cat.name}</span>
         <span class="section-count" id="count-${ci}">${cat.items.length} tools</span>
       `;

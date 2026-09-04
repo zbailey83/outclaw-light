@@ -718,7 +718,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- TOC -->
 <div class="toc-section">
 <div class="article-wrap">
-<div class="eyebrow">On This Page</div>
 <h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">Jump to any section</h2>
 <div class="toc-grid">
 <a class="toc-card" href="#sonnet-primer"><div class="toc-num">01</div><div class="toc-label">How Sonnet 4.6 Thinks — The Mental Model</div></a>
@@ -736,7 +735,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="article-wrap">
 <!-- ═══════════════════════════════ SECTION 01 ═══════════════════════════════ -->
 <section class="guide-section" id="sonnet-primer">
-<div class="eyebrow">Section 01</div>
 <h2 class="section-heading">How Sonnet 4.6 <em>Thinks</em></h2>
 <p class="guide-body">
     Before touching a template, understand <em>how</em> Sonnet processes input. Most prompting failures aren't about missing magic words — they're about mismatched mental models. Here's what's actually happening.
@@ -774,7 +772,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══════════════════════════════ SECTION 02 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="system-prompts">
-<div class="eyebrow">Section 02</div>
 <h2 class="section-heading"><em>System Prompts</em> — Architecture &amp; Templates</h2>
 <p class="guide-body">
     The system prompt is the most leveraged piece of text in your Claude stack. It runs on every message in a session, so every word compounds. A well-built system prompt does five things: sets the role, defines the task scope, establishes constraints, specifies the output format, and handles edge cases. Most prompts do one or two of these; great ones do all five.
@@ -930,7 +927,6 @@ Direct and specific. Not harsh. Frame issues as improvements, not failures.</div
 <!-- ═══════════════════════════════ SECTION 03 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="xml-structuring">
-<div class="eyebrow eyebrow-flamingo">Section 03</div>
 <h2 class="section-heading">XML Structuring — <span class="fl">The #1 Unlock</span></h2>
 <p class="guide-body">
     XML tags are the single highest-leverage technique for Claude Sonnet 4.6. Unlike natural language instructions that blend together, XML tags create unambiguous structural boundaries that Sonnet parses reliably. This matters especially in complex prompts where you're providing context, instructions, and data simultaneously.
@@ -1074,7 +1070,6 @@ Write the email. Subject line first, then body. No commentary.</div>
 <!-- ═══════════════════════════════ SECTION 04 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="chain-of-thought">
-<div class="eyebrow eyebrow-violet">Section 04</div>
 <h2 class="section-heading">Chain-of-Thought &amp; <em>Reasoning Patterns</em></h2>
 <p class="guide-body">
     Chain-of-thought (CoT) prompting gets Claude to reason step-by-step before delivering a final answer. The research is consistent: for any task involving multiple steps, judgment calls, or competing considerations, CoT prompts outperform direct-answer prompts. The mechanism is simple — you give Claude space to think before it commits.
@@ -1202,7 +1197,6 @@ Flag any critical risks that the scoring doesn't capture.</div>
 <!-- ═══════════════════════════════ SECTION 05 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="few-shot">
-<div class="eyebrow">Section 05</div>
 <h2 class="section-heading">Few-Shot Prompting &amp; <em>Example Patterns</em></h2>
 <p class="guide-body">
     Few-shot prompting — providing 2–5 examples of input/output pairs before your actual request — is the fastest way to teach Sonnet a custom style, format, or judgment pattern. The rule: <strong>examples beat instructions for style; instructions beat examples for logic.</strong> Use few-shot when you're trying to replicate a format, a tone, or a nuanced classification. Use CoT when you want reasoning.
@@ -1299,7 +1293,6 @@ Now write: <span class="placeholder">[Your actual request]</span></div>
 <!-- ═══════════════════════════════ SECTION 06 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="output-control">
-<div class="eyebrow">Section 06</div>
 <h2 class="section-heading">Output Format &amp; <em>Length Control</em></h2>
 <p class="guide-body">
     Sonnet defaults to comprehensive, well-organised responses. That's often too much. Precise output control — format, length, structure — is the difference between a response you can use immediately and one you have to edit. These templates give you the exact phrasing that works.
@@ -1427,7 +1420,6 @@ Output format:
 <!-- ═══════════════════════════════ SECTION 07 ═══════════════════════════════ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="meta-prompting">
-<div class="eyebrow eyebrow-flamingo">Section 07</div>
 <h2 class="section-heading">Meta-Prompting &amp; <em>Advanced Patterns</em></h2>
 <p class="guide-body">
     Meta-prompting means using Claude to improve your prompts, critique your own outputs, or build prompt infrastructure. These are the patterns used by teams who run Claude in production at scale — where consistency, self-correction, and prompt iteration speed matter.
@@ -1722,7 +1714,6 @@ Output only the final edited version.</div>
 <!-- QUICK REF -->
 <div class="section-divider"></div>
 <section class="guide-section" style="padding-bottom:80px;">
-<div class="eyebrow">Quick Reference</div>
 <h2 class="section-heading">The <em>Cheat Sheet</em></h2>
 <p class="guide-body">The highest-impact rules from this entire playbook, distilled.</p>
 <table class="pattern-table">
@@ -1750,7 +1741,6 @@ Output only the final edited version.</div>
 <!-- BOTTOM CTA -->
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

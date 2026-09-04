@@ -710,7 +710,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- TOC -->
 <div class="toc-section">
 <div class="article-wrap">
-<div class="eyebrow">On This Page</div>
 <h2 style="font-family:var(--font-display);font-size:26px;font-weight:400;color:var(--text);margin-top:10px;">What's in this guide</h2>
 <div class="toc-grid">
 <a class="toc-card" href="#why-context-matters"><div class="toc-num">01</div><div class="toc-label">Why Context Size Actually Matters</div></a>
@@ -729,7 +728,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div class="article-wrap">
 <!-- ═══ SECTION 01 ═══ -->
 <section class="guide-section" id="why-context-matters">
-<div class="eyebrow">Section 01</div>
 <h2 class="section-heading">Why Context Size <em>Actually Matters</em></h2>
 <p class="guide-body">
     Before GPT-5.4, working with large documents meant one of three workarounds: chunking (splitting the document and summarising each piece), retrieval-augmented generation (embedding + semantic search), or truncation and hoping the critical context made it into the window. Each workaround introduces error. Chunking loses cross-chunk references. RAG misses context that doesn't match the retrieval query. Truncation is just truncation.
@@ -762,7 +760,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══ SECTION 02 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="failure-modes">
-<div class="eyebrow eyebrow-rose">Section 02</div>
 <h2 class="section-heading">The Failure Modes <span class="rs">Nobody Talks About</span></h2>
 <p class="guide-body">
     Every GPT-5.4 launch post covered what the 1M context window enables. Almost none covered where it breaks. Here are the three failure modes you will hit in production if you don't account for them upfront.
@@ -816,7 +813,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══ SECTION 03 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="use-cases-work">
-<div class="eyebrow eyebrow-leaf">Section 03</div>
 <h2 class="section-heading">Use Cases That <em>Genuinely Work</em></h2>
 <p class="guide-body">
     The 1M context window earns its keep on tasks where the answer requires holistic awareness of the entire document, where chunking produces materially worse results, and where context fill stays below the 500K degradation threshold.
@@ -901,7 +897,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══ SECTION 04 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="use-cases-fail">
-<div class="eyebrow eyebrow-rose">Section 04</div>
 <h2 class="section-heading">Use Cases That <span class="rs">Fall Apart</span></h2>
 <p class="guide-body">
     These are the use cases people try first because the context window seems tailor-made for them. In practice they don't work — not because the context is too small, but because of how attention degrades or how the task structure fights against a single large-context call.
@@ -980,7 +975,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══ SECTION 05 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="cost-reality">
-<div class="eyebrow eyebrow-amber">Section 05</div>
 <h2 class="section-heading">The Cost <em>Reality Check</em></h2>
 <p class="guide-body">
     "1M context window" gets treated as a feature. It's also a billing event. At current OpenAI pricing for GPT-5.4, a single 1M-token input call costs significantly more than the casual API call most people mentally budget. If you're running this at scale — analysing 50 codebases a day, processing a legal discovery set daily — the economics shift fast.
@@ -1004,7 +998,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- ═══ SECTION 06 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="prompting-patterns">
-<div class="eyebrow">Section 06</div>
 <h2 class="section-heading">Prompting Patterns for <em>Coherent Output at Scale</em></h2>
 <p class="guide-body">
     For the use cases that do justify 1M context, these four patterns measurably reduce lost-in-the-middle failures and coherence drift. Pattern 1 alone eliminates most attention failures on well-structured tasks — start there before adding the others.
@@ -1096,7 +1089,6 @@ from the early documents, the middle-section content takes precedence.
 <!-- ═══ SECTION 07 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="vs-claude">
-<div class="eyebrow eyebrow-flamingo">Section 07</div>
 <h2 class="section-heading">GPT-5.4 vs Claude <em>for Long Context Work</em></h2>
 <p class="guide-body">
     Both GPT-5.4 and Gemini 2.5 Pro offer 1M-token context. Claude Opus 4.6 caps at 200K. For teams already running Claude workflows, the honest question is: does the 1M context window justify switching models for long-context tasks, or does 200K cover the vast majority of real-world use cases?
@@ -1120,7 +1112,6 @@ from the early documents, the middle-section content takes precedence.
 <!-- ═══ SECTION 08 ═══ -->
 <div class="section-divider"></div>
 <section class="guide-section" id="verdict">
-<div class="eyebrow">Section 08</div>
 <h2 class="section-heading">The Verdict — When to <em>Reach for 1M</em></h2>
 <p class="guide-body">
     Large context windows are real capability. GPT-5.4's 1M context genuinely unlocks a class of task that was architecturally impossible to do well before. The failure is treating it as a general-purpose upgrade — dumping everything in context because you can, not because the task demands it. Three questions before every large-context call:
@@ -1152,7 +1143,6 @@ from the early documents, the middle-section content takes precedence.
 <!-- BOTTOM CTA -->
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

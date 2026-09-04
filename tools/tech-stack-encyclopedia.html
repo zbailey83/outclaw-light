@@ -745,7 +745,6 @@
         <nav class="breadcrumb" aria-label="breadcrumb">
           <a href="../">OutClaw AI</a> / <a href="./">Tools</a> / Tech-Stack Encyclopedia
         </nav>
-        <span class="eyebrow">Tech-Stack Encyclopedia</span>
         <h1>Interactive <em>Tech-Stack</em> Encyclopedia</h1>
         <p class="page-hero-sub">An interactive index of 107 popular runtime languages, backend systems, database nodes, AI stacks, and devops utilities. Search, filter, and discover technologies instantly. Hover for detail, click to visit.</p>
       </div>
@@ -944,10 +943,7 @@
       const header = document.createElement('div');
       header.className = 'section-header';
       header.innerHTML = `
-        <span class="section-eyebrow">
-          <span class="section-dot" style="background:${cat.color}"></span>
-          Category
-        </span>
+        <span class="section-dot" style="background:${cat.color}"></span>
         <span class="section-name" style="color:${cat.color}">${cat.name}</span>
         <span class="section-count" id="count-${ci}">${cat.items.length} tools</span>
       `;

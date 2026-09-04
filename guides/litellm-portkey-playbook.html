@@ -382,7 +382,6 @@
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › LiteLLM &amp; Portkey Playbook</div>
-<div class="eyebrow">Gateway Orchestration · Cost Management</div>
 <h1>The <em>LiteLLM + Portkey</em> Playbook: Failovers, Routing, &amp; Semantic Caching</h1>
 <p class="page-hero-sub">Standardize API models under a single interface, configure automatic fallbacks, and save up to 80%+ on API costs using vector similarity-based prompt caching.</p>
 <div class="meta-row">
@@ -409,7 +408,6 @@
 <div class="page-body">
 <p class="lede">When you run AI agentic workflows in production, calling provider endpoints directly is a design anti-pattern. If Anthropic experiences rate limits, or OpenAI encounters latency spikes, your agent loops crash. By wrapping your model calls in a combined <strong>LiteLLM Proxy</strong> and <strong>Portkey Gateway</strong>, you get bulletproof failovers, unified interfaces, and massive cost savings through semantic caching.</p>
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>A robust production AI gateway uses LiteLLM to unify upstream providers and Portkey to control cache policy.</strong> Group your API endpoints into virtual models with failover groups in a LiteLLM <code>config.yaml</code>. Then, route outbound requests through Portkey to check a semantic (vector similarity-based) cache at 0.95+ cosine threshold. Identical or closely rephrased queries return instantly, saving up to 80%+ on your total token bills.</p>
 </div>
 <div class="toc-wrap">
@@ -425,7 +423,6 @@
 </div>
 <!-- SECTION 01 -->
 <div class="section" id="why-gateway">
-<div class="section-label">Section 01</div>
 <h2 class="section-heading">Why direct LLM API calls are a <em>production risk</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">Hardcoding LLM calls directly to provider APIs (like calling Anthropic's SDK directly) creates single points of failure. As agentic applications scale, three main bottlenecks emerge that require a dedicated proxy layer:</p>
@@ -449,7 +446,6 @@
 </div>
 <!-- SECTION 02 -->
 <div class="section" id="architecture">
-<div class="section-label">Section 02</div>
 <h2 class="section-heading">The Gateway Stack <em>Architecture</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">The production gateway splits responsibilities between two layers: <strong>LiteLLM Proxy</strong> (acting as the provider aggregator) and <strong>Portkey AI</strong> (acting as the control plane). Here is the flow of an inbound prompt request:</p>
@@ -465,7 +461,6 @@
 </div>
 <!-- SECTION 03 -->
 <div class="section" id="litellm-setup">
-<div class="section-label">Section 03</div>
 <h2 class="section-heading">Configuring LiteLLM <em>Failovers</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">LiteLLM takes model configurations and maps them to a single virtual group. Here is how to configure a multi-provider model group inside <code>config.yaml</code>.</p>
@@ -512,7 +507,6 @@ router_settings:
 </div>
 <!-- SECTION 04 -->
 <div class="section" id="portkey-setup">
-<div class="section-label">Section 04</div>
 <h2 class="section-heading">Configuring <em>Semantic Caching</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">Portkey sits in front of LiteLLM, intercepting queries and querying the local semantic database using embeddings. Standard caches require exact string matches; semantic caching relies on similarity.</p>
@@ -552,7 +546,6 @@ router_settings:
 </div>
 <!-- SECTION 05 -->
 <div class="section" id="integration">
-<div class="section-label">Section 05</div>
 <h2 class="section-heading">Unified <em>Python Client Code</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">With LiteLLM running on `localhost:4000` and Portkey routing the calls, we initialize the unified SDK and run semantic cache hit assertions.</p>
@@ -599,7 +592,6 @@ query_gateway("Can you write a Python quicksort script?")</pre>
 </div>
 <!-- SECTION 06 -->
 <div class="section" id="observability">
-<div class="section-label">Section 06</div>
 <h2 class="section-heading">Monitoring &amp; <em>Benchmarking</em></h2>
 <div class="section-divider"></div>
 <p class="section-intro">Observability is built-in. By monitoring traces, you can identify failing models, token costs, and exact cache hit rates across your architecture.</p>
@@ -617,7 +609,6 @@ query_gateway("Can you write a Python quicksort script?")</pre>
 </div>
 <!-- QUICK REFERENCE -->
 <div class="section">
-<div class="section-label">Quick Reference</div>
 <h2 class="section-heading">The <em>Cheat Sheet</em></h2>
 <div class="section-divider"></div>
 <div class="table-wrap">
@@ -636,7 +627,6 @@ query_gateway("Can you write a Python quicksort script?")</pre>
 </div>
 <!-- TROUBLESHOOTING -->
 <div class="section">
-<div class="section-label">Troubleshooting</div>
 <h2 class="section-heading">When it <em>doesn't</em> work</h2>
 <div class="section-divider"></div>
 <div class="table-wrap">
@@ -652,7 +642,6 @@ query_gateway("Can you write a Python quicksort script?")</pre>
 </div>
 <!-- FAQ -->
 <div class="section">
-<div class="section-label">FAQ</div>
 <h2 class="section-heading">Common <em>questions</em></h2>
 <div class="section-divider"></div>
 <div class="faq-grid">
@@ -676,7 +665,6 @@ query_gateway("Can you write a Python quicksort script?")</pre>
 </div>
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

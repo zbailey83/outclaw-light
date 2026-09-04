@@ -855,7 +855,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div style="background: var(--white); padding-bottom: 60px;">
 <div class="article-wrap">
 <div style="padding-top: 48px; margin-bottom: 12px;">
-<div class="eyebrow">On This Page</div>
 <h2 style="font-family: var(--font-display); font-size: 26px; font-weight: 400; color: var(--text); margin-top: 10px; margin-bottom: 20px;">Jump to any section</h2>
 </div>
 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
@@ -900,7 +899,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <div style="background: var(--bg);">
 <div class="article-wrap">
 <section class="guide-section" id="what-is-openclaw">
-<div class="eyebrow">Section 01</div>
 <h2 class="section-heading">What Is OpenClaw &amp; <em>Why Self-Host?</em></h2>
 <p class="guide-body">
 <strong>OpenClaw</strong> is the Claude-focused content and automation layer inside the Outclaw ecosystem. Think of it as the engine that runs Claude-powered workflows, newsletter automations, API integrations, and content pipelines — all built around the Anthropic Claude API. While you can use OpenClaw through the managed Outclaw platform, self-hosting gives you three meaningful advantages.
@@ -945,7 +943,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- SECTION 2: Prerequisites -->
 <section class="guide-section" id="prerequisites">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 02</div>
 <h2 class="section-heading">Prerequisites &amp; <em>What You'll Need</em></h2>
 <p class="guide-body">
             Before touching a terminal, collect these. Missing any of them mid-setup is the #1 reason people stall.
@@ -999,7 +996,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- SECTION 3: VPS Setup -->
 <section class="guide-section" id="vps-setup">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 03</div>
 <h2 class="section-heading">VPS Setup <em>(Ubuntu 24.04)</em></h2>
 <p class="guide-body">
             This section assumes you've just spun up a fresh Ubuntu 24.04 LTS droplet, Linode, or Hetzner VPS. We'll go from a bare root shell to a running OpenClaw instance with Nginx reverse proxy and SSL. Each command block is copy-paste ready.
@@ -1172,7 +1168,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- SECTION 4: Mac Mini -->
 <section class="guide-section" id="mac-mini-setup">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 04</div>
 <h2 class="section-heading">Mac Mini Setup <em>(macOS 15)</em></h2>
 <p class="guide-body">
             A Mac Mini (M2 or M4) running macOS 15 Sequoia is an excellent self-hosting option — always-on, silent, power-efficient, and you've likely already got one. The setup is faster than the VPS path since macOS ships with some tools pre-installed.
@@ -1286,7 +1281,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- SECTION 5: Claude API -->
 <section class="guide-section" id="claude-api">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 05</div>
 <h2 class="section-heading">Connecting the <em>Claude API</em></h2>
 <p class="guide-body">
             OpenClaw communicates with Anthropic's API using the <code class="inline">@anthropic-ai/sdk</code> package. If you followed Sections 03 or 04, the SDK is already installed as a dependency. This section explains how the connection works and how to verify it's healthy.
@@ -1353,7 +1347,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <!-- SECTION 6: MCP Workflows -->
 <section class="guide-section" id="mcp-workflows">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 06</div>
 <h2 class="section-heading">MCP Workflow <em>Integrations</em></h2>
 <p class="guide-body">
             Model Context Protocol (MCP) lets OpenClaw connect Claude directly to external services — your database, email, calendar, CRM — giving it real-time context and write access. This is where self-hosted OpenClaw earns its keep versus a managed platform.
@@ -1430,7 +1423,6 @@ module.exports = {
 <!-- SECTION 7: Process Management -->
 <section class="guide-section" id="process-management">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 07</div>
 <h2 class="section-heading">Process Management <em>&amp; Auto-Restart</em></h2>
 <p class="guide-body">
             Running OpenClaw with a raw <code class="inline">node index.js</code> means it dies the moment your SSH session closes or the process crashes. <strong>PM2</strong> keeps it alive, restarts it on crash, and boots it on server reboot. This step applies identically to VPS and Mac Mini.
@@ -1500,7 +1492,6 @@ module.exports = {
 <!-- SECTION 8: Troubleshooting -->
 <section class="guide-section" id="troubleshooting">
 <div class="section-divider"></div>
-<div class="eyebrow" style="margin-top: 64px;">Section 08</div>
 <h2 class="section-heading">Troubleshooting &amp; <em>Common Errors</em></h2>
 <p class="guide-body">
             These are the errors that trip up 80% of new installs. Before opening an issue on GitHub, check this list.
@@ -1560,7 +1551,6 @@ module.exports = {
 <!-- BOTTOM CTA -->
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

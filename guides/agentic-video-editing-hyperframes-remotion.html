@@ -439,7 +439,6 @@
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › Agentic Video Editing</div>
-<div class="eyebrow">Agent Workflows · Updated June 2026</div>
 <h1>Agentic Video Editing With <em>HyperFrames</em> and <em>Remotion</em> Skills</h1>
 <p class="page-hero-sub">Two toolkits now let a coding agent write a video the same way it writes a pull request: open a file, change a value, re-render, check the output. Here's how to install both, the actual rules each renderer enforces, and which one to reach for.</p>
 <div class="meta-row"><span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
@@ -497,12 +496,10 @@
 <main class="page-body wide">
 <p class="lede">Two toolkits now let a coding agent write a video the same way it writes a pull request: open a file, change a value, re-render, check the output. Here's how to install both, the actual rules each renderer enforces, and which one to reach for.</p>
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>HyperFrames</strong> renders plain HTML/CSS/JS through a headless browser into MP4 — Apache-2.0 licensed, free at any company size, and built so an agent can author a full composition without a human reviewing JSX. <strong>Remotion Skills</strong> teaches Claude Code, Cursor, and similar agents to write correct React video components inside a real Remotion project — more capable for complex, reusable, dev-owned video products, but Remotion itself requires a paid license once your company has three or more employees. Install HyperFrames with <code>npx skills add heygen-com/hyperframes</code>; install Remotion's skills with <code>npx create-video@latest</code>. Everything below covers the install, the pipeline, the rules, and where each one breaks.</p>
 </div>
 <!-- SECTION: what-it-means -->
 <section data-track="ab" id="what-it-means">
-<div class="sec-eyebrow">Both tools</div>
 <h2>What "agentic video editing" means in 2026 — and what it doesn't</h2>
 <p>It doesn't mean typing a sentence into Sora, Veo, or Kling and getting a clip back. Those models generate pixels from a prompt, probabilistically. You can't open a diff and ask one to nudge a headline two pixels to the left — you re-roll the whole generation and hope the new version is close enough. That's AI video <em>generation</em>. It's a different job.</p>
 <p>Agentic video <strong>editing</strong> is the inverse: the agent writes source — markup, components, timeline data — and a deterministic pipeline turns that source into frames. Render the same composition twice and you get the same bytes out, frame for frame. That determinism is the entire point. It's what lets an agent iterate on a video the way it iterates on a codebase: change a value, re-render, check the result, change another value — instead of re-rolling a generation and hoping.</p>
@@ -510,7 +507,6 @@
 </section>
 <!-- SECTION: two-tools -->
 <section data-track="ab" id="two-tools">
-<div class="sec-eyebrow">Both tools</div>
 <h2>The two tools, in one paragraph each</h2>
 <div class="grid-2">
 <div class="panel a">
@@ -526,7 +522,6 @@
 </section>
 <!-- SECTION: install-hyperframes -->
 <section data-track="a" id="install-hyperframes">
-<div class="sec-eyebrow">HyperFrames</div>
 <h2>Installing HyperFrames as an agent skill</h2>
 <p>You need Node.js 22 or later and FFmpeg on your machine. Docker is optional, for byte-identical reproducible renders in CI.</p>
 <div class="code-block">
@@ -570,7 +565,6 @@ npx hyperframes render --output output.mp4</code></pre>
 </section>
 <!-- SECTION: install-remotion -->
 <section data-track="b" id="install-remotion">
-<div class="sec-eyebrow">Remotion</div>
 <h2>Installing Remotion Skills as an agent skill</h2>
 <p>You need Node.js and a coding agent already installed — Claude Code, Codex, or OpenCode. Most coding agents require a paid subscription to their underlying model.</p>
 <h3>Starting fresh</h3>
@@ -609,7 +603,6 @@ claude   <span class="tok-cmt"># or: codex / opencode</span></code></pre>
 </section>
 <!-- SECTION: pipeline -->
 <section data-track="a" id="pipeline">
-<div class="sec-eyebrow">HyperFrames</div>
 <h2>The HyperFrames pipeline: seven steps, one artifact each</h2>
 <p>Every well-structured HyperFrames video — whether it starts from a website, a PDF, a CSV, or a blank page — flows through the same seven steps. Each step writes a named file that the next step depends on, so you and the agent always know what's done, what's next, and where the creative decisions actually live on disk.</p>
 <ol class="step-list">
@@ -625,7 +618,6 @@ claude   <span class="tok-cmt"># or: codex / opencode</span></code></pre>
 </section>
 <!-- SECTION: composition-example -->
 <section data-track="a" id="composition-example">
-<div class="sec-eyebrow">HyperFrames</div>
 <h2>A composition, built to the actual rules</h2>
 <p>Whether your agent writes this or you do, every working HyperFrames composition follows three non-negotiable rules. Here's a minimal one that obeys all three:</p>
 <div class="code-block">
@@ -661,7 +653,6 @@ claude   <span class="tok-cmt"># or: codex / opencode</span></code></pre>
 </section>
 <!-- SECTION: prompting-remotion -->
 <section data-track="b" id="prompting-remotion">
-<div class="sec-eyebrow">Remotion</div>
 <h2>Prompting Remotion instead of dragging a timeline</h2>
 <p>With the skill installed and the dev server running, you iterate by talking, not by scrubbing. A reasonable opening prompt for a 15-second explainer:</p>
 <div class="code-block">
@@ -680,7 +671,6 @@ Use our existing Tailwind theme colors. Keep transitions under 400ms.</code></pr
 </section>
 <!-- SECTION: failure-modes -->
 <section data-track="ab" id="failure-modes">
-<div class="sec-eyebrow">Both tools</div>
 <h2>Where each one actually breaks</h2>
 <p>Every comparison post sells the upside. Here's the part that determines whether you'll be debugging at 11pm.</p>
 <div class="grid-2">
@@ -706,7 +696,6 @@ Use our existing Tailwind theme colors. Keep transitions under 400ms.</code></pr
 </section>
 <!-- SECTION: decision-table -->
 <section data-track="ab" id="decision-table">
-<div class="sec-eyebrow">Both tools</div>
 <h2>Pick by signal, not by hype</h2>
 <p>Most teams default to whichever tool they saw first in their feed. Pick on these signals instead.</p>
 <div class="table-wrap">
@@ -725,7 +714,6 @@ Use our existing Tailwind theme colors. Keep transitions under 400ms.</code></pr
 </section>
 <!-- SECTION: interop -->
 <section data-track="ab" id="interop">
-<div class="sec-eyebrow">Both tools</div>
 <h2>Can the two talk to each other?</h2>
 <p>More than the rivalry framing suggests. HyperFrames' own skill catalog ships an explicit <code>/remotion-to-hyperframes</code> workflow skill — a sign that "migrate an existing Remotion project over" is common enough to warrant first-party tooling, not a hypothetical edge case.</p>
 <p>FFmpeg is the connective tissue underneath both. HyperFrames uses it directly to encode captured frames; Remotion output frequently gets piped through it for post-processing, transcoding, or stitching with clips from other sources. If you're building a pipeline that needs to combine HyperFrames-rendered segments with Remotion-rendered segments — or with raw footage from neither — FFmpeg is where that final assembly happens, regardless of which framework wrote the individual pieces.</p>
@@ -733,7 +721,6 @@ Use our existing Tailwind theme colors. Keep transitions under 400ms.</code></pr
 </section>
 <!-- SECTION: start-here -->
 <section data-track="ab" id="start-here">
-<div class="sec-eyebrow">Both tools</div>
 <h2>Start here</h2>
 <div class="cta-box">
 <p>Pick one tool based on the decision table above, run the install command, and render one real video before you read another comparison post. Both setups take under five minutes; the gap between "installed" and "shipped" is entirely about whether you actually prompt something.</p>
@@ -753,7 +740,6 @@ Use our existing Tailwind theme colors. Keep transitions under 400ms.</code></pr
 </section>
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       

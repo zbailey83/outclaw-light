@@ -467,7 +467,6 @@
 <section class="page-hero">
 <div class="page-hero-inner">
 <div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › Opus 4.8 vs GPT 5.5</div>
-<div class="eyebrow">Model Teardown · Reasoning Era</div>
 <h1><em>Claude Opus 4.8</em> vs <em>GPT 5.5</em>: The Deep Reasoning Teardown</h1>
 <p class="page-hero-sub">We put the leading deep-reasoning models head-to-head. Compare real agent loop stability, context recall, latency curves, and pricing metrics to see where each model excels.</p>
 <div class="meta-row">
@@ -493,7 +492,6 @@
 <div class="page-body">
 <p class="lede">When building autonomous agent loops, selecting the right model is no longer just about looking at a general coding benchmark. With the introduction of deep reasoning models—which use internal chain-of-thought tokens before returning a final answer—the evaluation changes. We tested <strong>Claude Opus 4.8</strong> and <strong>GPT 5.5</strong> in real developer loops to see how they handle tool execution, deep debugging, and long-context processing.</p>
 <div class="tldr-box">
-<div class="eyebrow">TL;DR</div>
 <p><strong>Use Claude Opus 4.8 for complex agentic loops, strict XML-structured tool outputs, and deep refactoring.</strong> It demonstrates superior logical consistency in recursive loops, explaining code modifications with high accuracy. <strong>Use GPT 5.5 for latency-sensitive reasoning tasks, high-throughput pipelines, and cost-constrained applications.</strong> GPT 5.5 runs roughly 20% faster and costs 20% less than Opus 4.8, making it highly efficient for structured data extractions and linear processing chains.</p>
 </div>
 <div class="toc-wrap">
@@ -507,7 +505,6 @@
 </div>
 <!-- Section 1 -->
 <div class="section" id="core-architectures">
-<div class="section-label">01 / Logic Engine</div>
 <h2 class="section-heading">Core <em>architectures</em> compared</h2>
 <div class="section-divider"></div>
 <p class="body-text">Both Claude Opus 4.8 and GPT 5.5 belong to the new class of <strong>native reasoning models</strong>. Unlike traditional chat models, they do not spit out answers instantly. When you pass a query, they generate a hidden (or visible) chain-of-thought timeline that analyzes instructions, tests hypotheses, and fixes syntax errors before returning the final response.</p>
@@ -519,7 +516,6 @@
 </div>
 <!-- Section 2 -->
 <div class="section" id="pricing-performance">
-<div class="section-label">02 / Budget &amp; Specs</div>
 <h2 class="section-heading">Specs and <em>billed rates</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">For production systems, the pricing difference between these models dictates which one to select for scale. GPT 5.5 maintains a cost advantage across both input and output paths.</p>
@@ -565,7 +561,6 @@
 </div>
 <!-- Section 3 -->
 <div class="section" id="agent-loops">
-<div class="section-label">03 / Code Execution</div>
 <h2 class="section-heading">Agent loop &amp; <em>tool stability</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">We ran both models through 1,000 iterations of a standard developer coding loop (reading directories, editing files, running tests, and correcting lint errors). The benchmarks revealed distinct behaviors:</p>
@@ -586,7 +581,6 @@
 </div>
 <!-- Section 4 -->
 <div class="section" id="context-recall">
-<div class="section-label">04 / Scalability</div>
 <h2 class="section-heading">Long context &amp; <em>recall tests</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">We performed needle-in-a-haystack (NIAH) tests to measure retrieval accuracy across both model contexts. The needle (a specific configuration value) was placed at various depths throughout the context length.</p>
@@ -598,7 +592,6 @@
 </div>
 <!-- GEO Sources -->
 <section class="section" id="verified-sources">
-<div class="section-label">05 / GEO References</div>
 <h2 class="section-heading">Verified Sources &amp; <em>Primary References</em></h2>
 <div class="section-divider"></div>
 <p class="body-text">To maintain data integrity for AI agent synthesis and engineering references, we cite our primary sources below:</p>
@@ -611,7 +604,6 @@
 </section>
 <!-- FAQ -->
 <div class="section">
-<div class="section-label">FAQ</div>
 <h2 class="section-heading">Common <em>questions</em></h2>
 <div class="section-divider"></div>
 <div class="faq-grid" style="display: flex; flex-direction: column; gap: 16px; max-width: 720px;">
@@ -647,7 +639,6 @@
 </div>
 <!-- Related Resources -->
     <div class="section related-resources" style="margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--border-soft);">
-      <div class="section-label">Expand Your Knowledge</div>
       <h3 class="section-heading" style="font-size: 24px; margin-bottom: 8px;">Related <em>Workflows &amp; Tools</em></h3>
       <div class="section-divider" style="margin-bottom: 28px;"></div>
       
