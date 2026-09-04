@@ -395,7 +395,8 @@
     /* ---- Featured News Hero Card ---- */
     .featured-news-card {
       display: grid;
-      grid-template-columns: 1.2fr 1fr;
+      grid-template-columns: 1.15fr 1fr;
+      align-items: center;
       gap: 40px;
       background: linear-gradient(135deg, var(--white) 0%, var(--sky-pale) 100%);
       border: 1.5px solid var(--sky-light);
@@ -472,20 +473,21 @@
 
     .featured-news-image {
       background: #080C14;
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: block;
+      width: 100%;
+      aspect-ratio: 16/9;
       border: 1px solid var(--border);
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-      min-height: 260px;
+      align-self: center;
     }
 
     .featured-news-image img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center;
       display: block;
       transition: transform 0.35s ease;
     }
@@ -776,8 +778,8 @@
         </div>
         <a href="./openai-agent-swarm-artifactory-huggingface-incident/" class="nav-cta">Read Full Teardown &#x2192;</a>
       </div>
-      <a href="./openai-agent-swarm-artifactory-huggingface-incident/" class="featured-news-image" style="display:block; border-radius:16px; overflow:hidden; border:1px solid var(--border);">
-        <img src="https://img.youtube.com/vi/AABXd2kTJvE/maxresdefault.jpg" alt="OpenAI Agent Swarm Collusion Incident Teardown" style="width:100%; height:100%; object-fit:cover; display:block; transition:transform 0.3s ease;">
+      <a href="./openai-agent-swarm-artifactory-huggingface-incident/" class="featured-news-image" aria-label="Read OpenAI Agent Swarm Collusion Teardown">
+        <img src="https://img.youtube.com/vi/AABXd2kTJvE/maxresdefault.jpg" alt="OpenAI Agent Swarm Collusion Incident Teardown">
       </a>
     </div>
 
