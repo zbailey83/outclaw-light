@@ -24,6 +24,7 @@
 - **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
 
 ## Technical Guides (Documentation)
+- [LLM API Pricing Calculator & AI Stack Encyclopedia](https://outclaw.xyz/guides/llm-api-pricing-calculator-ai-encyclopedia-guide.html) — Token math formulas, caching economics, and modern 5-layer AI architecture stacks.
 - [Claude Fable 5 vs GPT-5.6 Sol Access](https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison.html) — Compare access restrictions, safety suspensions, and specs.
 - [Automate Content Workflow with n8n + Claude](https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html) — Build a full pipeline for ideation, drafting, and SEO.
 - [Claude Sonnet 4.6 Prompting Playbook](https://outclaw.xyz/guides/claude-sonnet-prompting-playbook.html) — 30+ templates for XML structuring and CoT.
@@ -41,9 +42,9 @@
 - [AI Brand Identity Builder](https://outclaw.xyz/tools/brand-identity.html) — Generate voice, tone, and strategy documents.
 - [Prompt Sharpener](https://outclaw.xyz/tools/prompt-sharpener.html) — Refine and structure LLM prompts for better results.
 - [Model Comparison Cheatsheet](https://outclaw.xyz/tools/model-comparison.html) — Real-time stats on the latest LLMs.
-- [API Cost Calculator](https://outclaw.xyz/tools/api-cost-calculator.html) — Estimate model usage costs across Claude, OpenAI, and Gemini.
+- [API Calculator](https://outclaw.xyz/tools/api-cost-calculator.html) — Interactive API calculator for estimating LLM token pricing, input/output costs, and prompt caching discounts across Claude, OpenAI, and Gemini.
 - [MCP Server Directory](https://outclaw.xyz/tools/mcp-server-directory.html) — A curated list of Model Context Protocol servers.
-- [AI Tools Encyclopedia](https://outclaw.xyz/tools/ai-tools-encyclopedia.html) — Database of artificial intelligence tools, platforms, and models.
+- [AI Encyclopedia](https://outclaw.xyz/tools/ai-tools-encyclopedia.html) — Comprehensive interactive AI encyclopedia indexing 45+ frontier models, coding agents, creative engines, and developer platforms.
 - [Model Battle Cards](https://outclaw.xyz/tools/model-battle-cards.html) — Side-by-side head-to-head comparisons of leading language models.
 - [Tech Stack Encyclopedia](https://outclaw.xyz/tools/tech-stack-encyclopedia.html) — Exhaustive directory of development technologies, database engines, and frameworks.
 
