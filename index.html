@@ -194,8 +194,8 @@
       --font-body: 'DM Sans', sans-serif;
 
       /* Gradients */
-      --grad-sky: linear-gradient(135deg, #5AADDB 0%, #FF9BB5 50%, #FFB8CB 100%);
-      --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #7EC5E8 100%);
+      --grad-sky: linear-gradient(135deg, #5AADDB 0%, #7EC5E8 100%);
+      --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #FF9BB5 100%);
       --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
       --grad-sand: linear-gradient(135deg, #F5EDD8 0%, #FAF3E8 100%);
       --grad-hero: linear-gradient(160deg, #EDF7FC 0%, #FEF0F4 50%, #FAFAF8 100%);
@@ -433,7 +433,7 @@
       position: sticky;
       top: 0;
       z-index: 200;
-      height: 64px;
+      height: 68px;
       background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -465,7 +465,7 @@
 
     .navbar-wordmark {
       font-family: var(--font-display);
-      font-size: 22px;
+      font-size: 21px;
       color: var(--text);
     }
 
@@ -477,7 +477,7 @@
     .navbar-links {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
     }
 
     .navbar-links a {
@@ -485,7 +485,7 @@
       font-weight: 500;
       color: var(--text-soft);
       text-decoration: none;
-      padding: 8px 16px;
+      padding: 7px 14px;
       border-radius: 8px;
       transition: all .15s;
       white-space: nowrap;
@@ -494,6 +494,12 @@
     .navbar-links a:hover {
       color: var(--text);
       background: var(--sky-pale);
+    }
+
+    .navbar-links a.active {
+      color: var(--sky);
+      background: var(--sky-pale);
+      font-weight: 600;
     }
 
     .navbar-right {
@@ -507,7 +513,7 @@
       align-items: center;
       gap: 6px;
       padding: 9px 20px;
-      background: var(--grad-flamingo);
+      background: var(--grad-sky);
       color: #fff !important;
       font-size: 13px;
       font-weight: 600;
@@ -544,7 +550,7 @@
     .nav-drawer {
       display: none;
       position: fixed;
-      top: 64px;
+      top: 68px;
       left: 0;
       right: 0;
       background: rgba(255, 255, 255, .97);
@@ -577,6 +583,7 @@
 
     .nav-drawer .nav-cta {
       margin-top: 8px;
+      justify-content: center;
     }
 
     @media(max-width:860px) {
