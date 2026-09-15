@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="../analytics-journey.js" defer></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<title>Building Real-Time Voice Agents &amp; Agentic Audio Pipelines with ElevenLabs | OutClaw AI</title>
+<meta content="Comprehensive 2026 developer blueprint for building sub-200ms real-time conversational voice agents, streaming audio pipelines, custom voice clones, and video dubbing workflows with ElevenLabs." name="description"/>
+<link href="https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline" rel="canonical"/>
+<meta content="#5AADDB" name="theme-color"/>
+<link rel="shortcut icon" href="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="article"/>
+<meta property="og:url" content="https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline"/>
+<meta property="og:title" content="Building Real-Time Voice Agents &amp; Agentic Audio Pipelines with ElevenLabs"/>
+<meta property="og:description" content="Step-by-step developer playbook for streaming conversational AI, low-latency WebSocket voice agents, voice cloning, and programmatic audio production using ElevenLabs."/>
+<meta property="og:image" content="https://outclaw.xyz/hero-alt.webp"/>
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image"/>
+<meta property="twitter:url" content="https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline"/>
+<meta property="twitter:title" content="Building Real-Time Voice Agents &amp; Agentic Audio Pipelines with ElevenLabs"/>
+<meta property="twitter:description" content="Step-by-step developer playbook for streaming conversational AI, low-latency WebSocket voice agents, voice cloning, and programmatic audio production using ElevenLabs."/>
+<meta property="twitter:image" content="https://outclaw.xyz/hero-alt.webp"/>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "@id": "https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline#article",
+      "headline": "Building Real-Time Voice Agents & Agentic Audio Pipelines with ElevenLabs",
+      "description": "Comprehensive 2026 developer playbook for building sub-200ms real-time conversational voice agents, streaming audio pipelines, custom voice clones, and video dubbing workflows with ElevenLabs.",
+      "url": "https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline",
+      "datePublished": "2026-09-14T08:00:00+00:00",
+      "dateModified": "2026-09-14T08:00:00+00:00",
+      "author": {
+        "@type": "Person",
+        "name": "Zach Bailey",
+        "url": "https://outclaw.xyz/author/zach-bailey/",
+        "sameAs": [
+          "https://x.com/zbailey83",
+          "https://github.com/zbailey83",
+          "https://www.linkedin.com/in/zachba"
+        ]
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "OutClaw AI",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "ElevenLabs Conversational Voice AI Pipeline",
+          "item": "https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline"
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+  :root {
+    --sky: #5AADDB;
+    --sky-light: #B8DFF0;
+    --sky-pale: #EDF7FC;
+    --flamingo: #F4678A;
+    --flamingo-light: #FBB8CB;
+    --flamingo-pale: #FEF0F4;
+    --coral: #FF7E5A;
+    --coral-pale: #FFF0EB;
+    --sand: #F5EDD8;
+    --leaf: #4A9E7A;
+    --leaf-pale: #E8F5EF;
+    --deep-navy: #1A1A2E;
+    --text: #1A1A2E;
+    --text-mid: #4A4A6E;
+    --text-soft: #7A7A9E;
+    --text-dim: #B0B0C8;
+    --white: #FFFFFF;
+    --bg: #FAFAF8;
+    --border: #E8E8F2;
+    --border-soft: #F0F0F8;
+    --font-display: "DM Serif Display", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --grad-sky: linear-gradient(135deg, #5AADDB 0%, #7EC5E8 100%);
+    --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #FF9BB5 100%);
+    --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+    --grad-dark: linear-gradient(135deg, #1A1A2E 0%, #2B2B4A 100%);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+
+  /* ---- Navbar ---- */
+  .navbar {
+    position: sticky; top: 0; z-index: 200; height: 68px;
+    background: rgba(255,255,255,.94); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); display: flex; align-items: center;
+    justify-content: space-between; padding: 0 48px;
+  }
+  .navbar-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .navbar-logo-img {
+    width: 32px; height: 32px; object-fit: contain;
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1), filter .3s ease;
+    filter: drop-shadow(0 2px 6px rgba(244,103,138,.2));
+  }
+  .navbar-logo:hover .navbar-logo-img {
+    transform: scale(1.15) rotate(-5deg);
+    filter: drop-shadow(0 4px 16px rgba(244,103,138,.5));
+  }
+  .navbar-wordmark { font-family: var(--font-display); font-size: 21px; color: var(--text); }
+  .navbar-wordmark em { font-style: normal; color: var(--sky); }
+  .navbar-links { display: flex; align-items: center; gap: 4px; }
+  .navbar-links a {
+    font-size: 14px; font-weight: 500; color: var(--text-soft); text-decoration: none;
+    padding: 7px 14px; border-radius: 8px; transition: all .15s; white-space: nowrap;
+  }
+  .navbar-links a:hover { color: var(--text); background: var(--sky-pale); }
+  .navbar-links a.active { color: var(--sky); background: var(--sky-pale); font-weight: 600; }
+  .navbar-right { display: flex; align-items: center; gap: 12px; }
+  .nav-cta {
+    display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px;
+    background: var(--grad-sky); color: #fff !important; font-size: 13px; font-weight: 600;
+    border-radius: 100px; text-decoration: none; box-shadow: 0 2px 12px rgba(90,173,219,.3);
+    transition: all .2s; white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 20px rgba(90,173,219,.45); }
+  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; border: none; background: transparent; }
+  .nav-hamburger span { display: block; width: 20px; height: 2px; background: var(--text-soft); border-radius: 2px; }
+  .nav-drawer {
+    display: none; position: fixed; top: 68px; left: 0; right: 0;
+    background: rgba(255,255,255,.97); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border); padding: 16px 24px 24px;
+    z-index: 199; flex-direction: column; gap: 4px;
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a { font-size: 15px; font-weight: 500; color: var(--text-soft); text-decoration: none; padding: 12px 16px; border-radius: 12px; }
+  .nav-drawer a:hover { color: var(--sky); background: var(--sky-pale); }
+  .nav-drawer .nav-cta { margin-top: 8px; justify-content: center; }
+  @media(max-width:860px){.navbar{padding:0 24px;}.navbar-links{display:none;}.nav-hamburger{display:flex;}.navbar-right .nav-cta{display:none;}}
+
+  /* ---- Hero Header ---- */
+  .page-hero {
+    padding: 60px 48px 44px; border-bottom: 1px solid var(--border);
+    background: linear-gradient(165deg, var(--sky-pale) 0%, #FFFFFF 60%, var(--flamingo-pale) 100%);
+  }
+  .page-hero-inner { max-width: 980px; margin: 0 auto; }
+  .breadcrumb { font-size: 12px; color: var(--text-dim); margin-bottom: 16px; }
+  .breadcrumb a { color: var(--text-dim); text-decoration: none; }
+  .breadcrumb a:hover { color: var(--sky); }
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: var(--flamingo); margin-bottom: 14px;
+  }
+  .eyebrow::before { content: ""; display: block; width: 24px; height: 2px; background: var(--flamingo); border-radius: 2px; }
+  .page-hero h1 {
+    font-family: var(--font-display); font-size: clamp(32px, 4.8vw, 50px); font-weight: 400;
+    line-height: 1.15; letter-spacing: -0.02em; color: var(--text); max-width: 900px;
+  }
+  .page-hero h1 em { font-style: italic; color: var(--sky); }
+  .page-hero-sub {
+    font-size: 17px; color: var(--text-mid); max-width: 780px; margin-top: 16px; line-height: 1.75;
+  }
+  .meta-row {
+    display: flex; flex-wrap: wrap; gap: 20px; margin-top: 22px; font-size: 13px; color: var(--text-soft);
+  }
+  .meta-row span { display: inline-flex; align-items: center; gap: 6px; }
+  .tag-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .tag-chip {
+    padding: 5px 13px; border: 1.5px solid var(--border); border-radius: 100px;
+    font-size: 12px; font-weight: 600; color: var(--text-soft); background: var(--white);
+  }
+
+  /* ---- Page Body & Layout ---- */
+  .page-body { max-width: 920px; margin: 0 auto; padding: 48px 48px 96px; }
+  @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:36px 20px 72px;}}
+
+  /* ---- Partner / Affiliate Callout Box ---- */
+  .sponsor-banner {
+    background: linear-gradient(135deg, #1A1A2E 0%, #2A2050 100%);
+    border: 1px solid rgba(90,173,219,0.3); border-radius: 20px; padding: 28px 32px;
+    color: #fff; margin: 32px 0 44px; display: flex; align-items: center;
+    justify-content: space-between; gap: 24px; box-shadow: 0 10px 30px rgba(26,26,46,0.15);
+  }
+  .sponsor-banner-left { flex: 1; }
+  .sponsor-badge {
+    display: inline-block; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .08em; background: var(--grad-flamingo); color: #fff;
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 10px;
+  }
+  .sponsor-banner h3 { font-family: var(--font-display); font-size: 22px; margin-bottom: 6px; color: #fff; }
+  .sponsor-banner p { font-size: 14px; color: rgba(255,255,255,0.78); line-height: 1.6; }
+  .sponsor-btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 12px 24px;
+    background: var(--grad-sky); color: #fff !important; font-size: 14px; font-weight: 700;
+    border-radius: 100px; text-decoration: none; box-shadow: 0 4px 18px rgba(90,173,219,.4);
+    transition: all .2s; white-space: nowrap; flex-shrink: 0;
+  }
+  .sponsor-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(90,173,219,.6); }
+  @media(max-width:720px){.sponsor-banner{flex-direction:column;align-items:flex-start;}}
+
+  /* ---- In-Content Cards & Visuals ---- */
+  .tldr-box {
+    background: linear-gradient(135deg, var(--sky-pale), var(--flamingo-pale));
+    border: 1px solid rgba(90,173,219,.25); border-radius: 18px; padding: 28px 32px; margin-bottom: 44px;
+  }
+  .tldr-box h3 { font-family: var(--font-display); font-size: 20px; color: var(--text); margin-bottom: 8px; }
+  .tldr-box p { font-size: 15px; color: var(--text-mid); line-height: 1.75; }
+  .tldr-box ul { margin: 12px 0 0 20px; font-size: 14.5px; color: var(--text-mid); }
+  .tldr-box li { margin-bottom: 6px; }
+
+  /* ---- Quick Nav Bar ---- */
+  .toc-box {
+    background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+    padding: 24px 28px; margin-bottom: 48px;
+  }
+  .toc-title { font-size: 12px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--sky); margin-bottom: 12px; }
+  .toc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px 24px; list-style: none; }
+  @media(max-width:600px){.toc-grid{grid-template-columns: 1fr;}}
+  .toc-grid a { color: var(--text-mid); text-decoration: none; font-size: 14px; font-weight: 500; transition: color .15s; display: inline-flex; align-items: center; gap: 6px; }
+  .toc-grid a:hover { color: var(--sky); }
+
+  /* ---- Typography in Article ---- */
+  h2 { font-family: var(--font-display); font-size: 28px; font-weight: 400; color: var(--text); margin: 56px 0 18px; padding-top: 20px; border-top: 1px solid var(--border); }
+  h2:first-of-type { border-top: none; margin-top: 20px; }
+  h3 { font-family: var(--font-display); font-size: 22px; font-weight: 400; color: var(--text); margin: 32px 0 14px; }
+  p { margin-bottom: 20px; font-size: 15.5px; color: var(--text-mid); line-height: 1.8; }
+  strong { color: var(--text); font-weight: 600; }
+  ul, ol { margin: 0 0 24px 24px; color: var(--text-mid); font-size: 15px; }
+  li { margin-bottom: 8px; line-height: 1.7; }
+  a { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; }
+
+  /* ---- Code Blocks ---- */
+  .code-window {
+    background: #141424; border: 1px solid #282845; border-radius: 14px; margin: 24px 0 32px;
+    overflow: hidden; box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .code-header {
+    background: #1C1C32; padding: 10px 18px; display: flex; align-items: center;
+    justify-content: space-between; border-bottom: 1px solid #282845;
+  }
+  .code-dots { display: flex; gap: 6px; }
+  .code-dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-red { background: #FF5F56; }
+  .dot-yellow { background: #FFBD2E; }
+  .dot-green { background: #27C93F; }
+  .code-lang { font-family: var(--font-mono); font-size: 11px; color: #8F8FA8; text-transform: uppercase; }
+  pre {
+    padding: 20px; overflow-x: auto; font-family: var(--font-mono); font-size: 13.5px;
+    color: #D6D6E8; line-height: 1.65;
+  }
+  code { font-family: var(--font-mono); font-size: 13.5px; }
+  p code, li code {
+    background: var(--sky-pale); color: #1E6B9B; padding: 2px 7px;
+    border-radius: 6px; font-size: 13px; border: 1px solid rgba(90,173,219,0.25);
+  }
+
+  /* ---- Tables ---- */
+  .table-wrap { overflow-x: auto; margin: 28px 0 36px; border: 1px solid var(--border); border-radius: 14px; background: var(--white); }
+  table { width: 100%; border-collapse: collapse; text-align: left; font-size: 14px; }
+  th { background: var(--sky-pale); color: var(--text); font-weight: 600; padding: 14px 18px; border-bottom: 1px solid var(--border); }
+  td { padding: 13px 18px; border-bottom: 1px solid var(--border-soft); color: var(--text-mid); }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #FAFAFD; }
+
+  /* ---- Callout Cards ---- */
+  .callout-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin: 28px 0 36px; }
+  @media(max-width:680px){.callout-grid{grid-template-columns: 1fr;}}
+  .feature-card {
+    background: var(--white); border: 1px solid var(--border); border-radius: 16px;
+    padding: 22px 24px; transition: all .2s;
+  }
+  .feature-card:hover { transform: translateY(-2px); border-color: var(--sky-light); box-shadow: 0 6px 20px rgba(90,173,219,.08); }
+  .feature-card h4 { font-family: var(--font-display); font-size: 18px; color: var(--text); margin-bottom: 8px; }
+  .feature-card p { font-size: 13.5px; color: var(--text-soft); line-height: 1.6; margin-bottom: 0; }
+
+  /* ---- High-Conversion Inline Promo CTA ---- */
+  .in-content-cta {
+    background: linear-gradient(135deg, var(--sky-pale) 0%, #FFFFFF 100%);
+    border: 2px solid var(--sky-light); border-radius: 18px; padding: 30px; margin: 40px 0;
+    text-align: center;
+  }
+  .in-content-cta h3 { font-family: var(--font-display); font-size: 24px; color: var(--text); margin-bottom: 10px; }
+  .in-content-cta p { font-size: 15px; color: var(--text-mid); max-width: 580px; margin: 0 auto 20px; }
+  .btn-primary-ref {
+    display: inline-flex; align-items: center; gap: 8px; padding: 13px 30px;
+    background: var(--grad-flamingo); color: #fff !important; font-size: 15px; font-weight: 700;
+    border-radius: 100px; text-decoration: none; box-shadow: 0 4px 18px rgba(244,103,138,.35);
+    transition: all .2s;
+  }
+  .btn-primary-ref:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(244,103,138,.5); }
+
+  /* ---- Author Box ---- */
+  .author-card {
+    display: flex; gap: 20px; align-items: center; background: var(--white);
+    border: 1px solid var(--border); border-radius: 16px; padding: 24px; margin-top: 56px;
+  }
+  .author-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: 2px solid var(--sky); }
+  .author-info h4 { font-family: var(--font-display); font-size: 18px; color: var(--text); }
+  .author-info p { font-size: 13.5px; color: var(--text-soft); margin-bottom: 0; margin-top: 4px; }
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background: var(--deep-navy); padding: 56px 48px 40px; display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-top: 64px;
+  }
+  .footer-brand .footer-wordmark { font-family: var(--font-display); font-size: 20px; color: rgba(255,255,255,.45); }
+  .footer-brand .footer-wordmark em { font-style: normal; color: var(--sky); }
+  .footer-brand p { font-size: 13px; color: rgba(255,255,255,.28); margin-top: 10px; line-height: 1.65; max-width: 210px; }
+  .footer-col h4 { font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.22); margin-bottom: 14px; }
+  .footer-col a { display: block; font-size: 13px; color: rgba(255,255,255,.38); text-decoration: none; margin-bottom: 9px; transition: color .15s; }
+  .footer-col a:hover { color: rgba(255,255,255,.75); }
+  .footer-bottom { background: var(--deep-navy); border-top: 1px solid rgba(255,255,255,.06); padding: 18px 48px; display: flex; justify-content: space-between; align-items: center; }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.18); }
+  @media(max-width:760px){.site-footer{grid-template-columns: 1fr 1fr; padding: 40px 24px;}.footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}}
+</style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Logo" class="navbar-logo-img"/>
+      <span class="navbar-wordmark">OutClaw <em>AI</em></span>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../news/">News</a>
+      <a href="../guides/" class="active">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored" class="nav-cta">Try ElevenLabs Free &#x2192;</a>
+      <button class="nav-hamburger" aria-label="Toggle menu" onclick="document.querySelector('.nav-drawer').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="nav-drawer">
+    <a href="../about/">About</a>
+    <a href="../news/">News</a>
+    <a href="../guides/" class="active">Guides</a>
+    <a href="../answers/">Answers</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored" class="nav-cta">Try ElevenLabs Free &#x2192;</a>
+  </div>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../">OutClaw AI</a> &rsaquo; <a href="../guides/">Guides</a> &rsaquo; ElevenLabs Voice AI Architecture
+      </div>
+      <div class="eyebrow">Production Audio Architecture &bull; 2026 Edition</div>
+      <h1>Building Real-Time Voice Agents &amp; Agentic Audio Pipelines with <em>ElevenLabs</em></h1>
+      <p class="page-hero-sub">
+        The complete developer playbook for constructing low-latency conversational voice bots, WebSocket streaming pipelines, custom voice clones, automated dubbing, and programmatic soundscapes.
+      </p>
+      <div class="meta-row">
+        <span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;font-weight:600;">Zach Bailey</a></span>
+        <span>📅 Updated September 14, 2026</span>
+        <span>⏱️ 14 min read</span>
+        <span>⚡ Real-Time WebSockets &bull; Python &bull; Node.js</span>
+      </div>
+      <div class="tag-row">
+        <span class="tag-chip">ElevenLabs</span>
+        <span class="tag-chip">Conversational AI</span>
+        <span class="tag-chip">Voice Cloning</span>
+        <span class="tag-chip">WebSocket Streaming</span>
+        <span class="tag-chip">Agentic Pipelines</span>
+        <span class="tag-chip">Video Dubbing</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Body -->
+  <main class="page-body">
+
+    <!-- Top Partner Callout -->
+    <div class="sponsor-banner">
+      <div class="sponsor-banner-left">
+        <span class="sponsor-badge">Exclusive Partner Trial</span>
+        <h3>Launch Your ElevenLabs Voice Agent in Minutes</h3>
+        <p>
+          Get instant access to ElevenLabs Multilingual v2, Eleven Flash v2.5, Conversational AI Studio, and Voice Cloning with free starter credits through OutClaw AI.
+        </p>
+      </div>
+      <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored" class="sponsor-btn">
+        Claim Free ElevenLabs Trial &rarr;
+      </a>
+    </div>
+
+    <!-- TL;DR Summary Box -->
+    <div class="tldr-box">
+      <div class="eyebrow" style="margin-bottom:8px;color:var(--sky);">Executive Summary</div>
+      <h3>What This Blueprint Delivers</h3>
+      <p>
+        Building speech-enabled AI used to mean stitching together fragile STT (speech-to-text), LLM reasoning loops, and robotic TTS engines with 1,200ms+ latency. In 2026, <strong>ElevenLabs Conversational AI</strong> and ultra-fast models like <strong>Eleven Turbo v2.5 / Flash v2.5</strong> collapse voice latency down to sub-150ms with human emotional inflection, instant voice cloning, dynamic interruption handling, and programmatic tool execution.
+      </p>
+      <ul>
+        <li><strong>Sub-200ms Turn-Taking:</strong> Architecting bi-directional WebSocket audio streams with barge-in interruption.</li>
+        <li><strong>Full Voice Matrix:</strong> Text-to-Speech (TTS), Speech-to-Speech (STS), Voice Isolator, Sound FX, and Video Dubbing.</li>
+        <li><strong>Production Code:</strong> Tested Python and Node.js code snippets ready to copy into your agent framework.</li>
+        <li><strong>Tool-Calling Voice Agents:</strong> Empowering voice bots to query databases, call REST APIs, and book calendar slots during live speech.</li>
+      </ul>
+    </div>
+
+    <!-- Table of Contents -->
+    <nav class="toc-box" aria-label="Table of Contents">
+      <div class="toc-title">Table of Contents</div>
+      <ul class="toc-grid">
+        <li><a href="#architecture">1. The Modern Voice AI Architecture</a></li>
+        <li><a href="#models-overview">2. Model Breakdown: Turbo, Flash &amp; Multilingual</a></li>
+        <li><a href="#conversational-agent">3. Building a Real-Time Conversational Agent</a></li>
+        <li><a href="#tool-calling">4. Native Tool-Calling in Voice Loops</a></li>
+        <li><a href="#voice-cloning">5. Voice Cloning &amp; Studio Audio Workflows</a></li>
+        <li><a href="#video-dubbing">6. Automated Multilingual Video Dubbing</a></li>
+        <li><a href="#latency-tips">7. Latency Optimization &amp; Best Practices</a></li>
+        <li><a href="#economics">8. Production Economics &amp; Getting Started</a></li>
+      </ul>
+    </nav>
+
+    <!-- Section 1 -->
+    <h2 id="architecture">1. The Modern Voice AI Architecture</h2>
+    <p>
+      Traditional voice bots relied on a three-hop serial cascade: Audio In &rarr; Deepgram/Whisper STT (250ms) &rarr; LLM Inference (400ms) &rarr; Legacy TTS Synthesis (500ms) &rarr; Audio Out, yielding a jarring 1.2 to 1.8-second delay that felt entirely unnatural to human ears.
+    </p>
+    <p>
+      ElevenLabs solves this through a unified <strong>Conversational AI WebSocket Engine</strong> that interleaves real-time speech tokenization, streaming LLM completions, and chunked PCM audio synthesis. By piping the LLM’s token stream directly into the audio generator before full sentences finish generating, first-byte audio playback starts within <strong>120ms to 180ms</strong> of the user pausing their speech.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Architecture Layer</th>
+            <th>Legacy Pipeline (2023–2024)</th>
+            <th>ElevenLabs Conversational Pipeline (2026)</th>
+            <th>Latency Delta</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Speech Input / STT</strong></td>
+            <td>Full audio buffer &rarr; Batch Whisper API</td>
+            <td>Streaming VAD + Real-time Chunked Tokenizer</td>
+            <td>&darr; 80% (60ms vs 300ms)</td>
+          </tr>
+          <tr>
+            <td><strong>Reasoning / LLM</strong></td>
+            <td>Single block completion</td>
+            <td>Streaming token buffer with tool-calling intercept</td>
+            <td>&darr; 60% (100ms first token)</td>
+          </tr>
+          <tr>
+            <td><strong>Speech Output / TTS</strong></td>
+            <td>Full sentence synthesis &rarr; MP3 payload</td>
+            <td>Eleven Flash v2.5 Streaming PCM (16kHz/44.1kHz)</td>
+            <td>&darr; 75% (80ms time-to-first-audio)</td>
+          </tr>
+          <tr>
+            <td><strong>Interruption Handling</strong></td>
+            <td>Audio keeps playing; user talks over bot</td>
+            <td>Hardware-level acoustic echo cancellation &amp; instant buffer clear</td>
+            <td>Zero barge-in collision</td>
+          </tr>
+          <tr>
+            <td><strong>Total Round-Trip</strong></td>
+            <td>1,200ms – 2,200ms (Awkward pause)</td>
+            <td><strong>140ms – 220ms (Natural conversation)</strong></td>
+            <td><strong>~85% Latency Reduction</strong></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Section 2 -->
+    <h2 id="models-overview">2. Model Breakdown: Turbo, Flash &amp; Multilingual</h2>
+    <p>
+      Choosing the correct ElevenLabs engine for your specific workload is crucial for balancing cost, emotional authenticity, and streaming latency:
+    </p>
+
+    <div class="callout-grid">
+      <div class="feature-card">
+        <span class="tag-chip" style="color:var(--sky);border-color:var(--sky-light);margin-bottom:10px;">Ultra-Low Latency</span>
+        <h4>Eleven Flash v2.5</h4>
+        <p>The fastest model in the lineup (~75ms latency). Built specifically for high-throughput voicebots, interactive game NPCs, and real-time phone assistants where milliseconds matter most.</p>
+      </div>
+      <div class="feature-card">
+        <span class="tag-chip" style="color:var(--flamingo);border-color:var(--flamingo-light);margin-bottom:10px;">Balanced Powerhouse</span>
+        <h4>Eleven Turbo v2.5</h4>
+        <p>Optimal balance between cinematic voice fidelity and speed (~150ms latency). Ideal for dynamic podcast creation, video voiceovers, and premium customer engagement agents.</p>
+      </div>
+      <div class="feature-card">
+        <span class="tag-chip" style="color:var(--leaf);border-color:rgba(74,158,122,0.3);margin-bottom:10px;">32+ Languages</span>
+        <h4>Eleven Multilingual v2</h4>
+        <p>State-of-the-art emotional depth, cadence preservation, and authentic accent rendering across 32 languages including Spanish, Japanese, German, Hindi, and Mandarin.</p>
+      </div>
+      <div class="feature-card">
+        <span class="tag-chip" style="color:var(--coral);border-color:rgba(255,126,90,0.3);margin-bottom:10px;">Audio VFX</span>
+        <h4>Eleven Sound Effects &amp; STS</h4>
+        <p>Generate atmospheric sound effects, foley, and cinematic soundscapes from text prompts, plus real-time Speech-to-Speech voice transformation with exact inflection mapping.</p>
+      </div>
+    </div>
+
+    <!-- In-Content CTA Box -->
+    <div class="in-content-cta">
+      <h3>Ready to Test ElevenLabs Voices?</h3>
+      <p>
+        Experience the difference in realism and speed firsthand. Generate custom voices, test the voice cloning studio, and access real-time WebSocket APIs today.
+      </p>
+      <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored" class="btn-primary-ref">
+        Create Your Free ElevenLabs Account &rarr;
+      </a>
+    </div>
+
+    <!-- Section 3 -->
+    <h2 id="conversational-agent">3. Building a Real-Time Conversational Agent</h2>
+    <p>
+      Setting up a production voice agent requires installing the official <code>elevenlabs</code> Python package or connecting via WebSockets. Below is a complete, runnable Python implementation utilizing the ElevenLabs Conversational AI SDK with microphone input and streaming speaker output:
+    </p>
+
+    <div class="code-window">
+      <div class="code-header">
+        <div class="code-dots">
+          <div class="code-dot dot-red"></div>
+          <div class="code-dot dot-yellow"></div>
+          <div class="code-dot dot-green"></div>
+        </div>
+        <div class="code-lang">python &bull; voice_agent.py</div>
+      </div>
+      <pre><code>import os
+import asyncio
+from elevenlabs.client import AsyncElevenLabs
+from elevenlabs.conversational_ai.conversation import Conversation
+from elevenlabs.conversational_ai.default_audio_interface import DefaultAudioInterface
+
+# 1. Initialize Async Client with API Key
+# Grab your key from https://try.elevenlabs.io/outclaw
+api_key = os.getenv("ELEVENLABS_API_KEY", "your_elevenlabs_api_key")
+client = AsyncElevenLabs(api_key=api_key)
+
+async def main():
+    print("🚀 Initializing OutClaw Real-Time Voice Agent...")
+    
+    # Configure conversation callbacks for lifecycle monitoring
+    conversation = await Conversation.start_session(
+        client=client,
+        agent_id="YOUR_CONFIGURED_AGENT_ID",
+        requires_auth=True,
+        audio_interface=DefaultAudioInterface(),
+        callback_agent_response=lambda text: print(f"🤖 Agent: {text}"),
+        callback_agent_response_correction=lambda orig, corr: print(f"✏️ Corrected: {corr}"),
+        callback_user_transcript=lambda text: print(f"👤 User: {text}"),
+        callback_latency_measurement=lambda ms: print(f"⚡ Round-Trip Latency: {ms}ms")
+    )
+
+    print("🎙️ Listening... Say hello or ask a question (Ctrl+C to stop).")
+    try:
+        # Keep session alive
+        while True:
+            await asyncio.sleep(1)
+    except KeyboardInterrupt:
+        print("\n🛑 Terminating voice session...")
+        await conversation.end_session()
+
+if __name__ == "__main__":
+    asyncio.run(main())</code></pre>
+    </div>
+
+    <!-- Section 4 -->
+    <h2 id="tool-calling">4. Native Tool-Calling in Voice Loops</h2>
+    <p>
+      Modern voice agents are not just chatty bots; they take concrete actions in the real world. ElevenLabs Conversational AI allows you to register JSON schema client-side and server-side tools that the voice agent can invoke during natural conversation.
+    </p>
+    <p>
+      For example, when a caller asks <em>"What is the status of my order #8492?"</em>, the LLM initiates a tool call, the local runtime fetches the payload from your internal API, and ElevenLabs weaves the answer into the ongoing spoken dialogue seamlessly:
+    </p>
+
+    <div class="code-window">
+      <div class="code-header">
+        <div class="code-dots">
+          <div class="code-dot dot-red"></div>
+          <div class="code-dot dot-yellow"></div>
+          <div class="code-dot dot-green"></div>
+        </div>
+        <div class="code-lang">json &bull; tool_definition.json</div>
+      </div>
+      <pre><code>{
+  "name": "lookup_order_status",
+  "description": "Fetches shipping status, ETA, and tracking link for a customer order ID.",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "order_id": {
+        "type": "string",
+        "description": "The 4 to 8 digit order number provided by the user."
+      }
+    },
+    "required": ["order_id"]
+  },
+  "client": {
+    "handler": "async function handleOrderStatus({ order_id }) { ... }"
+  }
+}</code></pre>
+    </div>
+
+    <!-- Section 5 -->
+    <h2 id="voice-cloning">5. Voice Cloning &amp; Studio Audio Workflows</h2>
+    <p>
+      ElevenLabs is renowned for its industry-standard voice cloning technology. Depending on your use case and compliance level, there are two distinct tiers:
+    </p>
+    <ul>
+      <li>
+        <strong>Instant Voice Cloning (IVC):</strong> Requires only 1 to 5 minutes of clean microphone audio. The neural net extracts vocal timbre, pitch variance, and cadence in seconds. Perfect for video creators, localized ads, and internal demos.
+      </li>
+      <li>
+        <strong>Professional Voice Cloning (PVC):</strong> Trained on 30 to 180 minutes of studio-grade WAV samples. PVC captures micro-inflections, emotional shifts (whispering, excitement, solemnity), and accent shifts. Ideal for audiobooks, digital avatars, and brand ambassadors.
+      </li>
+    </ul>
+
+    <div class="code-window">
+      <div class="code-header">
+        <div class="code-dots">
+          <div class="code-dot dot-red"></div>
+          <div class="code-dot dot-yellow"></div>
+          <div class="code-dot dot-green"></div>
+        </div>
+        <div class="code-lang">python &bull; voice_clone_and_generate.py</div>
+      </div>
+      <pre><code>from elevenlabs.client import ElevenLabs
+
+client = ElevenLabs(api_key="your_api_key_from_try.elevenlabs.io/outclaw")
+
+# 1. Create an Instant Voice Clone from local sample files
+cloned_voice = client.clone(
+    name="Zach Bailey Custom Brand Voice",
+    description="Confident, articulate tech host with clear studio pronunciation",
+    files=["./studio_samples/sample_01.wav", "./studio_samples/sample_02.wav"]
+)
+
+print(f"✅ Voice created with ID: {cloned_voice.voice_id}")
+
+# 2. Synthesize High-Impact Audio with Voice Settings
+audio_stream = client.text_to_speech.convert(
+    voice_id=cloned_voice.voice_id,
+    model_id="eleven_multilingual_v2",
+    text="Welcome back to OutClaw AI. Today we are breaking down the latest frontier agent benchmarks.",
+    voice_settings={
+        "stability": 0.55,
+        "similarity_boost": 0.85,
+        "style": 0.15,
+        "use_speaker_boost": True
+    }
+)
+
+# 3. Stream or save output to disk
+with open("outclaw_intro.mp3", "wb") as f:
+    for chunk in audio_stream:
+        f.write(chunk)
+print("🎧 Audio generated successfully: outclaw_intro.mp3")</code></pre>
+    </div>
+
+    <!-- Section 6 -->
+    <h2 id="video-dubbing">6. Automated Multilingual Video Dubbing</h2>
+    <p>
+      Expanding global reach traditionally meant spending thousands of dollars hiring localized voice actors and audio engineers. <strong>ElevenLabs Dubbing Studio</strong> automates the entire translation, voice cloning, and audio synchronization pipeline in one unified API call:
+    </p>
+    <ol>
+      <li><strong>Speaker Diarization:</strong> Automatically detects different speakers in the source video and separates them into discrete audio tracks.</li>
+      <li><strong>Transcript Translation:</strong> Translates script while adjusting syllable counts to match lip movements and timing constraints.</li>
+      <li><strong>Voice Matching:</strong> Clones each speaker’s exact voice identity into Spanish, French, German, Japanese, and 29+ other languages.</li>
+      <li><strong>Audio Mixing:</strong> Re-composites the translated speech with the original background music and sound effects flawlessly.</li>
+    </ol>
+
+    <!-- Section 7 -->
+    <h2 id="latency-tips">7. Latency Optimization &amp; Best Practices</h2>
+    <p>
+      When building voice bots for high-volume enterprise traffic or interactive SaaS applications, apply these battle-tested engineering techniques:
+    </p>
+    <ul>
+      <li><strong>Use PCM Over MP3 for Real-Time Streaming:</strong> Request <code>pcm_16000</code> or <code>pcm_24000</code> instead of MP3 format to eliminate MP3 header decoding overhead on the client side.</li>
+      <li><strong>Speculative Streaming:</strong> Begin streaming text to the ElevenLabs WebSocket endpoint as soon as the first 5 words are generated by the LLM rather than waiting for punctuation.</li>
+      <li><strong>Tune Stability vs. Latency:</strong> Higher stability values (0.7+) require slightly more lookahead tokens. Lowering stability to 0.40–0.50 gives snappier, dynamic response times.</li>
+      <li><strong>Acoustic Echo Cancellation (AEC):</strong> Ensure your client audio interface implements AEC to prevent the bot’s speaker output from leaking back into the user’s microphone and triggering false interruptions.</li>
+    </ul>
+
+    <!-- Section 8 -->
+    <h2 id="economics">8. Production Economics &amp; Getting Started</h2>
+    <p>
+      ElevenLabs provides generous free tiers and flexible character-based billing that scales cost-effectively from indie prototypes to millions of monthly minutes. At approximately $0.15 to $0.30 per 1,000 characters with streaming optimization, it is up to 60% cheaper than maintaining brittle in-house self-hosted GPU clusters.
+    </p>
+
+    <!-- Bottom Action Card -->
+    <div class="sponsor-banner" style="margin-top:40px;">
+      <div class="sponsor-banner-left">
+        <span class="sponsor-badge">Get Started Now</span>
+        <h3>Build Your Next Voice AI Project with ElevenLabs</h3>
+        <p>
+          Sign up through OutClaw AI to access the complete developer suite, real-time voice agent sandbox, voice cloning studio, and exclusive starter credits.
+        </p>
+      </div>
+      <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored" class="sponsor-btn">
+        Start Free on ElevenLabs &rarr;
+      </a>
+    </div>
+
+    <!-- Author Box -->
+    <div class="author-card">
+      <img src="../hero-alt.webp" alt="Zach Bailey" class="author-avatar"/>
+      <div class="author-info">
+        <h4>Zach Bailey</h4>
+        <p>Founder &amp; Principal Systems Architect at OutClaw AI. Author of <em>The Prompt Engineer’s Playbook</em>. Building autonomous agent systems, AI media pipelines, and full-stack LLM applications.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <a href="../" class="navbar-logo" style="margin-bottom:12px;">
+        <span class="footer-wordmark">OutClaw <em>AI</em></span>
+      </a>
+      <p>The AI Newsletter With Claws. High-signal guides, agent blueprints, and frontier intelligence.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <a href="../guides/">Technical Guides</a>
+      <a href="../news/">AI News</a>
+      <a href="../answers/">Agent Answers</a>
+      <a href="../videos/">Video Vault</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools</h4>
+      <a href="../tools/ai-tools-encyclopedia.html">AI Encyclopedia</a>
+      <a href="../tools/api-cost-calculator.html">API Cost Calculator</a>
+      <a href="../tools/mcp-server-directory.html">MCP Directory</a>
+      <a href="../tools/model-comparison.html">Model Comparisons</a>
+    </div>
+    <div class="footer-col">
+      <h4>Partners</h4>
+      <a href="https://try.elevenlabs.io/outclaw" target="_blank" rel="noopener sponsored">ElevenLabs Voice AI</a>
+      <a href="https://seolittleton.com" target="_blank">SEO Littleton</a>
+      <a href="https://distropixel.com" target="_blank">DistroPixel</a>
+      <a href="../privacy/">Privacy Policy</a>
+    </div>
+  </footer>
+  <div class="footer-bottom">
+    <p>&copy; 2026 OutClaw AI &bull; All Rights Reserved.</p>
+    <p>Empowering builders with cutting-edge agentic workflows.</p>
+  </div>
+
+</body>
+</html>

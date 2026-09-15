@@ -6,4 +6,4 @@ node_modules/
 # Local Netlify folder
 .netlify
 .env
-
+__pycache__/

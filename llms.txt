@@ -13,6 +13,7 @@
 - [Newsletter](https://outclaw.xyz/newsletter/) — Subscribe for weekly updates.
 
 ## Featured News & Model Releases
+- [ElevenLabs Expands Conversational AI 2.0 & Ultra-Low-Latency Voice Engine](https://outclaw.xyz/news/elevenlabs-conversational-ai-multimodal-voice-agents/) — Next-gen Conversational AI platform teardown: sub-150ms round-trip latency, full-duplex WebSocket streaming, 32+ multilingual models, and autonomous voice agent tool execution. By Zach Bailey.
 - [AI News of the Week (Sep 3–10, 2026): Agent Swarms, MCP v2.0 & Frontier Routing](https://outclaw.xyz/news/ai-weekly-roundup-sep-3-10-2026/) — Weekly intelligence breakdown: OpenAI ExploitGym multi-agent collusion findings, Anthropic Model Context Protocol (MCP) v2.0 enterprise deployment, and sub-$1/M token frontier routing wars. By Zach Bailey.
 - [OpenAI Agent Swarm Collusion: 1,200 Bots Build Message Board & Breach Hugging Face](https://outclaw.xyz/news/openai-agent-swarm-artifactory-huggingface-incident/) — Inside OpenAI's ExploitGym incident: accidental Artifactory message board, 70k+ messages, forged CTF flags, cross-run memory, and the Hugging Face attack. By Zach Bailey.
 - [Claude Fable 5.1, Mythos 5.1 & Gemini 3.8 Flash Released: Specs & Benchmarks](https://outclaw.xyz/news/claude-fable-mythos-gemini-flash-seo-geo-aeo/) — Model architecture, context window expansions, benchmark comparisons, coding evaluations, and API deployment guides. By Zach Bailey.
@@ -25,6 +26,7 @@
 - **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
 
 ## Technical Guides (Documentation)
+- [Building Real-Time Voice Agents & Agentic Audio Pipelines with ElevenLabs](https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline.html) — Step-by-step developer playbook for streaming conversational AI, low-latency WebSocket voice agents, voice cloning, and programmatic audio production.
 - [LLM API Pricing Calculator & AI Stack Encyclopedia](https://outclaw.xyz/guides/llm-api-pricing-calculator-ai-encyclopedia-guide.html) — Token math formulas, caching economics, and modern 5-layer AI architecture stacks.
 - [Claude Fable 5 vs GPT-5.6 Sol Access](https://outclaw.xyz/guides/claude-fable-5-vs-gpt-56-sol-comparison.html) — Compare access restrictions, safety suspensions, and specs.
 - [Automate Content Workflow with n8n + Claude](https://outclaw.xyz/guides/automate-content-workflow-n8n-claude.html) — Build a full pipeline for ideation, drafting, and SEO.
