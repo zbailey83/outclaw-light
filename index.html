@@ -300,28 +300,6 @@
       border-color: #fcd34d;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-family: var(--font-body);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--sky);
-    }
-
-    .eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 2px;
-      background: var(--sky);
-      border-radius: 2px;
-      flex-shrink: 0;
-    }
-
     .section-title {
       font-family: var(--font-display);
       font-size: 46px;
@@ -667,7 +645,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 80px;
       align-items: center;
-      padding: 120px 48px;
+      padding: 64px 48px 48px;
       max-width: 1200px;
       margin: 0 auto;
       width: 100%;
@@ -859,8 +837,7 @@
     .hero-stats-row {
       display: flex;
       gap: 36px;
-      margin-top: 48px;
-      animation: fadeInUp .7s ease .5s both;
+      margin-top: 32px; animation: fadeInUp .7s ease .5s both;
     }
 
     .stat-pill {
@@ -926,12 +903,12 @@
 
     /* ─── WHAT YOU GET ──────────────────────── */
     .what-section {
-      padding: 100px 0;
+      padding: 56px 0;
       background: var(--white);
     }
 
     .section-header {
-      margin-bottom: 64px;
+      margin-bottom: 36px;
     }
 
     .section-header.centered {
@@ -941,11 +918,7 @@
       align-items: center;
     }
 
-    .section-header.centered .eyebrow {
-      margin-bottom: 16px;
-    }
-
-    .section-header.centered .section-sub {
+    .section-header.centered .section-header.centered .section-sub {
       text-align: center;
     }
 
@@ -1045,7 +1018,7 @@
 
     /* ─── SAMPLE ISSUE ──────────────────────── */
     .preview-section {
-      padding: 100px 0;
+      padding: 56px 0;
       background: var(--sand);
     }
 
@@ -1166,7 +1139,7 @@
 
     /* ─── HOW IT WORKS ──────────────────────── */
     .steps-section {
-      padding: 100px 0;
+      padding: 56px 0;
       background: var(--white);
     }
 
@@ -1235,7 +1208,7 @@
 
     /* ─── TESTIMONIALS ──────────────────────── */
     .testimonials-section {
-      padding: 100px 0;
+      padding: 56px 0;
       background: linear-gradient(160deg, var(--sky-pale) 0%, var(--flamingo-pale) 60%, var(--sand) 100%);
       position: relative;
       overflow: hidden;
@@ -1346,7 +1319,7 @@
 
     /* ─── BOTTOM CTA ────────────────────────── */
     .bottom-cta {
-      padding: 120px 0;
+      padding: 64px 0;
       text-align: center;
       background: var(--deep-navy);
       position: relative;
@@ -1646,7 +1619,7 @@
     }
 
     /* Helper Classes to replace inline styles */
-    .section-padding { padding: 100px 0; }
+    .section-padding { padding: 56px 0; }
     .bg-white { background: var(--white); }
     .bg-bg { background: var(--bg); }
     .bg-sand { background: var(--sand); }
@@ -1748,10 +1721,6 @@
     <div class="hero-inner">
       <div class="hero-left">
         <img src="outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Flamingo Mascot" class="hero-mobile-icon">
-        <div class="hero-badge">
-          <span class="hero-badge-dot"></span>
-          AI Newsletter for Builders
-        </div>
         <h1 class="hero-headline">
           The AI Newsletter for <em>Builders.</em>
         </h1>
@@ -1793,7 +1762,6 @@
       
       <!-- Answer Block -->
       <div style="background: var(--sky-pale); padding: 32px; border-radius: 20px; border: 1px solid var(--sky-light); margin-bottom: 40px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
-        <div style="font-size: 11px; font-weight: 700; color: var(--sky); text-transform: uppercase; margin-bottom: 12px; letter-spacing: 0.05em;">AI Fast Pack: The OutClaw Mission</div>
         <p style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">
           OutClaw is the definitive <strong>AI newsletter for builders</strong> focused on moving from theory to implementation. We provide weekly <strong>workflows</strong>, technical <strong>MCP</strong> (Model Context Protocol) guides, and <strong>prompt</strong> frameworks that help developers and operators build production-ready <strong>automation</strong> using the latest AI <strong>tools</strong>.
         </p>

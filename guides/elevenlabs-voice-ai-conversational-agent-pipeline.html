@@ -215,11 +215,6 @@
   .breadcrumb { font-size: 12px; color: var(--text-dim); margin-bottom: 16px; }
   .breadcrumb a { color: var(--text-dim); text-decoration: none; }
   .breadcrumb a:hover { color: var(--sky); }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 10px; font-size: 12px; font-weight: 700;
-    letter-spacing: .1em; text-transform: uppercase; color: var(--flamingo); margin-bottom: 14px;
-  }
-  .eyebrow::before { content: ""; display: block; width: 24px; height: 2px; background: var(--flamingo); border-radius: 2px; }
   .page-hero h1 {
     font-family: var(--font-display); font-size: clamp(32px, 4.8vw, 50px); font-weight: 400;
     line-height: 1.15; letter-spacing: -0.02em; color: var(--text); max-width: 900px;
@@ -239,7 +234,7 @@
   }
 
   /* ---- Page Body & Layout ---- */
-  .page-body { max-width: 920px; margin: 0 auto; padding: 48px 48px 96px; }
+  .page-body { max-width: 920px; margin: 0 auto; padding: 40px 48px 64px; }
   @media(max-width:640px){.page-hero{padding:40px 24px 32px;}.page-body{padding:36px 20px 72px;}}
 
   /* ---- Partner / Affiliate Callout Box ---- */
@@ -426,7 +421,6 @@
       <div class="breadcrumb">
         <a href="../">OutClaw AI</a> &rsaquo; <a href="../guides/">Guides</a> &rsaquo; ElevenLabs Voice AI Architecture
       </div>
-      <div class="eyebrow">Production Audio Architecture &bull; 2026 Edition</div>
       <h1>Building Real-Time Voice Agents &amp; Agentic Audio Pipelines with <em>ElevenLabs</em></h1>
       <p class="page-hero-sub">
         The complete developer playbook for constructing low-latency conversational voice bots, WebSocket streaming pipelines, custom voice clones, automated dubbing, and programmatic soundscapes.
@@ -472,7 +466,6 @@
 
     <!-- TL;DR Summary Box -->
     <div class="tldr-box">
-      <div class="eyebrow" style="margin-bottom:8px;color:var(--sky);">Executive Summary</div>
       <h3>What This Blueprint Delivers</h3>
       <p>
         Building speech-enabled AI used to mean stitching together fragile STT (speech-to-text), LLM reasoning loops, and robotic TTS engines with 1,200ms+ latency. In 2026, <strong>ElevenLabs Conversational AI</strong> and ultra-fast models like <strong>Eleven Turbo v2.5 / Flash v2.5</strong> collapse voice latency down to sub-150ms with human emotional inflection, instant voice cloning, dynamic interruption handling, and programmatic tool execution.
@@ -774,7 +767,6 @@ print("🎧 Audio generated successfully: outclaw_intro.mp3")</code></pre>
     <!-- Bottom Action Card -->
     <div class="sponsor-banner" style="margin-top:40px;">
       <div class="sponsor-banner-left">
-        <span class="sponsor-badge">Get Started Now</span>
         <h3>Build Your Next Voice AI Project with ElevenLabs</h3>
         <p>
           Sign up through OutClaw AI to access the complete developer suite, real-time voice agent sandbox, voice cloning studio, and exclusive starter credits.
