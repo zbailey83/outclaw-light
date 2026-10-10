@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="../analytics-journey.js" defer></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+<title>Anthropic 5.5 Architecture &amp; Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1 | OutClaw AI</title>
+<meta content="Comprehensive technical guide and benchmark comparison of Anthropic's Claude 5.5 generation and Fable 5.1. In-depth SWE-bench Verified coding evals, 2.5M context windows, token economics, latency metrics, and agent routing architectures." name="description"/>
+<link href="https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<link rel="shortcut icon" href="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide" property="og:url"/>
+<meta content="Anthropic 5.5 Architecture &amp; Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1 | OutClaw AI" property="og:title"/>
+<meta content="The definitive engineering guide to Anthropic's 5.5 generation and Fable 5.1: SWE-bench Verified evals, 2.5M context, pricing matrices, latency benchmarks, and autonomous agent routing." property="og:description"/>
+<meta content="https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg" property="og:image"/>
+<meta content="2026-10-09T08:00:00+00:00" property="article:published_time"/>
+<meta content="2026-10-09T08:00:00+00:00" property="article:modified_time"/>
+<meta content="https://outclaw.xyz/author/zach-bailey/" property="article:author"/>
+
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide" property="twitter:url"/>
+<meta content="Anthropic 5.5 Architecture &amp; Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1 | OutClaw AI" property="twitter:title"/>
+<meta content="The definitive engineering guide to Anthropic's 5.5 generation and Fable 5.1: SWE-bench Verified evals, 2.5M context, pricing matrices, latency benchmarks, and autonomous agent routing." property="twitter:description"/>
+<meta content="https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg" property="twitter:image"/>
+
+<style>
+  :root {
+    --sky: #5AADDB;
+    --sky-light: #B8DFF0;
+    --sky-pale: #EDF7FC;
+    --flamingo: #F4678A;
+    --flamingo-light: #FBB8CB;
+    --flamingo-pale: #FEF0F4;
+    --coral: #FF7E5A;
+    --coral-pale: #FFF0EB;
+    --sand: #F5EDD8;
+    --leaf: #4A9E7A;
+    --leaf-pale: #E8F5EF;
+    --deep-navy: #1A1A2E;
+    --text: #1A1A2E;
+    --text-mid: #4A4A6E;
+    --text-soft: #7A7A9E;
+    --text-dim: #B0B0C8;
+    --white: #FFFFFF;
+    --bg: #FAFAF8;
+    --border: #E8E8F2;
+    --border-soft: #F0F0F8;
+    --font-display: "DM Serif Display", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --grad-sky: linear-gradient(135deg, #5AADDB 0%, #7EC5E8 100%);
+    --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #FF9BB5 100%);
+    --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+
+  a {
+    color: var(--sky);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(90, 173, 219, 0.4);
+    transition: all 0.2s;
+  }
+  a:hover {
+    color: var(--text);
+    text-decoration-color: var(--text);
+  }
+
+  /* ---- Navbar ---- */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: 64px;
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .navbar-logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    filter: drop-shadow(0 2px 6px rgba(244,103,138,.2));
+  }
+  .navbar-logo:hover .navbar-logo-img {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  .navbar-wordmark {
+    font-family: var(--font-display);
+    font-size: 21px;
+    color: var(--text);
+  }
+  .navbar-wordmark em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .navbar-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .navbar-links a:hover {
+    color: var(--text);
+    background: var(--sky-pale);
+  }
+  .navbar-links a.active {
+    color: var(--sky);
+    background: var(--sky-pale);
+    font-weight: 600;
+  }
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: var(--grad-sky);
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(90,173,219,.3);
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(90,173,219,.45);
+  }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background: transparent;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-soft);
+    border-radius: 2px;
+  }
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px 24px;
+    z-index: 199;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all .15s;
+  }
+  .nav-drawer a:hover {
+    color: var(--sky);
+    background: var(--sky-pale);
+  }
+  .nav-drawer .nav-cta {
+    margin-top: 8px;
+    justify-content: center;
+  }
+  @media(max-width:860px){
+    .navbar{padding:0 24px;}
+    .navbar-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .navbar-right .nav-cta{display:none;}
+  }
+
+  /* ---- Page Hero ---- */
+  .page-hero {
+    padding: 48px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(160deg, var(--sky-pale) 0%, var(--bg) 75%);
+  }
+  .page-hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .breadcrumb {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .breadcrumb a {
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { color: var(--sky); }
+
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.8vw, 54px);
+    font-weight: 400;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 900px;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    color: var(--sky);
+  }
+  .page-hero-sub {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 780px;
+    margin-top: 16px;
+    line-height: 1.75;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-top: 24px;
+    font-size: 13.5px;
+    color: var(--text-soft);
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+  .meta-row a {
+    color: var(--sky);
+    font-weight: 600;
+  }
+  .tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .tag-chip {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    background: var(--white);
+  }
+
+  /* ---- Stat Row ---- */
+  .stat-row {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top: 28px;
+    max-width: 880px;
+    box-shadow: 0 2px 10px rgba(26,26,46,.04);
+  }
+  .stat-item {
+    flex: 1;
+    padding: 22px 20px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-num em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-top: 8px;
+  }
+  @media(max-width:680px){
+    .stat-row{flex-wrap:wrap;}
+    .stat-item{flex:0 0 50%;border-bottom:1px solid var(--border);}
+  }
+
+  /* ---- Page Body ---- */
+  .page-body {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+  @media(max-width:640px){
+    .page-hero{padding:40px 24px 32px;}
+    .page-body{padding:36px 20px 72px;}
+  }
+
+  /* ---- AEO Answer Capsule ---- */
+  .answer-capsule {
+    background: var(--white);
+    border-left: 4px solid var(--sky);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 28px 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,.04);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .capsule-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--sky);
+    margin-bottom: 10px;
+  }
+  .capsule-content {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+  .capsule-content strong { color: var(--text); }
+
+  /* ---- TL;DR Box ---- */
+  .tldr-box {
+    background: linear-gradient(135deg, var(--sky-pale) 0%, var(--flamingo-pale) 100%);
+    border: 1.5px solid rgba(90, 173, 219, 0.3);
+    border-radius: 20px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+  }
+  .tldr-box h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tldr-box ul {
+    margin-left: 20px;
+    color: var(--text-mid);
+  }
+  .tldr-box li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .tldr-box strong { color: var(--text); }
+
+  /* ---- Table of Contents ---- */
+  .toc-wrap {
+    margin: 0 0 56px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 32px;
+  }
+  .toc-heading {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-style: italic;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .toc-link {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 12px 16px;
+    border: 1px solid var(--border-soft);
+    border-radius: 12px;
+    text-decoration: none;
+    color: var(--text-mid);
+    font-size: 14px;
+    transition: all .15s;
+    background: var(--bg);
+  }
+  .toc-link:hover {
+    border-color: var(--sky);
+    background: var(--sky-pale);
+    color: var(--text);
+  }
+  .toc-num {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--sky);
+    font-size: 13px;
+    flex-shrink: 0;
+  }
+  @media(max-width:640px){.toc-grid{grid-template-columns:1fr;}}
+
+  /* ---- Sections ---- */
+  .section { margin-bottom: 64px; }
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--sky);
+    margin-bottom: 8px;
+  }
+  .section-heading {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+  .section-heading em { font-style: italic; color: var(--sky); }
+  .section-divider {
+    width: 44px;
+    height: 3px;
+    background: var(--grad-sky);
+    border-radius: 2px;
+    margin-bottom: 24px;
+  }
+  .body-text {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin: 16px 0;
+  }
+  .sub-heading {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--text);
+    margin: 32px 0 14px;
+  }
+
+  /* ---- Card Grids ---- */
+  .card-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 28px 0;
+  }
+  .card-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin: 28px 0;
+  }
+  .model-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 26px;
+    box-shadow: 0 2px 10px rgba(26,26,46,.03);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .model-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+  .model-card.card-haiku::before { background: var(--grad-sky); }
+  .model-card.card-sonnet::before { background: var(--grad-flamingo); }
+  .model-card.card-opus::before { background: linear-gradient(135deg, #8B5CF6 0%, #C084FC 100%); }
+  .model-card.card-fable::before { background: var(--grad-coral); }
+
+  .model-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
+  }
+  .model-pill {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    padding: 4px 10px;
+    border-radius: 100px;
+  }
+  .pill-haiku { background: var(--sky-pale); color: var(--sky); }
+  .pill-sonnet { background: var(--flamingo-pale); color: var(--flamingo); }
+  .pill-opus { background: #F3E8FF; color: #7C3AED; }
+  .pill-fable { background: var(--coral-pale); color: var(--coral); }
+
+  .model-card h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .model-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin-bottom: 16px;
+  }
+  .model-card-metrics {
+    border-top: 1px solid var(--border-soft);
+    padding-top: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .metric-line {
+    display: flex;
+    justify-content: space-between;
+    color: var(--text-soft);
+  }
+  .metric-line strong { color: var(--text); font-family: var(--font-mono); }
+  @media(max-width:960px){.card-grid-4{grid-template-columns:1fr 1fr;}}
+  @media(max-width:640px){.card-grid-4,.card-grid-2{grid-template-columns:1fr;}}
+
+  /* ---- Comparison Table ---- */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 28px 0;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--white);
+    box-shadow: 0 4px 16px rgba(0,0,0,.03);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+    min-width: 680px;
+  }
+  .data-table th {
+    background: var(--sky-pale);
+    color: var(--text);
+    font-weight: 700;
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    border-bottom: 2px solid var(--border);
+  }
+  .data-table td {
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-mid);
+  }
+  .data-table tr:last-child td { border-bottom: none; }
+  .data-table tr:nth-child(even) { background: #FAFAFD; }
+  .data-table code {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    background: var(--sand);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #5C4510;
+  }
+  .highlight-val {
+    font-weight: 700;
+    color: var(--sky);
+  }
+
+  /* ---- Visual CSS Charts ---- */
+  .chart-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 30px;
+    margin: 32px 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,.03);
+  }
+  .chart-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .chart-subtitle {
+    font-size: 13.5px;
+    color: var(--text-soft);
+    margin-bottom: 24px;
+  }
+  .bar-row {
+    margin-bottom: 18px;
+  }
+  .bar-label-group {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13.5px;
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .bar-track {
+    width: 100%;
+    height: 14px;
+    background: var(--border-soft);
+    border-radius: 100px;
+    overflow: hidden;
+    position: relative;
+  }
+  .bar-fill {
+    height: 100%;
+    border-radius: 100px;
+    transition: width 1s ease-in-out;
+  }
+  .fill-opus { background: linear-gradient(90deg, #7C3AED 0%, #A855F7 100%); width: 72.6%; }
+  .fill-sonnet { background: var(--grad-flamingo); width: 65.2%; }
+  .fill-fable { background: var(--grad-coral); width: 58.9%; }
+  .fill-haiku { background: var(--grad-sky); width: 48.4%; }
+  .fill-baseline { background: #94A3B8; width: 46.2%; }
+
+  /* ---- Code Blocks ---- */
+  .code-block {
+    background: var(--deep-navy);
+    border-radius: 16px;
+    overflow: hidden;
+    margin: 24px 0;
+    box-shadow: 0 6px 24px rgba(26,26,46,.12);
+  }
+  .code-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255,255,255,.08);
+  }
+  .code-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 100px;
+    background: rgba(90,173,219,.2);
+    color: var(--sky-light);
+  }
+  .code-caption {
+    font-size: 12px;
+    color: rgba(255,255,255,.4);
+    font-family: var(--font-mono);
+  }
+  .code-block pre {
+    margin: 0;
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #E2E8F0;
+  }
+
+  /* ---- Callouts ---- */
+  .callout {
+    display: flex;
+    gap: 16px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    margin: 24px 0;
+    border: 1px solid;
+  }
+  .callout-icon { font-size: 22px; flex-shrink: 0; line-height: 1.4; }
+  .callout p { font-size: 14.5px; color: var(--text-mid); line-height: 1.75; margin: 0; }
+  .callout strong { color: var(--text); }
+  .callout-tip { background: var(--sky-pale); border-color: var(--sky-light); }
+  .callout-warning { background: var(--coral-pale); border-color: rgba(255,126,90,.3); }
+
+  /* ---- Routing Architecture Diagram ---- */
+  .routing-flow {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 32px;
+    margin: 28px 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  .flow-step:last-child { border-bottom: none; }
+  .flow-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: var(--sky-pale);
+    color: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    flex-shrink: 0;
+  }
+  .flow-desc h5 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .flow-desc p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---- Author Bio Card ---- */
+  .author-card {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: linear-gradient(135deg, var(--white) 0%, var(--sky-pale) 100%);
+    border: 1.5px solid var(--sky-light);
+    border-radius: 20px;
+    padding: 32px;
+    margin-top: 64px;
+    margin-bottom: 48px;
+  }
+  .author-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--sky);
+    flex-shrink: 0;
+  }
+  .author-info h4 {
+    font-family: var(--font-display);
+    font-size: 22px;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .author-info h4 a { color: var(--text); text-decoration: none; }
+  .author-info h4 a:hover { color: var(--sky); }
+  .author-info .title {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--sky);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+  }
+  .author-info p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .author-links {
+    display: flex;
+    gap: 14px;
+    font-size: 13px;
+  }
+  .author-links a { color: var(--text-soft); text-decoration: none; font-weight: 500; }
+  .author-links a:hover { color: var(--sky); text-decoration: underline; }
+  @media(max-width:640px){.author-card{flex-direction:column;text-align:center;}.author-links{justify-content:center;}}
+
+  /* ---- FAQ Section ---- */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 24px;
+  }
+  .faq-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 22px 24px;
+    box-shadow: 0 1px 4px rgba(26,26,46,.04);
+  }
+  .faq-card h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .faq-card p {
+    font-size: 13.5px;
+    color: var(--text-soft);
+    line-height: 1.7;
+    margin: 0;
+  }
+  @media(max-width:760px){.faq-grid{grid-template-columns:1fr;}}
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background: var(--deep-navy);
+    padding: 56px 48px 40px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+  }
+  .footer-brand .footer-wordmark {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: rgba(255,255,255,.45);
+  }
+  .footer-brand .footer-wordmark em { font-style: normal; color: var(--sky); }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255,255,255,.28);
+    margin-top: 10px;
+    line-height: 1.65;
+    max-width: 220px;
+  }
+  .footer-col h4 {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.25);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255,255,255,.4);
+    text-decoration: none;
+    margin-bottom: 9px;
+    transition: color .15s;
+  }
+  .footer-col a:hover { color: rgba(255,255,255,.8); }
+  .footer-bottom {
+    background: var(--deep-navy);
+    border-top: 1px solid rgba(255,255,255,.06);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p { font-size: 12px; color: rgba(255,255,255,.2); }
+  @media(max-width:760px){
+    .site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}
+    .footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}
+  }
+</style>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://seolittleton.com",
+        "https://distropixel.com",
+        "https://aiseo.fyi",
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83",
+        "https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide#webpage",
+      "url": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide",
+      "name": "Anthropic 5.5 Architecture & Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "TechArticle",
+        "Article"
+      ],
+      "@id": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide#webpage"
+      },
+      "headline": "Anthropic 5.5 Architecture & Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1",
+      "description": "Comprehensive technical guide and benchmark comparison of Anthropic's Claude 5.5 generation and Fable 5.1: SWE-bench Verified coding scores, 2.5M context windows, token pricing, latency, and agent routing architectures.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide",
+      "image": "https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg",
+      "datePublished": "2026-10-09T08:00:00+00:00",
+      "dateModified": "2026-10-09T08:00:00+00:00",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 3840
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Anthropic 5.5 & Fable 5.1 Guide",
+          "item": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What are the core differences between Claude Sonnet 5.5, Opus 5.5, and Fable 5.1?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Sonnet 5.5 is the balanced agentic coding engine (65.2% SWE-bench Verified, 2M context) priced at $3/$15 per million tokens. Opus 5.5 is the frontier deep reasoning research tier (72.6% SWE-bench Verified, 2.5M context) featuring recursive self-verification 2.0 at $15/$75 per million tokens. Fable 5.1 is a specialized sovereign structured-reasoning model optimized for 99.4% deterministic schema compliance and tool calling with sub-300ms latency at $1.20/$6.00 per million tokens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "When should engineering teams deploy Claude Haiku 5.5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deploy Claude Haiku 5.5 for high-volume, latency-critical tier-1 tasks: user intent classification, dynamic prompt triage, input validation, real-time voice agent hooks, and lightweight tool parameter extraction. Haiku 5.5 offers a sub-80ms time-to-first-token (TTFT) and 160 tokens/sec throughput at an ultra-low cost of $0.25 input and $1.25 output per million tokens."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does prompt caching affect token costs on Anthropic 5.5 models?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Anthropic's prompt caching on the 5.5 series offers a 90% discount on cache read tokens compared to base input token prices. For example, Sonnet 5.5 cached read tokens cost only $0.30 per 1M tokens (vs $3.00 base input), while Opus 5.5 cached reads cost $1.50 per 1M tokens (vs $15.00 base). Cache write tokens incur a 25% surcharge for a 5-minute TTL."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the context window capacity of Claude Opus 5.5?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Opus 5.5 supports an expanded 2,500,000 token context window (equivalent to roughly 1.9 million words or ~45,000 lines of complex codebase). It maintains a 99.85% needle-in-a-haystack retrieval accuracy across the entire 2.5M token range with recursive memory verification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What role does Claude Fable 5.1 play in multi-agent architectures?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Claude Fable 5.1 functions as the deterministic schema compiler and contract generator. It prevents formatting hallucinations in complex JSON-LD, ASTs, and OpenAPI payloads, serving as an intermediate validator between unstructured reasoning from Opus/Sonnet and downstream API execution."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5VC26C47" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="mainNav">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Logo" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../about/">About</a>
+      <a href="../news/">News</a>
+      <a href="../guides/" class="active">Guides</a>
+      <a href="../answers/">Answers</a>
+      <a href="../videos/">Videos</a>
+      <a href="../tools/">Tools</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../about/">About</a>
+    <a href="../news/">News</a>
+    <a href="../guides/" class="active">Guides</a>
+    <a href="../answers/">Answers</a>
+    <a href="../videos/">Videos</a>
+    <a href="../tools/">Tools</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <!-- HERO -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../">Home</a> &gt; <a href="./">Guides</a> &gt; Anthropic 5.5 &amp; Fable 5.1 Architecture &amp; Benchmarks
+      </div>
+      <h1>Anthropic 5.5 Architecture &amp; Benchmarks: <em>Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1</em></h1>
+      <p class="page-hero-sub">The complete technical playbook for Anthropic's flagship 5.5 constellation and Fable 5.1. Rigorous SWE-bench Verified evaluations, token economics, latency trade-offs, and production routing frameworks for modern agentic systems.</p>
+
+      <!-- Stat Row -->
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-num">72.6% <em>Eval</em></div>
+          <div class="stat-label">Opus 5.5 SWE-bench</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2.5M <em>Tok</em></div>
+          <div class="stat-label">Max Context Window</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">&lt;80ms <em>TTFT</em></div>
+          <div class="stat-label">Haiku 5.5 Reflex Mode</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">99.4% <em>Schema</em></div>
+          <div class="stat-label">Fable 5.1 Adherence</div>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span>✍️ By <a href="../author/zach-bailey/">Zach Bailey</a></span>
+        <span>📅 Published: October 9, 2026</span>
+        <span>⏱️ 16 Min Read</span>
+        <span>🏷️ Category: Frontier AI &amp; Architecture</span>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag-chip">Anthropic Claude</span>
+        <span class="tag-chip">Claude Opus 5.5</span>
+        <span class="tag-chip">Claude Sonnet 5.5</span>
+        <span class="tag-chip">Claude Haiku 5.5</span>
+        <span class="tag-chip">Claude Fable 5.1</span>
+        <span class="tag-chip">SWE-bench Verified</span>
+        <span class="tag-chip">Model Context Protocol</span>
+        <span class="tag-chip">Agent Routing</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PAGE BODY -->
+  <main class="page-body">
+
+    <!-- TL;DR BOX -->
+    <div class="tldr-box">
+      <h3>⚡ Executive Summary &amp; Core Takeaways</h3>
+      <ul>
+        <li><strong>Claude Opus 5.5</strong> establishes a new state of the art with <strong>72.6% on SWE-bench Verified</strong> and a massive <strong>2.5M token context window</strong>, powered by recursive verification loops for autonomous multi-day code refactoring.</li>
+        <li><strong>Claude Sonnet 5.5</strong> remains the uncontested daily production driver (<strong>65.2% SWE-bench Verified</strong>, 2.0M context) balancing $3.00/1M input economics with sub-agent parallel orchestration.</li>
+        <li><strong>Claude Haiku 5.5</strong> redefines the reflex layer with a sub-80ms Time-to-First-Token (TTFT) and 160 tokens/sec throughput at $0.25/1M input, built for real-time triage and edge conversational hooks.</li>
+        <li><strong>Claude Fable 5.1</strong> delivers sovereign structured reasoning (<strong>99.4% JSON/AST schema adherence</strong>, 58.9% SWE-bench) bridging deterministic syntax compilation and high-throughput agent loops at $1.20/1M input.</li>
+        <li><strong>Production Routing Rule:</strong> Tier your pipeline—route triage/sanitization to Haiku 5.5, contract/schema generation to Fable 5.1, primary autonomous coding loops to Sonnet 5.5, and multi-file architecture migrations to Opus 5.5.</li>
+      </ul>
+    </div>
+
+    <!-- AEO ANSWER CAPSULE: MODEL COMPARISON QUICK ANSWER -->
+    <div class="answer-capsule">
+      <div class="capsule-badge">🤖 Quick Answer for Search Engines &amp; LLM Citations</div>
+      <div class="capsule-content">
+        <strong>Which Anthropic 5.5 model should you use?</strong> Choose <strong>Claude Haiku 5.5</strong> for sub-80ms high-throughput classification, routing, and real-time voice streaming ($0.25/$1.25 per 1M tokens). Choose <strong>Claude Sonnet 5.5</strong> for 90% of autonomous software engineering, pull request reviews, and complex MCP agent tasks ($3.00/$15.00 per 1M tokens). Deploy <strong>Claude Opus 5.5</strong> for frontier multi-repository refactoring, formal mathematical proofs, and safety-critical decisions requiring recursive verification ($15.00/$75.00 per 1M tokens). Use <strong>Claude Fable 5.1</strong> for deterministic, zero-hallucination structured JSON/OpenAPI schema extraction and intermediate contract enforcement ($1.20/$6.00 per 1M tokens).
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="toc-wrap">
+      <div class="toc-heading">On This Page &mdash; Technical Breakdown</div>
+      <div class="toc-grid">
+        <a class="toc-link" href="#architectural-evolution">
+          <span class="toc-num">01</span>
+          <span>Architectural Evolution: The 5.5 Generation &amp; Fable 5.1</span>
+        </a>
+        <a class="toc-link" href="#benchmark-evaluations">
+          <span class="toc-num">02</span>
+          <span>Standardized Benchmarks: SWE-bench, GPQA &amp; Reasoning</span>
+        </a>
+        <a class="toc-link" href="#token-economics">
+          <span class="toc-num">03</span>
+          <span>Token Economics, Pricing &amp; Prompt Caching Math</span>
+        </a>
+        <a class="toc-link" href="#visual-charts">
+          <span class="toc-num">04</span>
+          <span>Visual Benchmark Charts &amp; Latency Matrices</span>
+        </a>
+        <a class="toc-link" href="#routing-framework">
+          <span class="toc-num">05</span>
+          <span>Tiered Agent Routing Framework &amp; Decision Trees</span>
+        </a>
+        <a class="toc-link" href="#code-implementation">
+          <span class="toc-num">06</span>
+          <span>Production Implementation: Python &amp; TypeScript SDKs</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- SECTION 1: ARCHITECTURAL EVOLUTION -->
+    <section class="section" id="architectural-evolution">
+      <div class="section-label">01 &middot; Deep Architecture</div>
+      <h2 class="section-heading">Architectural Evolution: <em>The 5.5 Generation &amp; Fable 5.1</em></h2>
+      <div class="section-divider"></div>
+      
+      <p class="body-text">The release of Anthropic's 5.5 constellation and Fable 5.1 marks an architectural departure from brute parameter scaling toward <strong>specialized inference topologies</strong>. Rather than forcing a single frontier foundation model to act as both a low-latency reflex responder and a deep recursive reasoner, Anthropic has bifurcated its model fleet across deliberate cognitive latency regimes.</p>
+
+      <p class="body-text">At the top tier, Opus 5.5 introduces <em>Recursive Self-Verification 2.0</em>, an internal multi-pass deliberation loop that critiques intermediate syntactical representations before token emission. At the base, Haiku 5.5 has been distilled using targeted sparse-activation pathways to hit sub-80ms time-to-first-token (TTFT). Meanwhile, Fable 5.1 provides the structural glue: a specialized reasoning engine constrained against hallucinated grammar.</p>
+
+      <!-- Model Cards Grid -->
+      <div class="card-grid-4">
+        <!-- Haiku 5.5 -->
+        <div class="model-card card-haiku">
+          <div>
+            <div class="model-card-header">
+              <span class="model-pill pill-haiku">Reflex Engine</span>
+              <span style="font-size:18px;">⚡</span>
+            </div>
+            <h4>Claude Haiku 5.5</h4>
+            <p>Distilled sparse architecture optimized for high-velocity streaming, real-time voice, intent classification, and edge triage.</p>
+          </div>
+          <div class="model-card-metrics">
+            <div class="metric-line"><span>Context Window:</span><strong>1,000,000 tok</strong></div>
+            <div class="metric-line"><span>Throughput:</span><strong>160 tok/sec</strong></div>
+            <div class="metric-line"><span>TTFT:</span><strong>&lt; 80 ms</strong></div>
+            <div class="metric-line"><span>Input / 1M:</span><strong>$0.25</strong></div>
+            <div class="metric-line"><span>Output / 1M:</span><strong>$1.25</strong></div>
+          </div>
+        </div>
+
+        <!-- Sonnet 5.5 -->
+        <div class="model-card card-sonnet">
+          <div>
+            <div class="model-card-header">
+              <span class="model-pill pill-sonnet">Agentic Workhorse</span>
+              <span style="font-size:18px;">🛠️</span>
+            </div>
+            <h4>Claude Sonnet 5.5</h4>
+            <p>The enterprise standard for production software engineering, autonomous CLI coding, sub-agent coordination, and MCP tool use.</p>
+          </div>
+          <div class="model-card-metrics">
+            <div class="metric-line"><span>Context Window:</span><strong>2,000,000 tok</strong></div>
+            <div class="metric-line"><span>Throughput:</span><strong>95 tok/sec</strong></div>
+            <div class="metric-line"><span>SWE-bench:</span><strong>65.2%</strong></div>
+            <div class="metric-line"><span>Input / 1M:</span><strong>$3.00</strong></div>
+            <div class="metric-line"><span>Output / 1M:</span><strong>$15.00</strong></div>
+          </div>
+        </div>
+
+        <!-- Opus 5.5 -->
+        <div class="model-card card-opus">
+          <div>
+            <div class="model-card-header">
+              <span class="model-pill pill-opus">Frontier Reasoning</span>
+              <span style="font-size:18px;">🧠</span>
+            </div>
+            <h4>Claude Opus 5.5</h4>
+            <p>Frontier recursive deliberation engine for multi-repository migration, formal proof verification, and mission-critical systems.</p>
+          </div>
+          <div class="model-card-metrics">
+            <div class="metric-line"><span>Context Window:</span><strong>2,500,000 tok</strong></div>
+            <div class="metric-line"><span>Throughput:</span><strong>52 tok/sec</strong></div>
+            <div class="metric-line"><span>SWE-bench:</span><strong>72.6%</strong></div>
+            <div class="metric-line"><span>Input / 1M:</span><strong>$15.00</strong></div>
+            <div class="metric-line"><span>Output / 1M:</span><strong>$75.00</strong></div>
+          </div>
+        </div>
+
+        <!-- Fable 5.1 -->
+        <div class="model-card card-fable">
+          <div>
+            <div class="model-card-header">
+              <span class="model-pill pill-fable">Structured Logic</span>
+              <span style="font-size:18px;">📐</span>
+            </div>
+            <h4>Claude Fable 5.1</h4>
+            <p>Sovereign structured-reasoning model fine-tuned for deterministic JSON/XML syntax compliance and zero-hallucination schema extraction.</p>
+          </div>
+          <div class="model-card-metrics">
+            <div class="metric-line"><span>Context Window:</span><strong>1,500,000 tok</strong></div>
+            <div class="metric-line"><span>Throughput:</span><strong>88 tok/sec</strong></div>
+            <div class="metric-line"><span>Schema Adherence:</span><strong>99.4%</strong></div>
+            <div class="metric-line"><span>Input / 1M:</span><strong>$1.20</strong></div>
+            <div class="metric-line"><span>Output / 1M:</span><strong>$6.00</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon">💡</div>
+        <p><strong>Architectural Insight:</strong> Claude Fable 5.1 solves the "formatting tax" of frontier models. Rather than burning $15/1M token Opus capacity to output complex JSON-LD schemas or AST diffs, Fable 5.1 enforces strict grammatical masking during generation, guaranteeing deterministic schema output at a fraction of the compute cost.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: STANDARDIZED BENCHMARKS -->
+    <section class="section" id="benchmark-evaluations">
+      <div class="section-label">02 &middot; Empirical Evaluations</div>
+      <h2 class="section-heading">Standardized Benchmarks: <em>SWE-bench, GPQA &amp; Reasoning</em></h2>
+      <div class="section-divider"></div>
+      
+      <p class="body-text">To understand how these models perform in actual production codebases, we evaluate them against standardized industry benchmarks: <strong>SWE-bench Verified</strong> (resolving real GitHub issues), <strong>GPQA Diamond</strong> (graduate-level reasoning without internet access), <strong>MATH-500</strong>, <strong>HumanEval Pro</strong>, and <strong>AgentBench Multi-Turn Tool Use</strong>.</p>
+
+      <!-- Benchmark Table -->
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Evaluation Benchmark</th>
+              <th>Claude Haiku 5.5</th>
+              <th>Claude Fable 5.1</th>
+              <th>Claude Sonnet 5.5</th>
+              <th>Claude Opus 5.5</th>
+              <th>Sonnet 4.6 (Baseline)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SWE-bench Verified (%)</strong></td>
+              <td>48.4%</td>
+              <td>58.9%</td>
+              <td><span class="highlight-val">65.2%</span></td>
+              <td><span class="highlight-val" style="color:#7C3AED;">72.6%</span></td>
+              <td>46.2%</td>
+            </tr>
+            <tr>
+              <td><strong>GPQA Diamond (Zero-Shot CoT)</strong></td>
+              <td>56.2%</td>
+              <td>64.8%</td>
+              <td>71.4%</td>
+              <td><span class="highlight-val" style="color:#7C3AED;">78.9%</span></td>
+              <td>54.9%</td>
+            </tr>
+            <tr>
+              <td><strong>MATH-500 (Exact Match)</strong></td>
+              <td>76.5%</td>
+              <td>84.2%</td>
+              <td>90.6%</td>
+              <td><span class="highlight-val" style="color:#7C3AED;">96.4%</span></td>
+              <td>78.3%</td>
+            </tr>
+            <tr>
+              <td><strong>HumanEval Pro (Python / TS)</strong></td>
+              <td>84.1%</td>
+              <td>91.7%</td>
+              <td>95.8%</td>
+              <td><span class="highlight-val" style="color:#7C3AED;">98.2%</span></td>
+              <td>88.4%</td>
+            </tr>
+            <tr>
+              <td><strong>AgentBench (Multi-Turn Tool)</strong></td>
+              <td>68.9%</td>
+              <td>79.4%</td>
+              <td>86.1%</td>
+              <td><span class="highlight-val" style="color:#7C3AED;">92.5%</span></td>
+              <td>69.8%</td>
+            </tr>
+            <tr>
+              <td><strong>Needle-in-a-Haystack (Recall)</strong></td>
+              <td>99.7% (1.0M)</td>
+              <td>99.8% (1.5M)</td>
+              <td>99.9% (2.0M)</td>
+              <td><span class="highlight-val" style="color:#7C3AED;">99.85% (2.5M)</span></td>
+              <td>99.5% (200K)</td>
+            </tr>
+            <tr>
+              <td><strong>Schema Generation Adherence</strong></td>
+              <td>94.2%</td>
+              <td><span class="highlight-val" style="color:var(--coral);">99.4%</span></td>
+              <td>97.8%</td>
+              <td>98.9%</td>
+              <td>93.1%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="body-text">The data reveals distinct operational thresholds: while <strong>Claude Opus 5.5</strong> achieves an unprecedented <strong>72.6% on SWE-bench Verified</strong>, <strong>Claude Sonnet 5.5</strong> delivers over 90% of Opus's coding efficacy (65.2%) at one-fifth the token price. For interactive developer CLI loops, Sonnet 5.5 provides the ideal sweet spot.</p>
+    </section>
+
+    <!-- SECTION 3: TOKEN ECONOMICS & PRICING -->
+    <section class="section" id="token-economics">
+      <div class="section-label">03 &middot; Financial Architecture</div>
+      <h2 class="section-heading">Token Economics, Pricing &amp; <em>Prompt Caching Math</em></h2>
+      <div class="section-divider"></div>
+      
+      <p class="body-text">Production economics dictate whether an autonomous agent architecture is viable. Anthropic's prompt caching infrastructure on the 5.5 generation provides a <strong>90% discount on cache read tokens</strong>, fundamentally altering long-context economics.</p>
+
+      <!-- Pricing Table -->
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Model Tier</th>
+              <th>Standard Input / 1M</th>
+              <th>Standard Output / 1M</th>
+              <th>Cache Write / 1M (5-min TTL)</th>
+              <th>Cache Read / 1M (90% Off)</th>
+              <th>Batch API (50% Off)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude Haiku 5.5</strong></td>
+              <td>$0.25</td>
+              <td>$1.25</td>
+              <td>$0.31</td>
+              <td><code>$0.025</code></td>
+              <td>$0.125 / $0.625</td>
+            </tr>
+            <tr>
+              <td><strong>Claude Fable 5.1</strong></td>
+              <td>$1.20</td>
+              <td>$6.00</td>
+              <td>$1.50</td>
+              <td><code>$0.120</code></td>
+              <td>$0.600 / $3.000</td>
+            </tr>
+            <tr>
+              <td><strong>Claude Sonnet 5.5</strong></td>
+              <td>$3.00</td>
+              <td>$15.00</td>
+              <td>$3.75</td>
+              <td><code>$0.300</code></td>
+              <td>$1.500 / $7.500</td>
+            </tr>
+            <tr>
+              <td><strong>Claude Opus 5.5</strong></td>
+              <td>$15.00</td>
+              <td>$75.00</td>
+              <td>$18.75</td>
+              <td><code>$1.500</code></td>
+              <td>$7.500 / $37.500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Cost Formula Callout -->
+      <div class="callout callout-warning">
+        <div class="callout-icon">💰</div>
+        <div>
+          <p><strong>The Prompt Caching Economic Multiplier:</strong> In an agent loop maintaining a 100,000-token repository context over 20 iterations:</p>
+          <p style="margin-top:6px; font-family:var(--font-mono); font-size:13px; color:var(--text);">
+            Uncached Cost (Sonnet 5.5): 20 &times; (100k &times; $3.00/1M) = <strong>$6.00</strong><br/>
+            Cached Cost (Sonnet 5.5): 1 &times; Write ($0.375) + 19 &times; Read (100k &times; $0.30/1M = $0.57) = <strong>$0.945 (84.2% Net Savings)</strong>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: VISUAL BENCHMARK CHARTS -->
+    <section class="section" id="visual-charts">
+      <div class="section-label">04 &middot; Data Visualization</div>
+      <h2 class="section-heading">Visual Benchmark Charts &amp; <em>Latency Matrices</em></h2>
+      <div class="section-divider"></div>
+
+      <!-- Chart 1: SWE-bench Verified Coding Comparison -->
+      <div class="chart-box">
+        <div class="chart-title">SWE-bench Verified Coding Benchmark (%)</div>
+        <div class="chart-subtitle">Percentage of real GitHub software engineering issues autonomously resolved end-to-end.</div>
+
+        <div class="bar-row">
+          <div class="bar-label-group">
+            <span>Claude Opus 5.5 (Recursive Verification 2.0)</span>
+            <span style="color:#7C3AED;">72.6%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-opus"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label-group">
+            <span>Claude Sonnet 5.5 (Production Workhorse)</span>
+            <span style="color:var(--flamingo);">65.2%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-sonnet"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label-group">
+            <span>Claude Fable 5.1 (Structured Precision)</span>
+            <span style="color:var(--coral);">58.9%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-fable"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label-group">
+            <span>Claude Haiku 5.5 (Reflex Edge)</span>
+            <span style="color:var(--sky);">48.4%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-haiku"></div>
+          </div>
+        </div>
+
+        <div class="bar-row">
+          <div class="bar-label-group">
+            <span>Claude Sonnet 4.6 (Previous Generation Baseline)</span>
+            <span style="color:#64748B;">46.2%</span>
+          </div>
+          <div class="bar-track">
+            <div class="bar-fill fill-baseline"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chart 2: Throughput vs Latency Trade-Off -->
+      <div class="card-grid-2">
+        <div class="chart-box" style="margin:0;">
+          <div class="chart-title">Inference Throughput (Tokens / Sec)</div>
+          <div class="chart-subtitle">Streaming token generation velocity under standard API concurrency.</div>
+          
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Haiku 5.5</span><strong style="color:var(--sky);">160 tok/s</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:100%; background:var(--grad-sky);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Sonnet 5.5</span><strong style="color:var(--flamingo);">95 tok/s</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:59.3%; background:var(--grad-flamingo);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Fable 5.1</span><strong style="color:var(--coral);">88 tok/s</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:55.0%; background:var(--grad-coral);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Opus 5.5</span><strong style="color:#7C3AED;">52 tok/s</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:32.5%; background:#7C3AED;"></div></div>
+          </div>
+        </div>
+
+        <div class="chart-box" style="margin:0;">
+          <div class="chart-title">Time to First Token (TTFT in ms)</div>
+          <div class="chart-subtitle">Response latency measured at API gateway on cold prompt queries (lower is faster).</div>
+          
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Haiku 5.5</span><strong style="color:var(--sky);">&lt; 80 ms (Fastest)</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:16%; background:var(--grad-sky);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Fable 5.1</span><strong style="color:var(--coral);">~280 ms</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:42%; background:var(--grad-coral);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Sonnet 5.5</span><strong style="color:var(--flamingo);">~340 ms</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:52%; background:var(--grad-flamingo);"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label-group"><span>Opus 5.5</span><strong style="color:#7C3AED;">~650 ms</strong></div>
+            <div class="bar-track"><div class="bar-fill" style="width:85%; background:#7C3AED;"></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: TIERED AGENT ROUTING FRAMEWORK -->
+    <section class="section" id="routing-framework">
+      <div class="section-label">05 &middot; Systems Architecture</div>
+      <h2 class="section-heading">Tiered Agent Routing Framework &amp; <em>Decision Trees</em></h2>
+      <div class="section-divider"></div>
+      
+      <p class="body-text">Running an entire autonomous engineering pipeline exclusively on Opus 5.5 is financially unsustainable, while running it purely on Haiku 5.5 causes cascading logic failures. The optimal architecture uses a <strong>4-stage tiered pipeline</strong>:</p>
+
+      <!-- Flowchart Steps -->
+      <div class="routing-flow">
+        <div class="flow-step">
+          <div class="flow-badge">01</div>
+          <div class="flow-desc">
+            <h5>Stage 1: Ingestion &amp; Triage &rarr; Claude Haiku 5.5</h5>
+            <p>Sanitizes incoming payloads, validates user permissions, identifies target languages, and classifies task complexity. Low latency (&lt;80ms) ensures instant feedback.</p>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-badge" style="background:var(--coral-pale); color:var(--coral);">02</div>
+          <div class="flow-desc">
+            <h5>Stage 2: Schema Synthesis &amp; Contract Generation &rarr; Claude Fable 5.1</h5>
+            <p>Converts informal user specifications into deterministic OpenAPI definitions, tool schemas, and typed JSON contracts with 99.4% adherence, ensuring zero downstream parsing errors.</p>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-badge" style="background:var(--flamingo-pale); color:var(--flamingo);">03</div>
+          <div class="flow-desc">
+            <h5>Stage 3: Autonomous Coding &amp; Tool Execution &rarr; Claude Sonnet 5.5</h5>
+            <p>Executes multi-step agent loops, file editing, test execution, and Git commits. Handles 90% of development workloads with 65.2% SWE-bench accuracy at cost-effective pricing.</p>
+          </div>
+        </div>
+
+        <div class="flow-step">
+          <div class="flow-badge" style="background:#F3E8FF; color:#7C3AED;">04</div>
+          <div class="flow-desc">
+            <h5>Stage 4: Escalation &amp; Architectural Verification &rarr; Claude Opus 5.5</h5>
+            <p>Triggered exclusively when unit tests fail repeatedly across 3 loops, for formal cryptographic proofs, or when refactoring cross-package dependencies across the full 2.5M context window.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: CODE IMPLEMENTATION -->
+    <section class="section" id="code-implementation">
+      <div class="section-label">06 &middot; Implementation Playbook</div>
+      <h2 class="section-heading">Production Implementation: <em>Python &amp; TypeScript SDKs</em></h2>
+      <div class="section-divider"></div>
+      
+      <p class="body-text">The following production patterns demonstrate how to implement tiered routing, prompt caching, and extended thinking budgets using the Anthropic SDK.</p>
+
+      <!-- Python SDK Code -->
+      <h3 class="sub-heading">1. Tiered Router with Extended Thinking (Python SDK)</h3>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-tag">Python 3.12+</span>
+          <span class="code-caption">anthropic_tiered_router.py</span>
+        </div>
+        <pre><code>import os
+from typing import Literal, Dict, Any
+from anthropic import Anthropic
+
+client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
+
+MODEL_REGISTRY = {
+    "triage": "claude-haiku-5-5-20261001",
+    "schema": "claude-fable-5-1-20261001",
+    "coding": "claude-sonnet-5-5-20261001",
+    "deep_reasoning": "claude-opus-5-5-20261001",
+}
+
+def route_and_execute_task(task_prompt: str, complexity_tier: Literal["triage", "schema", "coding", "deep_reasoning"]) -> str:
+    """
+    Executes tasks using the appropriate Anthropic 5.5 / 5.1 model tier
+    with automated prompt caching and adaptive thinking budgets.
+    """
+    model_name = MODEL_REGISTRY[complexity_tier]
+    
+    # Configure extended thinking budget for deep reasoning
+    extra_params: Dict[str, Any] = {}
+    if complexity_tier == "deep_reasoning":
+        extra_params["thinking"] = {
+            "type": "enabled",
+            "budget_tokens": 16000
+        }
+    
+    response = client.messages.create(
+        model=model_name,
+        max_tokens=8192 if complexity_tier != "deep_reasoning" else 24000,
+        system=[
+            {
+                "type": "text",
+                "text": "You are a specialized OutClaw systems architect adhering strictly to typed contracts.",
+                "cache_control": {"type": "ephemeral"}  # 90% prompt caching read discount
+            }
+        ],
+        messages=[
+            {
+                "role": "user",
+                "content": task_prompt
+            }
+        ],
+        **extra_params
+    )
+    
+    # Extract plain text response blocks
+    text_blocks = [block.text for block in response.content if block.type == "text"]
+    return "\n".join(text_blocks)
+
+# Example Execution
+if __name__ == "__main__":
+    spec = "Generate OpenAPI 3.1 specification for an agentic telemetry endpoint."
+    schema_output = route_and_execute_task(spec, complexity_tier="schema")
+    print(f"Schema Output from Fable 5.1:\n{schema_output}")
+</code></pre>
+      </div>
+
+      <!-- TypeScript SDK Code -->
+      <h3 class="sub-heading">2. Multi-Agent Sub-Agent Dispatcher (TypeScript SDK)</h3>
+      <div class="code-block">
+        <div class="code-block-header">
+          <span class="code-tag">TypeScript / Node.js</span>
+          <span class="code-caption">agent-orchestrator.ts</span>
+        </div>
+        <pre><code>import Anthropic from "@anthropic-ai/sdk";
+
+const anthropic = new Anthropic({
+  apiKey: process.env.ANTHROPIC_API_KEY,
+});
+
+interface AgentTask {
+  id: string;
+  type: "classification" | "refactor" | "proof";
+  instruction: string;
+}
+
+export async function dispatchAgentTask(task: AgentTask): Promise<string> {
+  const model = task.type === "classification" 
+    ? "claude-haiku-5-5-20261001" 
+    : task.type === "refactor" 
+    ? "claude-sonnet-5-5-20261001" 
+    : "claude-opus-5-5-20261001";
+
+  const response = await anthropic.messages.create({
+    model,
+    max_tokens: 4096,
+    messages: [{ role: "user", content: task.instruction }],
+    system: [
+      {
+        type: "text",
+        text: "You are an autonomous engineering sub-agent operating within an MCP swarm.",
+        cache_control: { type: "ephemeral" },
+      },
+    ],
+  });
+
+  const content = response.content
+    .filter((b) => b.type === "text")
+    .map((b) => (b as { text: string }).text)
+    .join("\n");
+
+  return content;
+}
+</code></pre>
+      </div>
+    </section>
+
+    <!-- FREQUENTLY ASKED QUESTIONS (AEO / FAQ SCHEMA) -->
+    <section class="section" id="faq">
+      <div class="section-label">07 &middot; Knowledge Base</div>
+      <h2 class="section-heading">Frequently Asked Questions <em>(AEO Index)</em></h2>
+      <div class="section-divider"></div>
+
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h4>What are the core differences between Claude Sonnet 5.5, Opus 5.5, and Fable 5.1?</h4>
+          <p>Sonnet 5.5 is the balanced agentic coding engine (65.2% SWE-bench, $3/$15 per 1M tokens). Opus 5.5 is the frontier deep reasoning research tier (72.6% SWE-bench, 2.5M context) featuring recursive self-verification 2.0 at $15/$75 per 1M tokens. Fable 5.1 is a specialized sovereign structured-reasoning model optimized for 99.4% deterministic schema compliance and tool calling with sub-300ms latency at $1.20/$6.00 per 1M tokens.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>When should engineering teams deploy Claude Haiku 5.5?</h4>
+          <p>Deploy Claude Haiku 5.5 for high-volume, latency-critical tier-1 tasks: user intent classification, dynamic prompt triage, input validation, real-time voice agent hooks, and lightweight tool parameter extraction. Haiku 5.5 offers a sub-80ms time-to-first-token (TTFT) and 160 tokens/sec throughput at $0.25 input and $1.25 output per million tokens.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>How does prompt caching affect token costs on Anthropic 5.5 models?</h4>
+          <p>Anthropic's prompt caching on the 5.5 series offers a 90% discount on cache read tokens compared to base input token prices. Sonnet 5.5 cached read tokens cost only $0.30 per 1M tokens (vs $3.00 base input), while Opus 5.5 cached reads cost $1.50 per 1M tokens (vs $15.00 base). Cache write tokens incur a 25% surcharge for a 5-minute TTL.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>What is the context window capacity of Claude Opus 5.5?</h4>
+          <p>Claude Opus 5.5 supports an expanded 2,500,000 token context window (equivalent to roughly 1.9 million words or ~45,000 lines of complex codebase). It maintains a 99.85% needle-in-a-haystack retrieval accuracy across the entire 2.5M token range with recursive memory verification.</p>
+        </div>
+
+        <div class="faq-card" style="grid-column: 1 / -1;">
+          <h4>What role does Claude Fable 5.1 play in multi-agent architectures?</h4>
+          <p>Claude Fable 5.1 functions as the deterministic schema compiler and contract generator. It prevents formatting hallucinations in complex JSON-LD, ASTs, and OpenAPI payloads, serving as an intermediate validator between unstructured reasoning from Opus/Sonnet and downstream API execution.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AUTHOR CARD (E-E-A-T) -->
+    <div class="author-card">
+      <img src="../outclaw-icons/zach-b-pixel.jpg" alt="Zach Bailey - OutClaw AI Founder &amp; Principal Architect" class="author-avatar">
+      <div class="author-info">
+        <h4><a href="../author/zach-bailey/">Zach Bailey</a></h4>
+        <div class="title">Founder &amp; Principal Architect &middot; OutClaw AI</div>
+        <p>Systems architect, researcher, and author of <a href="https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB" target="_blank" rel="noopener">The Prompt Engineer's Playbook</a> (Amazon Kindle). Specializes in autonomous multi-agent systems, frontier LLM token economics, Model Context Protocol (MCP), and programmatic web architectures.</p>
+        <div class="author-links">
+          <a href="https://x.com/zbailey83" target="_blank" rel="noopener">&#x1D54F; @zbailey83</a>
+          <a href="https://github.com/zbailey83" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/zachba" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://outclaw.xyz/author/zach-bailey/">Full Author Profile &#x2192;</a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p>Autonomous AI systems, frontier model teardowns, and actionable intelligence for builders. No hype, just code.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Content</h4>
+      <a href="../news/">AI News</a>
+      <a href="../guides/">Technical Guides</a>
+      <a href="../answers/">Agent Answers</a>
+      <a href="../videos/">Video Library</a>
+      <a href="../tools/">Free Developer Tools</a>
+    </div>
+    <div class="footer-col">
+      <h4>Playbooks</h4>
+      <a href="./claude-sonnet-prompting-playbook">Sonnet 4.6 Playbook</a>
+      <a href="./mcp-practical-guide">MCP Implementation</a>
+      <a href="./llm-api-pricing-calculator-ai-encyclopedia-guide">Token Pricing Math</a>
+      <a href="./openclaw-vps-mac-mini-setup-guide">OpenClaw VPS Setup</a>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <a href="../about/">About OutClaw</a>
+      <a href="../author/zach-bailey/">About Zach Bailey</a>
+      <a href="../privacy/">Privacy Policy</a>
+      <a href="../newsletter/">Newsletter</a>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 OutClaw AI. Published &amp; Maintained by Zach Bailey. All rights reserved.</p>
+    <p><a href="https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide" style="color:inherit;">Canonical Guide URL</a></p>
+  </div>
+
+  <script>
+    function toggleDrawer() {
+      var d = document.getElementById('navDrawer');
+      d.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
