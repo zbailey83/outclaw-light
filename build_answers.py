@@ -669,22 +669,37 @@ Allow: /answers/
 
 # AI answer engines
 User-agent: GPTBot
-Allow: /answers/
+Allow: /
 
 User-agent: PerplexityBot
-Allow: /answers/
+Allow: /
 
 User-agent: ClaudeBot
-Allow: /answers/
+Allow: /
 
 User-agent: anthropic-ai
-Allow: /answers/
+Allow: /
 
 User-agent: Bytespider
-Allow: /answers/
+Allow: /
 
 User-agent: cohere-ai
-Allow: /answers/
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
 
 Sitemap: https://outclaw.xyz/sitemap.xml
 """

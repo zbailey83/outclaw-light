@@ -2,7 +2,7 @@
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <sitemap>
       <loc>https://outclaw.xyz/sitemap-main.xml</loc>
-      <lastmod>2026-09-11</lastmod>
+      <lastmod>2026-10-10</lastmod>
    </sitemap>
    <sitemap>
       <loc>https://outclaw.xyz/sitemap-news.xml</loc>
@@ -14,7 +14,7 @@
    </sitemap>
    <sitemap>
       <loc>https://outclaw.xyz/sitemap-tools.xml</loc>
-      <lastmod>2026-09-11</lastmod>
+      <lastmod>2026-10-10</lastmod>
    </sitemap>
    <sitemap>
       <loc>https://outclaw.xyz/sitemap-videos.xml</loc>
@@ -26,6 +26,6 @@
    </sitemap>
    <sitemap>
       <loc>https://outclaw.xyz/answers/sitemap.xml</loc>
-      <lastmod>2026-09-11</lastmod>
+      <lastmod>2026-10-10</lastmod>
    </sitemap>
 </sitemapindex>

@@ -90,10 +90,36 @@
       }
     },
     {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "sameAs": [
+        "https://seolittleton.com",
+        "https://distropixel.com",
+        "https://aiseo.fyi",
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83",
+        "https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB"
+      ]
+    },
+    {
       "@type": "Organization",
       "@id": "https://outclaw.xyz/#organization",
       "name": "OutClaw AI",
       "url": "https://outclaw.xyz/",
+      "founder": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
       "logo": {
         "@type": "ImageObject",
         "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
@@ -1763,7 +1789,7 @@
       <!-- Answer Block -->
       <div style="background: var(--sky-pale); padding: 32px; border-radius: 20px; border: 1px solid var(--sky-light); margin-bottom: 40px; text-align: left; box-shadow: 0 4px 20px rgba(0,0,0,0.03);">
         <p style="font-size: 16px; color: var(--text-mid); line-height: 1.6;">
-          OutClaw is the definitive <strong>AI newsletter for builders</strong> focused on moving from theory to implementation. We provide weekly <strong>workflows</strong>, technical <strong>MCP</strong> (Model Context Protocol) guides, and <strong>prompt</strong> frameworks that help developers and operators build production-ready <strong>automation</strong> using the latest AI <strong>tools</strong>.
+          OutClaw is the definitive <strong>technical AI publication and engineering platform</strong> founded by systems architect <strong><a href="author/zach-bailey/" style="color:inherit;font-weight:600;text-decoration:underline;">Zach Bailey</a></strong>. Focused on moving from theory to production implementation, OutClaw provides weekly <strong>agentic workflows</strong>, technical <strong>MCP</strong> (Model Context Protocol v2.0) architectures, frontier model benchmarks (Anthropic Claude Opus 5.5, Sonnet 5.5, OpenAI GPT-6, Gemini 3.8), programmatic video pipelines (HyperFrames), and production prompt engineering playbooks.
         </p>
       </div>
 
@@ -1846,6 +1872,20 @@
     <div class="container max-800 text-center">
       <h2 class="section-title" style="margin-bottom: 48px;">Start <em>Here</em></h2>
       <div class="start-here-grid">
+        <a href="guides/claude-opus-5-5-motion-graphics-guide.html" class="content-card" style="text-decoration: none; text-align: left;">
+          <div class="card-emoji-wrap">
+            <img src="outclaw-icons/Workflows.svg" width="28" height="28" alt="Frontier Motion Guide Icon" style="display: block;">
+          </div>
+          <div class="card-title-text" style="font-size: 18px;">Motion Graphics</div>
+          <div class="card-desc-text">Mastering Claude Opus 5.5 for Motion Graphics: Procedural timelines, deterministic GSAP 3, Cartesian SVG math, and headless video renders.</div>
+        </a>
+        <a href="guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide.html" class="content-card" style="text-decoration: none; text-align: left;">
+          <div class="card-emoji-wrap">
+            <img src="outclaw-icons/Releases.svg" width="28" height="28" alt="Anthropic 5.5 Benchmarks Icon" style="display: block;">
+          </div>
+          <div class="card-title-text" style="font-size: 18px;">Frontier Benchmarks</div>
+          <div class="card-desc-text">Anthropic 5.5 Architecture &amp; Benchmarks: SWE-bench Verified coding scores, 2.5M context windows, and multi-agent routing.</div>
+        </a>
         <a href="guides/mcp-practical-guide.html" class="content-card" style="text-decoration: none; text-align: left;">
           <div class="card-emoji-wrap">
             <img src="outclaw-icons/Guides.svg" width="28" height="28" alt="Best Guide Icon" style="display: block;">
@@ -1893,16 +1933,11 @@
   <!-- TICKER -->
   <div class="ticker">
     <div class="ticker-track">
-      <div class="ticker-item"><span class="hi">Anthropic vs. Pentagon</span>&nbsp;Supply-Chain Risk Lawsuit<span
-          class="ticker-sep">✦</span></div>
-      <div class="ticker-item"><span class="hi">GPT-5.4</span>&nbsp;1M Token Context + Autonomous Workflows<span
-          class="ticker-sep">✦</span></div>
-      <div class="ticker-item"><span class="hi">Claude shoots to #1</span>&nbsp;App Store after OpenAI military
-        deal<span class="ticker-sep">✦</span></div>
-      <div class="ticker-item"><span class="hi">DeepSeek V4</span>&nbsp;1T Parameters — Full Breakdown<span
-          class="ticker-sep">✦</span></div>
-      <div class="ticker-item"><span class="hi">Apple Siri Rebuilt on Gemini</span>&nbsp;Drops with iOS 26.4<span
-          class="ticker-sep">✦</span></div>
+      <div class="ticker-item"><span class="hi">Anthropic Opus 5.5 &amp; Sonnet 5.5</span>&nbsp;72.6% SWE-bench + 2.5M Context<span class="ticker-sep">✦</span></div>
+      <div class="ticker-item"><span class="hi">Programmatic Motion Graphics</span>&nbsp;HyperFrames + GSAP 3 Agentic Pipelines<span class="ticker-sep">✦</span></div>
+      <div class="ticker-item"><span class="hi">GPT-6 vs. Opus 5.5</span>&nbsp;Frontier Reasoning Wars Breakdown<span class="ticker-sep">✦</span></div>
+      <div class="ticker-item"><span class="hi">ElevenLabs Voice AI 2.0</span>&nbsp;Sub-150ms Conversational Agent Websockets<span class="ticker-sep">✦</span></div>
+      <div class="ticker-item"><span class="hi">MCP v2.0 Enterprise</span>&nbsp;Multi-Server Context Pooling &amp; Secure Vaulting<span class="ticker-sep">✦</span></div>
     </div>
   </div>
 

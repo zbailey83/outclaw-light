@@ -443,7 +443,7 @@ footer {
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
 <div>
 <h5 style="margin-bottom:8px;font-size:16px;">1. Cascading Model Architecture</h5>
-<p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Use a high-speed mini model (such as GPT-4o-mini or Claude 3.5 Haiku) for intent classification and prompt triage. Escalate to heavy reasoning models (Sonnet or Pro) only when task ambiguity demands it.</p>
+<p style="font-size:14px;color:var(--text-soft);line-height:1.6;">Use a high-speed reflex model (such as Claude Haiku 5.5 or GPT-6 Luna) for intent classification and prompt triage. Escalate to heavy reasoning tiers (Claude Sonnet 5.5, Opus 5.5, or GPT-6 Terra) only when architectural complexity or formal verification demands it.</p>
 </div>
 <div>
 <h5 style="margin-bottom:8px;font-size:16px;">2. Context Window &amp; Prompt Caching</h5>
@@ -521,12 +521,15 @@ footer {
 function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
 
 const models = [
-  { name: 'Claude 3.5 Sonnet', provider: 'Anthropic', in: 3.00, out: 15.00, type: 'pro' },
-  { name: 'GPT-4o', provider: 'OpenAI', in: 2.50, out: 10.00, type: 'pro' },
-  { name: 'Gemini 1.5 Pro', provider: 'Google', in: 1.25, out: 5.00, type: 'pro' },
-  { name: 'Claude 3.5 Haiku', provider: 'Anthropic', in: 0.25, out: 1.25, type: 'mini' },
-  { name: 'GPT-4o-mini', provider: 'OpenAI', in: 0.15, out: 0.60, type: 'mini' },
-  { name: 'Gemini 1.5 Flash', provider: 'Google', in: 0.075, out: 0.30, type: 'mini' }
+  { name: 'Claude Opus 5.5', provider: 'Anthropic', in: 15.00, out: 75.00, type: 'pro' },
+  { name: 'Claude Sonnet 5.5', provider: 'Anthropic', in: 3.00, out: 15.00, type: 'pro' },
+  { name: 'Claude Fable 5.1', provider: 'Anthropic', in: 1.20, out: 6.00, type: 'pro' },
+  { name: 'Claude Haiku 5.5', provider: 'Anthropic', in: 0.25, out: 1.25, type: 'mini' },
+  { name: 'GPT-6 (Terra/Sol)', provider: 'OpenAI', in: 2.00, out: 8.00, type: 'pro' },
+  { name: 'GPT-6 Luna (Mini)', provider: 'OpenAI', in: 0.15, out: 0.60, type: 'mini' },
+  { name: 'Gemini 3.8 Pro', provider: 'Google', in: 1.25, out: 5.00, type: 'pro' },
+  { name: 'Gemini 3.8 Flash', provider: 'Google', in: 0.075, out: 0.30, type: 'mini' },
+  { name: 'DeepSeek V4', provider: 'DeepSeek', in: 0.14, out: 0.28, type: 'mini' }
 ];
 
 function setVol(val) {

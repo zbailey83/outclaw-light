@@ -2390,6 +2390,106 @@ await client.connect();</code></pre>
         "verified_against": "Agentic Crawling Rules",
         "verified_date": "July 2026",
         "related_slugs": ["prevent-prompt-injection-tool-use", "sandbox-code-execution-agents", "human-in-the-loop-agentic-writes"]
+      },
+      {
+        "slug": "claude-opus-5-5-motion-graphics-composition",
+        "question": "How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?",
+        "category": "agent-frameworks",
+        "category_name": "Agent Frameworks",
+        "quick_answer": "To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to synthesize a single paused master GSAP timeline (window.__timelines = [master]), enforce Cartesian SVG geometry with no non-deterministic APIs, and render headless frames via hyperframes render.",
+        "answer_type": "steps",
+        "body": """
+        <h2>Building Programmatic Motion Graphics</h2>
+        <ol>
+          <li><strong>Initialize Project:</strong> Run <code>npx hyperframes init videos/my-motion --non-interactive</code> to scaffold the video directory.</li>
+          <li><strong>Enforce Master Timeline Contract:</strong> Require Opus 5.5 to construct a single paused master timeline: <code>const master = gsap.timeline({ paused: true }); window.__timelines = [master]; window.__hfSeek = (t) =&gt; master.time(t);</code></li>
+          <li><strong>Eliminate Non-Determinism:</strong> Ban <code>Math.random()</code>, <code>Date.now()</code>, and <code>performance.now()</code>. Derive all procedural variance directly from frame index <code>t = frame / fps</code>.</li>
+          <li><strong>Pre-Calculate Geometry:</strong> Compute all bounding coordinates during setup. Animate only GPU transform properties (<code>x, y, scale, rotation, opacity</code>) to prevent layout thrashing.</li>
+          <li><strong>Render to MP4 or Transparent WebM:</strong> Execute <code>hyperframes render</code> (or pass <code>--format webm --codec vp9</code> for transparent alpha overlays).</li>
+        </ol>
+        """,
+        "verified_against": "HyperFrames Engine & Opus 5.5 Spec",
+        "verified_date": "October 2026",
+        "related_slugs": ["hyperframes-headless-browser-deterministic-contract", "claude-5-5-model-routing-cost-latency", "claude-opus-5-5-context-window-swebench"]
+      },
+      {
+        "slug": "claude-5-5-model-routing-cost-latency",
+        "question": "How should developers route between Claude Haiku 5.5, Sonnet 5.5, and Opus 5.5 in production?",
+        "category": "claude-api",
+        "category_name": "Claude API",
+        "quick_answer": "Route high-frequency, latency-critical requests (triage, validation, parameter extraction) to Haiku 5.5 ($0.25/$1.25 per 1M tokens); route primary code synthesis and agent workflows to Sonnet 5.5 ($3.00/$15.00 per 1M tokens); and escalate to Opus 5.5 ($15.00/$75.00 per 1M tokens) exclusively for complex architectural planning, multi-file refactoring across the 2.5M context window, and formal verification.",
+        "answer_type": "definition",
+        "body": """
+        <h2>Tiered Multi-Agent Routing Strategy</h2>
+        <ul>
+          <li><strong>Tier 1 — Reflex &amp; Triage (Claude Haiku 5.5):</strong> Sub-80ms time-to-first-token and 160 tok/s throughput. Ideal for intent classification, request routing, and real-time voice hooks ($0.25 in / $1.25 out per 1M tokens).</li>
+          <li><strong>Tier 2 — Agentic Synthesis (Claude Sonnet 5.5):</strong> 65.2% SWE-bench Verified coding performance. Handles standard multi-tool loops, data transformations, and HTML/CSS compilation ($3.00 in / $15.00 out per 1M tokens).</li>
+          <li><strong>Tier 3 — Architectural Reasoning (Claude Opus 5.5):</strong> 72.6% SWE-bench Verified and 2.5M context window with recursive self-verification 2.0. Reserved for formal proofs, coordinate geometry, and multi-file code refactors ($15.00 in / $75.00 out per 1M tokens).</li>
+        </ul>
+        """,
+        "verified_against": "Anthropic 5.5 Pricing & Architecture Spec",
+        "verified_date": "October 2026",
+        "related_slugs": ["claude-5-5-prompt-caching-rates", "claude-opus-5-5-context-window-swebench", "claude-opus-5-5-motion-graphics-composition"]
+      },
+      {
+        "slug": "claude-opus-5-5-context-window-swebench",
+        "question": "What are the context window limits and SWE-bench Verified benchmarks for Claude Opus 5.5?",
+        "category": "claude-api",
+        "category_name": "Claude API",
+        "quick_answer": "Claude Opus 5.5 supports a 2,500,000 token context window (roughly 1.9 million words or ~45,000 lines of complex codebase) with 99.85% needle-in-a-haystack retrieval accuracy, and scores 72.6% on SWE-bench Verified coding evaluations powered by recursive self-verification 2.0.",
+        "answer_type": "definition",
+        "body": """
+        <h2>Opus 5.5 Architectural Benchmarks</h2>
+        <ul>
+          <li><strong>Context Window:</strong> 2,500,000 tokens (up to 128,000 max output tokens per turn).</li>
+          <li><strong>SWE-bench Verified:</strong> 72.6% resolve rate on real GitHub software engineering issues.</li>
+          <li><strong>Retrieval Precision:</strong> 99.85% across all context depths using recursive memory verification.</li>
+          <li><strong>Pricing:</strong> $15.00 per million input tokens, $75.00 per million output tokens, and $1.50 per million cached input read tokens.</li>
+        </ul>
+        """,
+        "verified_against": "Anthropic Benchmark Evaluation Report",
+        "verified_date": "October 2026",
+        "related_slugs": ["claude-5-5-model-routing-cost-latency", "claude-5-5-prompt-caching-rates", "claude-opus-5-5-motion-graphics-composition"]
+      },
+      {
+        "slug": "claude-5-5-prompt-caching-rates",
+        "question": "How does 90% prompt caching work on Anthropic Claude 5.5 models?",
+        "category": "claude-api",
+        "category_name": "Claude API",
+        "quick_answer": "Anthropic prompt caching on the 5.5 model family discounts cache read tokens by 90% compared to standard input token prices. On Sonnet 5.5, cached read tokens cost $0.30 per 1M tokens (vs $3.00 base); on Opus 5.5, cached reads cost $1.50 per 1M tokens (vs $15.00 base). Cache write tokens incur a 25% surcharge for a 5-minute TTL.",
+        "answer_type": "definition",
+        "body": """
+        <h2>5.5 Prompt Caching Economics</h2>
+        <p>Prompt caching saves significant budget for iterative coding agents, video design systems, and multi-turn conversations:</p>
+        <ul>
+          <li><strong>Claude Opus 5.5:</strong> Base Input: $15.00/1M &bull; Cache Read (90% off): <strong>$1.50/1M</strong> &bull; Output: $75.00/1M</li>
+          <li><strong>Claude Sonnet 5.5:</strong> Base Input: $3.00/1M &bull; Cache Read (90% off): <strong>$0.30/1M</strong> &bull; Output: $15.00/1M</li>
+          <li><strong>Claude Haiku 5.5:</strong> Base Input: $0.25/1M &bull; Cache Read (90% off): <strong>$0.025/1M</strong> &bull; Output: $1.25/1M</li>
+        </ul>
+        """,
+        "verified_against": "Anthropic Developer Documentation",
+        "verified_date": "October 2026",
+        "related_slugs": ["claude-5-5-model-routing-cost-latency", "claude-opus-5-5-context-window-swebench", "prompt-caching-claude-api"]
+      },
+      {
+        "slug": "hyperframes-headless-browser-deterministic-contract",
+        "question": "What is the HyperFrames composition contract for deterministic headless video rendering?",
+        "category": "claude-code",
+        "category_name": "Claude Code",
+        "quick_answer": "The HyperFrames composition contract requires: 1) a single paused master GSAP timeline registered on window.__timelines, 2) total elimination of non-deterministic functions like Math.random() or performance.now(), 3) pre-computed layout constants to prevent getBoundingClientRect() layout thrashing, and 4) discrete clip scoping with data-start and data-duration.",
+        "answer_type": "steps",
+        "body": """
+        <h2>The Four Headless Render Contract Rules</h2>
+        <ol>
+          <li><strong>Single Paused Timeline:</strong> Instantiate <code>const master = gsap.timeline({ paused: true }); window.__timelines = [master];</code> so headless Chromium can advance time deterministically via <code>window.__hfSeek(time)</code>.</li>
+          <li><strong>Zero Non-Deterministic Time:</strong> Never call <code>Math.random()</code>, <code>Date.now()</code>, or <code>performance.now()</code>. Use seeded PRNG or frame index math (<code>t = frame / fps</code>).</li>
+          <li><strong>Pre-Computed Spatial Layout:</strong> Never invoke <code>getBoundingClientRect()</code> or <code>offsetHeight</code> inside animation loops. Animate GPU transform aliases only (<code>x, y, scale, rotation, skew, opacity</code>).</li>
+          <li><strong>Discrete Clip Scoping:</strong> Wrap scene elements in <code>&lt;div class='clip' data-start='0s' data-duration='4s'&gt;</code> and pass <code>immediateRender: false</code> to sub-tweens.</li>
+        </ol>
+        """,
+        "verified_against": "HyperFrames Engine Specifications",
+        "verified_date": "October 2026",
+        "related_slugs": ["claude-opus-5-5-motion-graphics-composition", "claude-5-5-model-routing-cost-latency", "claude-opus-5-5-context-window-swebench"]
       }
 ]
 

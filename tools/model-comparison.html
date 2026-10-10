@@ -38,7 +38,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>AI Model Comparison Matrix | OutClaw AI</title>
-<meta content="Compare Claude 4, GPT-4o, Gemini 2.5 Pro, and DeepSeek V3 side-by-side. Real-world benchmarks for coding, vision, and pricing to choose your next AI model." name="description"/>
+<meta content="Compare Claude Opus 5.5, GPT-5.5/6, Gemini 3.8 Pro, and DeepSeek V4 side-by-side. Real-world benchmarks for SWE-bench Verified coding, 2.5M context windows, and token pricing." name="description"/>
 <link href="https://outclaw.xyz/tools/model-comparison" rel="canonical"/>
 <meta content="website" property="og:type"/>
 <meta content="https://outclaw.xyz/tools/model-comparison" property="og:url"/>
@@ -413,22 +413,22 @@ a:hover { color: var(--text); text-decoration-color: var(--text); }
 <div class="model-cards">
 <div class="model-card claude">
 <div class="model-emoji">🦩</div>
-<div class="model-name">Claude</div>
-<div class="model-version">Sonnet / Opus 4.8</div>
-<div class="model-tagline">Best for nuanced writing, long-context analysis, and coding with thorough explanations.</div>
+<div class="model-name">Claude Opus 5.5</div>
+<div class="model-version">Opus 5.5 / Sonnet 5.5</div>
+<div class="model-tagline">Leader in deep reasoning (72.6% SWE-bench), procedural motion code, and massive 2.5M context window.</div>
 <span class="model-pill pill-claude">Anthropic</span>
 </div>
 <div class="model-card gpt">
 <div class="model-emoji">🤖</div>
-<div class="model-name">GPT-5.5</div>
-<div class="model-version">GPT-5.5 / Agentic Tiers</div>
+<div class="model-name">GPT-5.5 / GPT-6</div>
+<div class="model-version">Terra / Sol / Luna</div>
 <div class="model-tagline">Strongest agentic model. Best for vision tasks, reasoning chains, and autonomous tool use.</div>
 <span class="model-pill pill-gpt">OpenAI</span>
 </div>
 <div class="model-card gemini">
 <div class="model-emoji">♊</div>
-<div class="model-name">Gemini 3.1 Pro</div>
-<div class="model-version">3.1 Pro / Flash</div>
+<div class="model-name">Gemini 3.8 Pro</div>
+<div class="model-version">3.8 Pro / Flash</div>
 <div class="model-tagline">Massive context window (2M tokens). Excellent for multimodal document, video, and audio analysis.</div>
 <span class="model-pill pill-gemini">Google</span>
 </div>
@@ -455,9 +455,9 @@ a:hover { color: var(--text); text-decoration-color: var(--text); }
 <thead>
 <tr>
 <th>Spec</th>
-<th>🦩 Claude Opus 4.8</th>
-<th>🤖 GPT-5.5</th>
-<th>♊ Gemini 3.1 Pro</th>
+<th>🦩 Claude Opus 5.5</th>
+<th>🤖 GPT-5.5 / 6</th>
+<th>♊ Gemini 3.8 Pro</th>
 <th>🔍 DeepSeek V4</th>
 </tr>
 </thead>
@@ -467,16 +467,16 @@ a:hover { color: var(--text); text-decoration-color: var(--text); }
 <tr data-category="pricing">
 <td>Input price (per 1M tokens)</td>
 <td>$3 (Sonnet) · $15 (Opus)</td>
-<td>$12 (5.5)</td>
-<td>$2 (3.1 Pro)</td>
-<td><span class="badge-win">🏆 Best value</span><br/>$0.27 (V4)</td>
+<td>$2 - $12</td>
+<td>$1.25 - $2.00</td>
+<td><span class="badge-win">🏆 Best value</span><br/>$0.14 - $0.27</td>
 </tr>
 <tr data-category="pricing">
 <td>Output price (per 1M tokens)</td>
 <td>$15 (Sonnet) · $75 (Opus)</td>
-<td>$25 (5.5)</td>
-<td>$12 (3.1 Pro)</td>
-<td><span class="badge-win">🏆 Best value</span><br/>$0.80 (V4)</td>
+<td>$8 - $25</td>
+<td>$5.00 - $12.00</td>
+<td><span class="badge-win">🏆 Best value</span><br/>$0.28 - $0.80</td>
 </tr>
 <tr data-category="pricing">
 <td>Free tier available</td>
@@ -489,16 +489,16 @@ a:hover { color: var(--text); text-decoration-color: var(--text); }
 <tr class="row-category" data-category="context"><td colspan="5">📄 Context Window</td></tr>
 <tr data-category="context">
 <td>Max context (input)</td>
-<td>200K tokens</td>
-<td>128K tokens</td>
-<td><span class="badge-win">🏆 Largest</span><br/>2,000K tokens</td>
-<td>64K tokens</td>
+<td><span class="badge-win">🏆 Largest</span><br/>2,500K tokens (Opus 5.5)</td>
+<td>128K - 1,000K tokens</td>
+<td>2,000K tokens</td>
+<td>64K - 128K tokens</td>
 </tr>
 <tr data-category="context">
-<td>Best for long docs</td>
-<td><span class="badge-good">✓ Strong</span></td>
-<td>Moderate</td>
+<td>Best for long docs &amp; codebases</td>
 <td><span class="badge-win">🏆 Best</span></td>
+<td>Moderate</td>
+<td><span class="badge-good">✓ Strong</span></td>
 <td>Limited</td>
 </tr>
 <!-- BENCHMARKS -->

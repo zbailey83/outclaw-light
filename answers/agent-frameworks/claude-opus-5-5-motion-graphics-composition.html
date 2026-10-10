@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="/analytics-journey.js" defer></script>
+
+  <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames? | Answers for Agents | openclaw.xyz</title>
+  <meta name="description" content="To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to s...">
+  <link rel="canonical" href="https://outclaw.xyz/answers/agent-frameworks/claude-opus-5-5-motion-graphics-composition.html">
+  
+  <meta property="og:title" content="How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?">
+  <meta property="og:description" content="To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to s...">
+  <meta property="og:type" content="article">
+  <meta property="article:modified_time" content="2026-07-05T00:00:00Z">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/answers/style.css">
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Answers",
+          "item": "https://outclaw.xyz/answers/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Agent Frameworks",
+          "item": "https://outclaw.xyz/answers/agent-frameworks/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?",
+          "item": "https://outclaw.xyz/answers/agent-frameworks/claude-opus-5-5-motion-graphics-composition.html"
+        }
+      ]
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?",
+      "description": "To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to synthesize a single paused master GSAP timeline (window.__timelines = [master]), enforce Cartesian SVG geometry with no non-deterministic APIs, and render headless frames via hyperframes render.",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Step 1",
+          "text": "Initialize Project: Run npx hyperframes init videos/my-motion --non-interactive to scaffold the video directory."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 2",
+          "text": "Enforce Master Timeline Contract: Require Opus 5.5 to construct a single paused master timeline: const master = gsap.timeline({ paused: true }); window.__timelines = [master]; window.__hfSeek = (t) =&gt; master.time(t);"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 3",
+          "text": "Eliminate Non-Determinism: Ban Math.random(), Date.now(), and performance.now(). Derive all procedural variance directly from frame index t = frame / fps."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 4",
+          "text": "Pre-Calculate Geometry: Compute all bounding coordinates during setup. Animate only GPU transform properties (x, y, scale, rotation, opacity) to prevent layout thrashing."
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Step 5",
+          "text": "Render to MP4 or Transparent WebM: Execute hyperframes render (or pass --format webm --codec vp9 for transparent alpha overlays)."
+        }
+      ],
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-07-05"
+    },
+    {
+      "@type": "Article",
+      "headline": "How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?",
+      "description": "To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to synthesize a single paused master GSAP timeline (window.__timelines = [master]), enforce Cartesian SVG geometry with no non-deterministic APIs, and render headless frames via hyperframes render.",
+      "datePublished": "2026-06-01",
+      "dateModified": "2026-07-05",
+      "author": {
+        "@type": "Organization",
+        "name": "openclaw.xyz"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "openclaw.xyz",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
+      }
+    }
+  ]
+}
+  </script>
+</head>
+<body>
+  <nav class="navbar" id="mainNav">
+    <a href="../../" class="navbar-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI" class="navbar-logo-img">
+      <div class="navbar-wordmark">Out<em>claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../../about/">About</a>
+      <a href="../../news/">News</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+      <button class="nav-hamburger" onclick="toggleDrawer()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../../about/">About</a>
+    <a href="../../news/">News</a>
+    <a href="../../guides/">Guides</a>
+    <a href="../../answers/" class="active">Answers</a>
+    <a href="../../videos/">Videos</a>
+    <a href="../../tools/">Tools</a>
+    <a href="../../newsletter/">Newsletter</a>
+    <a href="../../newsletter/" class="nav-cta">Subscribe Free &#x2192;</a>
+  </div>
+
+  <div class="layout-container">
+    <nav class="breadcrumb-nav" aria-label="breadcrumb">
+      <a href="/answers/">openclaw.xyz</a> / <a href="/answers/">Answers</a> / <a href="/answers/agent-frameworks/">Agent Frameworks</a> / How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?
+    </nav>
+
+    <article>
+      <div class="category-chip">Agent Frameworks</div>
+      <h1>How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?</h1>
+      
+      <div class="entry-meta">
+        Last verified: October 2026 &middot; 2 min read
+      </div>
+
+      <div class="quick-answer">
+        <span class="qa-label">QUICK ANSWER</span>
+        <p>To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to synthesize a single paused master GSAP timeline (window.__timelines = [master]), enforce Cartesian SVG geometry with no non-deterministic APIs, and render headless frames via hyperframes render.</p>
+      </div>
+
+      <div class="answer-body">
+        
+        <h2>Building Programmatic Motion Graphics</h2>
+        <ol>
+          <li><strong>Initialize Project:</strong> Run <code>npx hyperframes init videos/my-motion --non-interactive</code> to scaffold the video directory.</li>
+          <li><strong>Enforce Master Timeline Contract:</strong> Require Opus 5.5 to construct a single paused master timeline: <code>const master = gsap.timeline({ paused: true }); window.__timelines = [master]; window.__hfSeek = (t) =&gt; master.time(t);</code></li>
+          <li><strong>Eliminate Non-Determinism:</strong> Ban <code>Math.random()</code>, <code>Date.now()</code>, and <code>performance.now()</code>. Derive all procedural variance directly from frame index <code>t = frame / fps</code>.</li>
+          <li><strong>Pre-Calculate Geometry:</strong> Compute all bounding coordinates during setup. Animate only GPU transform properties (<code>x, y, scale, rotation, opacity</code>) to prevent layout thrashing.</li>
+          <li><strong>Render to MP4 or Transparent WebM:</strong> Execute <code>hyperframes render</code> (or pass <code>--format webm --codec vp9</code> for transparent alpha overlays).</li>
+        </ol>
+        
+      </div>
+
+      <div class="verified-against">
+        Verified against: HyperFrames Engine & Opus 5.5 Spec
+      </div>
+
+      <div class="related-answers"><h3>Related answers</h3><ul><li><a href="/answers/claude-api/claude-5-5-model-routing-cost-latency.html">How should developers route between Claude Haiku 5.5, Sonnet 5.5, and Opus 5.5 in production?</a></li><li><a href="/answers/claude-api/claude-opus-5-5-context-window-swebench.html">What are the context window limits and SWE-bench Verified benchmarks for Claude Opus 5.5?</a></li><li><a href="/answers/claude-code/hyperframes-headless-browser-deterministic-contract.html">What is the HyperFrames composition contract for deterministic headless video rendering?</a></li><li><a href="/answers/agent-frameworks/">See all Agent Frameworks answers</a></li></ul></div>
+    </article>
+  </div>
+
+  <footer>
+    <a href="../../" class="footer-logo">
+      <img src="../../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Footer Logo" style="width: 22px; height: 22px; filter: drop-shadow(0 2px 6px rgba(244, 103, 138, .2));">
+      <div class="footer-wordmark">Out<em>claw</em> AI</div>
+      <p style="font-size:12px;color:rgba(255,255,255,.2);margin-top:4px;"><a href="https://seolittleton.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">SEO Littleton</a> &amp; <a href="https://distropixel.com" target="_blank" style="color:inherit;text-decoration:underline;font-weight:bold;">DistroPixel</a></p>
+    </a>
+    <div class="footer-links">
+      <a href="../../about/">About</a>
+      <a href="../../news/">News</a>
+      <a href="../../guides/">Guides</a>
+      <a href="../../answers/" class="active">Answers</a>
+      <a href="../../videos/">Videos</a>
+      <a href="../../tools/">Tools</a>
+      <a href="../../newsletter/">Newsletter</a>
+      <a href="../../privacy/">Privacy</a>
+      <a href="mailto:zbailey83@gmail.com">Contact</a>
+    </div>
+    <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
+  </footer>
+  
+  <script>
+    function toggleDrawer() { document.getElementById("navDrawer").classList.toggle("open"); }
+    document.addEventListener("click", function (e) {
+      var n = document.getElementById("mainNav"), d = document.getElementById("navDrawer");
+      if (!n.contains(e.target) && !d.contains(e.target)) d.classList.remove("open");
+    });
+  </script>
+</body>
+</html>

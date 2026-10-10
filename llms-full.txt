@@ -767,3 +767,48 @@ Full URL: https://outclaw.xyz/answers/agentic-security/protect-agentic-scrapers-
 
 ---
 
+## How do you build programmatic motion graphics with Claude Opus 5.5 and HyperFrames?
+Category: Agent Frameworks | Slug: claude-opus-5-5-motion-graphics-composition
+
+> To build programmatic motion graphics with Claude Opus 5.5 and HyperFrames, scaffold a project with npx hyperframes init, prompt Opus 5.5 to synthesize a single paused master GSAP timeline (window.__timelines = [master]), enforce Cartesian SVG geometry with no non-deterministic APIs, and render headless frames via hyperframes render.
+
+Full URL: https://outclaw.xyz/answers/agent-frameworks/claude-opus-5-5-motion-graphics-composition.html
+
+---
+
+## How should developers route between Claude Haiku 5.5, Sonnet 5.5, and Opus 5.5 in production?
+Category: Claude API | Slug: claude-5-5-model-routing-cost-latency
+
+> Route high-frequency, latency-critical requests (triage, validation, parameter extraction) to Haiku 5.5 ($0.25/$1.25 per 1M tokens); route primary code synthesis and agent workflows to Sonnet 5.5 ($3.00/$15.00 per 1M tokens); and escalate to Opus 5.5 ($15.00/$75.00 per 1M tokens) exclusively for complex architectural planning, multi-file refactoring across the 2.5M context window, and formal verification.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-5-5-model-routing-cost-latency.html
+
+---
+
+## What are the context window limits and SWE-bench Verified benchmarks for Claude Opus 5.5?
+Category: Claude API | Slug: claude-opus-5-5-context-window-swebench
+
+> Claude Opus 5.5 supports a 2,500,000 token context window (roughly 1.9 million words or ~45,000 lines of complex codebase) with 99.85% needle-in-a-haystack retrieval accuracy, and scores 72.6% on SWE-bench Verified coding evaluations powered by recursive self-verification 2.0.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-opus-5-5-context-window-swebench.html
+
+---
+
+## How does 90% prompt caching work on Anthropic Claude 5.5 models?
+Category: Claude API | Slug: claude-5-5-prompt-caching-rates
+
+> Anthropic prompt caching on the 5.5 model family discounts cache read tokens by 90% compared to standard input token prices. On Sonnet 5.5, cached read tokens cost $0.30 per 1M tokens (vs $3.00 base); on Opus 5.5, cached reads cost $1.50 per 1M tokens (vs $15.00 base). Cache write tokens incur a 25% surcharge for a 5-minute TTL.
+
+Full URL: https://outclaw.xyz/answers/claude-api/claude-5-5-prompt-caching-rates.html
+
+---
+
+## What is the HyperFrames composition contract for deterministic headless video rendering?
+Category: Claude Code | Slug: hyperframes-headless-browser-deterministic-contract
+
+> The HyperFrames composition contract requires: 1) a single paused master GSAP timeline registered on window.__timelines, 2) total elimination of non-deterministic functions like Math.random() or performance.now(), 3) pre-computed layout constants to prevent getBoundingClientRect() layout thrashing, and 4) discrete clip scoping with data-start and data-duration.
+
+Full URL: https://outclaw.xyz/answers/claude-code/hyperframes-headless-browser-deterministic-contract.html
+
+---
+
