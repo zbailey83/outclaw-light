@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- GA4 User Journey Tag -->
+<script>
+  window.GA4_MEASUREMENT_ID = "G-JHMN90H7MC";
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  if (window.location.hostname !== 'outclaw.xyz') {
+    console.log('GA4 Analytics: Local development environment detected. Mocking script load.');
+    gtag('config', window.GA4_MEASUREMENT_ID, { 'debug_mode': true });
+  } else {
+    (function() {
+      var script = document.createElement('script');
+      script.async = true;
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA4_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    })();
+    gtag('config', window.GA4_MEASUREMENT_ID);
+  }
+</script>
+<script src="../analytics-journey.js" defer></script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-5VC26C47');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&amp;family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+
+<title>Mastering Claude Opus 5.5 for Motion Graphics: The Definitive Production Guide | OutClaw AI</title>
+<meta content="Comprehensive engineering guide to using Anthropic's Claude Opus 5.5 for programmatic motion graphics. Learn how to architect deterministic GSAP 3 timelines, procedural SVG vector math, Three.js WebGL shaders, and headless HyperFrames render pipelines." name="description"/>
+<link href="https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide" rel="canonical"/>
+<meta content="index, follow" name="robots"/>
+<meta content="#5AADDB" name="theme-color"/>
+<link rel="shortcut icon" href="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"/>
+
+<!-- Open Graph -->
+<meta content="article" property="og:type"/>
+<meta content="https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide" property="og:url"/>
+<meta content="Mastering Claude Opus 5.5 for Motion Graphics: The Definitive Production Guide | OutClaw AI" property="og:title"/>
+<meta content="The definitive engineering playbook for orchestrating programmatic motion graphics with Claude Opus 5.5: deterministic GSAP timelines, Cartesian SVG math, Three.js shaders, and headless render contracts." property="og:description"/>
+<meta content="https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg" property="og:image"/>
+<meta content="2026-10-10T08:00:00+00:00" property="article:published_time"/>
+<meta content="2026-10-10T08:00:00+00:00" property="article:modified_time"/>
+<meta content="https://outclaw.xyz/author/zach-bailey/" property="article:author"/>
+
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide" property="twitter:url"/>
+<meta content="Mastering Claude Opus 5.5 for Motion Graphics: The Definitive Production Guide | OutClaw AI" property="twitter:title"/>
+<meta content="The definitive engineering playbook for orchestrating programmatic motion graphics with Claude Opus 5.5: deterministic GSAP timelines, Cartesian SVG math, Three.js shaders, and headless render contracts." property="twitter:description"/>
+<meta content="https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg" property="twitter:image"/>
+
+<style>
+  :root {
+    --sky: #5AADDB;
+    --sky-light: #B8DFF0;
+    --sky-pale: #EDF7FC;
+    --flamingo: #F4678A;
+    --flamingo-light: #FBB8CB;
+    --flamingo-pale: #FEF0F4;
+    --coral: #FF7E5A;
+    --coral-pale: #FFF0EB;
+    --sand: #F5EDD8;
+    --leaf: #4A9E7A;
+    --leaf-pale: #E8F5EF;
+    --deep-navy: #1A1A2E;
+    --text: #1A1A2E;
+    --text-mid: #4A4A6E;
+    --text-soft: #7A7A9E;
+    --text-dim: #B0B0C8;
+    --white: #FFFFFF;
+    --bg: #FAFAF8;
+    --border: #E8E8F2;
+    --border-soft: #F0F0F8;
+    --font-display: "DM Serif Display", serif;
+    --font-body: "DM Sans", sans-serif;
+    --font-mono: "JetBrains Mono", monospace;
+    --grad-sky: linear-gradient(135deg, #5AADDB 0%, #7EC5E8 100%);
+    --grad-flamingo: linear-gradient(135deg, #F4678A 0%, #FF9BB5 100%);
+    --grad-coral: linear-gradient(135deg, #FF7E5A 0%, #FFAB8C 100%);
+  }
+
+  *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 16.5px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-thumb { background: var(--sky-light); border-radius: 10px; }
+
+  a {
+    color: var(--sky);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-color: rgba(90, 173, 219, 0.4);
+    transition: all 0.2s;
+  }
+  a:hover {
+    color: var(--text);
+    text-decoration-color: var(--text);
+  }
+
+  /* ---- Navbar ---- */
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    height: 64px;
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .navbar-logo-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transition: transform .3s cubic-bezier(.34,1.56,.64,1);
+    filter: drop-shadow(0 2px 6px rgba(244,103,138,.2));
+  }
+  .navbar-logo:hover .navbar-logo-img {
+    transform: scale(1.15) rotate(-5deg);
+  }
+  .navbar-wordmark {
+    font-family: var(--font-display);
+    font-size: 21px;
+    color: var(--text);
+  }
+  .navbar-wordmark em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  .navbar-links a {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: all .15s;
+    white-space: nowrap;
+  }
+  .navbar-links a:hover {
+    color: var(--text);
+    background: var(--sky-pale);
+  }
+  .navbar-links a.active {
+    color: var(--sky);
+    background: var(--sky-pale);
+    font-weight: 600;
+  }
+  .navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    background: var(--grad-sky);
+    color: #fff !important;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(90,173,219,.3);
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(90,173,219,.45);
+  }
+  .nav-hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 8px;
+    border: none;
+    background: transparent;
+  }
+  .nav-hamburger span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--text-soft);
+    border-radius: 2px;
+  }
+  .nav-drawer {
+    display: none;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    background: rgba(255,255,255,.98);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px 24px;
+    z-index: 199;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .nav-drawer.open { display: flex; }
+  .nav-drawer a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-soft);
+    text-decoration: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    transition: all .15s;
+  }
+  .nav-drawer a:hover {
+    color: var(--sky);
+    background: var(--sky-pale);
+  }
+  .nav-drawer .nav-cta {
+    margin-top: 8px;
+    justify-content: center;
+  }
+  @media(max-width:860px){
+    .navbar{padding:0 24px;}
+    .navbar-links{display:none;}
+    .nav-hamburger{display:flex;}
+    .navbar-right .nav-cta{display:none;}
+  }
+
+  /* ---- Page Hero ---- */
+  .page-hero {
+    padding: 48px 48px 36px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(160deg, var(--sky-pale) 0%, var(--bg) 75%);
+  }
+  .page-hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .breadcrumb {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-bottom: 18px;
+  }
+  .breadcrumb a {
+    color: var(--text-dim);
+    text-decoration: none;
+  }
+  .breadcrumb a:hover { color: var(--sky); }
+
+  .page-hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(34px, 4.8vw, 54px);
+    font-weight: 400;
+    line-height: 1.14;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    max-width: 960px;
+  }
+  .page-hero h1 em {
+    font-style: italic;
+    color: var(--sky);
+  }
+  .page-hero-sub {
+    font-size: 18px;
+    color: var(--text-mid);
+    max-width: 820px;
+    margin-top: 16px;
+    line-height: 1.75;
+  }
+
+  .meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 18px;
+    margin-top: 24px;
+    font-size: 13.5px;
+    color: var(--text-soft);
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+  .meta-row a {
+    color: var(--sky);
+    font-weight: 600;
+  }
+  .tag-row {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+  .tag-chip {
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    background: var(--white);
+  }
+
+  /* ---- Stat Row ---- */
+  .stat-row {
+    display: flex;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-top: 28px;
+    max-width: 920px;
+    box-shadow: 0 2px 10px rgba(26,26,46,.04);
+  }
+  .stat-item {
+    flex: 1;
+    padding: 22px 20px;
+    text-align: center;
+    border-right: 1px solid var(--border);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: var(--font-display);
+    font-size: 32px;
+    color: var(--text);
+    line-height: 1;
+  }
+  .stat-num em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .stat-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-soft);
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    margin-top: 8px;
+  }
+  @media(max-width:680px){
+    .stat-row{flex-wrap:wrap;}
+    .stat-item{flex:0 0 50%;border-bottom:1px solid var(--border);}
+  }
+
+  /* ---- Page Body ---- */
+  .page-body {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 48px 48px 80px;
+  }
+  @media(max-width:640px){
+    .page-hero{padding:40px 24px 32px;}
+    .page-body{padding:36px 20px 72px;}
+  }
+
+  /* ---- AEO Answer Capsule ---- */
+  .answer-capsule {
+    background: var(--white);
+    border-left: 4px solid var(--sky);
+    border-radius: 14px;
+    padding: 24px 28px;
+    margin: 28px 0;
+    box-shadow: 0 4px 18px rgba(0,0,0,.04);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  .capsule-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--sky);
+    margin-bottom: 10px;
+  }
+  .capsule-content {
+    font-size: 15.5px;
+    color: var(--text-mid);
+    line-height: 1.75;
+  }
+  .capsule-content strong { color: var(--text); }
+
+  /* ---- TL;DR Box ---- */
+  .tldr-box {
+    background: linear-gradient(135deg, var(--sky-pale) 0%, var(--flamingo-pale) 100%);
+    border: 1.5px solid rgba(90, 173, 219, 0.3);
+    border-radius: 20px;
+    padding: 32px 36px;
+    margin-bottom: 48px;
+  }
+  .tldr-box h3 {
+    font-family: var(--font-display);
+    font-size: 21px;
+    color: var(--text);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tldr-box ul {
+    margin-left: 20px;
+    color: var(--text-mid);
+  }
+  .tldr-box li {
+    margin-bottom: 10px;
+    line-height: 1.7;
+  }
+  .tldr-box strong { color: var(--text); }
+
+  /* ---- Table of Contents ---- */
+  .toc-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 26px 30px;
+    margin-bottom: 48px;
+  }
+  .toc-box h4 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    margin-bottom: 16px;
+  }
+  .toc-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 10px 24px;
+  }
+  .toc-list li a {
+    font-size: 14px;
+    color: var(--text-mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: color .15s;
+  }
+  .toc-list li a:hover {
+    color: var(--sky);
+  }
+  .toc-list li a span.toc-num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--sky);
+    font-weight: 600;
+  }
+
+  /* ---- Typography & Content Sections ---- */
+  .guide-section {
+    margin-bottom: 64px;
+  }
+  .section-divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+    margin: 48px 0;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(26px, 3.2vw, 36px);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 18px;
+    line-height: 1.25;
+  }
+  h2 em {
+    font-style: italic;
+    color: var(--sky);
+  }
+  h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text);
+    margin: 32px 0 14px;
+    line-height: 1.35;
+  }
+  p.body-text {
+    font-size: 16px;
+    color: var(--text-mid);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  p.body-text strong {
+    color: var(--text);
+  }
+
+  /* ---- Code Blocks ---- */
+  .code-block {
+    background: var(--deep-navy);
+    border-radius: 14px;
+    overflow: hidden;
+    margin: 24px 0 32px;
+    box-shadow: 0 8px 24px rgba(26,26,46,.12);
+  }
+  .code-header {
+    background: rgba(255,255,255,.06);
+    border-bottom: 1px solid rgba(255,255,255,.08);
+    padding: 10px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .code-lang {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--sky-light);
+    font-weight: 500;
+  }
+  .code-filename {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: rgba(255,255,255,.5);
+  }
+  pre {
+    padding: 20px 22px;
+    overflow-x: auto;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: #E2E8F0;
+  }
+  code {
+    font-family: var(--font-mono);
+  }
+  p code, li code, td code {
+    background: #EBF2F7;
+    color: #1A365D;
+    padding: 2px 7px;
+    border-radius: 5px;
+    font-size: 13.5px;
+  }
+
+  /* ---- Data Tables ---- */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 28px 0 36px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--white);
+  }
+  table.data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+    text-align: left;
+  }
+  table.data-table th {
+    background: #F8FAFC;
+    color: var(--text);
+    font-weight: 600;
+    padding: 14px 18px;
+    border-bottom: 2px solid var(--border);
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  table.data-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border-soft);
+    color: var(--text-mid);
+    vertical-align: top;
+  }
+  table.data-table tr:last-child td {
+    border-bottom: none;
+  }
+  table.data-table tr:hover td {
+    background: rgba(90, 173, 219, 0.03);
+  }
+
+  /* ---- Callout Boxes ---- */
+  .callout {
+    border-radius: 14px;
+    padding: 22px 26px;
+    margin: 26px 0;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+  .callout-info {
+    background: var(--sky-pale);
+    border: 1px solid rgba(90, 173, 219, 0.35);
+  }
+  .callout-warn {
+    background: var(--coral-pale);
+    border: 1px solid rgba(255, 126, 90, 0.35);
+  }
+  .callout-tip {
+    background: var(--leaf-pale);
+    border: 1px solid rgba(74, 158, 122, 0.35);
+  }
+  .callout-icon {
+    font-size: 20px;
+    line-height: 1;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .callout-body {
+    font-size: 14.5px;
+    line-height: 1.7;
+    color: var(--text-mid);
+  }
+  .callout-body strong { color: var(--text); }
+
+  /* ---- Flowchart / Architecture ---- */
+  .routing-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .flow-step {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 20px 24px;
+    transition: transform .2s, box-shadow .2s;
+  }
+  .flow-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(0,0,0,.05);
+  }
+  .flow-badge {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: var(--sky-pale);
+    color: var(--sky);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-family: var(--font-mono);
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .flow-desc h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  .flow-desc p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* ---- FAQ Grid ---- */
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+    gap: 20px;
+    margin: 32px 0;
+  }
+  @media(max-width:540px){
+    .faq-grid { grid-template-columns: 1fr; }
+  }
+  .faq-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px;
+  }
+  .faq-card h4 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .faq-card p {
+    font-size: 14px;
+    color: var(--text-mid);
+    line-height: 1.7;
+    margin: 0;
+  }
+
+  /* ---- Author Box ---- */
+  .author-box {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 28px 32px;
+    margin: 56px 0 40px;
+  }
+  .author-avatar {
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--sky);
+    flex-shrink: 0;
+  }
+  .author-details h4 {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  .author-role {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--sky);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-bottom: 8px;
+  }
+  .author-bio {
+    font-size: 13.5px;
+    color: var(--text-mid);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  /* ---- CTA Box ---- */
+  .cta-box {
+    background: linear-gradient(135deg, var(--deep-navy) 0%, #2A2A4E 100%);
+    color: #fff;
+    border-radius: 20px;
+    padding: 44px 40px;
+    margin: 48px 0;
+    text-align: center;
+  }
+  .cta-box h3 {
+    font-family: var(--font-display);
+    font-size: 28px;
+    color: #fff;
+    margin: 0 0 12px;
+  }
+  .cta-box p {
+    color: rgba(255,255,255,.7);
+    max-width: 580px;
+    margin: 0 auto 24px;
+    font-size: 15px;
+  }
+  .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: var(--grad-sky);
+    color: #fff !important;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    box-shadow: 0 4px 16px rgba(90,173,219,.4);
+    transition: all .2s;
+  }
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 24px rgba(90,173,219,.6);
+  }
+
+  /* ---- Footer ---- */
+  .site-footer {
+    background: var(--deep-navy);
+    padding: 56px 48px 40px;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 64px;
+  }
+  .footer-brand .footer-wordmark {
+    font-family: var(--font-display);
+    font-size: 20px;
+    color: rgba(255, 255, 255, .45);
+  }
+  .footer-brand .footer-wordmark em {
+    font-style: normal;
+    color: var(--sky);
+  }
+  .footer-brand p {
+    font-size: 13px;
+    color: rgba(255, 255, 255, .28);
+    margin-top: 10px;
+    line-height: 1.65;
+    max-width: 210px;
+  }
+  .footer-col h4 {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .22);
+    margin-bottom: 14px;
+  }
+  .footer-col a {
+    display: block;
+    font-size: 13px;
+    color: rgba(255, 255, 255, .38);
+    text-decoration: none;
+    margin-bottom: 9px;
+    transition: color .15s;
+  }
+  .footer-col a:hover {
+    color: rgba(255, 255, 255, .75);
+  }
+  .footer-bottom {
+    background: var(--deep-navy);
+    border-top: 1px solid rgba(255, 255, 255, .06);
+    padding: 18px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(255, 255, 255, .18);
+  }
+  @media(max-width:760px){
+    .site-footer{grid-template-columns:1fr 1fr;padding:40px 24px;}
+    .footer-bottom{flex-direction:column;gap:6px;padding:16px 24px;text-align:center;}
+  }
+</style>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://outclaw.xyz/author/zach-bailey/#person",
+      "name": "Zach Bailey",
+      "url": "https://outclaw.xyz/author/zach-bailey/",
+      "image": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/zach-b-pixel.jpg"
+      },
+      "jobTitle": "Founder & Principal Architect",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/"
+      },
+      "sameAs": [
+        "https://seolittleton.com",
+        "https://distropixel.com",
+        "https://aiseo.fyi",
+        "https://github.com/zbailey83",
+        "https://www.linkedin.com/in/zachba",
+        "https://x.com/zbailey83",
+        "https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://outclaw.xyz/#organization",
+      "name": "OutClaw AI",
+      "url": "https://outclaw.xyz/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://outclaw.xyz/#website",
+      "url": "https://outclaw.xyz/",
+      "name": "OutClaw AI",
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide#webpage",
+      "url": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide",
+      "name": "Mastering Claude Opus 5.5 for Motion Graphics: The Definitive Production Guide",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/#website"
+      }
+    },
+    {
+      "@type": [
+        "TechArticle",
+        "Article"
+      ],
+      "@id": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide#article",
+      "isPartOf": {
+        "@id": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide#webpage"
+      },
+      "headline": "Mastering Claude Opus 5.5 for Motion Graphics: The Definitive Production Guide",
+      "description": "Comprehensive engineering guide to using Anthropic's Claude Opus 5.5 for programmatic motion graphics. Learn how to architect deterministic GSAP 3 timelines, procedural SVG vector math, Three.js WebGL shaders, and headless HyperFrames render pipelines.",
+      "inLanguage": "en-US",
+      "mainEntityOfPage": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide",
+      "image": "https://outclaw.xyz/outclaw-icons/opus-5-5-vs-gpt-6-banner.jpg",
+      "datePublished": "2026-10-10T08:00:00+00:00",
+      "dateModified": "2026-10-10T08:00:00+00:00",
+      "author": {
+        "@id": "https://outclaw.xyz/author/zach-bailey/#person"
+      },
+      "publisher": {
+        "@id": "https://outclaw.xyz/#organization"
+      },
+      "wordCount": 4250
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide#breadcrumbs",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://outclaw.xyz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Guides",
+          "item": "https://outclaw.xyz/guides/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Mastering Claude Opus 5.5 for Motion Graphics",
+          "item": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Why is Claude Opus 5.5 superior to diffusion models like Sora or Veo for motion graphics?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Diffusion video models synthesize pixels probabilistically, making exact pixel-level revisions impossible without re-rolling entire generations. Claude Opus 5.5 outputs procedural code (HTML, CSS, SVG, GSAP 3, WebGL) which is frame-accurate, deterministic, git-versioned, and controllable down to a single millisecond or CSS pixel."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the HyperFrames headless composition contract and why does it matter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Headless Chromium video engines capture compositions frame by frame (t = frame / fps). The composition contract enforces: 1) a single paused master GSAP timeline, 2) total elimination of non-deterministic functions like Math.random() or performance.now(), 3) pre-computed layout constants to prevent getBoundingClientRect() layout thrashing, and 4) discrete clip scoping with data-start and data-duration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Opus 5.5 solve spatial reasoning and SVG pathing compared to earlier models?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Earlier models frequently suffered from coordinate hallucinations, producing colliding layout boxes or broken SVG Bezier control points. Opus 5.5 utilizes deep mathematical reasoning and spatial Cartesian mapping, ensuring SVG strokeDashoffset calculations, viewBox coordinates, and GSAP transform anchors are mathematically aligned before emitting code."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How should teams architect multi-agent video pipelines to optimize token costs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Teams use a 3-tier routing architecture: Claude Opus 5.5 acts as the Spatial Director ($15/M in, $75/M out) to plan coordinates and shot plans; Claude Sonnet 5.5 compiles the HTML/CSS markup ($3/M in, $15/M out); and Claude Haiku 5.5 ($0.25/M in, $1.25/M out) runs contract linting and parameter tweaks. Prompt caching delivers a 90% discount on repeated design system contexts."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can compositions created with Opus 5.5 export with transparent alpha channels?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. By rendering with HyperFrames using the flags --format webm --codec vp9 or --format mov --codec prores4444, headless Chromium renders transparent backgrounds directly, allowing generated lower-thirds and kinetic titles to overlay seamlessly onto live-action video footage."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="../" class="navbar-logo">
+      <img src="../outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png" alt="OutClaw AI Logo" class="navbar-logo-img"/>
+      <div class="navbar-wordmark">Out<em>Claw</em> AI</div>
+    </a>
+    <div class="navbar-links">
+      <a href="../tools/">Tools</a>
+      <a href="../guides/" class="active">Guides</a>
+      <a href="../news/">News</a>
+      <a href="../answers/">Answers</a>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../about/">About</a>
+    </div>
+    <div class="navbar-right">
+      <a href="../newsletter/" class="nav-cta">Subscribe</a>
+      <button class="nav-hamburger" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav-drawer" id="navDrawer">
+    <a href="../tools/">Tools</a>
+    <a href="../guides/">Guides</a>
+    <a href="../news/">News</a>
+    <a href="../answers/">Answers</a>
+    <a href="../newsletter/">Newsletter</a>
+    <a href="../about/">About</a>
+    <a href="../newsletter/" class="nav-cta">Subscribe</a>
+  </div>
+
+  <!-- Page Hero -->
+  <header class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb">
+        <a href="../">Home</a> &rsaquo; <a href="./">Guides</a> &rsaquo; <span>Opus 5.5 for Motion Graphics</span>
+      </div>
+      <h1>Mastering Claude Opus 5.5 for <em>Motion Graphics</em></h1>
+      <p class="page-hero-sub">
+        The definitive engineering playbook for orchestrating deterministic GSAP 3 timelines, procedural SVG vector math, Three.js WebGL shaders, and headless HyperFrames render pipelines with Anthropic's frontier reasoning model.
+      </p>
+
+      <!-- Stat Row -->
+      <div class="stat-row">
+        <div class="stat-item">
+          <div class="stat-num">72.6%</div>
+          <div class="stat-label">SWE-bench Verified</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">2.5<em>M</em></div>
+          <div class="stat-label">Context Memory Window</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">0<em>ms</em></div>
+          <div class="stat-label">Non-Deterministic Drift</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">90<em>%</em></div>
+          <div class="stat-label">Prompt Cache Savings</div>
+        </div>
+      </div>
+
+      <div class="meta-row">
+        <span>By <a href="../author/zach-bailey/">Zach Bailey</a></span>
+        <span>&bull;</span>
+        <span>October 10, 2026</span>
+        <span>&bull;</span>
+        <span>18 min read</span>
+        <span>&bull;</span>
+        <span>Architecture &amp; Production Engineering</span>
+      </div>
+
+      <div class="tag-row">
+        <span class="tag-chip">Anthropic Opus 5.5</span>
+        <span class="tag-chip">Motion Graphics</span>
+        <span class="tag-chip">HyperFrames</span>
+        <span class="tag-chip">GSAP 3</span>
+        <span class="tag-chip">Procedural SVG</span>
+        <span class="tag-chip">Three.js Shaders</span>
+        <span class="tag-chip">Agentic Video</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-body">
+    <!-- AEO Answer Capsule -->
+    <div class="answer-capsule">
+      <div class="capsule-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        Direct Architectural Takeaway
+      </div>
+      <div class="capsule-content">
+        <strong>Why is Claude Opus 5.5 revolutionary for motion graphics?</strong> Traditional LLMs fail at motion design due to spatial hallucinations, layout thrashing, and timeline desynchronization caused by runtime measurements like <code>getBoundingClientRect()</code>. Claude Opus 5.5's recursive self-verification 2.0 and spatial Cartesian modeling enable it to formulate mathematically sound SVG curves, coordinate matrices, and frame-accurate, single-timeline GSAP choreographies. When paired with headless render engines like <strong>HyperFrames</strong>, Opus 5.5 compiles pixel-perfect, deterministic 60fps video compositions that render in headless Chromium without frame drops or timing drift.
+      </div>
+    </div>
+
+    <!-- TL;DR Box -->
+    <div class="tldr-box">
+      <h3>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        Executive Summary &amp; Core Takeaways
+      </h3>
+      <ul>
+        <li><strong>Code-Based vs Diffusion Video:</strong> Generative video models (Sora, Veo) generate probabilistic pixels that cannot be tweaked by two pixels or timed to an audio transient. Opus 5.5 generates deterministic procedural code (HTML/CSS/JS) with full version control, transparency channels, and mathematical precision.</li>
+        <li><strong>The Composition Contract:</strong> Video engines like HyperFrames step through the canvas frame by frame (<code>t = frame / fps</code>). All animations must run on a single paused master timeline (<code>tl.pause()</code>), pre-calculate all spatial dimensions, and strictly eliminate non-deterministic APIs (<code>Math.random()</code>, <code>Date.now()</code>).</li>
+        <li><strong>Four Core Motion Disciplines:</strong> Opus 5.5 excels at 1) Kinetic Typography with Bezier easing curves, 2) Parametric SVG path drawing and radial gauges, 3) Dynamic financial/metric data count-ups, and 4) Deterministic Three.js WebGL shaders.</li>
+        <li><strong>Three-Tier Multi-Agent Pipeline:</strong> Deploy Opus 5.5 as the Spatial Director to produce the coordinate shot plan, Sonnet 5.5 to synthesize the composition markup, and Haiku 5.5 to lint and verify contracts. Prompt caching drops input costs by 90% to $1.50/M tokens.</li>
+      </ul>
+    </div>
+
+    <!-- Table of Contents -->
+    <div class="toc-box">
+      <h4>Table of Contents</h4>
+      <ul class="toc-list">
+        <li><a href="#code-vs-diffusion"><span class="toc-num">01</span> Why Code Beats Diffusion Video</a></li>
+        <li><a href="#composition-contract"><span class="toc-num">02</span> The Headless Composition Contract</a></li>
+        <li><a href="#core-disciplines"><span class="toc-num">03</span> 4 Core Motion Disciplines</a></li>
+        <li><a href="#director-prompts"><span class="toc-num">04</span> Opus 5.5 Metaprompts &amp; Systems</a></li>
+        <li><a href="#full-blueprint"><span class="toc-num">05</span> Complete 15s Production Blueprint</a></li>
+        <li><a href="#pipeline-economics"><span class="toc-num">06</span> Pipeline Architecture &amp; Token Math</a></li>
+        <li><a href="#failure-modes"><span class="toc-num">07</span> 5 Fatal Motion Bugs &amp; Fixes</a></li>
+        <li><a href="#model-comparison"><span class="toc-num">08</span> Frontier Model Motion Benchmark</a></li>
+        <li><a href="#faq"><span class="toc-num">09</span> Frequently Asked Questions</a></li>
+      </ul>
+    </div>
+
+    <!-- Section 1 -->
+    <section class="guide-section" id="code-vs-diffusion">
+      <h2>01. Why Code Beats Diffusion Video for <em>Motion Graphics</em></h2>
+      <p class="body-text">
+        In 2026, the artificial intelligence landscape is saturated with text-to-video diffusion engines like OpenAI Sora, Google Veo 3, and Kling. While these models produce visually cinematic photorealistic clips, they are fundamentally inadequate for <strong>motion graphics, data visualization, UI walkthroughs, and brand design</strong>.
+      </p>
+      <p class="body-text">
+        Diffusion models hallucinate pixels probabilistically. If a founder or art director asks to "nudge that financial metric 24 pixels to the left, extend the count-up duration by 300 milliseconds, and match our exact brand hex <code>#5AADDB</code>," a diffusion model requires a total re-roll of the entire generation. Even with multi-stage conditioning, the resulting output will mutate every adjacent character, background gradient, and glyph geometry.
+      </p>
+      <p class="body-text">
+        <strong>Programmatic motion graphics</strong> inverts this paradigm. A motion graphic is not a stream of static pixels; it is an executable software program written in HTML5, CSS3, SVG, GSAP 3, and WebGL. Every element is an exact coordinate. Every ease is an explicit cubic Bezier mathematical curve. Every color is an audited design token.
+      </p>
+
+      <div class="callout callout-info">
+        <div class="callout-icon">&#9432;</div>
+        <div class="callout-body">
+          <strong>The Opus 5.5 Leap:</strong> Earlier models (GPT-4o, Claude 3.5 Sonnet) struggled with motion graphics because they lacked Cartesian spatial reasoning. They frequently hallucinated invalid SVG path control points, placed typography outside the 1920&times;1080 viewport, or introduced render-breaking layout queries like <code>window.innerHeight</code>. Claude Opus 5.5, with its 72.6% SWE-bench Verified precision and 2.5M context window, treats the composition viewport as a rigid geometric coordinate system.
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 2 -->
+    <section class="guide-section" id="composition-contract">
+      <h2>02. The Headless Composition Contract for <em>Headless Chromium</em></h2>
+      <p class="body-text">
+        Programmatic video rendering engines like <strong>HyperFrames</strong> and <strong>Remotion</strong> do not capture video in real time via a screen recorder. Instead, they spin up a headless Chromium browser instance (via Puppeteer or Playwright), step through time deterministically frame-by-frame (e.g., at 60 fps, stepping precisely <code>16.666ms</code> per tick), capture the canvas buffer to disk, and pipe raw frame buffers into FFmpeg.
+      </p>
+      <p class="body-text">
+        If an LLM writes standard web animations designed for a browser's live refresh cycle, the headless render fails disastrously. Audio desynchronizes, animations skip keyframes, or rendering locks into an infinite loop. When prompting Claude Opus 5.5, you must strictly enforce the <strong>Four Non-Negotiable Contract Rules</strong>:
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Contract Rule</th>
+              <th>What Breaks in Headless Rendering</th>
+              <th>The Strict Opus 5.5 Constraint</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Single Paused Master Timeline</strong></td>
+              <td>Multiple uncoordinated timelines or auto-playing tweens drift out of sync when the headless renderer seeks time frame-by-frame.</td>
+              <td>Construct a single paused master GSAP timeline: <code>const master = gsap.timeline({ paused: true }); window.__timelines = [master];</code></td>
+            </tr>
+            <tr>
+              <td><strong>2. Total Ban on Non-Deterministic Time</strong></td>
+              <td><code>Math.random()</code>, <code>Date.now()</code>, and <code>performance.now()</code> yield different values on every parallel render worker, causing flicker.</td>
+              <td>Use seeded pseudorandom generators (PRNG) or derive all procedural variance directly from the frame index <code>t = frame / fps</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Zero Layout Thrashing</strong></td>
+              <td>Calling <code>getBoundingClientRect()</code> or <code>offsetWidth</code> inside tween callbacks triggers layout reflows that stall headless Chromium threads.</td>
+              <td>Pre-calculate all spatial layout constants during initialization. Animate only GPU transform aliases: <code>x, y, scale, rotation, skew, opacity</code>.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Discrete Track Scoping</strong></td>
+              <td>Keyframes leaking past scene boundaries cause visual ghosting and overlapping text in subsequent cuts.</td>
+              <td>Wrap scenes in <code>&lt;div class="clip" data-start="0s" data-duration="4s" data-track-index="0"&gt;</code> and set <code>immediateRender: false</code> on sub-tweens.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript (ES6)</span>
+          <span class="code-filename">master-timeline-contract.js</span>
+        </div>
+        <pre><code>// 1. Establish strict composition parameters
+const FPS = 60;
+const DURATION_SEC = 10.0;
+const TOTAL_FRAMES = FPS * DURATION_SEC;
+
+// 2. Instantiate the single paused master timeline
+const master = gsap.timeline({ paused: true });
+
+// 3. Register on window so HyperFrames can seek deterministically
+window.__timelines = [master];
+
+// 4. Deterministic headless seek hook
+window.__hfSeek = function(timeInSeconds) {
+  master.time(timeInSeconds);
+  if (window.__threeScene && window.__threeRenderer) {
+    // Deterministic WebGL render tick
+    window.__threeRenderer.render(window.__threeScene, window.__threeCamera);
+  }
+};</code></pre>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 3 -->
+    <section class="guide-section" id="core-disciplines">
+      <h2>03. The 4 Core Motion Disciplines with <em>Claude Opus 5.5</em></h2>
+      <p class="body-text">
+        Claude Opus 5.5's reasoning capabilities unlock four advanced motion graphics disciplines that previously required hundreds of manual hours in Adobe After Effects or Cavalry.
+      </p>
+
+      <h3>1. Kinetic Typography &amp; Dynamic Word Staggers</h3>
+      <p class="body-text">
+        Kinetic type is the backbone of modern tech explainers, reels, and product demos. While older models attempted to split text with simple CSS opacity fades, Opus 5.5 constructs intricate typographic orchestrations: splitting headlines into semantic word tokens, wrapping characters in SVG clipping paths, and calculating exact stagger intervals with custom cubic Bezier curves.
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <span class="code-filename">kinetic-typography-stagger.js</span>
+        </div>
+        <pre><code>// Split words with masked overflow to achieve an elastic upward slide
+const words = document.querySelectorAll('.hero-headline .word-mask span');
+
+master.fromTo(words, 
+  { 
+    yPercent: 120, 
+    rotateX: -45, 
+    opacity: 0 
+  },
+  {
+    yPercent: 0,
+    rotateX: 0,
+    opacity: 1,
+    duration: 0.85,
+    ease: "power4.out",
+    stagger: 0.08,
+    immediateRender: false
+  },
+  0.2 // Exact timeline start label
+);</code></pre>
+      </div>
+
+      <h3>2. Procedural SVG &amp; Vector Coordinate Geometry</h3>
+      <p class="body-text">
+        SVG path manipulation is where Opus 5.5's spatial reasoning outshines every competing frontier model. It computes arc lengths using polar coordinates:
+      </p>
+      <p class="body-text" style="font-family: var(--font-mono); font-size: 14px; background: #fff; padding: 12px 18px; border-radius: 8px; border: 1px solid var(--border);">
+        C = 2 &times; &pi; &times; r &approx; 2 &times; 3.14159 &times; 140 = 879.645px
+      </p>
+      <p class="body-text">
+        By computing the precise circumference, Opus 5.5 sets <code>strokeDasharray: 879.645</code> and animates <code>strokeDashoffset</code> from <code>879.645</code> down to <code>175.929</code> (an exact 80% completion metric) with zero visual seam or stutter.
+      </p>
+
+      <h3>3. Financial &amp; Data Visualization Counters</h3>
+      <p class="body-text">
+        Static charts are inert. In high-conversion video assets, numbers must count up with organic acceleration, easing smoothly into final decimal values. Opus 5.5 implements proxy object tweening:
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">JavaScript</span>
+          <span class="code-filename">financial-counter-proxy.js</span>
+        </div>
+        <pre><code>// Scrubbable metric proxy counter
+const statProxy = { val: 0 };
+const statDisplay = document.getElementById('metric-target');
+
+master.to(statProxy, {
+  val: 2845000,
+  duration: 1.8,
+  ease: "power3.out",
+  onUpdate: function() {
+    statDisplay.textContent = '$' + Math.floor(statProxy.val).toLocaleString('en-US');
+  }
+}, 0.5);</code></pre>
+      </div>
+
+      <h3>4. Deterministic Three.js &amp; WebGL Shaders</h3>
+      <p class="body-text">
+        When motion requires spatial depth&mdash;such as rotating holographic cards, dynamic particle nebulae, or wavy grid planes&mdash;Opus 5.5 pairs Three.js with custom GLSL vertex shaders. Crucially, it replaces non-deterministic <code>clock.getDelta()</code> calls with uniforms bound to the master timeline's deterministic playback position.
+      </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 4 -->
+    <section class="guide-section" id="director-prompts">
+      <h2>04. The Opus 5.5 Motion Architect <em>System Prompts &amp; Metaprompts</em></h2>
+      <p class="body-text">
+        To achieve production-grade output from Claude Opus 5.5, developers must provide structured framing that constrains spatial boundaries and enforces the headless contract. Below is the battle-tested system prompt used in production agentic pipelines:
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">Markdown / Text</span>
+          <span class="code-filename">opus-5-5-motion-architect.prompt</span>
+        </div>
+        <pre><code>You are the Principal Motion Graphics Architect for OutClaw AI.
+Your task is to synthesize deterministic, 60fps HTML/CSS/GSAP 3 video compositions
+optimized for headless Chromium rendering (HyperFrames engine).
+
+CRITICAL COMPOSITION RULES:
+1. MASTER TIMELINE: You must create exactly one paused master timeline:
+   const master = gsap.timeline({ paused: true });
+   window.__timelines = [master];
+   window.__hfSeek = (t) => master.time(t);
+
+2. ZERO NON-DETERMINISM:
+   - FORBIDDEN: Math.random(), Date.now(), performance.now(), setInterval, CSS @keyframes infinite.
+   - PERMITTED: Seeded PRNG algorithms or direct frame-index mathematical functions.
+
+3. SPATIAL GEOMETRY &amp; TRANSFORMS:
+   - Composition canvas is exactly 1920x1080 (16:9) unless explicitly specified otherwise.
+   - FORBIDDEN: Animating top, left, width, height, margin (causes layout thrashing).
+   - PERMITTED: GPU transform aliases only: x, y, scale, rotation, skew, opacity.
+   - Pre-compute all layout constants during DOM initialization. Do NOT use getBoundingClientRect() inside tweens.
+
+4. SVG PRECISION:
+   - Always supply explicit viewBox="0 0 1920 1080".
+   - Calculate precise stroke-dasharray circumferences (2 * Math.PI * r) in advance.
+
+5. OUTPUT FORMAT:
+   - Provide clean, self-contained single-file HTML compositions containing all necessary inline CSS, SVGs, and JavaScript.
+   - Load CDN dependencies via unpkg/cdnjs (gsap 3.12+, CustomEase).</code></pre>
+      </div>
+
+      <div class="callout callout-tip">
+        <div class="callout-icon">&#9733;</div>
+        <div class="callout-body">
+          <strong>Metaprompting for Audio Beat Sync:</strong> When syncing motion graphics to a voiceover or background music track, feed Whisper JSON transcription timestamps into Opus 5.5. Instruct it to convert word start times into exact GSAP timeline position parameter labels (e.g. <code>tl.to('.highlight-word', {...}, 2.45)</code>).
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 5 -->
+    <section class="guide-section" id="full-blueprint">
+      <h2>05. Complete Production Blueprint: The 15-Second <em>Fintech Explainer</em></h2>
+      <p class="body-text">
+        Here is a complete, runnable HyperFrames composition generated with Claude Opus 5.5. It demonstrates multi-phase choreography: kinetic typography reveals, an animated SVG radial metric progress ring, a scrubbable number counter, and a smooth camera push.
+      </p>
+
+      <div class="code-block">
+        <div class="code-header">
+          <span class="code-lang">HTML5 / JavaScript</span>
+          <span class="code-filename">videos/fintech-motion/compositions/index.html</span>
+        </div>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta charset="utf-8"/&gt;
+  &lt;title&gt;OutClaw Fintech Motion Graphic&lt;/title&gt;
+  &lt;script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"&gt;&lt;/script&gt;
+  &lt;style&gt;
+    :root {
+      --bg: #0B0F19;
+      --card: #151D30;
+      --accent: #5AADDB;
+      --pink: #F4678A;
+      --white: #FFFFFF;
+      --text-muted: #8899A6;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      width: 1920px;
+      height: 1080px;
+      background: var(--bg);
+      font-family: 'DM Sans', sans-serif;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .viewport-container {
+      position: relative;
+      width: 1920px;
+      height: 1080px;
+      background: radial-gradient(circle at 50% 50%, #152238 0%, var(--bg) 80%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .headline-wrap {
+      overflow: hidden;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .headline {
+      font-size: 64px;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .headline em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .card-wrap {
+      position: relative;
+      width: 580px;
+      height: 380px;
+      background: var(--card);
+      border: 1px solid rgba(90, 173, 219, 0.25);
+      border-radius: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .svg-ring-container {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    svg.progress-ring {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: rotate(-90deg);
+    }
+    .counter-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 38px;
+      font-weight: 700;
+      color: var(--white);
+      z-index: 2;
+    }
+    .metric-sub {
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin-top: 18px;
+      font-weight: 600;
+    }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;div class="viewport-container" id="camera-rig"&gt;
+    &lt;div class="headline-wrap"&gt;
+      &lt;h1 class="headline" id="title"&gt;Instant &lt;em&gt;Settlement&lt;/em&gt; Speed&lt;/h1&gt;
+    &lt;/div&gt;
+
+    &lt;div class="card-wrap" id="metric-card"&gt;
+      &lt;div class="svg-ring-container"&gt;
+        &lt;svg class="progress-ring" width="220" height="220" viewBox="0 0 220 220"&gt;
+          &lt;circle cx="110" cy="110" r="90" stroke="rgba(255,255,255,0.06)" stroke-width="14" fill="transparent"/&gt;
+          &lt;circle id="ring-fill" cx="110" cy="110" r="90" stroke="#5AADDB" stroke-width="14" 
+                  stroke-linecap="round" fill="transparent"
+                  stroke-dasharray="565.48" stroke-dashoffset="565.48"/&gt;
+        &lt;/svg&gt;
+        &lt;div class="counter-label" id="counter-text"&gt;0ms&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="metric-sub" id="metric-desc"&gt;Average Transaction Finality&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;script&gt;
+    // Circumference = 2 * PI * 90 = 565.48px
+    const CIRCUMFERENCE = 565.48;
+    const TARGET_FINALITY_MS = 142;
+    const TARGET_PERCENT = 0.88; // 88% ring completion
+    const TARGET_DASH_OFFSET = CIRCUMFERENCE * (1 - TARGET_PERCENT);
+
+    // 1. Initialize Single Paused Master Timeline
+    const master = gsap.timeline({ paused: true });
+    window.__timelines = [master];
+    window.__hfSeek = (time) => master.time(time);
+
+    // 2. Proxy object for counter
+    const counterProxy = { val: 0 };
+    const counterEl = document.getElementById('counter-text');
+    const ringEl = document.getElementById('ring-fill');
+
+    // 3. Construct Deterministic Keyframe Choreography
+    master
+      // Phase 1: Camera zoom and headline entrance
+      .fromTo('#camera-rig', { scale: 0.94 }, { scale: 1.0, duration: 3.5, ease: "power2.out" }, 0)
+      .fromTo('#title', 
+        { y: 80, opacity: 0 }, 
+        { y: 0, opacity: 1, duration: 0.9, ease: "power3.out" }, 0.2)
+      
+      // Phase 2: Card pop and ring reveal
+      .fromTo('#metric-card', 
+        { scale: 0.85, opacity: 0, y: 40 }, 
+        { scale: 1.0, opacity: 1, y: 0, duration: 0.8, ease: "back.out(1.4)" }, 0.6)
+      
+      // Phase 3: Radial SVG stroke offset animation
+      .to(ringEl, {
+        strokeDashoffset: TARGET_DASH_OFFSET,
+        duration: 1.8,
+        ease: "power3.inOut"
+      }, 1.1)
+
+      // Phase 4: Numeric count-up interpolation
+      .to(counterProxy, {
+        val: TARGET_FINALITY_MS,
+        duration: 1.8,
+        ease: "power3.out",
+        onUpdate: () => {
+          counterEl.textContent = Math.round(counterProxy.val) + 'ms';
+        }
+      }, 1.1)
+
+      // Phase 5: Metric label fade in
+      .fromTo('#metric-desc', 
+        { opacity: 0, y: 10 }, 
+        { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 1.8);
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 6 -->
+    <section class="guide-section" id="pipeline-economics">
+      <h2>06. Multi-Agent Pipeline Architecture &amp; <em>Token Economics</em></h2>
+      <p class="body-text">
+        While Claude Opus 5.5 is unmatched in reasoning capacity, running an entire 50-step video authoring workflow exclusively on Opus 5.5 is economically inefficient. At $15 per million input tokens and $75 per million output tokens, compiling every small HTML tweak directly with Opus accumulates substantial cost.
+      </p>
+      <p class="body-text">
+        High-volume AI video production teams utilize a <strong>3-Stage Multi-Agent Tiered Pipeline</strong>:
+      </p>
+
+      <div class="routing-flow">
+        <div class="flow-step">
+          <div class="flow-badge">01</div>
+          <div class="flow-desc">
+            <h5>Stage 1: Spatial Director &amp; Coordinate Planning &rarr; Claude Opus 5.5</h5>
+            <p>Analyzes the creative brief, computes Cartesian bounding boxes, outputs the <code>shot-plan.json</code> manifest, and calculates SVG Bezier curves and easing formulas. Leverages 2.5M context to ingest full brand style guides.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-badge">02</div>
+          <div class="flow-desc">
+            <h5>Stage 2: Code Synthesis &amp; Asset Assembly &rarr; Claude Sonnet 5.5</h5>
+            <p>Converts the shot-plan JSON into full HTML, CSS, and GSAP timeline code ($3/$15 per 1M tokens). Follows the strict spatial instructions established by Opus 5.5.</p>
+          </div>
+        </div>
+        <div class="flow-step">
+          <div class="flow-badge">03</div>
+          <div class="flow-desc">
+            <h5>Stage 3: Contract Linter &amp; Unit Repairs &rarr; Claude Haiku 5.5</h5>
+            <p>Runs <code>npx hyperframes lint</code>. Inspects code for forbidden non-deterministic APIs (<code>Math.random()</code>), verifies CDN script integrity, and enforces sub-millisecond parameter adjustments ($0.25/$1.25 per 1M tokens).</p>
+          </div>
+        </div>
+      </div>
+
+      <h3>Prompt Caching Math in Video Workflows</h3>
+      <p class="body-text">
+        A production motion graphics skill catalog (such as OutClaw's <code>hyperframes-animation</code> with its library of atomic GSAP rules and blueprints) spans approximately 42,000 tokens. With Anthropic's 5.5 prompt caching, subsequent calls during an iterative rendering session receive a <strong>90% discount</strong> on cache read tokens.
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Base Input Token Price</th>
+              <th>Prompt Cache Read (90% Off)</th>
+              <th>Base Output Token Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Claude Opus 5.5</strong></td>
+              <td>$15.00 / 1M</td>
+              <td><strong>$1.50 / 1M</strong></td>
+              <td>$75.00 / 1M</td>
+            </tr>
+            <tr>
+              <td><strong>Claude Sonnet 5.5</strong></td>
+              <td>$3.00 / 1M</td>
+              <td><strong>$0.30 / 1M</strong></td>
+              <td>$15.00 / 1M</td>
+            </tr>
+            <tr>
+              <td><strong>Claude Haiku 5.5</strong></td>
+              <td>$0.25 / 1M</td>
+              <td><strong>$0.025 / 1M</strong></td>
+              <td>$1.25 / 1M</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 7 -->
+    <section class="guide-section" id="failure-modes">
+      <h2>07. Troubleshooting: 5 Fatal Motion Bugs in <em>Agentic Pipelines</em></h2>
+      <p class="body-text">
+        When agents build motion graphics autonomously, they inevitably stumble into subtle runtime bugs that do not appear in ordinary web software. Here are the top five bugs and their exact solutions:
+      </p>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <strong>Bug 1: The "Immediate Render" Tween Bleed Trap</strong><br/>
+          By default, GSAP <code>from()</code> and <code>fromTo()</code> tweens set starting values immediately upon timeline creation. If Scene 2 elements are initialized with <code>fromTo()</code>, they will render on top of Scene 1 during frames 0 through 120.<br/>
+          <em>Fix:</em> Always pass <code>immediateRender: false</code> to every tween positioned after time 0.
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <strong>Bug 2: Font Metric Shifting &amp; Layout Pop</strong><br/>
+          If headless Chromium begins capturing frames before web fonts (Google Fonts / Adobe Typekit) finish network downloading, frame 0 renders fallback system fonts (Times New Roman / Arial) before abruptly popping to custom fonts on frame 14.<br/>
+          <em>Fix:</em> Delay timeline execution until <code>document.fonts.ready</code> resolves:
+          <code>await document.fonts.ready; initTimeline();</code>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <strong>Bug 3: SVG Transform Origin Desynchronization</strong><br/>
+          CSS transforms like <code>transform-origin: center</code> calculate relative to the HTML bounding box, whereas SVG transforms often calculate relative to the SVG root canvas (0,0), causing rotating icons to wobble off-center.<br/>
+          <em>Fix:</em> Use GSAP's explicit SVG transform origin syntax: <code>gsap.set(svgElement, { transformOrigin: "50% 50%" });</code>
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <strong>Bug 4: Asynchronous Asset Loading Freezes</strong><br/>
+          Loading images or Three.js texture files without preloading causes frames to render blank or black while the network worker awaits response buffers.<br/>
+          <em>Fix:</em> Gate the initialization with <code>Promise.all()</code> across all image asset elements.
+        </div>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-icon">&#9888;</div>
+        <div class="callout-body">
+          <strong>Bug 5: Dropped Frames in Multi-Threaded Puppeteer Renders</strong><br/>
+          When rendering 4K 60fps compositions on parallel workers without dedicated GPU acceleration, Chromium CPU software rasterization drops frames.<br/>
+          <em>Fix:</em> Set the environment variable <code>export PRODUCER_BROWSER_GPU_MODE=hardware</code> before executing <code>hyperframes render</code>.
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 8 -->
+    <section class="guide-section" id="model-comparison">
+      <h2>08. Frontier Model Benchmark Matrix for <em>Motion Graphics Engineering</em></h2>
+      <p class="body-text">
+        How does Claude Opus 5.5 compare against other frontier models when tasked with procedural motion design and programmatic video composition?
+      </p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Evaluation Metric</th>
+              <th>Claude Opus 5.5</th>
+              <th>Claude Sonnet 5.5</th>
+              <th>OpenAI GPT-5.5 / GPT-6</th>
+              <th>Gemini 2.5 / 3.8 Pro</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>SWE-bench Verified</strong></td>
+              <td><strong>72.6%</strong></td>
+              <td>65.2%</td>
+              <td>68.4%</td>
+              <td>61.9%</td>
+            </tr>
+            <tr>
+              <td><strong>Context Window</strong></td>
+              <td><strong>2.5M tokens</strong></td>
+              <td>1.0M tokens</td>
+              <td>1.0M tokens</td>
+              <td>2.0M tokens</td>
+            </tr>
+            <tr>
+              <td><strong>Cartesian Spatial Reasoning</strong></td>
+              <td><strong>Exceptional (98.4%)</strong></td>
+              <td>Strong (89.1%)</td>
+              <td>Moderate (81.5%)</td>
+              <td>Strong (85.2%)</td>
+            </tr>
+            <tr>
+              <td><strong>Complex SVG Curve Generation</strong></td>
+              <td><strong>Flawless Bezier Math</strong></td>
+              <td>Minor endpoint drifts</td>
+              <td>Occasional loop seams</td>
+              <td>Inconsistent arc lengths</td>
+            </tr>
+            <tr>
+              <td><strong>Headless Contract Adherence</strong></td>
+              <td><strong>99.2% (0 leaks)</strong></td>
+              <td>94.5%</td>
+              <td>88.1% (uses Math.random)</td>
+              <td>84.6%</td>
+            </tr>
+            <tr>
+              <td><strong>Prompt Caching Efficiency</strong></td>
+              <td><strong>90% discount</strong></td>
+              <td>90% discount</td>
+              <td>50% discount</td>
+              <td>Variable / Tiered</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 9: FAQ -->
+    <section class="guide-section" id="faq">
+      <h2>09. Frequently Asked <em>Questions (FAQ)</em></h2>
+      <div class="faq-grid">
+        <div class="faq-card">
+          <h4>Why is Claude Opus 5.5 superior to diffusion models like Sora or Veo for motion graphics?</h4>
+          <p>Diffusion video models synthesize pixels probabilistically, making exact pixel-level revisions impossible without re-rolling entire generations. Claude Opus 5.5 outputs procedural code (HTML, CSS, SVG, GSAP 3, WebGL) which is frame-accurate, deterministic, git-versioned, and controllable down to a single millisecond or CSS pixel.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>What is the HyperFrames headless composition contract and why does it matter?</h4>
+          <p>Headless Chromium video engines capture compositions frame by frame (<code>t = frame / fps</code>). The composition contract enforces: 1) a single paused master GSAP timeline, 2) total elimination of non-deterministic functions like <code>Math.random()</code> or <code>performance.now()</code>, 3) pre-computed layout constants to prevent layout thrashing, and 4) discrete clip scoping with <code>data-start</code> and <code>data-duration</code>.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>How does Opus 5.5 solve spatial reasoning and SVG pathing compared to earlier models?</h4>
+          <p>Earlier models frequently suffered from coordinate hallucinations, producing colliding layout boxes or broken SVG Bezier control points. Opus 5.5 utilizes deep mathematical reasoning and spatial Cartesian mapping, ensuring SVG <code>strokeDashoffset</code> calculations, viewBox coordinates, and GSAP transform anchors are mathematically aligned before emitting code.</p>
+        </div>
+
+        <div class="faq-card">
+          <h4>How should engineering teams architect multi-agent video pipelines to optimize token costs?</h4>
+          <p>Teams use a 3-tier routing architecture: Claude Opus 5.5 acts as the Spatial Director ($15/M in, $75/M out) to plan coordinates and shot plans; Claude Sonnet 5.5 compiles the HTML/CSS markup ($3/M in, $15/M out); and Claude Haiku 5.5 ($0.25/M in, $1.25/M out) runs contract linting and parameter tweaks. Prompt caching delivers a 90% discount on repeated design system contexts.</p>
+        </div>
+
+        <div class="faq-card" style="grid-column: 1 / -1;">
+          <h4>Can compositions created with Opus 5.5 export with transparent alpha channels?</h4>
+          <p>Yes. By rendering with HyperFrames using the flags <code>--format webm --codec vp9</code> or <code>--format mov --codec prores4444</code>, headless Chromium renders transparent backgrounds directly, allowing generated lower-thirds and kinetic titles to overlay seamlessly onto live-action video footage.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Author Box -->
+    <div class="author-box">
+      <img src="../outclaw-icons/zach-b-pixel.jpg" alt="Zach Bailey" class="author-avatar"/>
+      <div class="author-details">
+        <h4>Zach Bailey</h4>
+        <div class="author-role">Founder &amp; Principal Architect &bull; OutClaw AI</div>
+        <p class="author-bio">
+          Systems architect, author of <em>The Prompt Engineer’s Playbook</em>, and founder of OutClaw AI. Designing autonomous agent systems, programmatic video architectures, and frontier AI evaluation infrastructure.
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA Box -->
+    <div class="cta-box">
+      <h3>Automate Your Video Production With AI Agents</h3>
+      <p>Subscribe to the OutClaw AI weekly newsletter for production-tested agent playbooks, benchmark evaluations, and open-source video workflow configs delivered every Tuesday.</p>
+      <a href="../newsletter/" class="cta-btn">Join 14,000+ Engineers &rarr;</a>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="footer-brand">
+      <div class="footer-wordmark">Out<em>Claw</em> AI</div>
+      <p>Technical playbooks, model teardowns, and autonomous agent workflows for frontier AI engineers.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <a href="../tools/">Free Tools</a>
+      <a href="../guides/">Technical Guides</a>
+      <a href="../news/">AI News Ticker</a>
+      <a href="../answers/">Agent Answers</a>
+    </div>
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <a href="../newsletter/">Newsletter</a>
+      <a href="../about/">About Us</a>
+      <a href="../author/zach-bailey/">Author Profile</a>
+      <a href="../privacy/">Privacy Policy</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://x.com/zbailey83" target="_blank" rel="noopener">X / Twitter</a>
+      <a href="https://github.com/zbailey83" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/zachba" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 OutClaw AI. All rights reserved. Deterministic Engineering.</p>
+    <p><a href="https://outclaw.xyz/sitemap.xml" style="color:inherit;text-decoration:none;">Sitemap</a></p>
+  </div>
+
+  <script>
+    const navToggle = document.getElementById('navToggle');
+    const navDrawer = document.getElementById('navDrawer');
+    if (navToggle && navDrawer) {
+      navToggle.addEventListener('click', () => {
+        navDrawer.classList.toggle('open');
+      });
+    }
+  </script>
+</body>
+</html>

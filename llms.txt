@@ -27,6 +27,7 @@
 - **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
 
 ## Technical Guides (Documentation)
+- [Mastering Claude Opus 5.5 for Motion Graphics](https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide.html) — Definitive engineering guide to orchestrating deterministic GSAP 3 timelines, procedural SVG vector math, Three.js shaders, and headless HyperFrames render pipelines with Anthropic's frontier reasoning model.
 - [Anthropic 5.5 Architecture & Benchmarks: Haiku 5.5 vs Sonnet 5.5 vs Opus 5.5 vs Fable 5.1](https://outclaw.xyz/guides/anthropic-haiku-sonnet-opus-5-5-fable-5-1-guide.html) — Comprehensive technical guide to Anthropic's 5.5 generation: SWE-bench Verified coding evals, 2.5M context windows, prompt caching math, latency trade-offs, and multi-agent routing.
 - [Building Real-Time Voice Agents & Agentic Audio Pipelines with ElevenLabs](https://outclaw.xyz/guides/elevenlabs-voice-ai-conversational-agent-pipeline.html) — Step-by-step developer playbook for streaming conversational AI, low-latency WebSocket voice agents, voice cloning, and programmatic audio production.
 - [LLM API Pricing Calculator & AI Stack Encyclopedia](https://outclaw.xyz/guides/llm-api-pricing-calculator-ai-encyclopedia-guide.html) — Token math formulas, caching economics, and modern 5-layer AI architecture stacks.
