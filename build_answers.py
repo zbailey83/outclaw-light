@@ -482,8 +482,8 @@ def generate_master_page():
 
     # Recently Updated: Last 10 answers
     recent_html = ""
-    # Sort or just slice the last 10
-    recent_answers = ANSWERS[:10]
+    # Sort newest-first by verified_date (stable: ties keep data order)
+    recent_answers = sorted(ANSWERS, key=lambda a: datetime.strptime(a["verified_date"], "%B %Y"), reverse=True)[:10]
     for item in recent_answers:
         url = f"/answers/{item['category']}/{item['slug']}.html"
         recent_html += f"""
