@@ -21,7 +21,7 @@
 - [xAI GrokBot Released: Next-Gen Autonomous AI Agent Features & Setup](https://outclaw.xyz/news/grokbot-release-features/) — Grok 3 engine, real-time X & web retrieval, vision-code synthesis, and MCP integration guide. By Zach Bailey.
 
 ## Author & Projects
-- **Author**: Zach Bailey — Founder & Principal Architect of OutClaw AI.
+- **Author**: [Zach Bailey](https://zachbcv.com/) — Founder & Principal Architect of OutClaw AI (https://outclaw.xyz/#organization). Canonical entity: https://zachbcv.com/#person. Author page: https://outclaw.xyz/author/zach-bailey/. Also on [X](https://x.com/zbailey83), [LinkedIn](https://www.linkedin.com/in/zachba/), [GitHub](https://github.com/zbailey83).
 - **Published Book**: [The Prompt Engineer’s Playbook: Strategies for AI-Driven Business Solutions](https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB) (Amazon Kindle, ASIN: B0DL9ZBRQB, Oct 28, 2024).
 - **Latest Project**: [Ads Agent Meta](https://adsagentmeta.com/) — Autonomous AI advertising platform.
 - **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
