@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -704,14 +704,14 @@
   </div>
 <section class="page-hero">
 <div class="page-hero-inner">
-<div class="breadcrumb"><a href="../">OutClaw AI</a> â€º <a href="./">Guides</a> â€º AI Engineer Roadmap 2026</div>
+<div class="breadcrumb"><a href="../">OutClaw AI</a> › <a href="./">Guides</a> › AI Engineer Roadmap 2026</div>
 <h1>The Complete <em>AI Engineer</em> Roadmap for 2026</h1>
 <p class="page-hero-sub">Learn Python, learn agents, learn RAG, learn 17 frameworks? Ignore that. This is the practical order for going from beginner to someone who builds AI systems businesses can trust: five phases, four portfolio projects and a 90-day plan.</p>
 <div class="meta-row">
-<span>âœï¸ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
-<span>ðŸ“… Published Oct 15, 2026</span>
-<span>â±ï¸ 10 min read Â· 7 min video</span>
-<span>ðŸŽ¯ Beginner to production</span>
+<span>✍️ By <a href="../author/zach-bailey/" style="color:inherit;text-decoration:underline;">Zach Bailey</a></span>
+<span>📅 Published Oct 15, 2026</span>
+<span>⏱️ 10 min read · 7 min video</span>
+<span>🎯 Beginner to production</span>
 </div>
 <div class="tag-row">
 <div class="tag-chip">AI Engineer Roadmap</div>
@@ -741,7 +741,7 @@
 <div class="video-embed">
 <iframe src="https://www.youtube.com/embed/gzL-CtnCOqw?rel=0" title="Complete Roadmap For AI Engineer (2026)" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-<p class="video-caption">â–¶ <strong>Complete Roadmap For AI Engineer (2026)</strong> Â· 6:59 Â· <a href="https://www.youtube.com/watch?v=gzL-CtnCOqw" target="_blank" rel="noopener">Watch on YouTube</a> Â· <a href="https://www.youtube.com/@allthetoolsAI?sub_confirmation=1" target="_blank" rel="noopener">Subscribe to Outclaw AI</a></p>
+<p class="video-caption">▶ <strong>Complete Roadmap For AI Engineer (2026)</strong> · 6:59 · <a href="https://www.youtube.com/watch?v=gzL-CtnCOqw" target="_blank" rel="noopener">Watch on YouTube</a> · <a href="https://www.youtube.com/@allthetoolsAI?sub_confirmation=1" target="_blank" rel="noopener">Subscribe to Outclaw AI</a></p>
 <p class="body-text">This guide expands every phase from the video with the practical detail, examples and checklists you can act on. Jump to the <a href="#chapters" style="color:var(--sky);">chapter timestamps</a> if you want a specific section. For a longer 12-week treatment of the same path, see our earlier <a href="../videos/" style="color:var(--sky);">AI Automation Engineer Roadmap video</a>.</p>
 </div>
 
@@ -768,7 +768,7 @@
 <p class="body-text">If you search for an AI automation engineer roadmap or an AI engineer roadmap for beginners, you find a hundred tool lists and almost no useful order. The fix is to understand the role first.</p>
 <p class="body-text">An AI automation engineer is not primarily training giant models. You <strong>connect models to real systems</strong>: APIs, databases, documents, browsers, CRMs, support platforms and internal business processes. Your job is turning an unreliable model response into a controlled workflow that produces a useful result. <strong>The model is only one component. The engineering around it is the product.</strong></p>
 <div class="callout callout-tip">
-<div class="callout-icon">ðŸ’¡</div>
+<div class="callout-icon">💡</div>
 <p><strong>Mental model:</strong> a model is a probabilistic function. Everything you build around it, such as validation, retries, approvals, logging and cost limits, is what makes the whole system deterministic enough to trust.</p>
 </div>
 </div>
@@ -790,7 +790,7 @@
 </table>
 </div>
 <div class="callout callout-tip">
-<div class="callout-icon">âœ…</div>
+<div class="callout-icon">✅</div>
 <p><strong>Phase 1 exit test:</strong> call a public API, reshape the JSON, store it in a database, and handle a 429 or timeout without crashing.</p>
 </div>
 </div>
@@ -832,7 +832,7 @@ def triage(raw_model_output: str) -&gt; dict:
     return {&quot;status&quot;: &quot;ok&quot;, &quot;data&quot;: result.model_dump()}</pre>
 </div>
 <div class="callout callout-warning">
-<div class="callout-icon">âš ï¸</div>
+<div class="callout-icon">⚠️</div>
 <p><strong>Demo vs. application:</strong> if your only test is "I tried it three times and it looked good," you do not have an AI application. You have a demo.</p>
 </div>
 </div>
@@ -889,7 +889,7 @@ for _ in range(MAX_STEPS):
     state = update(state, run_step(decision.tool_call, TOOLS, approve))</pre>
 </div>
 <div class="callout callout-warning">
-<div class="callout-icon">ðŸ›‘</div>
+<div class="callout-icon">🛑</div>
 <p><strong>Controlled autonomy:</strong> autonomy without boundaries is not engineering. It is a future incident report.</p>
 </div>
 <p class="body-text">New to MCP? Read our <a href="mcp-practical-guide" style="color:var(--sky);">MCP Practical Setup Guide</a> for configuration playbooks, security checklists and common failure modes.</p>
@@ -920,10 +920,10 @@ for _ in range(MAX_STEPS):
 <div class="section-divider"></div>
 <p class="body-text">Your portfolio should prove progression. Four projects, each harder than the last:</p>
 <div class="card-grid-2">
-<div class="info-card"><div class="card-icon">ðŸ“„</div><h4>1. Document intake workflow</h4><p>Extract structured information from documents and send uncertain fields for human review.</p></div>
-<div class="info-card"><div class="card-icon">ðŸŽ§</div><h4>2. Support triage system</h4><p>Classify tickets, retrieve documentation, draft responses and escalate risky cases.</p></div>
-<div class="info-card"><div class="card-icon">ðŸ”Ž</div><h4>3. Research agent</h4><p>Search multiple sources, produce a cited report and log every tool call.</p></div>
-<div class="info-card"><div class="card-icon">ðŸ¢</div><h4>4. Complete business automation</h4><p>Lead qualification, invoice processing, content approval or customer onboarding with persistence, retries, monitoring and human approval.</p></div>
+<div class="info-card"><div class="card-icon">📄</div><h4>1. Document intake workflow</h4><p>Extract structured information from documents and send uncertain fields for human review.</p></div>
+<div class="info-card"><div class="card-icon">🎧</div><h4>2. Support triage system</h4><p>Classify tickets, retrieve documentation, draft responses and escalate risky cases.</p></div>
+<div class="info-card"><div class="card-icon">🔎</div><h4>3. Research agent</h4><p>Search multiple sources, produce a cited report and log every tool call.</p></div>
+<div class="info-card"><div class="card-icon">🏢</div><h4>4. Complete business automation</h4><p>Lead qualification, invoice processing, content approval or customer onboarding with persistence, retries, monitoring and human approval.</p></div>
 </div>
 <h3 class="sub-heading">What to publish for every project</h3>
 <ul class="check-list">
@@ -935,7 +935,7 @@ for _ in range(MAX_STEPS):
 <li>A short demonstration</li>
 </ul>
 <div class="callout callout-tip">
-<div class="callout-icon">ðŸ“Œ</div>
+<div class="callout-icon">📌</div>
 <p>A polished README is more convincing than another certificate.</p>
 </div>
 </div>
@@ -958,7 +958,7 @@ for _ in range(MAX_STEPS):
 </div>
 <p class="body-text"><strong>One language, one model provider, one automation platform, one database, one agent runtime.</strong> Depth beats logo collecting. The roadmap is not prompt engineering to multi-agent wizardry. It is software foundations, reliable model integration, workflow design, controlled autonomy and production discipline. Build systems that recover, explain themselves and create measurable value.</p>
 <div class="callout callout-tip">
-<div class="callout-icon">â„¹ï¸</div>
+<div class="callout-icon">ℹ️</div>
 <p>This is an educational, builder-focused learning path. Job titles and requirements vary between organizations.</p>
 </div>
 </div>
@@ -1031,26 +1031,26 @@ for _ in range(MAX_STEPS):
 <div>
 <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Recommended Guides</h4>
 <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
-<li><a href="mcp-practical-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">ðŸ“– MCP Practical Setup Guide</a></li>
-<li><a href="automate-content-workflow-n8n-claude" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">ðŸ“– n8n + Claude Content Automation</a></li>
-<li><a href="litellm-portkey-playbook" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">ðŸ“– The LiteLLM + Portkey Playbook</a></li>
-<li><a href="llm-api-pricing-calculator-ai-encyclopedia-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">ðŸ“– LLM API Pricing Calculator &amp; AI Stack Encyclopedia</a></li>
-<li><a href="openclaw-vps-mac-mini-setup-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">ðŸ“– OpenClaw VPS &amp; Mac Mini Setup</a></li>
+<li><a href="mcp-practical-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">📖 MCP Practical Setup Guide</a></li>
+<li><a href="automate-content-workflow-n8n-claude" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">📖 n8n + Claude Content Automation</a></li>
+<li><a href="litellm-portkey-playbook" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">📖 The LiteLLM + Portkey Playbook</a></li>
+<li><a href="llm-api-pricing-calculator-ai-encyclopedia-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">📖 LLM API Pricing Calculator &amp; AI Stack Encyclopedia</a></li>
+<li><a href="openclaw-vps-mac-mini-setup-guide" style="font-size: 14.5px; color: var(--text-mid); text-decoration: none; display: block; padding: 6px 0; border-bottom: 1px solid var(--border-soft);">📖 OpenClaw VPS &amp; Mac Mini Setup</a></li>
 </ul>
 </div>
 <div style="display: flex; flex-direction: column; gap: 28px;">
 <div>
 <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">Featured AI Tools</h4>
 <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 4px;">
-<li><a href="../tools/model-comparison.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">ðŸ› ï¸ Model Comparison Matrix</a></li>
-<li><a href="../tools/prompt-sharpener.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">ðŸ› ï¸ AI Prompt Sharpener</a></li>
+<li><a href="../tools/model-comparison.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ Model Comparison Matrix</a></li>
+<li><a href="../tools/prompt-sharpener.html" style="font-size: 14px; color: var(--text-mid); font-weight: 500; text-decoration: none; display: block; padding: 4px 0;">🛠️ AI Prompt Sharpener</a></li>
 </ul>
 </div>
 <div>
 <h4 style="font-family: var(--font-display); font-size: 16px; color: var(--text-soft); margin-bottom: 12px; font-weight: normal; font-style: italic;">OutClaw Channels</h4>
 <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 12px;">
-<li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none;">ðŸ“§ Weekly AI Newsletter &rarr;</a></li>
-<li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none;">ðŸŽ¥ Video Walkthroughs &rarr;</a></li>
+<li><a href="../newsletter/" style="font-size: 14px; color: var(--sky); font-weight: 600; text-decoration: none;">📧 Weekly AI Newsletter &rarr;</a></li>
+<li><a href="../videos/" style="font-size: 14px; color: var(--flamingo); font-weight: 600; text-decoration: none;">🎥 Video Walkthroughs &rarr;</a></li>
 </ul>
 </div>
 </div>
@@ -1059,7 +1059,7 @@ for _ in range(MAX_STEPS):
 
 <div class="cta-banner">
 <div class="cta-banner-text"><h3>Production AI workflows, <em>every Tuesday.</em></h3><p>Model benchmarks, gateway playbooks, and the exact architectures we test in production. Free forever.</p></div>
-<div class="cta-banner-form"><input id="hg-email" placeholder="your@email.com" type="email"/><button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook â†’</button></div>
+<div class="cta-banner-form"><input id="hg-email" placeholder="your@email.com" type="email"/><button class="cta-banner-btn" id="hg-btn" onclick="handleSubscribe('hg-email','hg-btn')">Get the playbook →</button></div>
 </div>
 </div>
 <footer>
@@ -1081,7 +1081,7 @@ for _ in range(MAX_STEPS):
     </div>
     <div class="footer-copy">&copy; 2026 OutClaw AI. All rights reserved.</div>
   </footer>
-<a aria-label="Back to top" class="back-to-top" href="#mainNav" id="backToTop">â†‘</a>
+<a aria-label="Back to top" class="back-to-top" href="#mainNav" id="backToTop">↑</a>
 <script>
     function toggleDrawer(){document.getElementById("navDrawer").classList.toggle("open");}
     document.addEventListener("click",function(e){
