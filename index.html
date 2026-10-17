@@ -233,6 +233,8 @@
 
     html {
       scroll-behavior: smooth;
+      overflow-x: hidden;
+      max-width: 100%;
     }
 
     body {
@@ -242,6 +244,7 @@
       font-size: 16px;
       line-height: 1.65;
       overflow-x: hidden;
+      max-width: 100%;
     }
 
     ::-webkit-scrollbar {
@@ -532,11 +535,14 @@
     .nav-hamburger {
       display: none;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       gap: 5px;
       cursor: pointer;
       padding: 8px;
       border: none;
       background: transparent;
+      flex-shrink: 0;
     }
 
     .nav-hamburger span {
@@ -545,6 +551,7 @@
       height: 2px;
       background: var(--text-soft);
       border-radius: 2px;
+      transition: all .2s ease;
     }
 
     .nav-drawer {
@@ -553,6 +560,7 @@
       top: 68px;
       left: 0;
       right: 0;
+      width: 100%;
       background: rgba(255, 255, 255, .97);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
@@ -560,6 +568,7 @@
       z-index: 199;
       flex-direction: column;
       gap: 4px;
+      box-sizing: border-box;
     }
 
     .nav-drawer.open {
@@ -597,10 +606,25 @@
 
       .nav-hamburger {
         display: flex;
+        margin-right: -8px;
       }
 
       .navbar-right .nav-cta {
         display: none;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+        padding: 40px 24px;
+      }
+
+      .footer-links {
+        flex-wrap: wrap;
+        gap: 12px 20px;
+        justify-content: center;
       }
     }
 
@@ -1559,9 +1583,11 @@
       }
 
       .qualification-grid,
-      .start-here-grid {
+      .start-here-grid,
+      .steps-grid,
+      .testimonials-grid {
         grid-template-columns: 1fr !important;
-        gap: 32px !important;
+        gap: 24px !important;
       }
 
       .what-is-section,
