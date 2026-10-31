@@ -30,6 +30,10 @@
   - **Ventures & Platforms**: [Ads Agent Meta](https://adsagentmeta.com/) (autonomous AI advertising platform), [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
   - **Core Expertise**: Large Language Models, Model Context Protocol (MCP), prompt engineering architectures, autonomous AI agents, programmatic video, systems architecture, and production engineering.
 
+## Recent News & Model Radar
+- [7 AI News Leaks & Releases This Week: Claude Fable 5.5 Rumor + MiniMax M3.1 (Video + Teardown)](https://outclaw.xyz/news/7-ai-news-leaks-releases-claude-fable-5-5-minimax-m3-1/) — Weekly intelligence breakdown: unconfirmed OpenAI countdown leaks (opensi.lol), Claude Fable 5.5 structured reasoning rumors, Anthropic OSS Scanner, Gemini 4 Carbon, MiniMax M3.1 Flash release, ZCode workflows, Kimi K3 KV-cache inference speedups, and Dream Labs Dream-1 robotics API. Full 6:55 video embedded.
+- [Anthropic Unveils Next-Gen 5.5 Suite: Haiku 5.5, Sonnet 5.5, Opus 5.5, and Fable 5.1](https://outclaw.xyz/news/anthropic-announces-5-5-family-haiku-sonnet-opus-fable-5-1/) — Analysis of 2.5M context windows, recursive self-verification 2.0 (72.6% SWE-bench), sub-80ms reflex mode, and developer API economics.
+
 ## Technical Guides (Documentation)
 - [The Complete AI Engineer Roadmap for 2026 (Video + Guide)](https://outclaw.xyz/guides/ai-engineer-roadmap-2026-guide.html) - Practical beginner-to-production AI automation engineer roadmap: five phases (foundations, reliable LLM apps, workflow automation, agents + MCP, production engineering), four portfolio projects and a 90-day plan, with the full 6:59 video embedded.
 - [Mastering Claude Opus 5.5 for Motion Graphics](https://outclaw.xyz/guides/claude-opus-5-5-motion-graphics-guide.html) — Definitive engineering guide to orchestrating deterministic GSAP 3 timelines, procedural SVG vector math, Three.js shaders, and headless HyperFrames render pipelines with Anthropic's frontier reasoning model.
