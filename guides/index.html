@@ -66,10 +66,40 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "@graph": [
       {
         "@type": "CollectionPage",
+        "@id": "https://outclaw.xyz/guides/#webpage",
         "name": "Technical AI Guides & Tutorials",
         "description": "Step-by-step guides on building agentic workflows, implementing MCP servers, and mastering Claude and OpenAI.",
         "url": "https://outclaw.xyz/guides/",
-        "publisher": { "@type": "Organization", "name": "OutClaw AI" }
+        "isPartOf": { "@id": "https://outclaw.xyz/#website" },
+        "author": { "@id": "https://zachbcv.com/#person" },
+        "publisher": { "@id": "https://outclaw.xyz/#organization" }
+      },
+      {
+        "@type": "Person",
+        "@id": "https://zachbcv.com/#person",
+        "name": "Zach Bailey",
+        "url": "https://zachbcv.com/",
+        "jobTitle": "Founder & Principal Systems Architect",
+        "worksFor": { "@id": "https://outclaw.xyz/#organization" },
+        "sameAs": [
+          "https://x.com/zbailey83",
+          "https://www.linkedin.com/in/zachba/",
+          "https://github.com/zbailey83",
+          "https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB",
+          "https://seolittleton.com/zach-bailey.html",
+          "https://distropixel.com/about"
+        ]
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://outclaw.xyz/#organization",
+        "name": "OutClaw AI",
+        "url": "https://outclaw.xyz/",
+        "founder": { "@id": "https://zachbcv.com/#person" },
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://outclaw.xyz/outclaw-icons/Wild-Bird-Flamingo--Streamline-Ultimate.png"
+        }
       },
       {
         "@type": "BreadcrumbList",

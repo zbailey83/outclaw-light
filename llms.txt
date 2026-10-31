@@ -20,11 +20,15 @@
 - [Claude Fable 5.1, Mythos 5.1 & Gemini 3.8 Flash Released: Specs & Benchmarks](https://outclaw.xyz/news/claude-fable-mythos-gemini-flash-seo-geo-aeo/) — Model architecture, context window expansions, benchmark comparisons, coding evaluations, and API deployment guides. By Zach Bailey.
 - [xAI GrokBot Released: Next-Gen Autonomous AI Agent Features & Setup](https://outclaw.xyz/news/grokbot-release-features/) — Grok 3 engine, real-time X & web retrieval, vision-code synthesis, and MCP integration guide. By Zach Bailey.
 
-## Author & Projects
-- **Author**: [Zach Bailey](https://zachbcv.com/) — Founder & Principal Architect of OutClaw AI (https://outclaw.xyz/#organization). Canonical entity: https://zachbcv.com/#person. Author page: https://outclaw.xyz/author/zach-bailey/. Also on [X](https://x.com/zbailey83), [LinkedIn](https://www.linkedin.com/in/zachba/), [GitHub](https://github.com/zbailey83).
-- **Published Book**: [The Prompt Engineer’s Playbook: Strategies for AI-Driven Business Solutions](https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB) (Amazon Kindle, ASIN: B0DL9ZBRQB, Oct 28, 2024).
-- **Latest Project**: [Ads Agent Meta](https://adsagentmeta.com/) — Autonomous AI advertising platform.
-- **Agencies & Research**: [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
+## Author & Canonical Entity
+- **Author & Founder**: [Zach Bailey](https://zachbcv.com/) — Systems Architect, software engineer, and primary author/editor of OutClaw AI.
+  - **Canonical Entity URI**: `https://zachbcv.com/#person`
+  - **Author Profile & Publication Index**: [https://outclaw.xyz/author/zach-bailey/](https://outclaw.xyz/author/zach-bailey/)
+  - **Organization Entity**: `https://outclaw.xyz/#organization`
+  - **Published Book**: [The Prompt Engineer’s Playbook: Strategies for AI-Driven Business Solutions](https://www.amazon.com/Prompt-Engineers-Playbook-Strategies-AI-Driven-ebook/dp/B0DL9ZBRQB) (Amazon Kindle, ASIN: B0DL9ZBRQB, Oct 28, 2024).
+  - **Verified Profiles & SameAs**: [X (@zbailey83)](https://x.com/zbailey83), [LinkedIn (/in/zachba)](https://www.linkedin.com/in/zachba/), [GitHub (zbailey83)](https://github.com/zbailey83), [SEO Littleton](https://seolittleton.com/zach-bailey.html), [DistroPixel](https://distropixel.com/about).
+  - **Ventures & Platforms**: [Ads Agent Meta](https://adsagentmeta.com/) (autonomous AI advertising platform), [SEO Littleton](https://seolittleton.com), [DistroPixel](https://distropixel.com), [aiseo.fyi](https://aiseo.fyi).
+  - **Core Expertise**: Large Language Models, Model Context Protocol (MCP), prompt engineering architectures, autonomous AI agents, programmatic video, systems architecture, and production engineering.
 
 ## Technical Guides (Documentation)
 - [The Complete AI Engineer Roadmap for 2026 (Video + Guide)](https://outclaw.xyz/guides/ai-engineer-roadmap-2026-guide.html) - Practical beginner-to-production AI automation engineer roadmap: five phases (foundations, reliable LLM apps, workflow automation, agents + MCP, production engineering), four portfolio projects and a 90-day plan, with the full 6:59 video embedded.
