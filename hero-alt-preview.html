@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OutClaw AI - Homepage Hero Feature Preview (Staging)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sky: #5AADDB;
+      --sky-light: #B8DFF0;
+      --sky-pale: #EDF7FC;
+      --flamingo: #F4678A;
+      --flamingo-light: #FBB8CB;
+      --flamingo-pale: #FEF0F4;
+      --coral: #FF7E5A;
+      --coral-pale: #FFF0EB;
+      --sand: #F5EDD8;
+      --deep-navy: #1A1A2E;
+      --text: #1A1A2E;
+      --text-mid: #4A4A6E;
+      --text-soft: #7A7A9E;
+      --text-dim: #B0B0C8;
+      --white: #FFFFFF;
+      --bg: #FAFAF8;
+      --border: #E8E8F2;
+      --font-display: "DM Serif Display", serif;
+      --font-body: "DM Sans", sans-serif;
+      --font-mono: "JetBrains Mono", monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text);
+      padding: 40px 24px 80px;
+      line-height: 1.6;
+    }
+
+    .preview-header {
+      max-width: 1100px;
+      margin: 0 auto 36px;
+      text-align: center;
+    }
+
+    .staging-badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: var(--flamingo-pale);
+      color: var(--flamingo);
+      border: 1px solid var(--flamingo-light);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .preview-header h1 {
+      font-family: var(--font-display);
+      font-size: clamp(32px, 4vw, 44px);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .preview-header h1 em {
+      font-style: italic;
+      color: var(--sky);
+    }
+
+    .preview-header p {
+      font-size: 16px;
+      color: var(--text-mid);
+      max-width: 680px;
+      margin: 0 auto 24px;
+    }
+
+    .selector-bar {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+    }
+
+    .tab-btn {
+      padding: 10px 22px;
+      border-radius: 100px;
+      font-size: 14px;
+      font-weight: 600;
+      border: 1.5px solid var(--border);
+      background: var(--white);
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active, .tab-btn:hover {
+      border-color: var(--sky);
+      color: var(--sky);
+      background: var(--sky-pale);
+      box-shadow: 0 4px 14px rgba(90, 173, 219, 0.18);
+    }
+
+    /* ---- Live Mockup Stage ---- */
+    .mockup-container {
+      max-width: 1040px;
+      margin: 0 auto 64px;
+      background: var(--white);
+      border: 1.5px solid var(--sky-light);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: 0 16px 40px rgba(90, 173, 219, 0.14);
+      position: relative;
+    }
+
+    .mockup-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--sky);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Mimic Homepage Hero Structure */
+    .hero-visual-frame {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1.5px solid var(--border);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+      aspect-ratio: 16 / 9;
+      background: #EDF7FC;
+    }
+
+    .hero-visual-frame img, .hero-visual-frame svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Floater Cards mimicking homepage */
+    .hero-stat-card {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      z-index: 10;
+    }
+
+    .hero-stat-card.top-left {
+      top: 24px;
+      left: 24px;
+    }
+
+    .hero-stat-card.bottom-right {
+      bottom: 24px;
+      right: 24px;
+    }
+
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 22px;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .stat-val span { color: var(--flamingo); }
+
+    .stat-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-soft);
+      margin-top: 4px;
+    }
+
+    /* Side-by-Side Comparison Grid */
+    .comparison-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .comparison-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .comparison-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+      background: var(--sky-pale);
+    }
+
+    .comparison-img img, .comparison-img svg {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .comparison-card h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .comparison-card p {
+      font-size: 14px;
+      color: var(--text-mid);
+      margin-bottom: 16px;
+      flex-grow: 1;
+    }
+
+    .badge-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .badge-current { background: #E2E8F0; color: #475569; }
+    .badge-vector { background: var(--flamingo-pale); color: var(--flamingo); }
+    .badge-motion { background: var(--sky-pale); color: var(--sky); }
+  </style>
+</head>
+<body>
+
+  <header class="preview-header">
+    <div class="staging-badge">🚀 Staging Preview &middot; Approval Needed Before Prod Push</div>
+    <h1>New Alt Homepage Hero <em>Feature Candidates</em></h1>
+    <p>Exploring the Miami pastel flamingo aesthetic reimagined with crisp vector curves and Remotion/remocn SVG motion principles.</p>
+
+    <div class="selector-bar">
+      <button class="tab-btn active" onclick="switchHero('vector')">🎨 Candidate 1: Vector Motion Art</button>
+      <button class="tab-btn" onclick="switchHero('svg-motion')">✨ Candidate 2: Live Animated SVG Waves</button>
+      <button class="tab-btn" onclick="switchHero('current')">🏛️ Current Production: Woodblock Print</button>
+    </div>
+  </header>
+
+  <!-- LIVE STAGING MOCKUP -->
+  <div class="mockup-container">
+    <div class="mockup-label" id="mockupLabel">
+      <span>●</span> Active Staging Preview: Candidate 1 (Vector Motion Art)
+    </div>
+
+    <div class="hero-visual-frame" id="heroFrame">
+      <img id="activeHeroImg" src="outclaw-icons/hero-alt-miami-vector.webp" alt="OutClaw AI Staging Hero Preview">
+      
+      <!-- Mockup Badges matching index.html -->
+      <div class="hero-stat-card top-left">
+        <div class="stat-val">12,000<span>+</span></div>
+        <div class="stat-lbl">Active Builders</div>
+      </div>
+
+      <div class="hero-stat-card bottom-right">
+        <div class="stat-val">45<span>+</span></div>
+        <div class="stat-lbl">Guides &amp; Tools</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDE-BY-SIDE EVALUATION -->
+  <div class="comparison-grid">
+    <!-- Card 1: Vector Motion Art -->
+    <div class="comparison-card" style="border: 1.5px solid var(--flamingo-light);">
+      <span class="badge-pill badge-vector">Recommended Candidate 1</span>
+      <div class="comparison-img">
+        <img src="outclaw-icons/hero-alt-miami-vector.webp" alt="Vector Motion Art Candidate">
+      </div>
+      <h3>Vector Motion Art (WebP / JPG)</h3>
+      <p>Clean modern vector illustration with Miami art deco sunset arches, calm turquoise water reflections, two stately flamingos, and soft palm fronds framing the composition. High-definition (16:9), zero noise.</p>
+      <div style="font-size:12px; font-family:var(--font-mono); color:var(--text-soft);">
+        Asset: outclaw-icons/hero-alt-miami-vector.webp
+      </div>
+    </div>
+
+    <!-- Card 2: Live Animated SVG -->
+    <div class="comparison-card" style="border: 1.5px solid var(--sky-light);">
+      <span class="badge-pill badge-motion">Candidate 2: Live SVG Motion</span>
+      <div class="comparison-img">
+        <img src="outclaw-icons/hero-alt-miami-motion.svg" alt="Live SVG Motion Candidate">
+      </div>
+      <h3>Live Animated SVG Motion</h3>
+      <p>Continuous Remotion/remocn-style harmonic sine waves, gently breathing sun halo, expanding water ring ripples around the flamingos' feet, swaying palm fronds, and bobbing flamingo silhouettes. 100% vector code, infinite resolution.</p>
+      <div style="font-size:12px; font-family:var(--font-mono); color:var(--text-soft);">
+        Asset: outclaw-icons/hero-alt-miami-motion.svg
+      </div>
+    </div>
+
+    <!-- Card 3: Current Production -->
+    <div class="comparison-card">
+      <span class="badge-pill badge-current">Current Production</span>
+      <div class="comparison-img">
+        <img src="hero-alt.webp" alt="Current Production Woodblock Hero">
+      </div>
+      <h3>Current Woodblock Linocut</h3>
+      <p>The existing production hero featuring a flocked linocut/woodblock print of multiple flamingos wading under puffy cumulus clouds.</p>
+      <div style="font-size:12px; font-family:var(--font-mono); color:var(--text-soft);">
+        Asset: hero-alt.webp
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function switchHero(type) {
+      const img = document.getElementById('activeHeroImg');
+      const label = document.getElementById('mockupLabel');
+      const btns = document.querySelectorAll('.tab-btn');
+      btns.forEach(b => b.classList.remove('active'));
+
+      if (type === 'vector') {
+        img.src = 'outclaw-icons/hero-alt-miami-vector.webp';
+        label.innerHTML = '<span>●</span> Active Staging Preview: Candidate 1 (Vector Motion Art)';
+        btns[0].classList.add('active');
+      } else if (type === 'svg-motion') {
+        img.src = 'outclaw-icons/hero-alt-miami-motion.svg';
+        label.innerHTML = '<span>●</span> Active Staging Preview: Candidate 2 (Live Animated SVG Motion)';
+        btns[1].classList.add('active');
+      } else if (type === 'current') {
+        img.src = 'hero-alt.webp';
+        label.innerHTML = '<span>●</span> Active Staging Preview: Current Production (Woodblock Print)';
+        btns[2].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
